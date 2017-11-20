@@ -1,0 +1,36 @@
+html,
+body,
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.container {
+  overflow: hidden;
+  display: flex;
+}
+.container .navigation {
+  float: left;
+  min-width: 260px;
+  height: 100%;
+  background-color: #f2f2f2;
+  border-right-width: 1px;
+  text-align: center;
+}
+.container .navigation h3 {
+  padding: 15px 0;
+  font-weight: bold;
+  margin-top: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+.container .navigation .monitoring {
+  margin: 25px 0;
+}
+.container .content {
+  float: right;
+  width: 85%;
+  height: 100%;
+  flex: 1;
+  background-color: #ededed;
+}

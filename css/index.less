@@ -1,0 +1,36 @@
+@nav_bgc:rgba(242, 242, 242, 1);@content_bgc:rgba(237, 237, 237, 1);
+html,body,.container{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+.container{
+  overflow: hidden;
+  display: flex;
+  .navigation{
+    float: left;
+    min-width: 260px;
+    height: 100%;
+    background-color:@nav_bgc;
+    border-right-width: 1px;
+    text-align: center;
+    h3{
+      padding: 15px 0;
+      font-weight: bold;
+      margin-top: 10px;
+      border-bottom: 1px solid rgb(204,204,204);
+    }
+    .monitoring{
+      margin: 25px 0;
+    }
+  }
+  .content{
+    float: right;
+    width: 85%;
+    height: 100%;
+    flex: 1;
+    background-color: @content_bgc;
+  }
+}
+
