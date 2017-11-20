@@ -6,6 +6,17 @@ body,
   padding: 0;
   margin: 0;
 }
+a {
+  color: #000;
+}
+a:hover {
+  text-decoration: none;
+  text-decoration-style: wavy;
+  color: #0f0f0f;
+}
+ul li {
+  list-style: none;
+}
 .container {
   overflow: hidden;
   display: flex;
@@ -24,8 +35,11 @@ body,
   margin-top: 10px;
   border-bottom: 1px solid #cccccc;
 }
-.container .navigation .monitoring {
-  margin: 25px 0;
+.container .navigation .active {
+  margin: 15px 0;
+}
+.container .navigation .search {
+  margin: 15px 0;
 }
 .container .content {
   float: right;
