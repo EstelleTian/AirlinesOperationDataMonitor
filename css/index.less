@@ -1,9 +1,10 @@
-@nav_bgc:rgba(242, 242, 242, 1);@content_bgc:rgba(237, 237, 237, 1);
+@nav_bgc:#2A3F54;@content_bgc:#F7F7F7;@nav_font_color:#ECF0F1;@font_color:#5A738E;
 html,body,.container{
   width: 100%;
   height: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 //全局a标签样式
 a{
@@ -14,6 +15,7 @@ a:hover{
   text-decoration-style: wavy;
   color: #0f0f0f;
 }
+a:focus{text-decoration: none}
 //全局ul li 样式
 ul{
   li{
@@ -21,98 +23,120 @@ ul{
   }
 }
 .container{
-  overflow: hidden;
   display: flex;
+  /*导航版样式*/
   .navigation{
     float: left;
-    min-width: 260px;
-    height: 100%;
+    min-width: 220px;
     background-color:@nav_bgc;
     border-right-width: 1px;
-    text-align: center;
+    text-align: left;
+    color: @nav_font_color;
+    font-family:"Microsoft YaHei UI Light";
     h3{
       padding: 15px 0;
       font-weight: bold;
       margin-top: 10px;
-      border-bottom: 1px solid rgb(204,204,204);
+      text-align: center;
     }
-    .active{
-      margin: 15px 0;
+    .monitoring{
+      margin: 15px 0 0;
+      a{
+        padding:13px 15px;
+        display: block;
+        color: @nav_font_color;
+        .glyphicon{
+          padding-right: 10px;
+        }
+      }
     }
     .search{
-      margin: 15px 0;
+      a{
+        padding:13px 15px;
+        display: block;
+        color: @nav_font_color;
+        .glyphicon{
+          padding-right: 10px;
+        }
+      }
     }
   }
+  /*导航栏选中效果*/
+  .item_selected{
+    text-shadow: rgba(0,0,0,.25) 0 -1px 0;
+    background: linear-gradient(#334556,#2C4257),#2A3F54;
+    box-shadow: rgba(0,0,0,.25) 0 1px 0, inset rgba(255,255,255,.16) 0 1px 0;
+    border-right:5px solid #1ABB9C;
+  }
+  /*sm导航栏*/
+  .navigation_sm{
+    width: 70px;
+    background-color: @nav_bgc;
+    color: @nav_font_color;
+    overflow: hidden;
+    display: none;
+    p{
+      margin-bottom: 0;
+    }
+    .monitoring_sm{
+      margin-top: 80px;
+      display: block;
+      padding: 10px 0;
+    }
+    .search_sm{
+      margin-top: 5px;
+      display: block;
+      padding: 10px 0;
+    }
+    .glyphicon{
+      font-size: 25px;
+      margin: 0 10px;
+    }
+    a{
+      width: 100%;
+      color: @nav_font_color;
+      font-size: 15px;
+      text-align: center;
+    }
+  }
+  /*内容部分*/
   .content{
     float: right;
-    width: 85%;
-    height: 100%;
+    width: 84%;
     flex: 1;
     background-color: @content_bgc;
-  }
-}
-//button 样式
-
-.atfm-btn {
-  border-width: 0;
-  padding: 6px 14px;
-  font-size: 15px;
-  outline: none !important;
-  background-image: none !important;
-  filter: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  text-shadow: none;
-  min-width: 70px;
-  &.atfm-btn-sm{
-    min-width: 55px;
-    font-size: 14px;
-    padding: 4px 12px;
-  }
-}
-.atfm-btn-default {
-  color: #333333;
-  background-color: #E5E5E5;
-    &:hover,&:focus,&:active{
-      color: #333333;
-      background-color: lightgray;
+    .nav_menu{
+      height: 40px;
+      background-color: #EDEDED;
+      border-bottom: 1px solid #D9DEE4;
+      overflow: hidden;
+      .glyphicon{
+        font-size: 30px;
+        margin-left: 20px;
+        margin-top: 5px;
+        color: @font_color;
+        cursor: pointer;
+      }
     }
-}
-.atfm-btn-red {
-  color: #FFFFFF;
-  background-color: #E26A6A;
-  &:hover,&:focus,&:active{
-    color: #FFFFFF;
-    background-color: #dc4c4c;
+  }
+  @media (max-width: 900px){
+    html,body,.container{
+      width: 900px;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      overflow: auto;
+    }
+    .navigation{
+      display: none;
+    }
+    .navigation_sm{
+      display: block;
+      width: 70px;
+    }
+    .content{
+      width: 800px;
+    }
   }
 }
-.atfm-btn-blue {
-  color: #FFFFFF;
-  background-color: #578ebe;
-  &:hover,&:focus,&:active{
-    color: #FFFFFF;
-    background-color: #437cae;
-  }
-}
-.atfm-btn-green {
-  color: #FFFFFF;
-  background-color: #26a69a;
-  &:hover,&:focus,&:active{
-    color: #FFFFFF;
-    background-color: #1f897f;
-  }
-}
-.atfm-btn-yellow {
-  color: #FFFFFF;
-  background-color: #f3c200;
-  &:hover,&:focus,&:active{
-    color: #FFFFFF;
-    background-color: #cfa500;
-  }
-}
-.modal-close-btn{
-  float: right;
-  top: -15px;
-  color: #aaa;
-}
+
