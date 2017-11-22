@@ -3,38 +3,18 @@
 }
 #home .group_list {
   height: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 #home .group_list li {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  flex: 1;
   display: flex;
 }
 #home .group_list li .airport {
   min-width: 350px;
   border-radius: 5px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-left: 30px;
   background-color: #ffffff;
 }
@@ -56,20 +36,10 @@
 }
 #home .group_list li .airport .airport_data_detail {
   height: 100%;
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   padding-left: 20px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column
+  flex-direction: column;
   /*按钮颜色*/
 }
 #home .group_list li .airport .airport_data_detail .btn {
@@ -95,19 +65,9 @@
   background-color: #9999ff;
 }
 #home .group_list li .airport .airport_data_detail li {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
+  flex: 1;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin: 0;
 }
 #home .group_list li .airport .airport_data_detail li p {
@@ -116,22 +76,13 @@
   margin-bottom: 0;
 }
 #home .group_list li .airport .airport_data_detail li .airport_position {
-  -webkit-box-flex: 8;
-  -webkit-flex: 8;
-      -ms-flex: 8;
-          flex: 8;
+  flex: 8;
 }
 #home .group_list li .airport .airport_data_detail li .num {
-  -webkit-box-flex: 2;
-  -webkit-flex: 2;
-      -ms-flex: 2;
-          flex: 2;
+  flex: 2;
 }
 #home .group_list li .airport_chart {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
+  flex: 1;
   margin: 0 50px 0px 10px;
   border-radius: 5px;
   background-color: #ffffff;
