@@ -863,8 +863,8 @@ var QUERY = function () {
      * */
     var handleSubmitForm = function () {
 
-        // showAlear('ddddddddddddddddddd');
-        // return;
+        showAlear('ddddddddddddddddddd');
+        return;
 
             //校验表单
 
