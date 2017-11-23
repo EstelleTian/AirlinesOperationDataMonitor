@@ -24,6 +24,7 @@ ul{
 }
 .container{
   display: flex;
+  background-color: rgba(237, 237, 237, 1);
   /*导航版样式*/
   .navigation{
     float: left;
@@ -104,7 +105,7 @@ ul{
     float: right;
     width: 84%;
     flex: 1;
-    background-color: @content_bgc;
+    background-color: rgba(237, 237, 237, 1);
     .nav_menu{
       height: 40px;
       background-color: #EDEDED;
@@ -118,25 +119,37 @@ ul{
         cursor: pointer;
       }
     }
+
   }
-  @media (max-width: 900px){
-    html,body,.container{
-      width: 900px;
-      height: 100%;
-      padding: 0;
-      margin: 0;
-      overflow: auto;
-    }
+}
+/*首页响应式*/
+@media (max-width: 900px){
+  html,body{
+    width: 900px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+  }
+  .container{
+    width: 900px;
+    display: block;
+    overflow: auto;
+    clear: both;
     .navigation{
       display: none;
+      float: left;
     }
     .navigation_sm{
       display: block;
+      height: 100%;
       width: 70px;
+      float: left;
     }
     .content{
-      width: 800px;
+      width: 813px;
+      float: left;
     }
   }
-}
 
+}
