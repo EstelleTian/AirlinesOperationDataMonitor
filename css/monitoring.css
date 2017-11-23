@@ -157,6 +157,17 @@
   border-radius: 5px;
   background-color: #ffffff;
   border: 1px solid #E6E9ED;
+  overflow: hidden;
+}
+#home .group_list .flight_group .airport_chart .num_chart {
+  float: left;
+  width: 50%;
+  height: 100%;
+}
+#home .group_list .flight_group .airport_chart .file_chart {
+  float: left;
+  width: 48%;
+  height: 100%;
 }
 #home .group_list .airport_group {
   margin: 20px 0;
@@ -209,6 +220,7 @@
   margin-left: 20px;
   margin-bottom: 20px;
   background-color: #ffffff;
+  color: #5a738e;
 }
 #airports .airports_container .airport a {
   height: 100%;
@@ -240,6 +252,7 @@
       -ms-flex: 1;
           flex: 1;
   margin: 10px 0;
+  color: #5a738e;
 }
 #airports .airports_container .airport .airport_head .airport_num {
   -webkit-box-flex: 1;
@@ -247,6 +260,7 @@
       -ms-flex: 1;
           flex: 1;
   margin: 10px 0;
+  color: #5a738e;
 }
 #airports .airports_container .airport .airport_data_detail {
   height: 85%;
@@ -263,7 +277,8 @@
   -webkit-box-direction: normal;
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
-          flex-direction: column
+          flex-direction: column;
+  color: #5a738e
   /*按钮颜色*/
 }
 #airports .airports_container .airport .airport_data_detail .btn {

@@ -115,6 +115,17 @@
         border-radius: 5px;
         background-color: #ffffff;
         border: 1px solid #E6E9ED;
+        overflow: hidden;
+        .num_chart{
+          float: left;
+          width: 50%;
+          height: 100%;
+        }
+        .file_chart{
+          float: left;
+          width: 48%;
+          height: 100%;
+        }
       }
     }
     .airport_group{
@@ -165,6 +176,7 @@
       margin-left:20px;
       margin-bottom: 20px;
       background-color: @airport_bgc;
+      color: @font_color;
       a{
         height: 100%;
       }
@@ -181,10 +193,12 @@
         .file_num{
           flex: 1;
           margin: 10px 0;
+          color: @font_color;
         }
         .airport_num{
           flex:1;
           margin: 10px 0;
+          color: @font_color;
         }
       }
       .airport_data_detail{
@@ -193,6 +207,7 @@
         padding-left: 20px;
         display: flex;
         flex-direction: column;
+        color: @font_color;
         .btn{
           width: 18px;
           height: 18px;
