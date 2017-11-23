@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7756818e-462f-4f86-9df6-a61be41af6da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/query.css" afterPath="$PROJECT_DIR$/css/query.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/query.less" afterPath="$PROJECT_DIR$/css/query.less" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/data-query.js" afterPath="$PROJECT_DIR$/js/data-query.js" />
     </list>
@@ -17,51 +20,19 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
-  <component name="DockManager">
-    <window id="1">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file leaf-file-name="data-query.html" pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/data-query.html">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="255">
-                    <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="24" />
-                    <folding>
-                      <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
-  </component>
   <component name="FavoritesManager">
     <favorites_list name="AirlinesOperationDataMonitor" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+            <state relative-caret-position="381">
+              <caret line="270" column="17" lean-forward="true" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
               <folding>
-                <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/index.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -69,61 +40,35 @@
       <file leaf-file-name="query.less" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/css/query.less">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
+            <state relative-caret-position="476">
+              <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="query.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/query.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.less" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/index.less">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="8" lean-forward="true" selection-start-line="12" selection-start-column="8" selection-end-line="12" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="data-query.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="data-query.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/data-query.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="868" column="18" lean-forward="true" selection-start-line="868" selection-start-column="18" selection-end-line="868" selection-end-column="18" />
+            <state relative-caret-position="167">
+              <caret line="1306" column="42" lean-forward="true" selection-start-line="1306" selection-start-column="42" selection-end-line="1306" selection-end-column="42" />
               <folding>
-                <marker date="1511349175870" expanded="true" signature="3828:3835" ph="×" />
+                <element signature="e#3947#5591#0" expanded="false" />
+                <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bootstrap.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/plugins/bootstrap/dist/js/bootstrap.js">
+      <file leaf-file-name="bootstrap-table.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/plugins/bootstrap-table/js/bootstrap-table.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21063">
-              <caret line="1243" column="23" lean-forward="false" selection-start-line="1243" selection-start-column="16" selection-end-line="1243" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="monitoring.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/monitoring.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="29" column="33" lean-forward="true" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="411">
+              <caret line="2342" column="53" lean-forward="false" selection-start-line="2342" selection-start-column="47" selection-end-line="2342" selection-end-column="53" />
+              <folding>
+                <marker date="1497031026000" expanded="true" signature="18758:18770" ph="..." />
+                <marker date="1497031026000" expanded="true" signature="81230:81236" ph=" " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>hidden</find>
       <find>icon</find>
       <find>toggleDepartment</find>
       <find>show</find>
@@ -168,6 +112,10 @@
       <find>init</find>
       <find>initTable</find>
       <find>ddddd</find>
+      <find>sear</find>
+      <find>initTa</find>
+      <find>resetView</find>
+      <find>table-contianer</find>
     </findStrings>
     <replaceStrings>
       <replace>typeObj</replace>
@@ -190,11 +138,11 @@
         <option value="$PROJECT_DIR$/plugins/dialog-factory/css/bootstrap-dialog-factory.css.less" />
         <option value="$PROJECT_DIR$/plugins/dialog-factory/css/bootstrap-dialog-factory.css" />
         <option value="$PROJECT_DIR$/plugins/jquery/js/jquery-custom-util.js" />
-        <option value="$PROJECT_DIR$/css/query.less" />
         <option value="$PROJECT_DIR$/data-query.html" />
         <option value="$PROJECT_DIR$/css/index.less" />
         <option value="$PROJECT_DIR$/css/monitoring.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/css/query.less" />
         <option value="$PROJECT_DIR$/js/data-query.js" />
       </list>
     </option>
@@ -208,7 +156,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="169" />
     <option name="y" value="59" />
-    <option name="width" value="1651" />
+    <option name="width" value="940" />
     <option name="height" value="951" />
   </component>
   <component name="ProjectLevelVcsManager">
@@ -241,28 +189,25 @@
             <path>
               <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
               <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="dist" type="462c0819:PsiDirectoryNode" />
               <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap-table" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="bootstrap-table" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -362,7 +307,7 @@
       <workItem from="1510909752960" duration="1661000" />
       <workItem from="1511137343653" duration="18657000" />
       <workItem from="1511165551714" duration="32683000" />
-      <workItem from="1511244817097" duration="52687000" />
+      <workItem from="1511244817097" duration="78585000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1510909825362</created>
@@ -410,13 +355,12 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105688000" />
+    <option name="totallyTimeSpent" value="131586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30036187" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26477683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26404494" sideWeight="0.50904703" order="8" side_tool="true" content_ui="tabs" />
@@ -478,7 +422,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -488,7 +432,7 @@
         <state relative-caret-position="1564">
           <caret line="123" column="36" lean-forward="false" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
           <folding>
-            <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -553,7 +497,8 @@
         <state relative-caret-position="4913">
           <caret line="289" column="7" lean-forward="true" selection-start-line="289" selection-start-column="7" selection-end-line="289" selection-end-column="7" />
           <folding>
-            <marker date="1511349175870" expanded="true" signature="3828:3835" ph="×" />
+            <element signature="e#3947#5591#0" expanded="false" />
+            <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>
@@ -563,7 +508,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -647,17 +592,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plugins/bootstrap-table/js/bootstrap-table.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-663">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1497031026000" expanded="true" signature="18758:18770" ph="..." />
-            <marker date="1497031026000" expanded="true" signature="81230:81236" ph=" " />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -714,14 +649,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/query.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="33" column="3" lean-forward="true" selection-start-line="33" selection-start-column="3" selection-end-line="33" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/query.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="306">
@@ -738,14 +665,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/index.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/index.less">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -754,32 +673,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="45" column="18" lean-forward="true" selection-start-line="45" selection-start-column="18" selection-end-line="45" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/data-query.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="24" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="24" />
+        <state relative-caret-position="272">
+          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
           <folding>
             <element signature="n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data-query.js">
+    <entry file="file://$PROJECT_DIR$/plugins/bootstrap-table/js/bootstrap-table.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="868" column="18" lean-forward="true" selection-start-line="868" selection-start-column="18" selection-end-line="868" selection-end-column="18" />
+        <state relative-caret-position="411">
+          <caret line="2342" column="53" lean-forward="false" selection-start-line="2342" selection-start-column="47" selection-end-line="2342" selection-end-column="53" />
           <folding>
-            <marker date="1511349175870" expanded="true" signature="3828:3835" ph="×" />
+            <marker date="1497031026000" expanded="true" signature="18758:18770" ph="..." />
+            <marker date="1497031026000" expanded="true" signature="81230:81236" ph=" " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/query.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="79" lean-forward="true" selection-start-line="6" selection-start-column="79" selection-end-line="6" selection-end-column="79" />
+        <state relative-caret-position="381">
+          <caret line="270" column="17" lean-forward="true" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
           <folding>
-            <element signature="n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/data-query.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="1306" column="42" lean-forward="true" selection-start-line="1306" selection-start-column="42" selection-end-line="1306" selection-end-column="42" />
+          <folding>
+            <element signature="e#3947#5591#0" expanded="false" />
+            <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>
