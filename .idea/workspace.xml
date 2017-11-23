@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7756818e-462f-4f86-9df6-a61be41af6da" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/query.css" afterPath="$PROJECT_DIR$/css/query.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/query.less" afterPath="$PROJECT_DIR$/css/query.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/data-query.js" afterPath="$PROJECT_DIR$/js/data-query.js" />
     </list>
     <ignored path="AirlinesOperationDataMonitor.iws" />
@@ -28,8 +24,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="270" column="17" lean-forward="true" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
+            <state relative-caret-position="296">
+              <caret line="265" column="23" lean-forward="true" selection-start-line="265" selection-start-column="23" selection-end-line="265" selection-end-column="23" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
               </folding>
@@ -50,11 +46,11 @@
       <file leaf-file-name="data-query.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/data-query.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="167">
-              <caret line="1306" column="42" lean-forward="true" selection-start-line="1306" selection-start-column="42" selection-end-line="1306" selection-end-column="42" />
+            <state relative-caret-position="694">
+              <caret line="1337" column="4" lean-forward="false" selection-start-line="1337" selection-start-column="4" selection-end-line="1337" selection-end-column="4" />
               <folding>
                 <element signature="e#3947#5591#0" expanded="false" />
-                <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
+                <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
               </folding>
             </state>
           </provider>
@@ -194,20 +190,22 @@
             <path>
               <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
               <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap-table" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
-              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap-table" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="less" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="AirlinesOperationDataMonitor" type="b2602c69:ProjectViewProjectNode" />
+              <item name="AirlinesOperationDataMonitor" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -307,7 +305,7 @@
       <workItem from="1510909752960" duration="1661000" />
       <workItem from="1511137343653" duration="18657000" />
       <workItem from="1511165551714" duration="32683000" />
-      <workItem from="1511244817097" duration="78585000" />
+      <workItem from="1511244817097" duration="79100000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1510909825362</created>
@@ -355,12 +353,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="131586000" />
+    <option name="totallyTimeSpent" value="132101000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26477683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26477683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26404494" sideWeight="0.50904703" order="8" side_tool="true" content_ui="tabs" />
@@ -498,7 +497,7 @@
           <caret line="289" column="7" lean-forward="true" selection-start-line="289" selection-start-column="7" selection-end-line="289" selection-end-column="7" />
           <folding>
             <element signature="e#3947#5591#0" expanded="false" />
-            <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
+            <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>
@@ -712,8 +711,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="270" column="17" lean-forward="true" selection-start-line="270" selection-start-column="17" selection-end-line="270" selection-end-column="17" />
+        <state relative-caret-position="296">
+          <caret line="265" column="23" lean-forward="true" selection-start-line="265" selection-start-column="23" selection-end-line="265" selection-end-column="23" />
           <folding>
             <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
@@ -722,11 +721,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/data-query.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="1306" column="42" lean-forward="true" selection-start-line="1306" selection-start-column="42" selection-end-line="1306" selection-end-column="42" />
+        <state relative-caret-position="694">
+          <caret line="1337" column="4" lean-forward="false" selection-start-line="1337" selection-start-column="4" selection-end-line="1337" selection-end-column="4" />
           <folding>
             <element signature="e#3947#5591#0" expanded="false" />
-            <marker date="1511441793846" expanded="true" signature="3828:3835" ph="×" />
+            <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>

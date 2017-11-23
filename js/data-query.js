@@ -1335,4 +1335,5 @@ var QUERY = function () {
 }();
 $(document).ready(function () {
     QUERY.init();
+    
 });
