@@ -27,7 +27,8 @@ ul li {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex
+  display: flex;
+  background-color: #ededed
   /*导航版样式*/
   /*导航栏选中效果*/
   /*sm导航栏*/
@@ -111,7 +112,7 @@ ul li {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  background-color: #f7f7f7;
+  background-color: #ededed;
 }
 .container .content .nav_menu {
   height: 40px;
@@ -126,24 +127,34 @@ ul li {
   color: #5a738e;
   cursor: pointer;
 }
+/*首页响应式*/
 @media (max-width: 900px) {
-  .container html,
-  .container body,
-  .container .container {
+  html,
+  body {
     width: 900px;
     height: 100%;
     padding: 0;
     margin: 0;
     overflow: auto;
   }
+  .container {
+    width: 900px;
+    display: block;
+    overflow: auto;
+    clear: both;
+  }
   .container .navigation {
     display: none;
+    float: left;
   }
   .container .navigation_sm {
     display: block;
+    height: 100%;
     width: 70px;
+    float: left;
   }
   .container .content {
-    width: 800px;
+    width: 813px;
+    float: left;
   }
 }

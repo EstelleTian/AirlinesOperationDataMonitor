@@ -2,7 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7756818e-462f-4f86-9df6-a61be41af6da" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/index.css" afterPath="$PROJECT_DIR$/css/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/index.less" afterPath="$PROJECT_DIR$/css/index.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/monitoring.css" afterPath="$PROJECT_DIR$/css/monitoring.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/monitoring.less" afterPath="$PROJECT_DIR$/css/monitoring.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/data-query.js" afterPath="$PROJECT_DIR$/js/data-query.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/dataMonitoring.js" afterPath="$PROJECT_DIR$/js/dataMonitoring.js" />
     </list>
     <ignored path="AirlinesOperationDataMonitor.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,14 +28,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="296">
-              <caret line="265" column="23" lean-forward="true" selection-start-line="265" selection-start-column="23" selection-end-line="265" selection-end-column="23" />
-              <folding>
-                <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
+            <state relative-caret-position="245">
+              <caret line="618" column="18" lean-forward="true" selection-start-line="618" selection-start-column="18" selection-end-line="618" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -43,14 +48,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="data-query.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="data-query.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/data-query.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="694">
-              <caret line="1337" column="4" lean-forward="false" selection-start-line="1337" selection-start-column="4" selection-end-line="1337" selection-end-column="4" />
+            <state relative-caret-position="184">
+              <caret line="1307" column="36" lean-forward="true" selection-start-line="1307" selection-start-column="36" selection-end-line="1307" selection-end-column="36" />
               <folding>
                 <element signature="e#3947#5591#0" expanded="false" />
-                <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
+                <marker date="1511442433496" expanded="true" signature="3828:3835" ph="×" />
               </folding>
             </state>
           </provider>
@@ -82,7 +87,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>icon</find>
       <find>toggleDepartment</find>
       <find>show</find>
       <find>\n</find>
@@ -112,6 +116,7 @@
       <find>initTa</find>
       <find>resetView</find>
       <find>table-contianer</find>
+      <find>tb-datas</find>
     </findStrings>
     <replaceStrings>
       <replace>typeObj</replace>
@@ -137,9 +142,9 @@
         <option value="$PROJECT_DIR$/data-query.html" />
         <option value="$PROJECT_DIR$/css/index.less" />
         <option value="$PROJECT_DIR$/css/monitoring.css" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/css/query.less" />
         <option value="$PROJECT_DIR$/js/data-query.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -305,7 +310,7 @@
       <workItem from="1510909752960" duration="1661000" />
       <workItem from="1511137343653" duration="18657000" />
       <workItem from="1511165551714" duration="32683000" />
-      <workItem from="1511244817097" duration="79100000" />
+      <workItem from="1511244817097" duration="79414000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1510909825362</created>
@@ -353,7 +358,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="132101000" />
+    <option name="totallyTimeSpent" value="132415000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1696" height="1026" extended-state="6" />
@@ -430,9 +435,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1564">
           <caret line="123" column="36" lean-forward="false" selection-start-line="123" selection-start-column="36" selection-end-line="123" selection-end-column="36" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -497,7 +500,7 @@
           <caret line="289" column="7" lean-forward="true" selection-start-line="289" selection-start-column="7" selection-end-line="289" selection-end-column="7" />
           <folding>
             <element signature="e#3947#5591#0" expanded="false" />
-            <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
+            <marker date="1511442433496" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>
@@ -506,9 +509,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -709,24 +710,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/js/data-query.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="296">
-          <caret line="265" column="23" lean-forward="true" selection-start-line="265" selection-start-column="23" selection-end-line="265" selection-end-column="23" />
+        <state relative-caret-position="184">
+          <caret line="1307" column="36" lean-forward="true" selection-start-line="1307" selection-start-column="36" selection-end-line="1307" selection-end-column="36" />
           <folding>
-            <element signature="n#div#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="e#3947#5591#0" expanded="false" />
+            <marker date="1511442433496" expanded="true" signature="3828:3835" ph="×" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/data-query.js">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="694">
-          <caret line="1337" column="4" lean-forward="false" selection-start-line="1337" selection-start-column="4" selection-end-line="1337" selection-end-column="4" />
-          <folding>
-            <element signature="e#3947#5591#0" expanded="false" />
-            <marker date="1511442400776" expanded="true" signature="3828:3835" ph="×" />
-          </folding>
+        <state relative-caret-position="245">
+          <caret line="618" column="18" lean-forward="true" selection-start-line="618" selection-start-column="18" selection-end-line="618" selection-end-column="18" />
+          <folding />
         </state>
       </provider>
     </entry>
