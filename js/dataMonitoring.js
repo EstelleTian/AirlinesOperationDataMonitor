@@ -2424,8 +2424,13 @@ var getChartsData = function () {
         dataType: "json",
         success:function (data) {
             if($.isValidObject(data)){
-                var chatrsDatas  = data.hisData
-                initCurveCharts(data)
+                if(data.status == 500){
+                    console.error(data.error);
+                    return;
+                }else if(data.status == 200){
+                    var chatrsDatas  = data.hisData
+                    initCurveCharts(chatrsDatas);
+                }
             }
 
         },
@@ -2445,11 +2450,13 @@ var  dataConvert = function(data,opt,opter,type) {
     var arr = [];
     var dataarr = data[opt][opter];
     var len = dataarr.length;
-    for(var i=0;i<len;i++){
-        arr.push(dataarr[i][type]);
+    if($.isValidObject(dataarr)&&len > 0){
+        for(var i=0;i<len;i++){
+            arr.push(dataarr[i][type]);
+        }
+        console.log(arr+opt+opter+type);
+        return arr;
     }
-    console.log(arr+opt+opter+type);
-    return arr;
 }
 
 /*机场运行信息*/
