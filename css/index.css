@@ -12,7 +12,9 @@ a {
 }
 a:hover {
   text-decoration: none;
-  text-decoration-style: wavy;
+  -webkit-text-decoration-style: wavy;
+     -moz-text-decoration-style: wavy;
+          text-decoration-style: wavy;
   color: #0f0f0f;
 }
 a:focus {
@@ -22,8 +24,11 @@ ul li {
   list-style: none;
 }
 .container {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
-  background-color: #ededed;
+  background-color: #ededed
   /*导航版样式*/
   /*导航栏选中效果*/
   /*sm导航栏*/
@@ -65,6 +70,7 @@ ul li {
 }
 .container .item_selected {
   text-shadow: rgba(0, 0, 0, 0.25) 0 -1px 0;
+  background: -webkit-linear-gradient(#334556, #2c4257), #2a3f54;
   background: linear-gradient(#334556, #2c4257), #2a3f54;
   box-shadow: rgba(0, 0, 0, 0.25) 0 1px 0, inset rgba(255, 255, 255, 0.16) 0 1px 0;
   border-right: 5px solid #1ABB9C;
@@ -102,7 +108,10 @@ ul li {
 .container .content {
   float: right;
   width: 84%;
-  flex: 1;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
   background-color: #ededed;
 }
 .container .content .nav_menu {

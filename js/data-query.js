@@ -758,11 +758,13 @@ var QUERY = function () {
     //当前选中的类型索引位置
     var index = -1;
     //当前选中的子类型
-    var currentSubtype = '';
+    var currentSubtype = [];
     //当前选中的单位
-    var currentUnit = '';
+    var currentUnit = [];
     //数据查询地址
     var searchUrl = 'http://192.168.243.104:1566/shareDataPlatform/dataSearch/';
+    // 表格对象
+    var tableObj = {};
 
     /**
      * 初始化模态框
@@ -863,9 +865,6 @@ var QUERY = function () {
      * */
     var handleSubmitForm = function () {
 
-        showAlear('ddddddddddddddddddd');
-        return;
-
             //校验表单
 
             if(false){
@@ -885,11 +884,13 @@ var QUERY = function () {
     var handleFormData = function () {
         startTime = $('.start-date').val();
         endTime = $('.end-date').val();
-        currentSubtype = $('#subtype').val().join(',');
-        // currentUnit= $('#unit-list').val().join(',');
-        // var str = [startTime,endTime,currentType,currentSubtype,currentUnit].join('/');
-        currentUnit= 'unit';
-        var str = [startTime,endTime,currentType,currentSubtype,currentUnit].join('/');
+
+        currentSubtype =$('#subtype').val();
+        currentUnit = $('#unit-list').val();
+
+        var subtypeVal = currentSubtype ? currentSubtype.join(',') : ' ';
+        var unitVal = currentUnit ? currentUnit.join(',') : ' ';
+        var str = [startTime,endTime,currentType,subtypeVal,unitVal].join('/');
         return str;
     };
 
@@ -900,6 +901,8 @@ var QUERY = function () {
 
         // 清空警告
         clearAlert();
+        // 更新顶部导航内容
+        updateNavLabel();
         var arr = [];
         for(var i=0; i<100; i++){
 
@@ -917,12 +920,12 @@ var QUERY = function () {
         }
         //提取数据
         var result = arr;
+
         //初始化表格
         initTable();
         //表格数据加载
         tableLoad(result);
-        // 更新顶部导航内容
-        updateNavLabel();
+
         //隐藏模态框
         toggleModal(false);
         return;
@@ -937,16 +940,18 @@ var QUERY = function () {
                 if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
 
                     //success
+                    //提取数据
+                    var result = data.sharingDatas;
                     // 清空警告
                     clearAlert();
-                    //提取数据
-                    var result = data[sharingDatas];
+                    // 更新顶部导航内容
+                    // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
+                    updateNavLabel();
                     //初始化表格
                     initTable();
                     //表格数据加载
                     tableLoad(result);
-                    // 更新顶部导航内容
-                    updateNavLabel();
+
                     //隐藏模态框
                     toggleModal(false);
 
@@ -989,8 +994,14 @@ var QUERY = function () {
         $('.nav-start-time').text(startTime);
         $('.nav-end-time').text(endTime);
         $('.nav-type').text(typeObj.valCN[index]);
-        $('.nav-subtype').text(currentTypeObj.subtype[currentSubtype]);
-        $('.nav-unit').text(currentTypeObj.unit[currentUnit]);
+        var currentSubtypeLabel = currentSubtype.map(function (i) {
+           return  currentTypeObj.subtype[i];
+        });
+        var currentUnitLabel = currentUnit.map(function (k) {
+           return  currentTypeObj.unit[k];
+        });
+        $('.nav-subtype').text(currentSubtypeLabel.join(','));
+        $('.nav-unit').text(currentUnitLabel.join(','));
     };
 
     /**
@@ -1139,11 +1150,11 @@ var QUERY = function () {
     /**
      * 初始化表格
      * */
-
     var initTable = function () {
+        var height = getTableContianerHeight() - 50;
         //先注销
         $('#tb-datas').bootstrapTable('destroy');
-        $('#tb-datas').bootstrapTable({
+        tableObj = $('#tb-datas').bootstrapTable({
             striped: false,                      //是否显示行间隔色
             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: false,                   //是否显示分页（*）
@@ -1151,7 +1162,7 @@ var QUERY = function () {
             sortOrder: "asc",                   //排序方式
             // queryParams: oTableInit.queryParams,//传递参数（*）
             sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
-            pageNumber:1,                       //初始化加载第一页，默认第一页
+            pageNumber: 1,                       //初始化加载第一页，默认第一页
             pageSize: 10,                       //每页的记录行数（*）
             pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
             // search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
@@ -1160,9 +1171,9 @@ var QUERY = function () {
             // showRefresh: true,                  //是否显示刷新按钮
             minimumCountColumns: 2,             //最少允许的列数
             clickToSelect: true,                //是否启用点击选中行
-            height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+            height: height,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
             uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
-            onlyInfoPagination : true,
+            onlyInfoPagination: true,
             columns: tableColumns[currentType][currentSubtype],
         });
     };
@@ -1194,20 +1205,16 @@ var QUERY = function () {
             var arr = [typeObj.result['APOI'].unit,typeObj.result['ALOI'].unit];
             //若机场和航空公司单位数据有效
             if($.isValidObject(arr[0]) && $.isValidObject(arr[1])){
-                // //停止定时器
-                // clearInterval(interval);
-                // //初始化模态框
-                // initModal(modalContent);
-                // //顶部导航事件处理
-                // initTopNavEvent();
+                //停止定时器
+                clearInterval(interval);
+                //初始化模态框
+                initModal(modalContent);
+                //顶部导航事件处理
+                initTopNavEvent();
+                //resize
+                initDocumentResize();
             }
         },1000);
-
-
-        //初始化模态框
-        initModal(modalContent);
-        //顶部导航事件处理
-        initTopNavEvent();
     };
     /**
      * 获取机场单位数据
@@ -1273,8 +1280,10 @@ var QUERY = function () {
     var updateUints = function (typeName,data) {
         typeObj.result[typeName].unit = {};
           for(var i in data){
-              var key = i;
-              var val = data[i];
+              // var key = i;
+              // var val = data[i];
+              var key = data[i];
+              var val = i;
 
               typeObj.result[typeName].unit[key] = val;
           }
@@ -1291,6 +1300,29 @@ var QUERY = function () {
             toggleModal(true);
         });
     };
+
+    /**
+     * 绑定Window事件，窗口变化时重新调整表格大小
+     * */
+    var initDocumentResize = function () {
+        $(window).resize(function () {
+            var height = getTableContianerHeight() - 50;
+            if($.isValidObject(tableObj)){
+                $('#tb-datas').bootstrapTable('resetView',{
+                    height: height
+                });
+            }
+        });
+    };
+    /**
+     *  计算表格初始化前父容器的高度
+     * */
+    var getTableContianerHeight = function () {
+        var  body = $('body').height();
+        var  nav = $('.nav_menu').height();
+        var  innerNav = $('#data-query .nav-menu').height();
+        return body - nav - innerNav;
+    };
     return {
         init: function () {
             //初始始化基础数据
@@ -1298,23 +1330,10 @@ var QUERY = function () {
             //初始始化操作
             initOperators();
 
-           /* handleQueryBtn();
-
-
-            initTable();
-
-            var arr = [];
-            for(var i = 0; i< 50; i++){
-                arr.push({
-                    AirportIdentification: 'A',
-                    AirportStandsStatics : '100'
-                },);
-            }
-
-            tableLoad(arr);*/
         }
     }
 }();
 $(document).ready(function () {
     QUERY.init();
+
 });
