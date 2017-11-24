@@ -16,11 +16,11 @@
 </head>
 
 <body class="hide-modal">
-    <div class="container h100">
+    <div class="container">
         <div class="navigation">
             <h3>运行数据监控系统</h3>
             <div role="presentation" class="active monitoring item_selected">
-                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
+                <a href="#home" id="monitor" aria-controls="home" role="tab" data-toggle="tab">
                     <span class="glyphicon glyphicon-plane"></span> 运行航班监控
                 </a>
             </div>
@@ -47,8 +47,8 @@
             <!--监控模块-->
             <div role="tabpanel" class="tab-pane active" id="home">
                 <ul class="group_list">
-                    <li class="airport_group flight_group">
-                        <div class="airport">
+                    <li class="airport_group flight_group row">
+                        <div class="airport col-lg-3 col-md-12">
                             <div class="airport_head">
                                 <h4>机场运行信息</h4>
                                 <div class="file_num">文件数</div>
@@ -83,7 +83,7 @@
                                 </ul>
                             </a>
                         </div>
-                        <div class="airport_chart" id="airport_chart">
+                        <div class="airport_chart col-lg-9 col-md-12" id="airport_chart">
                                 <div class="num_chart" id="airport_num_chart"></div>
                                 <div class="file_chart" id="airport_file_chart"></div>
                         </div>
