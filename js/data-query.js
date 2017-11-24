@@ -5,9 +5,20 @@ var QUERY = function () {
 
         '<div class="row row-line">' +
         '<div class="col-xs-2"><p>起始时间</p></div>'+
-        '<div class="col-xs-3"><input type="text" class="start-date form-control" value="20171120"></div>'+
+        '<div class="col-xs-3">' +
+        '<div class="input-group date" id="start-date-datepicker">' +
+        '<input type="text" class="start-date form-control" maxlength="8" value=""> ' +
+        '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
+        '</div>' +
+
+        '</div>'+
         '<div class="col-xs-2"><p>截止时间</p></div>'+
-        '<div class="col-xs-3"><input type="text" class="end-date form-control" value="20171120"></div>'+
+        '<div class="col-xs-3">' +
+        '<div class="input-group date" id="end-date-datepicker">' +
+        '<input type="text" class="end-date form-control" maxlength="8" value="">' +
+        '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
+        '</div>' +
+        '</div>'+
         '</div>' +
         '<div class="row">' +
         '<div class="col-xs-2 ">类型</div>' +
@@ -90,7 +101,7 @@ var QUERY = function () {
                     'SECT' : '扇区开放合并信息'
                 },
                 unit : {
-                    'ATMI' : '空管运行信息'
+                    'ATMI' : '空管'
                 }
             },
             'OSCI' : {
@@ -101,7 +112,7 @@ var QUERY = function () {
 
                 },
                 unit : {
-                    'OSCI' :'运行监控中心运行信息'
+                    'OSCI' :'运行监控中心'
                 }
             }
         },
@@ -753,11 +764,11 @@ var QUERY = function () {
     var startTime = '';
     //截止时间
     var endTime = '';
-    //当前选中的类型
+    //当前选中的类型值
     var currentType = '';
     //当前选中的类型索引位置
     var index = -1;
-    //当前选中的子类型
+    //当前选中的子类型值
     var currentSubtype = [];
     //当前选中的单位
     var currentUnit = [];
@@ -802,6 +813,7 @@ var QUERY = function () {
                 isHidden : false,
                 className: 'submit-form',
                 callback : function () {
+                    // 处理表单提交
                     handleSubmitForm();
                 }
             },{
@@ -810,7 +822,7 @@ var QUERY = function () {
                 status: -1,
                 className: 'reset-form',
                 callback : function () {
-                    // reset form
+                    // 重置表单
                     resetForm();
                 }
             }]
@@ -832,9 +844,9 @@ var QUERY = function () {
      * 初始化日期插件datepicker
      * */
     var initDatepicker = function () {
-        $('.start-date').datepicker({
+        $('#start-date-datepicker').datepicker({
             language: "zh-CN",
-            showOnFocus: true, //是否在获取焦点时显示面板 true显示 false不显示 默认true
+            showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
             autoclose: true, //选择日期后自动关闭面板
             // clearBtn: true, //是否显示清空按钮
             //todayHighlight: true,
@@ -845,9 +857,9 @@ var QUERY = function () {
             //格式化
             format: 'yyyymmdd',
         }) ;
-        $('.end-date').datepicker({
+        $('#end-date-datepicker').datepicker({
             language: "zh-CN",
-            showOnFocus: true, //是否在获取焦点时显示面板 true显示 false不显示 默认true
+            showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
             autoclose: true, //选择日期后自动关闭面板
             // clearBtn: true, //是否显示清空按钮
             // todayHighlight: true,
@@ -864,32 +876,64 @@ var QUERY = function () {
      * 处理表单提交
      * */
     var handleSubmitForm = function () {
-
+            //处理数据
+            handleFormData();
             //校验表单
-
-            if(false){
-
+            var bool = validateForm();
+            if(!bool){
+                //警告
+                var mess = "请输入正确的起始时间或截止时间,日期格式:YYMMDD";
+                showAlear(mess);
                 return;
             }else {
-                //处理数据
-                var str = handleFormData();
+                //拼接参数
+                var str = concatParameter();
                 //数据查询
                 searchData(str);
             }
     };
 
     /**
-     *  处理表单参数
+     * 校验表单
+     * */
+    var validateForm = function () {
+        var valid = true;
+        var regexp = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})(((0[13578]|1[02])(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)(0[1-9]|[12][0-9]|30))|(02(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))0229)/;
+        //起始时间
+        var start = regexp.test(startTime);
+        // 截止时间
+        var end = regexp.test(endTime);
+        if(!start){
+            valid = false;
+        }else if(!end){
+            valid = false;
+        }
+        return valid;
+    };
+
+    /**
+     *  处理数据
      * */
     var handleFormData = function () {
+        //起始时间
         startTime = $('.start-date').val();
+        //截止时间
         endTime = $('.end-date').val();
-
+        // 当前选中的子类型值(数组)
         currentSubtype =$('#subtype').val();
+        // 当前选中的单位值(数组)
         currentUnit = $('#unit-list').val();
+    };
 
-        var subtypeVal = currentSubtype ? currentSubtype.join(',') : ' ';
-        var unitVal = currentUnit ? currentUnit.join(',') : ' ';
+    /**
+     * 拼接参数
+     * */
+    var concatParameter = function () {
+        // 当前选中的子类型值(字符串)
+        var subtypeVal = currentSubtype ? currentSubtype.join(',') : 'null';
+        // 当前选中的单位值(字符串)
+        var unitVal = currentUnit ? currentUnit.join(',') : 'null';
+        // 拼接参数
         var str = [startTime,endTime,currentType,subtypeVal,unitVal].join('/');
         return str;
     };
@@ -898,37 +942,6 @@ var QUERY = function () {
      * 数据查询
      * */
     var searchData = function (str) {
-
-        // 清空警告
-        clearAlert();
-        // 更新顶部导航内容
-        updateNavLabel();
-        var arr = [];
-        for(var i=0; i<100; i++){
-
-            var col = tableColumns[currentType][currentSubtype];
-
-            var obj = {
-
-            };
-            for(var k in col){
-                var field = col[k].field;
-                obj[field] = '1000';
-            }
-
-            arr.push(obj);
-        }
-        //提取数据
-        var result = arr;
-
-        //初始化表格
-        initTable();
-        //表格数据加载
-        tableLoad(result);
-
-        //隐藏模态框
-        toggleModal(false);
-        return;
 
         var url = searchUrl + str;
         $.ajax({
@@ -990,25 +1003,39 @@ var QUERY = function () {
      *
      * */
     var updateNavLabel = function () {
+        //当前选中的类型
         var currentTypeObj = typeObj.result[currentType];
+        var currentSubtypeLabel = '';
+        var currentUnitLabel = '';
+        if(Array.isArray(currentSubtype)){
+            currentSubtypeLabel = currentSubtype.map(function (i) {
+                return  currentTypeObj.subtype[i];
+            }).join(' , ');
+        }
+        if(Array.isArray(currentUnit)){
+            currentUnitLabel = currentUnit.map(function (k) {
+                return  currentTypeObj.unit[k];
+            }).join(' , ');
+        }
+        //内容更新
         $('.nav-start-time').text(startTime);
         $('.nav-end-time').text(endTime);
         $('.nav-type').text(typeObj.valCN[index]);
-        var currentSubtypeLabel = currentSubtype.map(function (i) {
-           return  currentTypeObj.subtype[i];
-        });
-        var currentUnitLabel = currentUnit.map(function (k) {
-           return  currentTypeObj.unit[k];
-        });
-        $('.nav-subtype').text(currentSubtypeLabel.join(','));
-        $('.nav-unit').text(currentUnitLabel.join(','));
+        $('.nav-subtype').text(currentSubtypeLabel);
+        $('.nav-unit').text(currentUnitLabel);
+        $('.to').text('-');
     };
 
     /**
      * 重置顶部导航内容
      * */
     var resetNavLabel = function () {
-
+        $('.nav-start-time').text('');
+        $('.nav-end-time').text('');
+        $('.nav-type').text('');
+        $('.nav-subtype').text('');
+        $('.nav-unit').text('');
+        $('.to').text('');
     };
 
     /**
@@ -1017,6 +1044,8 @@ var QUERY = function () {
     var toggleType = function () {
         var $lables = $('#types .btn');
         $lables.on('click',function () {
+            // 清空警告
+            clearAlert();
             var $this = $(this);
             var val = $('.type',$this).val();
             //若当前点击的选项数值与currentType相同,则不做任何操作
@@ -1034,7 +1063,7 @@ var QUERY = function () {
      * 默认选中项
      * */
     var initType = function () {
-          $('#types .btn').first().trigger('click');
+        $('#types .btn').first().trigger('click');
     };
 
     /**
@@ -1098,9 +1127,9 @@ var QUERY = function () {
      * 更新下拉列表
      * */
     var updateSelectPicker = function (typeName) {
-        var subtypeStr = concatString(typeObj.result[typeName].subtype);
+        var subtypeStr = concatOptionString(typeObj.result[typeName].subtype);
         var units = typeObj.result[typeName].unit;
-        var unitListStr = concatString(units);
+        var unitListStr = concatOptionString(units);
         $('#subtype').empty().append( subtypeStr ).selectpicker('refresh');
         $('#unit-list').empty().append( unitListStr ).selectpicker('refresh');
     };
@@ -1116,7 +1145,7 @@ var QUERY = function () {
     /**
      *  拼接下拉列表串
      * */
-    var concatString = function (obj) {
+    var concatOptionString = function (obj) {
         var arr = [];
         for(var i in obj){
             arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
@@ -1151,9 +1180,10 @@ var QUERY = function () {
      * 初始化表格
      * */
     var initTable = function () {
+        //高度获取
         var height = getTableContianerHeight() - 50;
-        //先注销
-        $('#tb-datas').bootstrapTable('destroy');
+        //先注销表格
+        destroyTable();
         tableObj = $('#tb-datas').bootstrapTable({
             striped: false,                      //是否显示行间隔色
             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
@@ -1183,6 +1213,12 @@ var QUERY = function () {
     var tableLoad = function (data) {
         $('#tb-datas').bootstrapTable('load',data);
     };
+    /**
+     *  注销表格
+     * */
+    var destroyTable = function () {
+        $('#tb-datas').bootstrapTable('destroy');
+    };
 
 
     /**
@@ -1199,22 +1235,12 @@ var QUERY = function () {
      * 初始始化操作
      * */
     var initOperators = function () {
-        //定时器
-        var interval = setInterval(function () {
-
-            var arr = [typeObj.result['APOI'].unit,typeObj.result['ALOI'].unit];
-            //若机场和航空公司单位数据有效
-            if($.isValidObject(arr[0]) && $.isValidObject(arr[1])){
-                //停止定时器
-                clearInterval(interval);
-                //初始化模态框
-                initModal(modalContent);
-                //顶部导航事件处理
-                initTopNavEvent();
-                //resize
-                initDocumentResize();
-            }
-        },1000);
+        //初始化模态框
+        initModal(modalContent);
+        //顶部导航事件处理
+        initTopNavEvent();
+        //绑定Window事件，窗口变化时重新调整表格大小
+        initDocumentResize();
     };
     /**
      * 获取机场单位数据
@@ -1229,9 +1255,14 @@ var QUERY = function () {
                 // 当前数据
                 if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
                     //success
-                    console.log(data);
                     var result = data['allAirport'];
+                    // 更新单位
                     updateUints('APOI',result);
+                    //若当前选中的类型为机场
+                    if(currentType == 'APOI'){
+                        // 更新下拉列表
+                        updateSelectPicker('APOI');
+                    };
 
                 } else {
                     console.error('retrieve APOI unit data failed');
@@ -1258,10 +1289,14 @@ var QUERY = function () {
             success: function (data, status, xhr) {
                 // 当前数据
                 if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
-                    console.log(data);
                     var result = data['allAirport'];
+                    // 更新单位
                     updateUints('ALOI',result);
-
+                    //若当前选中的类型为航空公司
+                    if(currentType == 'ALOI'){
+                        // 更新下拉列表
+                        updateSelectPicker('ALOI');
+                    };
                 } else {
                     console.error('retrieve APOI unit data failed');
                     console.warn('data:' + data);
@@ -1280,11 +1315,8 @@ var QUERY = function () {
     var updateUints = function (typeName,data) {
         typeObj.result[typeName].unit = {};
           for(var i in data){
-              // var key = i;
-              // var val = data[i];
-              var key = data[i];
-              var val = i;
-
+              var key = i;
+              var val = data[i];
               typeObj.result[typeName].unit[key] = val;
           }
     };
@@ -1299,6 +1331,14 @@ var QUERY = function () {
             //切换模态框显示隐藏
             toggleModal(true);
         });
+        //重置按钮点击
+        $('#reset-btn').on('click',function () {
+            // 重置顶部导航内容
+            resetNavLabel();
+            // 注销表格
+            destroyTable();
+
+        })
     };
 
     /**
