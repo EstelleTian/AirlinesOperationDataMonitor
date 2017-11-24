@@ -29,8 +29,15 @@
       border-right: 1px solid rgba(204, 204, 204, 1);
       box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
     }
+    ul.nav-lable > li.lable-info, ul.nav-lable >li:last-child{
+      border-right: none;
+      box-shadow: none;
+    }
+    ul.nav-lable > li.lable-info{
+      padding-left: 0px;
+    }
     ul.nav-btn >li {
-      margin: 0px 0.5rem;
+      margin-right: 0.5rem;
     }
 
   }
@@ -73,5 +80,11 @@ body.hide-modal {
   #bootstrap-modal-dialog ,
   .modal-backdrop {
     display: none !important;
+  }
+}
+#bootstrap-modal-dialog-body {
+  .row p {
+    padding: 6px 0px;
+    margin: 0px;
   }
 }
