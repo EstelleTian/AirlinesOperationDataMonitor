@@ -224,22 +224,24 @@
             </div>
             <!--查询模块-->
             <div role="tabpanel" class="tab-pane" id="profile">
-                <div id="data-query">
-                    <div class="nav-menu">
-                        <nav>
+                <div id="data-query" class="container-fluid">
+                    <div class="nav-menu row" >
+                        <div class="col-md-9 col-sm-12 col-xs-12">
                             <ul class="nav-lable">
-                                <li>当前查询条件:</li>
-                                <li>时间:</li>
+                                <!--<li>当前查询条件:</li>-->
+                                <!--<li>时间:</li>-->
                                 <li>
                                     <span class="nav-start-time">20171120</span>
                                     <span>-</span>
                                     <span class="nav-end-time">20171124</span>
                                 </li>
-                                <li>信息类型:</li>
+                                <!--<li>信息类型:</li>-->
                                 <li class="nav-type">机场运行信息</li>
                                 <li class="nav-subtype">离港航班信息机场</li>
                                 <li class="nav-unit"> ZUCK</li>
                             </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12">
                             <ul class="nav-btn">
                                 <li>
                                     <button id="query-btn" type="button" class="atfm-btn atfm-btn-blue">查询</button>
@@ -248,10 +250,12 @@
                                     <button type="button" class="atfm-btn atfm-btn-default ">重置</button>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                    <div class="table-contianer">
-                        <table id="tb-datas"></table>
+                    <div class="table-contianer row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table id="tb-datas"></table>
+                        </div>
                     </div>
                 </div>
             </div>
