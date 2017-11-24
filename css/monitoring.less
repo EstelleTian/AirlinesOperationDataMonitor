@@ -4,15 +4,19 @@
   height: 100%;
   .group_list{
     height: 100%;
-    overflow: auto;
+    overflow: visible;
     margin-bottom: 0;
     padding: 0 ;
     clear: both;
+    .airport_group{
+      margin: 20px 0;
+    }
     .flight_group{
       width: 100%;
       float: left;
       display: flex;
       min-height: 200px;
+      margin-bottom: 15px;
       .airport{
         min-width: 350px;
         border-radius: 5px;
@@ -115,7 +119,7 @@
         border-radius: 5px;
         background-color: #ffffff;
         border: 1px solid #E6E9ED;
-        overflow: hidden;
+        overflow: visible;
         .num_chart{
           float: left;
           width: 50%;
@@ -128,20 +132,152 @@
         }
       }
     }
-    .airport_group{
-      margin: 20px 0;
+  }
+}
+@media (max-width: 900px){
+  .container{
+    .navigation{
+      display: none;
     }
-    .flight_group{
-      margin-bottom: 15px;
+    .navigation_sm{
+      display: block;
     }
   }
-  @media (max-width: 900px){
-    #home{
-      .navigation{
-        display: none;
+  #home{
+    height: 100%;
+    .group_list{
+      height: 100%;
+      overflow: auto;
+      margin-bottom: 0;
+      padding: 0 ;
+      clear: both;
+      .airport_group{
+        margin: 20px 0;
       }
-      .navigation_sm{
+      .flight_group{
+        width: 100%;
+        margin-bottom: 15px;
+        overflow: hidden;
+        height: auto;
         display: block;
+        min-height: 400px;
+        .airport{
+          width: 100%;
+          border-radius: 5px;
+          display: flex;
+          flex-direction: column;
+          margin-left: 30px;
+          float: left;
+          background-color: @airport_bgc;
+          border: 1px solid #E6E9ED;
+          a{
+            height: 100%;
+          }
+          .air{
+            display: inline-block;
+            height: 100%;
+          }
+          .airport_head{
+            overflow: hidden;
+            min-height: 41px;
+            border-bottom:1px solid @border_color;
+            h4{
+              float: left;
+              padding-left: 30px;
+              color: @font_color;
+              font-family:"Microsoft New Tai Lue";
+            }
+            .file_num{
+              float: right;
+              margin: 10px 0;
+              padding:0 15px;
+              color: @font_color;
+            }
+            .airport_num{
+              float: right;
+              margin: 10px 0;
+              padding-right: 5px;
+              color: @font_color;
+
+            }
+          }
+          .airport_data_detail{
+            height: 97%;
+            flex: 1;
+            padding-left: 20px;
+            display: flex;
+            flex-direction: column;
+            .btn{
+              width: 18px;
+              height: 18px;
+              margin: 5px 10px 0 0;
+              padding-left: 5px;
+              margin-right: 10px;
+            }
+            /*按钮颜色*/
+            .btn_poa{
+              background-color: rgba(52, 153, 219, 1);
+            }
+            .btn_lev{
+              background-color: rgba(26, 187, 157, 1);
+            }
+            .btn_arr{
+              background-color: rgba(155, 88, 183, 1);
+            }
+            .btn_cou{
+              background-color:rgba(157, 195, 203, 1);
+            }
+            .btn_fly{
+              background-color: rgba(153, 153, 255, 1);
+            }
+            li{
+              flex: 1;
+              display: flex;
+              flex-direction: row;
+              margin:2px 0;
+              max-height: 30px;
+              p{
+                font-size:16px;
+                line-height: 30px;
+                margin-bottom: 0;
+                color: @font_color;
+              }
+              .airport_position{
+                flex: 5;
+                color: @font_color;
+              }
+              .num{
+                flex: 1;
+                color: @font_color;
+              }
+              .f_num{
+                flex: 1;
+                color: @font_color;
+              }
+            }
+          }
+        }
+        #airport_chart{
+          width: 100%;
+          margin: 0 ;
+          float: left;
+          border-radius: 5px;
+          min-height: 200px;
+          margin-left: 30px;
+          background-color: #ffffff;
+          border: 1px solid #E6E9ED;
+          overflow: hidden;
+          .num_chart{
+            float: left;
+            width: 50%;
+            height: 100%;
+          }
+          .file_chart{
+            float: left;
+            width: 48%;
+            height: 100%;
+          }
+        }
       }
     }
   }
@@ -167,25 +303,23 @@
     width: 100%;
     height: 95%;
     padding-top: 15px;
+    clear: both;
     overflow: auto;
     .airport{
       min-width: 315px;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
-      margin-left:20px;
+      margin-left: 20px;
       margin-bottom: 20px;
       background-color: @airport_bgc;
-      color: @font_color;
-      a{
-        height: 100%;
-      }
+      color: @font_color;     
       .airport_head{
         overflow: hidden;
         min-height: 41px;
         display: flex;
-        flex-direction:row ;
-        border-bottom:1px solid @border_color;
+        flex-direction: row ;
+        border-bottom: 1px solid @border_color;
         h4{
           flex: 3;
           padding-left: 15px;
@@ -213,7 +347,7 @@
           height: 18px;
           margin: 5px 10px 0 0;
           padding-left: 5px;
-          margin-right:10px;
+          margin-right: 10px;
         }
         /*按钮颜色*/
         .btn_poa{
@@ -384,35 +518,34 @@
     overflow: auto;
     /*航空公司模块*/
     .airport{
+      width: 315px;
       float: left;
-      min-width: 300px;
       border-radius: 5px;
       display: flex;
       flex-direction: column;
-      margin-left:10px;
-      margin-bottom: 10px;
+      margin-left: 20px;
+      margin-bottom: 20px;
       background-color: @airport_bgc;
-      a{
-        height: 100%;
-      }
+      color: @font_color;
       .airport_head{
         overflow: hidden;
         min-height: 41px;
+        display: flex;
+        flex-direction:row ;
         border-bottom:1px solid @border_color;
         h4{
-          float: left;
-          padding-left: 30px;
+          flex: 3;
+          padding-left: 15px;
         }
         .file_num{
-          float: right;
+          flex: 1;
           margin: 10px 0;
-          padding:0 15px;
+          color: @font_color;
         }
         .airport_num{
-          float: right;
+          flex:1;
           margin: 10px 0;
-          padding-right: 5px;
-
+          color: @font_color;
         }
       }
       .airport_data_detail{
@@ -421,6 +554,7 @@
         padding-left: 20px;
         display: flex;
         flex-direction: column;
+        color: @font_color;
         .btn{
           width: 18px;
           height: 18px;
@@ -450,14 +584,14 @@
           flex-direction: row;
           margin: 0;
           padding-top: 0;
-          max-height: 25px;
+          max-height: 30px;
           p{
             font-size:16px;
             line-height: 30px;
             margin-bottom: 0;
           }
           .airport_position{
-            flex: 4;
+            flex: 3;
           }
           .num{
             flex: 1;

@@ -77,15 +77,28 @@ var getTotalDateCount =function () {
 /*echarts 绘制
 * data 曲线图需要的数据
 * */
+/**echarts对象
+ * anc机场运行信息数量
+ * afc机场运行信息文件数量
+ * fnc航空公司信息数量
+ * ffc航空公司信息文件数量
+ * mnc空管局信息数量
+ * mfc空管局信息文件数量
+ * monc监控中心信息数量
+ * mofc监控中心信息文件数量
+ * */
+var Charts = function (anc,afc,fnc,ffc,mnc,mfc,monc,mofc) {
+    this.airportNumChart = echarts.init(anc);
+    this.airportFlieChart = echarts.init(afc);
+    this.flightNumChart = echarts.init(fnc);
+    this.flightFlieChart = echarts.init(ffc);
+    this.manageNumChart = echarts.init(mnc);
+    this.manageFlieChart = echarts.init(mfc);
+    this.monitorNumChart = echarts.init(monc);
+    this.monitorFlieChart = echarts.init(mofc);
+}
+var charts = new Charts($("#airport_num_chart")[0],$("#airport_file_chart")[0],$("#flight_num_chart")[0],$("#flight_file_chart")[0],$("#manage_num_chart")[0],$("#manage_file_chart")[0],$("#monitor_num_chart")[0],$("#monitor_file_chart")[0])
 var initCurveCharts = function (data) {
-    var airportNumChart = echarts.init($("#airport_num_chart")[0]);
-    var airportFlieChart = echarts.init($("#airport_file_chart")[0]);
-    var flightNumChart = echarts.init($("#flight_num_chart")[0]);
-    var flightFlieChart = echarts.init($("#flight_file_chart")[0]);
-    var manageNumChart = echarts.init($("#manage_num_chart")[0]);
-    var manageFlieChart = echarts.init($("#manage_file_chart")[0]);
-    var monitorNumChart = echarts.init($("#monitor_num_chart")[0]);
-    var monitorFlieChart = echarts.init($("#monitor_file_chart")[0]);
     // var dataObj = {
     //     "generatetime": "20171123153110",
     //     "status": "200",
@@ -1786,7 +1799,6 @@ var initCurveCharts = function (data) {
     //     }
     // }
     var dataObj = data;
-    var dataObj = dataObj.hisData
 // 获取图表的配置项和数据
     var airportNumOption = {
         backgroundColor: '#FFFFFF',
@@ -1801,9 +1813,17 @@ var initCurveCharts = function (data) {
             width:"98%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["机场到港航班信息","机场离港航班信息","机场客货信息","机场机位信息"],
+            data: ["机场到港航班","机场离港航班","机场客货","机场机位"],
             bottom: "2"
         },
         xAxis: {
@@ -1813,7 +1833,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息数量",
         },
         dataZoom: {
             show: true,
@@ -1824,7 +1844,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "机场到港航班信息",
+                name: "机场到港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1832,7 +1852,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPAI","dataCount")
             },{
-                name: "机场离港航班信息",
+                name: "机场离港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1840,7 +1860,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPDI","dataCount")
             },{
-                name: "机场客货信息",
+                name: "机场客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1848,7 +1868,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","PPCI","dataCount")
             },{
-                name: "机场机位信息",
+                name: "机场机位",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1871,9 +1891,18 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                type: 'cross',
+                label: {
+                    backgroundColor: '#6a7985'
+                }
+            }
+        },
         legend: {
-            data: ["机场到港航班信息","机场离港航班信息","机场客货信息","机场机位信息"],
+            data: ["机场到港航班","机场离港航班","机场客货","机场机位"],
             bottom: "2"
         },
         xAxis: {
@@ -1883,7 +1912,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "文件数量",
+            name: "信息文件数量",
         },
         dataZoom: {
             show: true,
@@ -1894,7 +1923,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "机场到港航班信息",
+                name: "机场到港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1902,7 +1931,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPAI","fileCount")
             },{
-                name: "机场离港航班信息",
+                name: "机场离港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1910,7 +1939,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPDI","fileCount")
             },{
-                name: "机场客货信息",
+                name: "机场客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1918,7 +1947,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","PPCI","fileCount")
             },{
-                name: "机场机位信息",
+                name: "机场机位",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1941,9 +1970,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航空器信息","航班机组人员信息","航班地面状态信息","航班客货信息","航班计划变更信息"],
+            data: ["航空器","航班机组人员","航班地面状态","航班客货","航班计划变更"],
             bottom: "2"
         },
         xAxis: {
@@ -1953,7 +1990,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息数量",
         },
         dataZoom: {
             show: true,
@@ -1964,7 +2001,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航空器信息",
+                name: "航空器",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1972,7 +2009,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FACI","dataCount")
             },{
-                name: "航班机组人员信息",
+                name: "航班机组人员",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1980,7 +2017,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FCRI","dataCount")
             },{
-                name: "航班地面状态信息",
+                name: "航班地面状态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1988,7 +2025,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FLGH","dataCount")
             },{
-                name: "航班客货信息",
+                name: "航班客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1996,7 +2033,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FPCI","dataCount")
             },{
-                name: "航班计划变更信息",
+                name: "航班计划变更",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2019,9 +2056,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航空器信息","航班机组人员信息","航班地面状态信息","航班客货信息","航班计划变更信息"],
+            data: ["航空器","航班机组人员","航班地面状态","航班客货","航班计划变更"],
             bottom: "2"
         },
         xAxis: {
@@ -2031,7 +2076,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "文件数量",
+            name: "信息文件数量",
         },
         dataZoom: {
             show: true,
@@ -2042,7 +2087,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航空器信息",
+                name: "航空器",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2050,7 +2095,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FACI","fileCount")
             },{
-                name: "航班机组人员信息",
+                name: "航班机组人员",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2058,7 +2103,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FCRI","fileCount")
             },{
-                name: "航班地面状态信息",
+                name: "航班地面状态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2066,7 +2111,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FLGH","fileCount")
             },{
-                name: "航班客货信息",
+                name: "航班客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2074,7 +2119,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FPCI","fileCount")
             },{
-                name: "航班计划变更信息",
+                name: "航班计划变更",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2097,9 +2142,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航班CDM信息","流量控制措施信息","MDRS信息","机场通行能力信息","扇区开放合并信息"],
+            data: ["航班CDM","流量控制措施","MDRS","机场通行能力","扇区开放合并"],
             bottom: "2"
         },
         xAxis: {
@@ -2109,7 +2162,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息数量",
         },
         dataZoom: {
             show: true,
@@ -2120,7 +2173,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航班CDM信息",
+                name: "航班CDM",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2128,7 +2181,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","FCDM","dataCount")
             },{
-                name: "流量控制措施信息",
+                name: "流量控制措施",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2136,7 +2189,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","FTMI","dataCount")
             },{
-                name: "MDRS信息",
+                name: "MDRS",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2144,7 +2197,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","MDRS","dataCount")
             },{
-                name: "机场通行能力信息",
+                name: "机场通行能力",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2152,7 +2205,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","PADR","dataCount")
             },{
-                name: "扇区开放合并信息",
+                name: "扇区开放合并",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2175,9 +2228,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航班CDM信息","流量控制措施信息","MDRS信息","机场通行能力信息","扇区开放合并信息"],
+            data: ["航班CDM","流量控制措施","MDRS","机场通行能力","扇区开放合并"],
             bottom: "2"
         },
         xAxis: {
@@ -2187,7 +2248,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息文件数量",
         },
         dataZoom: {
             show: true,
@@ -2198,7 +2259,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航班CDM信息",
+                name: "航班CDM",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2206,7 +2267,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","FCDM","fileCount")
             },{
-                name: "流量控制措施信息",
+                name: "流量控制措施",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2214,7 +2275,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","FTMI","fileCount")
             },{
-                name: "MDRS信息",
+                name: "MDRS",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2222,7 +2283,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","MDRS","fileCount")
             },{
-                name: "机场通行能力信息",
+                name: "机场通行能力",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2230,7 +2291,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ATMI","PADR","fileCount")
             },{
-                name: "扇区开放合并信息",
+                name: "扇区开放合并",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2253,9 +2314,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航班计划动态信息","航班统计信息","机场统计信息"],
+            data: ["航班计划动态","航班统计","机场统计"],
             bottom: "2"
         },
         xAxis: {
@@ -2265,7 +2334,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息数量",
         },
         dataZoom: {
             show: true,
@@ -2276,7 +2345,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航班计划动态信息",
+                name: "航班计划动态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2284,7 +2353,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"OSCI","FOSC","dataCount")
             },{
-                name: "航班统计信息",
+                name: "航班统计",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2292,7 +2361,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"OSCI","FPER","dataCount")
             },{
-                name: "机场统计信息",
+                name: "机场统计",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2315,9 +2384,17 @@ var initCurveCharts = function (data) {
             width:"90%",
             containLabel: true
         },
-        tooltip: {},
+        tooltip: {
+            trigger: 'axis',
+            height:15,
+            axisPointer: {
+                label: {
+                    backgroundColor: '#6a7985',
+                }
+            }
+        },
         legend: {
-            data: ["航班计划动态信息","航班统计信息","机场统计信息"],
+            data: ["航班计划动态","航班统计","机场统计"],
             bottom: "2"
         },
         xAxis: {
@@ -2327,7 +2404,7 @@ var initCurveCharts = function (data) {
 
         },
         yAxis: {
-            name: "数量",
+            name: "信息文件数量",
         },
         dataZoom: {
             show: true,
@@ -2338,7 +2415,7 @@ var initCurveCharts = function (data) {
         },
         series:[
             {
-                name: "航班计划动态信息",
+                name: "航班计划动态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2346,7 +2423,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"OSCI","FOSC","fileCount")
             },{
-                name: "航班统计信息",
+                name: "航班统计",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2354,7 +2431,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"OSCI","FPER","fileCount")
             },{
-                name: "机场统计信息",
+                name: "机场统计",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2365,44 +2442,14 @@ var initCurveCharts = function (data) {
         ]
     };
 // 曲线图参数设置。
-    airportNumChart.setOption(airportNumOption);
-    airportFlieChart.setOption(airportFileOption);
-    flightNumChart.setOption(companyNumOption);
-    flightFlieChart.setOption(companyFileOption);
-    manageNumChart.setOption(manageNumOption);
-    manageFlieChart.setOption(manageFileOption);
-    monitorNumChart.setOption(monitorNumOption);
-    monitorFlieChart.setOption(monitorFileOption);
-    //适应屏幕宽高尺寸
-    $(window).resize(function () {
-        //重置容器高宽
-        resizeWorldMapContainer();
-        airportNumChart.resize();
-        airportFlieChart.resize();
-        flightNumChart.resize();
-        flightFlieChart.resize();
-        manageNumChart.resize();
-        manageFlieChart.resize();
-        monitorNumChart.resize();
-        monitorFlieChart.resize();
-        resetML($('.airports_container'),$('.as'));
-        resetML($('.flights_container'),$('.fs'));
-    });
-    $("#switch_nav").click(function () {
-        $(".navigation").toggle();
-        $(".navigation_sm").toggle();
-        airportNumChart.resize();
-        airportFlieChart.resize();
-        flightNumChart.resize();
-        flightFlieChart.resize();
-        manageNumChart.resize();
-        manageFlieChart.resize();
-        monitorNumChart.resize();
-        monitorFlieChart.resize();
-        resizeWorldMapContainer();
-        resetML($('.airports_container'),$('.as'));
-        resetML($('.flights_container'),$('.fs'));
-    })
+    charts.airportNumChart.setOption(airportNumOption);
+    charts.airportFlieChart.setOption(airportFileOption);
+    charts.flightNumChart.setOption(companyNumOption);
+    charts.flightFlieChart.setOption(companyFileOption);
+    charts.manageNumChart.setOption(manageNumOption);
+    charts.manageFlieChart.setOption(manageFileOption);
+    charts.monitorNumChart.setOption(monitorNumOption);
+    charts.monitorFlieChart.setOption(monitorFileOption);
 }
 //用于使chart自适应高度和宽度,通过窗体高宽计算容器高宽
 var resizeWorldMapContainer = function () {
@@ -2415,6 +2462,21 @@ var resizeWorldMapContainer = function () {
     $("#monitor_num_chart").width($(".flight_group").innerWidth/2)
     $("#monitor_file_chart").width($(".flight_group").innerWidth/2)
 };
+//适应屏幕宽高尺寸
+$(window).resize(function () {
+    //重置容器高宽
+    resizeWorldMapContainer();
+    charts.airportNumChart.resize();
+    charts.airportFlieChart.resize();
+    charts.flightNumChart.resize();
+    charts.flightFlieChart.resize();
+    charts.manageNumChart.resize();
+    charts.manageFlieChart.resize();
+    charts.monitorNumChart.resize();
+    charts.monitorFlieChart.resize();
+    resetML($('.airports_container'),$('.as'));
+    resetML($('.flights_container'),$('.fs'));
+});
 //获取曲线图数据参数并初始化echarts
 var getChartsData = function () {
     $.ajax({
@@ -2425,11 +2487,13 @@ var getChartsData = function () {
         success:function (data) {
             if($.isValidObject(data)){
                 if(data.status == 500){
-                    console.error(data.error);
+                    console.log(data.error);
                     return;
                 }else if(data.status == 200){
-                    var chatrsDatas  = data.hisData
-                    initCurveCharts(chatrsDatas);
+                    if($.isValidObject(data.hisData)){
+                        var chatrsDatas  = data.hisData
+                        initCurveCharts(chatrsDatas);
+                    }
                 }
             }
 
@@ -2441,20 +2505,23 @@ var getChartsData = function () {
     })
 }
 /**曲线图数据转换
+ *
  * data数据集合
  * opt机场、航空公司、空管、监控中心的字段
  * opter  opt对应下的子字段
  * type 数量 文件数量字段
+ *
  * **/
 var  dataConvert = function(data,opt,opter,type) {
     var arr = [];
     var dataarr = data[opt][opter];
-    var len = dataarr.length;
-    if($.isValidObject(dataarr)&&len > 0){
+    data['OSCI']['FOSC'] = undefined;
+    if($.isValidObject(dataarr)){
+        var len = dataarr.length;
         for(var i=0;i<len;i++){
             arr.push(dataarr[i][type]);
         }
-        console.log(arr+opt+opter+type);
+        console.log(arr+" "+opt+" "+opter+" "+type);
         return arr;
     }
 }
@@ -2538,6 +2605,57 @@ var initNavigator = function () {
     $(".search_sm").click(function () {
         $(this).addClass("item_selected")
         $(".monitoring_sm").removeClass("item_selected")
+    })
+    //监控和查询页面 标签页切换
+    $('.monitoring a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+        charts.airportNumChart.resize();
+        charts.airportFlieChart.resize();
+        charts.flightNumChart.resize();
+        charts.flightFlieChart.resize();
+        charts.manageNumChart.resize();
+        charts.manageFlieChart.resize();
+        charts.monitorNumChart.resize();
+        charts.monitorFlieChart.resize();
+        resizeWorldMapContainer();
+    })
+    $('.monitoring a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+        if(!$("#home").is("hidden")){
+            resizeWorldMapContainer();
+            charts.airportNumChart.resize();
+            charts.airportFlieChart.resize();
+            charts.flightNumChart.resize();
+            charts.flightFlieChart.resize();
+            charts.manageNumChart.resize();
+            charts.manageFlieChart.resize();
+            charts.monitorNumChart.resize();
+            charts.monitorFlieChart.resize();
+        }
+    })
+    $('.airport a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+        resetML($('.airports_container'),$('.as'));
+        resetML($('.flights_container'),$('.fs'));
+    })
+    //切换大小导航栏适配屏幕尺寸
+    $("#switch_nav").click(function () {
+            $(".navigation").toggle();
+            $(".navigation_sm").toggle();
+        charts.airportNumChart.resize();
+        charts.airportFlieChart.resize();
+        charts.flightNumChart.resize();
+        charts.flightFlieChart.resize();
+        charts.manageNumChart.resize();
+        charts.manageFlieChart.resize();
+        charts.monitorNumChart.resize();
+        charts.monitorFlieChart.resize();
+        resizeWorldMapContainer();
+        resetML($('.airports_container'),$('.as'));
+        resetML($('.flights_container'),$('.fs'));
     })
 }
 $(document).ready(function () {
