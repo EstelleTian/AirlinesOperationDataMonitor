@@ -945,19 +945,27 @@ function resetML(father,son){
 var initNavigator = function () {
     $(".monitoring").click(function () {
         $(this).addClass("item_selected")
+        $(".monitoring_sm").addClass("item_selected")
         $(".search").removeClass("item_selected")
+        $(".search_sm").removeClass("item_selected")
     });
     $(".search").click(function () {
         $(this).addClass("item_selected")
+        $(".search_sm").addClass("item_selected")
         $(".monitoring").removeClass("item_selected")
+        $(".monitoring_sm").removeClass("item_selected")
     })
     $(".monitoring_sm").click(function () {
         $(this).addClass("item_selected")
+        $(".monitoring").addClass("item_selected")
         $(".search_sm").removeClass("item_selected")
+        $(".search").removeClass("item_selected")
     });
     $(".search_sm").click(function () {
         $(this).addClass("item_selected")
+        $(".search").addClass("item_selected")
         $(".monitoring_sm").removeClass("item_selected")
+        $(".monitoring").removeClass("item_selected")
     })
     //监控和查询页面 标签页切换
     $('.monitoring a').click(function (e) {
