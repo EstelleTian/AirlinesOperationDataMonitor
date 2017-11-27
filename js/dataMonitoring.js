@@ -1809,8 +1809,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"98%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -1823,8 +1824,10 @@ var initCurveCharts = function (data) {
             }
         },
         legend: {
-            data: ["机场到港航班","机场离港航班","机场客货","机场机位"],
-            bottom: "2"
+            data: ["到港航班","离港航班","客货","机位"],
+            top:"20",
+            right: "15",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -1838,13 +1841,15 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
             {
-                name: "机场到港航班",
+                name: "到港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1852,7 +1857,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPAI","dataCount")
             },{
-                name: "机场离港航班",
+                name: "离港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1860,7 +1865,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPDI","dataCount")
             },{
-                name: "机场客货",
+                name: "客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1868,7 +1873,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","PPCI","dataCount")
             },{
-                name: "机场机位",
+                name: "机位",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1887,8 +1892,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -1902,8 +1908,10 @@ var initCurveCharts = function (data) {
             }
         },
         legend: {
-            data: ["机场到港航班","机场离港航班","机场客货","机场机位"],
-            bottom: "2"
+            data: ["到港航班","离港航班","客货","机位"],
+            top:"20",
+            right: "15",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -1917,13 +1925,15 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
             {
-                name: "机场到港航班",
+                name: "到港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1931,7 +1941,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPAI","fileCount")
             },{
-                name: "机场离港航班",
+                name: "离港航班",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1939,7 +1949,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","FPDI","fileCount")
             },{
-                name: "机场客货",
+                name: "客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1947,7 +1957,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"APOI","PPCI","fileCount")
             },{
-                name: "机场机位",
+                name: "机位",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -1966,8 +1976,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -1980,8 +1991,10 @@ var initCurveCharts = function (data) {
             }
         },
         legend: {
-            data: ["航空器","航班机组人员","航班地面状态","航班客货","航班计划变更"],
-            bottom: "2"
+            data: ["航空器","机组人员","地面状态","客货","计划变更"],
+            top:"20",
+            right: "15",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -1995,8 +2008,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
@@ -2009,7 +2024,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FACI","dataCount")
             },{
-                name: "航班机组人员",
+                name: "机组人员",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2017,7 +2032,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FCRI","dataCount")
             },{
-                name: "航班地面状态",
+                name: "地面状态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2025,7 +2040,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FLGH","dataCount")
             },{
-                name: "航班客货",
+                name: "客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2033,7 +2048,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FPCI","dataCount")
             },{
-                name: "航班计划变更",
+                name: "计划变更",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2052,8 +2067,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -2066,8 +2082,10 @@ var initCurveCharts = function (data) {
             }
         },
         legend: {
-            data: ["航空器","航班机组人员","航班地面状态","航班客货","航班计划变更"],
-            bottom: "2"
+            data: ["航空器","机组人员","地面状态","客货","计划变更"],
+            top:"20",
+            right: "15",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -2081,8 +2099,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
@@ -2095,7 +2115,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#9abcc3",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FACI","fileCount")
             },{
-                name: "航班机组人员",
+                name: "机组人员",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2103,7 +2123,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#CCCCFF",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FCRI","fileCount")
             },{
-                name: "航班地面状态",
+                name: "地面状态",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2111,7 +2131,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#1ABB9C",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FLGH","fileCount")
             },{
-                name: "航班客货",
+                name: "客货",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2119,7 +2139,7 @@ var initCurveCharts = function (data) {
                 itemStyle: {normal: {areaStyle: {type: 'default'},color:"#3498DB",lineStyle:{width:0}}},
                 data: dataConvert(dataObj,"ALOI","FPCI","fileCount")
             },{
-                name: "航班计划变更",
+                name: "计划变更",
                 type: 'line',
                 symbol:'none',
                 smooth:true,
@@ -2138,8 +2158,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -2153,7 +2174,9 @@ var initCurveCharts = function (data) {
         },
         legend: {
             data: ["航班CDM","流量控制措施","MDRS","机场通行能力","扇区开放合并"],
-            bottom: "2"
+            top:"20",
+            right: "0",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -2167,8 +2190,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
@@ -2224,8 +2249,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -2239,7 +2265,9 @@ var initCurveCharts = function (data) {
         },
         legend: {
             data: ["航班CDM","流量控制措施","MDRS","机场通行能力","扇区开放合并"],
-            bottom: "2"
+            top:"20",
+            right: "0",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -2253,8 +2281,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
@@ -2310,8 +2340,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -2325,7 +2356,9 @@ var initCurveCharts = function (data) {
         },
         legend: {
             data: ["航班计划动态","航班统计","机场统计"],
-            bottom: "2"
+            top:"20",
+            right: "0",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -2339,8 +2372,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
@@ -2380,8 +2415,9 @@ var initCurveCharts = function (data) {
         grid: {
             left: '3%',
             right: '4%',
-            bottom: '15%',
-            width:"90%",
+            bottom: '10%',
+            width:"80%",
+            height:"75%",
             containLabel: true
         },
         tooltip: {
@@ -2395,7 +2431,9 @@ var initCurveCharts = function (data) {
         },
         legend: {
             data: ["航班计划动态","航班统计","机场统计"],
-            bottom: "2"
+            top:"20",
+            right: "0",
+            orient:'vertical'
         },
         xAxis: {
             name: "时间",
@@ -2409,8 +2447,10 @@ var initCurveCharts = function (data) {
         dataZoom: {
             show: true,
             start: 30,
+            height:13,
             zoomLock:false,
             minSpan:25,
+            bottom:"5",
             end: 60
         },
         series:[
