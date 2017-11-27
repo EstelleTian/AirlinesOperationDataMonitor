@@ -16,11 +16,11 @@
 </head>
 
 <body class="hide-modal">
-    <div class="container">
+    <div class="container h100">
         <div class="navigation">
             <h3>运行数据监控系统</h3>
             <div role="presentation" class="active monitoring item_selected">
-                <a href="#home" id="monitor" aria-controls="home" role="tab" data-toggle="tab">
+                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">
                     <span class="glyphicon glyphicon-plane"></span> 运行航班监控
                 </a>
             </div>
@@ -224,34 +224,38 @@
             </div>
             <!--查询模块-->
             <div role="tabpanel" class="tab-pane" id="profile">
-                <div id="data-query">
-                    <div class="nav-menu">
-                        <nav>
+                <div id="data-query" class="container-fluid">
+                    <div class="nav-menu row" >
+                        <div class="col-md-9 col-sm-12 col-xs-12">
                             <ul class="nav-lable">
-                                <li>当前查询条件:</li>
-                                <li>时间:</li>
+                                <li class="lable-info">当前查询条件:</li>
+                                <!--<li>时间:</li>-->
                                 <li>
-                                    <span class="nav-start-time">20171120</span>
-                                    <span>-</span>
-                                    <span class="nav-end-time">20171124</span>
+                                    <span class="nav-start-time"></span>
+                                    <span class="to"></span>
+                                    <span class="nav-end-time"></span>
                                 </li>
-                                <li>信息类型:</li>
-                                <li class="nav-type">机场运行信息</li>
-                                <li class="nav-subtype">离港航班信息机场</li>
-                                <li class="nav-unit"> ZUCK</li>
+                                <!--<li>信息类型:</li>-->
+                                <li class="nav-type"></li>
+                                <li class="nav-subtype"></li>
+                                <li class="nav-unit"></li>
                             </ul>
+                        </div>
+                        <div class="col-md-3 col-sm-12 col-xs-12">
                             <ul class="nav-btn">
                                 <li>
                                     <button id="query-btn" type="button" class="atfm-btn atfm-btn-blue">查询</button>
                                 </li>
                                 <li>
-                                    <button type="button" class="atfm-btn atfm-btn-default ">重置</button>
+                                    <button id="reset-btn" type="button" class="atfm-btn atfm-btn-default ">重置</button>
                                 </li>
                             </ul>
-                        </nav>
+                        </div>
                     </div>
-                    <div class="table-contianer">
-                        <table id="tb-datas"></table>
+                    <div class="table-contianer row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <table id="tb-datas"></table>
+                        </div>
                     </div>
                 </div>
             </div>

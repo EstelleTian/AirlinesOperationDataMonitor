@@ -30,8 +30,16 @@
   border-right: 1px solid #cccccc;
   box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
 }
+#data-query .nav-menu ul.nav-lable > li.lable-info,
+#data-query .nav-menu ul.nav-lable > li:last-child {
+  border-right: none;
+  box-shadow: none;
+}
+#data-query .nav-menu ul.nav-lable > li.lable-info {
+  padding-left: 0px;
+}
 #data-query .nav-menu ul.nav-btn > li {
-  margin: 0px 0.5rem;
+  margin-right: 0.5rem;
 }
 #data-query .table-contianer {
   flex: 1;
@@ -60,4 +68,8 @@
 body.hide-modal #bootstrap-modal-dialog,
 body.hide-modal .modal-backdrop {
   display: none !important;
+}
+#bootstrap-modal-dialog-body .row p {
+  padding: 6px 0px;
+  margin: 0px;
 }
