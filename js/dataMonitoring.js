@@ -826,9 +826,6 @@ $(window).resizeEnd(function () {
     charts.monitorFlieChart.resize();
     resetML($('.airports_container'),$('.as'));
     resetML($('.flights_container'),$('.fs'));
-    if($(".content").width()< 859){
-        $(".navigation_sm").height($(".content").height())
-    }
 },300);
 //获取曲线图数据参数并初始化echarts
 var getChartsData = function () {
@@ -1004,16 +1001,20 @@ var initNavigator = function () {
     })
     //切换大小导航栏适配屏幕尺寸
     $("#switch_nav").click(function () {
-        if($(".navigation_sm").is(":hidden")&&!$(".navigation").is(":hidden")&&$(".content").width()>859){
-            $(".navigation").hide();
-            $(".navigation_sm").show();
-        }else if(!$(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()>859){
-            $(".navigation").show();
-            $(".navigation_sm").hide();
-        }else if($(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()<859){
-            $(".navigation_sm").toggle();
-        }else if(!$(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()<859){
-            $(".navigation_sm").toggle();
+        //显示小导航栏
+        if($(".navigation_sm").is(":hidden")&&!$(".navigation").is(":hidden")){
+            $(".navigation").addClass("dbn");
+            $(".navigation_sm").removeClass("dbn")
+            $(".navigation_sm").addClass("blk");
+            $(".navigation").removeClass("blk")
+            $(".content").removeClass("ml_lg").addClass("ml_sm")
+            //显示大导航栏
+        }else if(!$(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")){
+            $(".navigation").addClass("blk");
+            $(".navigation_sm").removeClass("blk")
+            $(".navigation_sm").addClass("dbn");
+            $(".navigation").removeClass("dbn")
+            $(".content").removeClass("ml_sm").addClass("ml_lg")
         }
         charts.airportNumChart.resize();
         charts.airportFlieChart.resize();

@@ -1,5 +1,6 @@
 #home {
   height: 100%;
+  overflow: hidden;
 }
 #home .group_list {
   height: 96%;
@@ -175,12 +176,6 @@
   height: 100%;
 }
 @media (max-width: 1520px) {
-  .container .navigation {
-    display: none;
-  }
-  .container .navigation_sm {
-    display: block;
-  }
   #home {
     height: 100%;
   }
@@ -379,7 +374,7 @@
     margin: 20px 0;
   }
   #home .group_list .flight_group {
-    width: 100%;
+    width: 95%;
     margin-bottom: 15px;
     overflow: hidden;
     height: auto;
