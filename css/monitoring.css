@@ -545,6 +545,248 @@
     height: 200px;
   }
 }
+@media (max-width: 500px) {
+  html,
+  body,
+  .container {
+    width: 500px;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+  }
+  html #home,
+  body #home,
+  .container #home {
+    height: 100%;
+  }
+  html #home .group_list,
+  body #home .group_list,
+  .container #home .group_list {
+    height: 100%;
+    overflow: auto;
+    margin-bottom: 0;
+    padding: 0 ;
+    clear: both;
+  }
+  html #home .group_list .airport_group,
+  body #home .group_list .airport_group,
+  .container #home .group_list .airport_group {
+    margin: 20px 0;
+  }
+  html #home .group_list .flight_group,
+  body #home .group_list .flight_group,
+  .container #home .group_list .flight_group {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow: hidden;
+    height: auto;
+    display: block;
+    min-height: 400px;
+  }
+  html #home .group_list .flight_group .airport,
+  body #home .group_list .flight_group .airport,
+  .container #home .group_list .flight_group .airport {
+    width: 96%;
+    border-radius: 5px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin: 0 0 15px 30px;
+    float: left;
+    background-color: #ffffff;
+    border: 1px solid #E6E9ED;
+  }
+  html #home .group_list .flight_group .airport a,
+  body #home .group_list .flight_group .airport a,
+  .container #home .group_list .flight_group .airport a {
+    height: 100%;
+  }
+  html #home .group_list .flight_group .airport .air,
+  body #home .group_list .flight_group .airport .air,
+  .container #home .group_list .flight_group .airport .air {
+    display: inline-block;
+    height: 100%;
+  }
+  html #home .group_list .flight_group .airport .airport_head,
+  body #home .group_list .flight_group .airport .airport_head,
+  .container #home .group_list .flight_group .airport .airport_head {
+    overflow: hidden;
+    min-height: 41px;
+    border-bottom: 1px solid #e6e9ed;
+  }
+  html #home .group_list .flight_group .airport .airport_head h4,
+  body #home .group_list .flight_group .airport .airport_head h4,
+  .container #home .group_list .flight_group .airport .airport_head h4 {
+    float: left;
+    padding-left: 30px;
+    color: #5a738e;
+    font-size: 20px;
+    font-family: Calibri, 'Microsoft Yahei', sans-serif;
+  }
+  html #home .group_list .flight_group .airport .airport_head .file_num,
+  body #home .group_list .flight_group .airport .airport_head .file_num,
+  .container #home .group_list .flight_group .airport .airport_head .file_num {
+    float: right;
+    margin: 10px 0;
+    font-size: 16px;
+    padding: 0 10%;
+    color: #5a738e;
+  }
+  html #home .group_list .flight_group .airport .airport_head .airport_num,
+  body #home .group_list .flight_group .airport .airport_head .airport_num,
+  .container #home .group_list .flight_group .airport .airport_head .airport_num {
+    float: right;
+    margin: 10px -10px;
+    font-size: 16px;
+    padding-right: 0%;
+    color: #5a738e;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail,
+  body #home .group_list .flight_group .airport .airport_data_detail,
+  .container #home .group_list .flight_group .airport .airport_data_detail {
+    height: 97%;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    padding-left: 20px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column
+    /*按钮颜色*/
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn {
+    width: 18px;
+    height: 18px;
+    margin: 5px 10px 0 0;
+    padding-left: 5px;
+    margin-right: 10px;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn_poa,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn_poa,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn_poa {
+    background-color: #3499db;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn_lev,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn_lev,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn_lev {
+    background-color: #1abb9d;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn_arr,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn_arr,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn_arr {
+    background-color: #9b58b7;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn_cou,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn_cou,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn_cou {
+    background-color: #9dc3cb;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail .btn_fly,
+  body #home .group_list .flight_group .airport .airport_data_detail .btn_fly,
+  .container #home .group_list .flight_group .airport .airport_data_detail .btn_fly {
+    background-color: #9999ff;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail li,
+  body #home .group_list .flight_group .airport .airport_data_detail li,
+  .container #home .group_list .flight_group .airport .airport_data_detail li {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    margin: 2px 0;
+    max-height: 30px;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail li p,
+  body #home .group_list .flight_group .airport .airport_data_detail li p,
+  .container #home .group_list .flight_group .airport .airport_data_detail li p {
+    font-size: 16px;
+    line-height: 30px;
+    margin-bottom: 0;
+    color: #5a738e;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail li .airport_position,
+  body #home .group_list .flight_group .airport .airport_data_detail li .airport_position,
+  .container #home .group_list .flight_group .airport .airport_data_detail li .airport_position {
+    -webkit-box-flex: 5;
+    -webkit-flex: 5;
+        -ms-flex: 5;
+            flex: 5;
+    color: #5a738e;
+    font-size: 16px;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail li .num,
+  body #home .group_list .flight_group .airport .airport_data_detail li .num,
+  .container #home .group_list .flight_group .airport .airport_data_detail li .num {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    color: #5a738e;
+    font-size: 16px;
+  }
+  html #home .group_list .flight_group .airport .airport_data_detail li .f_num,
+  body #home .group_list .flight_group .airport .airport_data_detail li .f_num,
+  .container #home .group_list .flight_group .airport .airport_data_detail li .f_num {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    color: #5a738e;
+    font-size: 16px;
+  }
+  html #home .group_list .flight_group .airport_chart,
+  body #home .group_list .flight_group .airport_chart,
+  .container #home .group_list .flight_group .airport_chart {
+    width: 96%;
+    margin: 0 ;
+    float: left;
+    border-radius: 5px;
+    min-height: 200px;
+    margin-left: 30px;
+    background-color: #ffffff;
+    border: 1px solid #E6E9ED;
+    overflow: hidden;
+  }
+  html #home .group_list .flight_group .airport_chart .num_chart,
+  body #home .group_list .flight_group .airport_chart .num_chart,
+  .container #home .group_list .flight_group .airport_chart .num_chart {
+    float: left;
+    width: 50%;
+    height: 200px;
+  }
+  html #home .group_list .flight_group .airport_chart .file_chart,
+  body #home .group_list .flight_group .airport_chart .file_chart,
+  .container #home .group_list .flight_group .airport_chart .file_chart {
+    float: left;
+    width: 48%;
+    height: 200px;
+  }
+}
 #airports {
   height: 100%;
   background-color: #ededed
