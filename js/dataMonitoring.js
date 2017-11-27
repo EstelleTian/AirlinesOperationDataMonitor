@@ -10,63 +10,63 @@ var getTotalDateCount =function () {
         dataType: "json",
         success:function (data) {
             if($.isValidObject(data)){
-                var totaoDataCount = data.totaoDataCount
-                for(var x in totaoDataCount){
-                    if(totaoDataCount[x] === "undefined"||totaoDataCount[x] === ""||totaoDataCount[x] === "NAN"){
-                        totaoDataCount[x] = "-";
+                var totalDataCount = data.totalDataCount
+                for(var x in totalDataCount){
+                    if(totalDataCount[x] === "undefined"||totalDataCount[x] === ""||totalDataCount[x] === "NAN"){
+                        totalDataCount[x] = "-";
                     }
                 }
                 //机场机位信息
-                $(".airport_position_num").html(totaoDataCount.APOI_PSNI_DATA)
-                $(".airport_position_num_file").html(totaoDataCount.APOI_PSNI_FILE)
+                $(".airport_position_num").html(totalDataCount.APOI_PSNI_DATA)
+                $(".airport_position_num_file").html(totalDataCount.APOI_PSNI_FILE)
                 //机场离港信息
-                $(".fpdi").html(totaoDataCount.APOI_FPDI_DATA)
-                $(".fpdi_file").html(totaoDataCount.APOI_FPDI_FILE)
+                $(".fpdi").html(totalDataCount.APOI_FPDI_DATA)
+                $(".fpdi_file").html(totalDataCount.APOI_FPDI_FILE)
                 //机场到港信息
-                $(".fpai").html(totaoDataCount.APOI_FPAI_DATA)
-                $(".fpai_file").html(totaoDataCount.APOI_FPAI_FILE)
+                $(".fpai").html(totalDataCount.APOI_FPAI_DATA)
+                $(".fpai_file").html(totalDataCount.APOI_FPAI_FILE)
                 //机场客货信息
-                $(".ppci").html(totaoDataCount.APOI_PPCI_DATA)
-                $(".ppci_file").html(totaoDataCount.APOI_PPCI_FILE)
+                $(".ppci").html(totalDataCount.APOI_PPCI_DATA)
+                $(".ppci_file").html(totalDataCount.APOI_PPCI_FILE)
                 //航班地面状态
-                $(".flgh").html(totaoDataCount.ALOI_FLGH_DATA)
-                $(".flgh_file").html(totaoDataCount.ALOI_FLGH_FILE)
+                $(".flgh").html(totalDataCount.ALOI_FLGH_DATA)
+                $(".flgh_file").html(totalDataCount.ALOI_FLGH_FILE)
                 //航班计划变更
-                $(".fpln").html(totaoDataCount.ALOI_FPLN_DATA)
-                $(".fpln_file").html(totaoDataCount.ALOI_FPLN_FILE)
+                $(".fpln").html(totalDataCount.ALOI_FPLN_DATA)
+                $(".fpln_file").html(totalDataCount.ALOI_FPLN_FILE)
                 //航班客货
-                $(".fpci").html(totaoDataCount.ALOI_FPCI_DATA)
-                $(".fpci_file").html(totaoDataCount.ALOI_FPCI_FILE)
+                $(".fpci").html(totalDataCount.ALOI_FPCI_DATA)
+                $(".fpci_file").html(totalDataCount.ALOI_FPCI_FILE)
                 //航班机组人员
-                $(".fcri").html(totaoDataCount.ALOI_FCRI_DATA)
-                $(".fcri_file").html(totaoDataCount.ALOI_FCRI_FILE)
+                $(".fcri").html(totalDataCount.ALOI_FCRI_DATA)
+                $(".fcri_file").html(totalDataCount.ALOI_FCRI_FILE)
                 //航空器
-                $(".faci").html(totaoDataCount.ALOI_FACI_DATA)
-                $(".faci_file").html(totaoDataCount.ALOI_FACI_FILE)
+                $(".faci").html(totalDataCount.ALOI_FACI_DATA)
+                $(".faci_file").html(totalDataCount.ALOI_FACI_FILE)
                 //CDM
-                $(".fcdm").html(totaoDataCount.ATMI_FCDM_DATA)
-                $(".fcdm_file").html(totaoDataCount.ATMI_FCDM_FILE)
+                $(".fcdm").html(totalDataCount.ATMI_FCDM_DATA)
+                $(".fcdm_file").html(totalDataCount.ATMI_FCDM_FILE)
                 //流量控制措施
-                $(".ftmi").html(totaoDataCount.ATMI_FTMI_DATA)
-                $(".ftmi_file").html(totaoDataCount.ATMI_FTMI_FILE)
+                $(".ftmi").html(totalDataCount.ATMI_FTMI_DATA)
+                $(".ftmi_file").html(totalDataCount.ATMI_FTMI_FILE)
                 //机场通行能力
-                $(".padr").html(totaoDataCount.ATMI_PADR_DATA)
-                $(".padr_file").html(totaoDataCount.ATMI_PADR_FILE)
+                $(".padr").html(totalDataCount.ATMI_PADR_DATA)
+                $(".padr_file").html(totalDataCount.ATMI_PADR_FILE)
                 //MDRS
-                $(".mdrs").html(totaoDataCount.ATMI_MDRS_DATA)
-                $(".mdrs_file").html(totaoDataCount.ATMI_MDRS_FILE)
+                $(".mdrs").html(totalDataCount.ATMI_MDRS_DATA)
+                $(".mdrs_file").html(totalDataCount.ATMI_MDRS_FILE)
                 //扇区开放
-                $(".sect").html(totaoDataCount.ATMI_SECT_DATA)
-                $(".sect_file").html(totaoDataCount.ATMI_SECT_FILE)
+                $(".sect").html(totalDataCount.ATMI_SECT_DATA)
+                $(".sect_file").html(totalDataCount.ATMI_SECT_FILE)
                 //航班计划动态
-                $(".fosc").html(totaoDataCount.OSCI_FOSC_DATA)
-                $(".fosc_file").html(totaoDataCount.OSCI_FOSC_FILE)
+                $(".fosc").html(totalDataCount.OSCI_FOSC_DATA)
+                $(".fosc_file").html(totalDataCount.OSCI_FOSC_FILE)
                 //航班统计
-                $(".fper").html(totaoDataCount.OSCI_FPER_DATA)
-                $(".fper_file").html(totaoDataCount.OSCI_FPER_FILE)
+                $(".fper").html(totalDataCount.OSCI_FPER_DATA)
+                $(".fper_file").html(totalDataCount.OSCI_FPER_FILE)
                 //机场统计
-                $(".pper").html(totaoDataCount.OSCI_PPER_DATA)
-                $(".pper_file").html(totaoDataCount.OSCI_PPER_FILE)
+                $(".pper").html(totalDataCount.OSCI_PPER_DATA)
+                $(".pper_file").html(totalDataCount.OSCI_PPER_FILE)
             }
         },
         error:function (error) {
