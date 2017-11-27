@@ -2503,7 +2503,16 @@ var resizeWorldMapContainer = function () {
     $("#monitor_file_chart").width($(".flight_group").innerWidth/2)
 };
 //适应屏幕宽高尺寸
-$(window).resize(function () {
+$.fn.resizeEnd = function (callback, timeout) {
+    $(this).resize(function () {
+        var $this = $(this);
+        if ($this.data('resizeTimeout')) {
+            clearTimeout($this.data('resizeTimeout'));
+        }
+        $this.data('resizeTimeout', setTimeout(callback, timeout));
+    });
+};
+$(window).resizeEnd(function () {
     //重置容器高宽
     resizeWorldMapContainer();
     charts.airportNumChart.resize();
@@ -2516,7 +2525,10 @@ $(window).resize(function () {
     charts.monitorFlieChart.resize();
     resetML($('.airports_container'),$('.as'));
     resetML($('.flights_container'),$('.fs'));
-});
+    if($(".content").width()< 859){
+        $(".navigation_sm").height($(".content").height())
+    }
+},300);
 //获取曲线图数据参数并初始化echarts
 var getChartsData = function () {
     $.ajax({
@@ -2683,8 +2695,17 @@ var initNavigator = function () {
     })
     //切换大小导航栏适配屏幕尺寸
     $("#switch_nav").click(function () {
-            $(".navigation").toggle();
+        if($(".navigation_sm").is(":hidden")&&!$(".navigation").is(":hidden")&&$(".content").width()>859){
+            $(".navigation").hide();
+            $(".navigation_sm").show();
+        }else if(!$(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()>859){
+            $(".navigation").show();
+            $(".navigation_sm").hide();
+        }else if($(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()<859){
             $(".navigation_sm").toggle();
+        }else if(!$(".navigation_sm").is(":hidden")&&$(".navigation").is(":hidden")&&$(".content").width()<859){
+            $(".navigation_sm").toggle();
+        }
         charts.airportNumChart.resize();
         charts.airportFlieChart.resize();
         charts.flightNumChart.resize();

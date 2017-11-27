@@ -54,7 +54,7 @@
   float: left;
   padding-left: 30px;
   color: #5a738e;
-  font-family: "Microsoft New Tai Lue";
+  font-family: Calibri, 'Microsoft Yahei', sans-serif;
 }
 #home .group_list .flight_group .airport .airport_head .file_num {
   float: right;
@@ -237,7 +237,7 @@
     float: left;
     padding-left: 4px;
     color: #5a738e;
-    font-family: "Microsoft New Tai Lue";
+    font-family: Calibri, 'Microsoft Yahei', sans-serif;
     font-size: 16px;
   }
   #home .group_list .flight_group .airport .airport_head .file_num {
@@ -420,7 +420,7 @@
     padding-left: 30px;
     color: #5a738e;
     font-size: 20px;
-    font-family: "Microsoft New Tai Lue";
+    font-family: Calibri, 'Microsoft Yahei', sans-serif;
   }
   #home .group_list .flight_group .airport .airport_head .file_num {
     float: right;
