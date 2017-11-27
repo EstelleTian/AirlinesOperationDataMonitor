@@ -4,16 +4,16 @@ var QUERY = function () {
         '<div><div class="row"><div class="col-xs-12">' +
 
         '<div class="row row-line">' +
-        '<div class="col-xs-2"><p>起始时间</p></div>'+
-        '<div class="col-xs-3">' +
+        '<div class="col-xs-4 col-sm-4 col-md-2"><p>起始时间</p></div>'+
+        '<div class="col-xs-8 col-sm-6 col-md-3">' +
         '<div class="input-group date" id="start-date-datepicker">' +
         '<input type="text" class="start-date form-control" maxlength="8" value=""> ' +
         '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
         '</div>' +
 
         '</div>'+
-        '<div class="col-xs-2"><p>截止时间</p></div>'+
-        '<div class="col-xs-3">' +
+        '<div class="col-xs-4 col-sm-4 col-md-2"><p>截止时间</p></div>'+
+        '<div class="col-xs-8 col-sm-6 col-md-3">' +
         '<div class="input-group date" id="end-date-datepicker">' +
         '<input type="text" class="end-date form-control" maxlength="8" value="">' +
         '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
@@ -21,8 +21,8 @@ var QUERY = function () {
         '</div>'+
         '</div>' +
         '<div class="row">' +
-        '<div class="col-xs-2 ">类型</div>' +
-        '<div class="col-xs-8">' +
+        '<div class="col-xs-4 col-sm-4 col-md-2 ">类型</div>' +
+        '<div class="col-xs-8 col-sm-8 col-md-8">' +
         '<div class="btn-group " id="types" data-toggle="buttons">' +
         '<label class="btn btn-default active">' +
         '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息' +

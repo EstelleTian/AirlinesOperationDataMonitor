@@ -66,8 +66,12 @@
   margin-bottom: 1.5rem;
 }
 #bootstrap-modal-dialog .row-line {
-  padding-bottom: 1.2rem;
+  padding-bottom: 0.2rem;
   border-bottom: 1px solid #dddddd;
+}
+#bootstrap-modal-dialog #start-date-datepicker,
+#bootstrap-modal-dialog #end-date-datepicker {
+  margin-bottom: 1rem;
 }
 #bootstrap-modal-dialog #bootstrap-modal-dialog-body {
   min-height: 40rem;
@@ -82,4 +86,19 @@ body.hide-modal .modal-backdrop {
 #bootstrap-modal-dialog-body .row p {
   padding: 6px 0px;
   margin: 0px;
+}
+@media (max-width: 900px) {
+  .modal-dialog {
+    width: 680px !important;
+  }
+}
+@media (max-width: 768px) {
+  .modal-dialog {
+    width: 480px !important;
+  }
+}
+@media (max-width: 512px) {
+  .modal-dialog {
+    width: 428px !important;
+  }
 }
