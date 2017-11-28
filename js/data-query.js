@@ -1437,7 +1437,8 @@ var QUERY = function () {
      * */
 
     var updateGeneratetime = function(time){
-        $('.generate-time').text(time);
+        var timeFormatter = formateTime(time);
+        $('.generate-time').text('数据生成时间: ' + timeFormatter);
     };
 
 
@@ -1645,7 +1646,7 @@ var QUERY = function () {
         //绑定Window事件，窗口变化时重新调整表格大小
         initDocumentResize();
         //绑定左侧导航'运行数据查询'点击事件
-        initLeftNavDataQueryMenu();
+        initLeftNavMenu();
     };
     /**
      * 获取机场单位数据
@@ -1763,13 +1764,25 @@ var QUERY = function () {
      *
      * 绑定左侧导航'运行数据查询'点击事件
      * */
-    var initLeftNavDataQueryMenu = function () {
-        $('#run_query').on('click',function () {
-           if(!hasQuery){
-               toggleModal(true);
-           }
+    var initLeftNavMenu = function () {
+        //
+        $('#run_query').on('click', function () {
+            queryModalShow();
         });
-    }
+        $('.search_sm').on('click',function () {
+            queryModalShow();
+        })
+    };
+
+    var queryModalShow = function () {
+        //显示模态框
+        if (!hasQuery) {
+            toggleModal(true);
+        }
+        //切换时间显隐
+        $('.now_time').hide();
+        $('.generate-time').show();
+    };
 
     /**
      *  计算表格初始化前父容器的高度
@@ -1779,6 +1792,19 @@ var QUERY = function () {
         var  nav = $('.nav_menu').height();
         var  innerNav = $('#data-query .nav-menu').height();
         return body - nav - innerNav;
+    };
+
+    /**
+     * 格式化时间
+     * */
+    var formateTime = function (time) {
+          var year = time.substring(0,4);
+          var mon = time.substring(4,6);
+          var date = time.substring(6,8);
+          var hour = time.substring(8,10);
+          var min = time.substring(10,12);
+          var str = year+'年' + mon +'月' + date + '日 ' + hour +":"+ min;
+          return str;
     };
     return {
         init: function () {
