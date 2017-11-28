@@ -31,7 +31,7 @@ html,body,.container{
     color: @nav_font_color;
     background-color: @nav_bgc;
     h3{
-      padding: 15px 0;
+      padding: 2px 0;
       font-weight: bold;
       margin-top: 10px;
       text-align: center;
@@ -68,23 +68,23 @@ html,body,.container{
       margin-bottom: 0;
     }
     .monitoring_sm{
-      margin-top: 80px;
+      margin-top: 59px;
       display: block;
-      padding: 10px 0;
+      padding: 5px 0;
     }
     .search_sm{
       margin-top: 5px;
       display: block;
-      padding: 10px 0;
+      padding: 5px 0;
     }
     .glyphicon{
-      font-size: 25px;
+      font-size: 15px;
       margin: 0 10px;
     }
     a{
       width: 100%;
       color: @nav_font_color;
-      font-size: 15px;
+      font-size: 13px;
       text-align: center;
     }
   }
@@ -111,15 +111,20 @@ html,body,.container{
     height: 100%;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    .now_time{
+      float: right;
+      margin: 15px;
+    }
     .nav_menu{
-      height: 40px;
+      height: 58px;
       background-color: #EDEDED;
       border-bottom: 1px solid #D9DEE4;
       overflow: hidden;
       .glyphicon{
-        font-size: 30px;
+        font-size: 25px;
         margin-left: 20px;
-        margin-top: 5px;
+        margin-top: 15px;
         color: @font_color;
         cursor: pointer;
       }
