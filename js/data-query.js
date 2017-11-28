@@ -964,7 +964,6 @@ var QUERY = function () {
                     initTable();
                     //表格数据加载
                     tableLoad(result);
-
                     //隐藏模态框
                     toggleModal(false);
 

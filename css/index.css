@@ -5,7 +5,8 @@ body,
   height: 100%;
   padding: 0;
   margin: 0;
-  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto;
   background-color: #2a3f54;
 }
 html a,
@@ -185,7 +186,7 @@ body .content .nav_menu .glyphicon,
   .container {
     width: 100%;
     display: block;
-    overflow: auto;
+    overflow: hidden;
     clear: both;
   }
   .container .navigation {
