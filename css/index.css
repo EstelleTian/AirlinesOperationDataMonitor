@@ -151,6 +151,9 @@ html .content,
 body .content,
 .container .content {
   background-color: #f7f7f7;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 html .content .nav_menu,
 body .content .nav_menu,
