@@ -44,7 +44,7 @@ body .navigation,
 html .navigation h3,
 body .navigation h3,
 .container .navigation h3 {
-  padding: 15px 0;
+  padding: 2px 0;
   font-weight: bold;
   margin-top: 10px;
   text-align: center;
@@ -95,21 +95,21 @@ body .navigation_sm p,
 html .navigation_sm .monitoring_sm,
 body .navigation_sm .monitoring_sm,
 .container .navigation_sm .monitoring_sm {
-  margin-top: 80px;
+  margin-top: 59px;
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 html .navigation_sm .search_sm,
 body .navigation_sm .search_sm,
 .container .navigation_sm .search_sm {
   margin-top: 5px;
   display: block;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 html .navigation_sm .glyphicon,
 body .navigation_sm .glyphicon,
 .container .navigation_sm .glyphicon {
-  font-size: 25px;
+  font-size: 15px;
   margin: 0 10px;
 }
 html .navigation_sm a,
@@ -117,7 +117,7 @@ body .navigation_sm a,
 .container .navigation_sm a {
   width: 100%;
   color: #ecf0f1;
-  font-size: 15px;
+  font-size: 13px;
   text-align: center;
 }
 html .item_selected,
@@ -155,11 +155,18 @@ body .content,
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+}
+html .content .now_time,
+body .content .now_time,
+.container .content .now_time {
+  float: right;
+  margin: 15px;
 }
 html .content .nav_menu,
 body .content .nav_menu,
 .container .content .nav_menu {
-  height: 40px;
+  height: 58px;
   background-color: #EDEDED;
   border-bottom: 1px solid #D9DEE4;
   overflow: hidden;
@@ -167,9 +174,9 @@ body .content .nav_menu,
 html .content .nav_menu .glyphicon,
 body .content .nav_menu .glyphicon,
 .container .content .nav_menu .glyphicon {
-  font-size: 30px;
+  font-size: 25px;
   margin-left: 20px;
-  margin-top: 5px;
+  margin-top: 15px;
   color: #5a738e;
   cursor: pointer;
 }

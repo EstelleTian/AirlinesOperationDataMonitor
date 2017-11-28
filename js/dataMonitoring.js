@@ -132,7 +132,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"APOI","FPAI","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -216,7 +216,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"APOI","FPDI","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -299,7 +299,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data:dataConvert(dataObj,"ALOI","FACI","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -390,7 +390,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"ALOI","FCRI","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -481,7 +481,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"ATMI","FCDM","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -572,7 +572,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"ATMI","FTMI","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -663,7 +663,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"OSCI","FPER","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -738,7 +738,7 @@ var initCurveCharts = function (data) {
         },
         xAxis: {
             name: "时间",
-            data: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15"],
+            data: dataConvert(dataObj,"OSCI","FOSC","messageSendDate"),
             boundaryGap : false,
 
         },
@@ -843,6 +843,12 @@ var getChartsData = function () {
                     if($.isValidObject(data.hisData)){
                         var chatrsDatas  = data.hisData
                         initCurveCharts(chatrsDatas);
+                        var generateTime = data.generatetime
+                        var dataTime =
+                            generateTime.substring(0, 4) + '年' +
+                            generateTime.substring(4, 6) + '月' +
+                            generateTime.substring(6, 8) + '日 '
+                       $("#n_time").text(dataTime);
                     }
                 }
             }
@@ -865,13 +871,16 @@ var getChartsData = function () {
 var  dataConvert = function(data,opt,opter,type) {
     var arr = [];
     var dataarr = data[opt][opter];
-    data['OSCI']['FOSC'] = undefined;
     if($.isValidObject(dataarr)){
         var len = dataarr.length;
         for(var i=0;i<len;i++){
+            if(type == "messageSendDate"){
+                 var dataTime = dataarr[i][type]
+                var time = dataTime.substring(0,4)+"-"+dataTime.substring(4,6)+"-"+dataTime.substring(6,8);
+                dataarr[i][type] = time;
+            }
             arr.push(dataarr[i][type]);
         }
-        console.log(arr+" "+opt+" "+opter+" "+type);
         return arr;
     }
 }
