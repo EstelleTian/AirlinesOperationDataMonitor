@@ -41,14 +41,14 @@ var QUERY = function () {
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2">信息类型</div>' +
+        '<div class="col-xs-2 col-xs-offset-2">信息子类型</div>' +
         '<div class="col-xs-6">' +
         '<select id="subtype" class="form-control selectpicker show-tick" multiple >' +
         '</select>' +
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2 type-label">机场</div>' +
+        '<div class="col-xs-2 col-xs-offset-2 ">上传单位:<span class="type-label">机场</span></div>' +
         '<div class="col-xs-6">' +
         '<select id="unit-list" name="" class="selectpicker show-tick form-control" multiple >' +
         '</select>' +
@@ -101,7 +101,7 @@ var QUERY = function () {
                     'SECT' : '扇区开放合并信息'
                 },
                 unit : {
-                    'ATMI' : '空管'
+                    'ATMB' : '空管局'
                 }
             },
             'OSCI' : {
@@ -112,7 +112,7 @@ var QUERY = function () {
 
                 },
                 unit : {
-                    'OSCI' :'运行监控中心'
+                    'OMCCAAC' :'运行监控中心'
                 }
             }
         },
@@ -127,136 +127,317 @@ var QUERY = function () {
         'APOI' :{
             'PSNI' : [
                 {
-                    field: 'AirportIdentification',
-                    title: '机场标识'
+                    field: 'airportNameEN',
+                    title: '机场英文名称'
                 },
                 {
-                    field: 'AirportStandsStatics',
-                    title: '机场机位统计信息'
+                    field: 'startTime',
+                    title: '开始时间'
+                },
+                {
+                    field: 'endTime',
+                    title: '终止时间'
+                },
+                {
+                    field: 'nowOcpStandsASum',
+                    title: '已占用机位数量（A类）'
+                },
+                {
+                    field: 'nowAviStandsASum',
+                    title: '当前空余机位数量（A类）'
+                },
+                {
+                    field: 'estOcpStandsASum',
+                    title: '预占用机位数量（A类）'
+                },
+                {
+                    field: 'estAviStandsASum',
+                    title: '预计空余机位数量（A类）'
+                },
+                {
+                    field: 'estAviCPLStandsASum',
+                    title: '可用备降机位数量（A类）'
+                },
+                {
+                    field: 'estAviFixStandsASum',
+                    title: '可用系留机位数量（A类）'
+                },
+                {
+                    field: 'nowOcpStandsBSum',
+                    title: '已占用机位数量（B类）'
+                },
+                {
+                    field: 'nowAviStandsBSum',
+                    title: '当前空余机位数量（B类）'
+                },
+                {
+                    field: 'estOcpStandsBSum',
+                    title: '预占用机位数量（B类）'
+                },
+                {
+                    field: 'nstAviStandsBSum',
+                    title: '预计空余机位数量（B类）'
+                },
+                {
+                    field: 'estAviCPLStandsBSum',
+                    title: '可用备降机位数量（B类）'
+                },
+                {
+                    field: 'estAviFixStandsBSum',
+                    title: '可用系留机位数量（B类）'
+                },
+                {
+                    field: 'nowOcpStandsCSum',
+                    title: '已占用机位数量（C类）'
+                },
+                {
+                    field: 'nowAviStandsCSum',
+                    title: '当前空余机位数量（C类）'
+                },
+                {
+                    field: 'estOcpStandsCSum',
+                    title: '预占用机位数量（C类）'
+                },
+                {
+                    field: 'estAviStandsCSum',
+                    title: '预计空余机位数量（C类）'
+                },
+                {
+                    field: 'estAviCPLStandsCSum',
+                    title: '可用备降机位数量（C类）'
+                },
+                {
+                    field: 'estAviFixStandsCSum',
+                    title: '可用系留机位数量（C类）'
+                },
+                {
+                    field: 'nowOcpStandsDSum',
+                    title: '已占用机位数量（D类）'
+                },
+                {
+                    field: 'nowAviStandsDSum',
+                    title: '当前空余机位数量（D类）'
+                },
+                {
+                    field: 'estOcpStandsDSum',
+                    title: '预占用机位数量（D类）'
+                },
+                {
+                    field: 'estAviStandsDSum',
+                    title: '预计空余机位数量（D类）'
+                },
+                {
+                    field: 'estAviCPLStandsDSum',
+                    title: '可用备降机位数量（D类）'
+                },
+                {
+                    field: 'estAviFixStandsDSum',
+                    title: '可用系留机位数量（D类）'
+                },
+                {
+                    field: 'eowOcpStandsESum',
+                    title: '已占用机位数量（E类）'
+                },
+                {
+                    field: 'eowAviStandsESum',
+                    title: '当前空余机位数量（E类）'
+                },
+                {
+                    field: 'estOcpStandsESum',
+                    title: '预占用机位数量（E类）'
+                },
+                {
+                    field: 'estAviStandsESum',
+                    title: '预计空余机位数量（E类）'
+                },
+                {
+                    field: 'estAviCPLStandsESum',
+                    title: '可用备降机位数量（E类）'
+                },
+                {
+                    field: 'estAviFixStandsESum',
+                    title: '可用系留机位数量（E类）'
+                },
+                {
+                    field: 'nowOcpStandsFSum',
+                    title: '已占用机位数量（F类）'
+                },
+                {
+                    field: 'nowAviStandsFSum',
+                    title: '当前空余机位数量（F类）'
+                },
+                {
+                    field: 'estOcpStandsFSum',
+                    title: '预占用机位数量（F类）'
+                },
+                {
+                    field: 'estAviStandsFSum',
+                    title: '预计空余机位数量（F类）'
+                },{
+                    field: 'estAviCPLStandsFSum',
+                    title: '可用备降机位数量（F类）'
+                },{
+                    field: 'estAviFixStandsFSum',
+                    title: '可用系留机位数量（F类）'
                 }
             ],
             'FPDI' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识'
-                },
-                {
-                    field: 'Stand',
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
+                }, {
+                    field: 'stand',
                     title: '离港航班停机位'
                 },
                 {
-                    field: 'Gate',
+                    field: 'gate',
                     title: '航班登机口'
                 },{
-                    field: 'StartBoradingTime',
+                    field: 'startBoradingTime',
                     title: '开始登机时间'
                 },{
-                    field: 'EndBoardingTime',
+                    field: 'endBoardingTime',
                     title: '完成登机时间'
                 },{
-                    field: 'StartLuggageTime',
+                    field: 'startLuggageTime',
                     title: '开始装载行李时间'
                 },{
-                    field: 'EndLuggageTime',
+                    field: 'endLuggageTime',
                     title: '完成行李装载时间'
                 },{
-                    field: 'StartCateringTime',
+                    field: 'startCateringTime',
                     title: '开始配餐时间'
                 },{
-                    field: 'EndCateringTime',
+                    field: 'endCateringTime',
                     title: '完成配餐时间'
                 },{
-                    field: 'StartWaterTime',
+                    field: 'startWaterTime',
                     title: '开始加清水时间'
                 },{
-                    field: 'EndWaterTime',
+                    field: 'endWaterTime',
                     title: '完成加清水时间'
                 },{
-                    field: 'StartSewageTime',
+                    field: 'startSewageTime',
                     title: '开始排污时间'
                 },{
-                    field: 'EndSewageTime',
+                    field: 'endSewageTime',
                     title: '完成排污时间'
                 },{
-                    field: 'StartCleanTime',
+                    field: 'startCleanTime',
                     title: '开始保洁时间'
                 },{
-                    field: 'EndCleanTime',
+                    field: 'endCleanTime',
                     title: '完成保洁时间'
                 },{
-                    field: 'StartFuelTime',
+                    field: 'startFuelTime',
                     title: '开始供油时间'
                 },{
-                    field: 'EndFuelTime',
+                    field: 'endFuelTime',
                     title: '完成供油时间'
                 },{
-                    field: 'StartDeiceTime',
+                    field: 'startDeiceTime',
                     title: '开始除冰时间'
                 },{
-                    field: 'EndDeiceTime',
+                    field: 'endDeiceTime',
                     title: '完成除冰时间'
                 },{
-                    field: 'AeroBridgeOffTime',
+                    field: 'aeroBridgeOffTime',
                     title: '离桥时间'
                 },{
-                    field: 'DepPassengerStepsOffTime',
+                    field: 'depPassengerStepsOffTime',
                     title: '离港客梯车撤离时间'
                 },{
-                    field: 'ActualDepatureTime',
+                    field: 'actualDepatureTime',
                     title: '实际离港时间'
                 },{
-                    field: 'TrailerInPlaceTime',
+                    field: 'trailerInPlaceTime',
                     title: '拖车到位时间'
                 },{
-                    field: 'DepShuttleOffTime',
+                    field: 'depShuttleOffTime',
                     title: '离港摆渡车撤离时间'
                 },{
-                    field: 'SecurityCheckedPassangerSum',
+                    field: 'securityCheckedPassangerSum',
                     title: '过安检旅客人数'
                 }
             ],
             'FPAI' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
-                    field: 'Stand',
+                    field: 'stand',
                     title: '到港航班停机位'
                 }, {
-                    field: 'Gate',
+                    field: 'gate',
                     title: '航班到达口'
                 }, {
-                    field: 'ActualArrivalTime',
+                    field: 'actualArrivalTime',
                     title: '实际到港时间'
                 }, {
-                    field: 'AeroBridgeOnTime',
+                    field: 'aeroBridgeOnTime',
                     title: '靠桥时间'
                 }, {
-                    field: 'ArrPassengerStepsOnTime',
+                    field: 'arrPassengerStepsOnTime',
                     title: '进港客梯车对接时间'
                 }, {
-                    field: 'ArrShuttleReadyTime',
+                    field: 'arrShuttleReadyTime',
                     title: '进港摆渡车到位时间'
                 }, {
-                    field: 'StartUnBoardTime',
+                    field: 'startUnBoardTime',
                     title: '开始下客时间'
                 }, {
-                    field: 'EndUnBoardTime',
+                    field: 'endUnBoardTime',
                     title: '完成下客时间'
                 },
             ],
             'PPCI' : [
                 {
-                    field: 'AirportIdentification',
-                    title: '机场标识'
+                    field: 'airportNameEN',
+                    title: '机场英文名称'
                 }, {
-                    field: 'Date',
+                    field: 'date',
                     title: '日期'
                 }, {
-                    field: 'DepPassengerSum',
+                    field: 'depPassengerSum',
                     title: '出港旅客总人数'
                 }, {
-                    field: 'ArrPassengerSum',
+                    field: 'arrPassengerSum',
                     title: '进港旅客总人数'
                 }
             ]
@@ -264,122 +445,158 @@ var QUERY = function () {
         'ALOI' : {
             'FLGH' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
-                    field: 'CrewReadyTime',
+                    field: 'crewReadyTime',
                     title: '机组到位时间'
                 }, {
-                    field: 'StartBoardingTime',
+                    field: 'startBoardingTime',
                     title: '开始登机时间'
                 }, {
-                    field: 'EndBoardingTime',
+                    field: 'endBoardingTime',
                     title: '完成登机时间'
                 }, {
-                    field: 'StartLuggageTime',
+                    field: 'startLuggageTime',
                     title: '开始行李装载时间'
                 }, {
-                    field: 'EndLuggageTime',
+                    field: 'endLuggageTime',
                     title: '完成行李装载时间'
                 }, {
-                    field: 'StartCateringTime',
+                    field: 'startCateringTime',
                     title: '开始配餐时间'
                 }, {
-                    field: 'EndCateringTime',
+                    field: 'endCateringTime',
                     title: '完成配餐时间'
                 }, {
-                    field: 'StartWaterTime',
+                    field: 'startWaterTime',
                     title: '开始加清水时间'
                 },{
-                    field: 'EndWaterTime',
+                    field: 'endWaterTime',
                     title: '完成加清水时间'
                 }, {
-                    field: 'StartSewageTime',
+                    field: 'startSewageTime',
                     title: '开始排污时间'
                 }, {
-                    field: 'EndSewageTime',
+                    field: 'endSewageTime',
                     title: '完成排污时间'
                 }, {
-                    field: 'StartCleanTime',
+                    field: 'startCleanTime',
                     title: '开始保洁时间'
                 }, {
-                    field: 'EndCleanTime',
+                    field: 'endCleanTime',
                     title: '完成保洁时间'
                 }, {
-                    field: 'StartFuelTime',
+                    field: 'startFuelTime',
                     title: '开始供油时间'
                 }, {
-                    field: 'EndFuelTime',
+                    field: 'endFuelTime',
                     title: '完成供油时间'
                 }, {
-                    field: 'StartDeiceTime',
+                    field: 'startDeiceTime',
                     title: '开始除冰时间'
                 }, {
-                    field: 'EndDeiceTime',
+                    field: 'endDeiceTime',
                     title: '完成除冰时间'
                 },{
-                    field: 'AeroBridgeOffTime',
+                    field: 'aeroBridgeOffTime',
                     title: '离桥时间'
                 }, {
-                    field: 'AeroBridgeOnTime',
+                    field: 'aeroBridgeOnTime',
                     title: '靠桥时间'
                 },{
-                    field: 'DepPassengerStepsOffTime',
+                    field: 'depPassengerStepsOffTime',
                     title: '离港客梯车撤离时间'
                 }, {
-                    field: 'ArrPassengerStepsOnTime',
+                    field: 'arrPassengerStepsOnTime',
                     title: '进港客梯车对接时间'
                 },{
-                    field: 'DepShuttleOffTime',
+                    field: 'depShuttleOffTime',
                     title: '离港摆渡车撤离时间'
                 }, {
-                    field: 'ArrShuttleReadyTime',
+                    field: 'arrShuttleReadyTime',
                     title: '进港摆渡车到位时间'
                 },{
-                    field: 'TrailerReadyTime',
+                    field: 'trailerReadyTime',
                     title: '拖车到位时间'
                 },{
-                    field: 'StartUnBoardTime',
+                    field: 'startUnBoardTime',
                     title: '开始下客时间'
                 }, {
-                    field: 'EndUnBoardTime',
+                    field: 'endUnBoardTime',
                     title: '完成下客时间'
                 },{
-                    field: 'LiftFrontWheelTime',
+                    field: 'liftFrontWheelTime',
                     title: '抬前轮时间'
                 }, {
-                    field: 'LandingTime',
+                    field: 'landingTime',
                     title: '着陆时间'
                 },{
-                    field: 'LooseBrakeTime',
+                    field: 'looseBrakeTime',
                     title: '松刹车时间'
                 }, {
-                    field: 'BrakeTime',
+                    field: 'brakeTime',
                     title: '刹车时间'
                 }, {
-                    field: 'StartTaxiingTime',
+                    field: 'startTaxiingTime',
                     title: '开始滑行时间'
                 }, {
-                    field: 'ActualDepatureTime',
+                    field: 'actualDepatureTime',
                     title: '实际离港时间'
                 }, {
-                    field: 'ActualArrivalTime',
+                    field: 'actualArrivalTime',
                     title: '实际到港时间'
                 }, {
-                    field: 'ActualGateCloseTime',
+                    field: 'actualGateCloseTime',
                     title: '实际关舱门时间'
                 }, {
-                    field: 'ActualGateOpenTime',
+                    field: 'actualGateOpenTime',
                     title: '实际开舱门时间'
                 }, {
-                    field: 'EnduranceDistance',
+                    field: 'enduranceDistance',
                     title: '航班续航距离'
                 }
             ],
             'FPLN' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
                     field: 'PLNStatus',
                     title: '当日计划变更状态'
@@ -402,58 +619,142 @@ var QUERY = function () {
                     field: 'PLNArrAp',
                     title: '变更目的地机场'
                 }, {
-                    field: 'Remark',
+                    field: 'remark',
                     title: '备注'
                 },
             ],
             'FPCI' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
-                    field: 'CheckinPassengerSum',
+                    field: 'checkinPassengerSum',
                     title: '已值机旅客人数'
                 }, {
-                    field: 'BoardingPassengerSum',
+                    field: 'boardingPassengerSum',
                     title: '已登机旅客人数'
                 }, {
-                    field: 'PassengerStatistics',
-                    title: '旅客统计'
+                    field: 'passengerDomesticSum',
+                    title: '国内旅客总人数'
+                },{
+                    field: 'passengerInternationalSum',
+                    title: '国际旅客总人数'
+                },{
+                    field: 'passengerAdultSum',
+                    title: '成年旅客人数'
+                },{
+                    field: 'passengerChildSum',
+                    title: '儿童旅客人数'
+                },{
+                    field: 'passengerBabySum',
+                    title: '婴儿旅客人数'
                 }, {
-                    field: 'CargoStatistics',
-                    title: '货物统计'
+                    field: 'cargoDomesticWeight',
+                    title: '国内货物重量'
+                }, {
+                    field: 'cargoInternationalWeight',
+                    title: '国际货物重量'
+                }, {
+                    field: 'mailDomesticWeight',
+                    title: '国内邮件重量'
+                }, {
+                    field: 'mailInternationalWeight',
+                    title: '国际邮件重量'
+                }, {
+                    field: 'luggageDomesticWeight',
+                    title: '国内行李重量'
+                }, {
+                    field: 'luggageInternationalWeight',
+                    title: '国际行李重量'
+                }, {
+                    field: 'luggageDomesticSum',
+                    title: '国内行李数量'
+                }, {
+                    field: 'luggageInternationalSum',
+                    title: '国际行李数量'
+                }, {
+                    field: 'cargoFreeLoad',
+                    title: '腹舱剩余载量'
                 }
             ],
             'FCRI' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
-                    field: 'FlightCrews',
-                    title: '机组名单块'
+                    field: 'Name',
+                    title: '姓名'
+                },{
+                    field: 'Role',
+                    title: '职务'
+                },{
+                    field: 'NewCaptain',
+                    title: '是否新机长'
+                },{
+                    field: 'ForeignCaptain',
+                    title: '是否为外籍人员'
+                },{
+                    field: 'Remark',
+                    title: '备注'
                 }, {
-                    field: 'CrewILSLevel',
+                    field: 'crewILSLevel',
                     title: '机组仪表飞行标准'
                 }, {
-                    field: 'CrewEstTimeoutTime',
+                    field: 'crewEstTimeoutTime',
                     title: '机组预计超时时间'
                 }
             ],
             'FACI' : [
                  {
-                    field: 'RegNumber',
+                    field: 'regNumber',
                     title: '航空器注册号'
                 }, {
-                    field: 'AircraftType',
+                    field: 'aircraftType',
                     title: '机型'
                 }, {
-                    field: 'WingSpanLength',
+                    field: 'wingSpanLength',
                     title: '翼展长度'
                 }, {
-                    field: 'FuselageLength',
+                    field: 'fuselageLength',
                     title: '机身长度'
                 },{
-                    field: 'StartServiceTime',
+                    field: 'startServiceTime',
                     title: '机龄起始时间'
                 }
             ]
@@ -461,8 +762,26 @@ var QUERY = function () {
         'ATMI' : {
             'FCDM' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
                     field: 'CTOT',
                     title: '计算起飞时间'
@@ -476,7 +795,7 @@ var QUERY = function () {
                     field: 'TSAT',
                     title: '目标许可开车时间'
                 }, {
-                    field: 'Reason',
+                    field: 'reason',
                     title: '航班受控原因'
                 }
             ],
@@ -485,62 +804,83 @@ var QUERY = function () {
                     field: 'FTMID',
                     title: '流控标识'
                 }, {
-                    field: 'PublishArea',
+                    field: 'publishArea',
                     title: '流控发布地区'
                 }, {
-                    field: 'PublishUnit',
+                    field: 'publishUnit',
                     title: '流控发布单位'
                 }, {
-                    field: 'AcceptUnit',
+                    field: 'acceptUnit',
                     title: '流控接受单位'
                 }, {
-                    field: 'ApplyTime',
+                    field: 'applyTime',
                     title: '流控申请时间'
                 }, {
-                    field: 'PublicTime',
+                    field: 'publicTime',
                     title: '流控发布时间'
                 }, {
-                    field: 'Fix',
+                    field: 'fix',
                     title: '交接点'
                 }, {
-                    field: 'Scope',
+                    field: 'scope',
                     title: '流控影响范围'
                 }, {
-                    field: 'SeperationValue',
+                    field: 'seperationValue',
                     title: '流控间隔数值'
                 }, {
-                    field: 'SeperationUnit',
+                    field: 'seperationUnit',
                     title: '流控间隔单位'
                 }, {
                     field: 'FLScope',
                     title: '高度要求'
                 }, {
-                    field: 'Exempt',
+                    field: 'exempt',
                     title: '流控豁免范围'
                 },{
-                    field: 'StartTime',
+                    field: 'startTime',
                     title: '流控开始时间'
                 }, {
-                    field: 'EndTime',
+                    field: 'endTime',
                     title: '流控结束时间'
                 },{
-                    field: 'Reason',
+                    field: 'reason',
                     title: '流控限制原因'
                 }, {
-                    field: 'TargetArea',
+                    field: 'targetArea',
                     title: '事发地'
                 }
             ],
             'PADR' : [
                 {
-                    field: 'AirportIdentification',
-                    title: '机场标识'
+                    field: 'airportNameEN',
+                    title: '机场英文名称'
                 }, {
-                    field: 'Date',
+                    field: 'date',
                     title: '日期'
                 }, {
-                    field: 'AirportDeclaredCapacity ',
-                    title: '机场通行能力'
+                    field: 'startTime',
+                    title: '开始时间'
+                }, {
+                    field: 'endTime',
+                    title: '终止时间'
+                }, {
+                    field: 'depRunWay',
+                    title: '起飞跑道'
+                }, {
+                    field: 'arrRunWay',
+                    title: '落地跑道'
+                }, {
+                    field: 'APCPT',
+                    title: '机场容量'
+                }, {
+                    field: 'ARR',
+                    title: '接受率'
+                }, {
+                    field: 'ADR',
+                    title: '离场率'
+                }, {
+                    field: 'remark',
+                    title: '备注'
                 }
             ],
             'MDRS' : [
@@ -568,14 +908,20 @@ var QUERY = function () {
                 }, {
                     field: 'MDRSReason',
                     title: 'MDRS延误原因'
+                }, {
+                    field: 'MDRSExpectInfluence',
+                    title: 'MDRS预期影响'
+                }, {
+                    field: 'MDRSExpectRespond',
+                    title: 'MDRS预期响应'
                 }
             ],
             'SECT' : [
                 {
-                    field: 'SectorIdentification',
+                    field: 'sectorIdentification',
                     title: '扇区标识'
                 }, {
-                    field: 'MergedSector',
+                    field: 'mergedSector',
                     title: '被合并扇区'
                 }
             ]
@@ -583,10 +929,28 @@ var QUERY = function () {
         'OSCI' : {
             'FOSC' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
-                    field: 'MissionDate',
+                    field: 'missionDate',
                     title: '计划执行日期'
                 }, {
                     field: 'SDepAP',
@@ -607,7 +971,7 @@ var QUERY = function () {
                     field: 'STask',
                     title: '计划任务性质'
                 }, {
-                    field: 'Status',
+                    field: 'status',
                     title: '航班执行状态'
                 }, {
                     field: 'PDepAP',
@@ -628,7 +992,7 @@ var QUERY = function () {
                     field: 'RAircraftType',
                     title: '实际机型'
                 }, {
-                    field: 'ExecuteDate',
+                    field: 'executeDate',
                     title: '实际执行日期'
                 }, {
                     field: 'RDepAP',
@@ -643,22 +1007,40 @@ var QUERY = function () {
                     field: 'ALDT',
                     title: '实际落地时间'
                 }, {
-                    field: 'RegNumber',
+                    field: 'regNumber',
                     title: '航空器注册号'
                 }
             ],
             'FPER' : [
                 {
-                    field: 'FlightIdentification',
-                    title: '航班标识块'
+                    field: 'callSign',
+                    title: '航空器识别标志'
+                },{
+                    field: 'GUFI',
+                    title: '全球航班唯一标识符'
+                },{
+                    field: 'regNumber',
+                    title: '注册号'
+                },{
+                    field: 'SOBT',
+                    title: '计划离港时间'
+                },{
+                    field: 'EOBT',
+                    title: '预计撤轮档时间'
+                },{
+                    field: 'depAP',
+                    title: '起飞机场'
+                },{
+                    field: 'arrAP',
+                    title: '目的地机场'
                 }, {
                     field: 'ETA',
                     title: '航班预达时间'
                 }, {
-                    field: 'DelayTime',
+                    field: 'delayTime',
                     title: '航班延误时间'
                 }, {
-                    field: 'CloseWaitTime',
+                    field: 'closeWaitTime',
                     title: '关舱门后等待时间'
                 }, {
                     field: 'AXIT',
@@ -670,91 +1052,91 @@ var QUERY = function () {
             ],
             'PPER' : [
                 {
-                    field: 'AirportIdentification',
-                    title: '机场标识块'
+                    field: 'airportNameEN',
+                    title: '机场英文名称'
                 }, {
-                    field: 'HourlySchDepSum',
+                    field: 'hourlySchDepSum',
                     title: '机场小时计划离港架次'
                 }, {
-                    field: 'HourlySchArrSum',
+                    field: 'hourlySchArrSum',
                     title: '机场小时计划进港架次'
                 }, {
-                    field: 'HourlyActTakeOffSum',
+                    field: 'hourlyActTakeOffSum',
                     title: '机场小时实际起飞架次'
                 }, {
-                    field: 'HourlyActLandingSum',
+                    field: 'hourlyActLandingSum',
                     title: '机场小时实际落地架次'
                 }, {
-                    field: 'HourlyActTakeOffPunctualityRate',
+                    field: 'hourlyActTakeOffPunctualityRate',
                     title: '小时实际起飞正常率'
                 }, {
-                    field: 'DailyActTakeOffPunctualityRate',
+                    field: 'dailyActTakeOffPunctualityRate',
                     title: '当日实际起飞正常率'
                 }, {
-                    field: 'HourlySchTakeOffPunctualityRate',
+                    field: 'hourlySchTakeOffPunctualityRate',
                     title: '小时计划起飞正常率'
                 }, {
-                    field: 'DailySchTakeOffPunctualityRate',
+                    field: 'dailySchTakeOffPunctualityRate',
                     title: '当日计划起飞正常率'
                 }, {
-                    field: 'HourlyActDepPunctualityRate',
+                    field: 'hourlyActDepPunctualityRate',
                     title: '小时实际离港正常率'
                 }, {
-                    field: 'DailyActDepPunctualityRate',
+                    field: 'dailyActDepPunctualityRate',
                     title: '当日实际离港正常率'
                 }, {
-                    field: 'HourlySchDepPunctualityRate',
+                    field: 'hourlySchDepPunctualityRate',
                     title: '小时计划离港正常率'
                 }, {
-                    field: 'DailySchDepPunctualityRate',
+                    field: 'dailySchDepPunctualityRate',
                     title: '当日计划离港正常率'
                 }, {
-                    field: 'HourlyOriActTakeOffPunctualityRate',
+                    field: 'hourlyOriActTakeOffPunctualityRate',
                     title: '小时始发航班实际起飞正常率'
                 }, {
-                    field: 'DailyOriActTakeOffPunctualityRate',
+                    field: 'dailyOriActTakeOffPunctualityRate',
                     title: '当日始发航班实际起飞正常率'
                 }, {
-                    field: 'HourlyOriSchTakeOffPunctualityRate',
+                    field: 'hourlyOriSchTakeOffPunctualityRate',
                     title: '小时始发航班计划起飞正常率'
                 }, {
-                    field: 'DailyOriSchTakeOffPunctualityRate',
+                    field: 'dailyOriSchTakeOffPunctualityRate',
                     title: '当日始发航班计划起飞正常率'
                 }, {
-                    field: 'HourlyActClearancePunctualityRate',
+                    field: 'hourlyActClearancePunctualityRate',
                     title: '小时机场实际放行正常率'
                 }, {
-                    field: 'DailyActClearancePunctualityRate',
+                    field: 'dailyActClearancePunctualityRate',
                     title: '当日机场实际放行正常率'
                 }, {
-                    field: 'HourlySchClearancePunctualityRate',
+                    field: 'hourlySchClearancePunctualityRate',
                     title: '机场计划放行正常率'
                 }, {
-                    field: 'DailySchClearancePunctualityRate',
+                    field: 'dailySchClearancePunctualityRate',
                     title: '当日机场计划放行正常率'
                 }, {
-                    field: 'HourlyActLandingPunctualityRate',
+                    field: 'hourlyActLandingPunctualityRate',
                     title: '小时实际落地正常率'
                 }, {
-                    field: 'DailyActLandingPunctualityRate',
+                    field: 'dailyActLandingPunctualityRate',
                     title: '当日实际落地正常率'
                 }, {
-                    field: 'HourlySchLandingPunctualityRate',
+                    field: 'hourlySchLandingPunctualityRate',
                     title: '小时计划落地正常率'
                 }, {
-                    field: 'DailySchLandingPunctualityRate',
+                    field: 'dailySchLandingPunctualityRate',
                     title: '当日计划落地正常率'
                 }, {
-                    field: 'HourlyActArrPunctualityRate',
+                    field: 'hourlyActArrPunctualityRate',
                     title: '小时实际到港正常率'
                 }, {
-                    field: 'DailyActArrPunctualityRate',
+                    field: 'dailyActArrPunctualityRate',
                     title: '当日实际到港正常率'
                 }, {
-                    field: 'HourlySchArrPunctualityRate',
+                    field: 'hourlySchArrPunctualityRate',
                     title: '小时计划到港正常率'
                 }, {
-                    field: 'DailySchArrPunctualityRate',
+                    field: 'dailySchArrPunctualityRate',
                     title: '当日计划到港正常率'
                 }
             ]
@@ -776,6 +1158,8 @@ var QUERY = function () {
     var searchUrl = 'http://192.168.243.104:1566/shareDataPlatform/dataSearch/';
     // 表格对象
     var tableObj = {};
+    //是否已经成功查询过
+    var hasQuery = false;
 
     /**
      * 初始化模态框
@@ -824,6 +1208,11 @@ var QUERY = function () {
                 callback : function () {
                     // 重置表单
                     resetForm();
+                }
+            },{
+                name:"关闭",
+                status: -1,
+                callback : function () {
                 }
             }]
         };
@@ -882,7 +1271,7 @@ var QUERY = function () {
             var bool = validateForm();
             if(!bool){
                 //警告
-                var mess = "请输入正确的起始时间或截止时间,日期格式:YYMMDD";
+                var mess = "请输入正确的起始时间或截止时间,日期格式:YYYYMMDD";
                 showAlear(mess);
                 return;
             }else {
@@ -955,8 +1344,11 @@ var QUERY = function () {
                     //success
                     //提取数据
                     var result = data.sharingDatas;
+                    var time = data.generatetime;
                     // 清空警告
                     clearAlert();
+                    // 更新数据时间
+                    updateGeneratetime(time);
                     // 更新顶部导航内容
                     // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
                     updateNavLabel();
@@ -1017,12 +1409,15 @@ var QUERY = function () {
             }).join(' , ');
         }
         //内容更新
-        $('.nav-start-time').text(startTime);
-        $('.nav-end-time').text(endTime);
-        $('.nav-type').text(typeObj.valCN[index]);
-        $('.nav-subtype').text(currentSubtypeLabel);
-        $('.nav-unit').text(currentUnitLabel);
+        $('.data-query-sammery').addClass('not-empty');
+        $('.nav-start-time').text(startTime).attr('title','起始时间:'+startTime);
+        $('.nav-end-time').text(endTime).attr('title','截止时间:'+ endTime);
+        $('.nav-type').text(typeObj.valCN[index]).attr('title','类型:'+typeObj.valCN[index]);
+        $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型:'+currentSubtypeLabel);
+        $('.nav-unit').text(currentUnitLabel).attr('title','上传单位:'+currentUnitLabel);
         $('.to').text('-');
+        //更新查询状态
+        hasQuery = true;
     };
 
     /**
@@ -1036,6 +1431,15 @@ var QUERY = function () {
         $('.nav-unit').text('');
         $('.to').text('');
     };
+
+    /**
+     *  更新数据时间
+     * */
+
+    var updateGeneratetime = function(time){
+        $('.generate-time').text(time);
+    };
+
 
     /**
      * 类型切换
@@ -1240,6 +1644,8 @@ var QUERY = function () {
         initTopNavEvent();
         //绑定Window事件，窗口变化时重新调整表格大小
         initDocumentResize();
+        //绑定左侧导航'运行数据查询'点击事件
+        initLeftNavDataQueryMenu();
     };
     /**
      * 获取机场单位数据
@@ -1353,6 +1759,18 @@ var QUERY = function () {
             }
         });
     };
+    /**
+     *
+     * 绑定左侧导航'运行数据查询'点击事件
+     * */
+    var initLeftNavDataQueryMenu = function () {
+        $('#run_query').on('click',function () {
+           if(!hasQuery){
+               toggleModal(true);
+           }
+        });
+    }
+
     /**
      *  计算表格初始化前父容器的高度
      * */
