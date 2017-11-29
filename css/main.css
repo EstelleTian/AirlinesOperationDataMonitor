@@ -1,0 +1,132 @@
+
+
+
+body{
+    background: #2e5e79;
+    font-size: 12px;
+    /*font-family: Calibri, 'Microsoft Yahei', sans-serif;*/
+    font-family: Tahoma, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+.container-fluid{
+    margin-left: 15px;
+    margin-right: 15px;
+}
+header{
+    margin-bottom: 1rem;
+}
+.headbar {
+    background: #204562;
+    border-bottom: 1px solid #406079;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.user-info {
+    margin: 0px;
+    padding-right: 1.5rem;
+    list-style: none;
+    color: #fff;
+}
+
+.user-info ul, .user-info li {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+.user-info li {
+    display: inline;
+    margin-right: 1rem;
+}
+.avatar {
+    margin-right: 1rem;
+}
+.login-out a{
+    color:#A1EAFF; font-weight:normal;
+    text-decoration: none;
+}
+.login-out a:hover{
+    color:#fff;
+}
+.login-time {
+    color: #C2C2C2;
+}
+.navbar-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    padding-left: 1rem;
+}
+.navbar-brand:hover, .navbar-brand:active, .navbar-brand:focus{
+    color: #fff;
+}
+
+#nav{
+    background: url(../img/nav-repeat2.jpg) repeat-x #305b7b !important;
+}
+#nav a{
+    color: #fff;
+    padding-top: 0.85rem;
+    padding-bottom: 0.85rem;
+    font-weight: 700;
+    font-size: 14px;
+}
+#nav a:hover, #nav a:active, #nav a:focus, #nav a:visited,
+#nav li:hover, #nav li:active, #nav li:focus, #nav li:visited{
+    background: #204562;
+}
+#nav li.active, #nav a.active {
+    background: #103d5f;
+}
+
+
+#body .row {
+    display: none;
+}
+#body .active {
+    display: block;
+}
+
+
+
+/* boxes
+----------------------------------------------- */
+.box {
+    background:#fff;
+    margin-bottom:20px;
+    padding:10px 10px 10px 10px; margin-left:-8px;
+}
+.box.grid{padding-bottom:40px;}
+.box.round{
+    -moz-border-radius: 5px 5px 0px 0px; /* Firefox */
+    -webkit-border-radius: 5px 5px 0px 0px; /* Safari, Chrome */
+    border-radius: 5px 5px 0px 0px; /* CSS3 */
+}
+
+.box h2 {
+    font-size:1.2em;
+    font-weight:bold;
+    color:#1B548D;
+    background:#E6F0F3;
+    margin:-10px -10px 0 -10px;
+    padding:10px 12px;
+    border-bottom:1px solid #B3CBD6;
+
+    -moz-border-radius: 5px 5px 0px 0px; /* Firefox */
+    -webkit-border-radius: 5px 5px 0px 0px; /* Safari, Chrome */
+    border-radius: 5px 5px 0px 0px; /* CSS3 */
+}
+/*
+.box h2 a,
+.box h2 a.visible {
+    color:#1B548D;
+    background:url("../img/switch_minus.gif") 97% 50% no-repeat;
+    display:block;
+    padding:6px 12px;
+    margin:-6px -12px;
+    border:none;
+
+    -moz-border-radius: 5px 5px 0px 0px; !* Firefox *!
+    -webkit-border-radius: 5px 5px 0px 0px; !* Safari, Chrome *!
+    border-radius: 5px 5px 0px 0px; !* CSS3 *!
+
+}*/
