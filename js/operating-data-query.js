@@ -72,7 +72,7 @@ var QUERY = function () {
                 },
                 unit : {
 
-                }
+                },
             },
             'ALOI' : {
                 subtype : {
@@ -120,6 +120,10 @@ var QUERY = function () {
     var tableColumns = {
         'APOI' :{
             'PSNI' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'airportNameEN',
                     title: '机场英文名称'
@@ -277,6 +281,10 @@ var QUERY = function () {
             ],
             'FPDI' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -374,6 +382,10 @@ var QUERY = function () {
             ],
             'FPAI' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -422,6 +434,10 @@ var QUERY = function () {
             ],
             'PPCI' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'airportNameEN',
                     title: '机场英文名称'
                 }, {
@@ -438,6 +454,10 @@ var QUERY = function () {
         },
         'ALOI' : {
             'FLGH' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -571,6 +591,10 @@ var QUERY = function () {
             ],
             'FPLN' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -618,6 +642,10 @@ var QUERY = function () {
                 },
             ],
             'FPCI' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -691,6 +719,10 @@ var QUERY = function () {
             ],
             'FCRI' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -736,6 +768,10 @@ var QUERY = function () {
             ],
             'FACI' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'regNumber',
                     title: '航空器注册号'
                 }, {
@@ -755,6 +791,10 @@ var QUERY = function () {
         },
         'ATMI' : {
             'FCDM' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -794,6 +834,10 @@ var QUERY = function () {
                 }
             ],
             'FTMI' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'FTMID',
                     title: '流控标识'
@@ -846,6 +890,10 @@ var QUERY = function () {
             ],
             'PADR' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'airportNameEN',
                     title: '机场英文名称'
                 }, {
@@ -878,6 +926,10 @@ var QUERY = function () {
                 }
             ],
             'MDRS' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'MDRSIdentification',
                     title: 'MDRS标识'
@@ -912,6 +964,10 @@ var QUERY = function () {
             ],
             'SECT' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'sectorIdentification',
                     title: '扇区标识'
                 }, {
@@ -922,6 +978,10 @@ var QUERY = function () {
         },
         'OSCI' : {
             'FOSC' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -1007,6 +1067,10 @@ var QUERY = function () {
             ],
             'FPER' : [
                 {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -1045,6 +1109,10 @@ var QUERY = function () {
                 }
             ],
             'PPER' : [
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'airportNameEN',
                     title: '机场英文名称'
@@ -1136,6 +1204,35 @@ var QUERY = function () {
             ]
         }
     };
+
+    //表格排序列集合
+    var tableSortName = {
+        'APOI' : {
+            'PSNI' : '',
+            'FPDI' : 'id',
+            'FPAI' : 'id',
+            'PPCI' : 'id'
+        },
+        'ALOI' : {
+            'FLGH' : 'id',
+            'FPLN' : 'id',
+            'FPCI' : 'id',
+            'FCRI' : 'id',
+            'FACI' : 'id'
+        },
+        'ATMI' : {
+            'FCDM' : 'id',
+            'FTMI' : 'id',
+            'PADR' : 'id',
+            'MDRS' : 'id',
+            'SECT' : 'id'
+        },
+        'OSCI' : {
+            'FOSC' : 'id',
+            'FPER' : 'id',
+            'PPER' : 'id'
+        },
+    }
     //时间
     var date = '';
     //当前选中的类型值
@@ -1307,7 +1404,6 @@ var QUERY = function () {
     var searchData = function (str) {
 
         var url = searchUrl + str;
-        var url = 'http://192.168.243.104:1566/shareDataPlatform/dataSearch/20171129/20171129/APOI/PSNI/ZBAA';
         $.ajax({
             url: url,
             type: 'GET',
@@ -1323,13 +1419,23 @@ var QUERY = function () {
                     // 清空警告
                     clearAlert();
                     // 更新数据时间
-                    // updateGeneratetime(time);
+                    updateGeneratetime(time);
                     // 更新顶部导航内容
                     // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
                     updateNavLabel();
                     //初始化表格
                     initTable();
                     //表格数据加载
+
+                    for(var i = 0; i<30; i++){
+                        var obj = {};
+                        for(var k in result[0]){
+                            obj[k] = result[0][k];
+                        }
+                        obj['airportNameEN'] = obj['airportNameEN'] + i;
+                        obj['nowOcpStandsASum'] = obj['nowOcpStandsASum']*1 + Math.floor(Math.random()*10+10);
+                        result.push(obj);
+                    }
                     tableLoad(result);
                     //隐藏模态框
                     toggleModal(false);
@@ -1384,7 +1490,7 @@ var QUERY = function () {
             }).join(' , ');
         }
         //内容更新
-        $('.data-query-sammery').addClass('not-empty');
+        $('.data-query-summary').addClass('not-empty');
         $('.query-date').text(date).attr('title','时间:'+date);
         $('.nav-type').text(typeObj.valCN[index]).attr('title','类型:'+typeObj.valCN[index]);
         $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型:'+currentSubtypeLabel);
@@ -1566,21 +1672,24 @@ var QUERY = function () {
             striped: false,                      //是否显示行间隔色
             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: false,                   //是否显示分页（*）
-            sortable: false,                     //是否启用排序
+            sortable: true,                     //是否启用排序
+            sortName : tableSortName[currentType][currentSubtype],      //定义排序列
             sortOrder: "asc",                   //排序方式
             // queryParams: oTableInit.queryParams,//传递参数（*）
+            pagination : true,                   //设置为 true 会在表格底部显示分页条
+            onlyInfoPagination : true,          //设置为 true 只显示总数据数，而不显示分页按钮。需要 pagination='True'
             sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                       //初始化加载第一页，默认第一页
-            pageSize: 10,                       //每页的记录行数（*）
-            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-            // search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-            strictSearch: true,
+            pageSize: 99999999999,               //每页的记录行数（*）
+            pageList: '[All]',                  //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端
+            strictSearch: false,                 //设置为 true启用 全匹配搜索，否则为模糊搜索
             showColumns: false,                  //是否显示所有的列
-            // showRefresh: true,                  //是否显示刷新按钮
-            minimumCountColumns: 2,             //最少允许的列数
+            // showRefresh: true,                //是否显示刷新按钮
+            minimumCountColumns: 1,             //最少允许的列数
             clickToSelect: true,                //是否启用点击选中行
-            height: height,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-            uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
+            height: height,                      //定义表格的高度
+            uniqueId: "id",                     //每一行的唯一标识，一般为主键列
             onlyInfoPagination: true,
             columns: tableColumns[currentType][currentSubtype],
         });
@@ -1762,7 +1871,7 @@ var QUERY = function () {
         var  body = $('body').height();
         var head = $('.headbar')[0].clientHeight;
         var  nav = $('.nav-menu')[0].clientHeight;
-        var  innerNav = $('.data-query-sammery')[0].clientHeight;
+        var  innerNav = $('.data-query-summary')[0].clientHeight;
         return body - head - nav - innerNav;
     };
 
