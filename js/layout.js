@@ -17,17 +17,16 @@ $(document).ready(function () {
 
       $('li',nav).removeClass('active');
       $(this).addClass('active');
-      $('#body .row').removeClass('active');
-      $('#history-data-statistics').addClass('active');
-
+      $('.content-container .row').removeClass('active');
+      $('.history-data-statistics').addClass('active');
 
    });
     // 运行数据查询
    $('.nav-operating-data-query').on('click',function () {
        $('li',nav).removeClass('active');
        $(this).addClass('active');
-       $('#body .row').removeClass('active');
-       $('#operating-data-query').addClass('active');
+       $('.content-container .row').removeClass('active');
+       $('.operating-data-query').addClass('active');
    });
     // 登出
 

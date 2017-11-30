@@ -1,0 +1,73 @@
+.operating-data-query, .operating-data-query .row, .operating-data-query .col-md-12, .operating-data-query .data-query-wrap, .operating-data-query .table-contianer{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    height: 100%;
+}
+.operating-data-query .data-query-sammery {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #5a738e;
+}
+.operating-data-query .data-query-wrap {
+    margin-bottom: 1rem;
+}
+
+.not-empty span.date,
+.not-empty span.nav-type,
+.not-empty span.nav-subtype {
+    border-right: 1px solid #cccccc;
+    box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
+}
+.data-query-sammery > span {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    padding: 0 1rem;
+}
+.modal-body .date-datepicker {
+    margin-bottom: 1rem;
+}
+.modal-body .row {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+.modal-body .row-line {
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid #dddddd;
+}
+.modal-body .row p{
+    padding: 6px 0px;
+    margin: 0px;
+}
+#bootstrap-modal-dialog-body {
+    min-height: 40rem;
+}
+
+.datepicker .table-condensed td {
+    padding: 0.45rem 0.9rem;
+}
+
+body.hide-modal #bootstrap-modal-dialog,
+body.hide-modal .modal-backdrop {
+    display: none !important;
+}
+#bootstrap-modal-dialog-body .row p {
+    padding: 6px 0px;
+    margin: 0px;
+}
+@media (max-width: 900px) {
+    .modal-dialog {
+        width: 680px !important;
+    }
+}
+@media (max-width: 768px) {
+    .modal-dialog {
+        width: 480px !important;
+    }
+}
+@media (max-width: 512px) {
+    .modal-dialog {
+        width: 428px !important;
+    }
+}
