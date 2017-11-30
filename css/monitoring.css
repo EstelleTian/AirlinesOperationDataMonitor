@@ -1,3 +1,6 @@
+.modal-open {
+  overflow: auto;
+}
 #home {
   height: 100%;
   overflow: hidden;
