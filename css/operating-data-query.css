@@ -4,23 +4,31 @@
     flex: 1;
     height: 100%;
 }
-.operating-data-query .data-query-sammery {
+.operating-data-query .data-query-summary p{
+    margin: 0;
+}
+.operating-data-query .data-query-summary .generate-time{
+    line-height: 28px;
+}
+.operating-data-query .data-query-summary .summary {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     color: #5a738e;
+    width: 70%;
 }
+
 .operating-data-query .data-query-wrap {
     margin-bottom: 1rem;
 }
 
-.not-empty span.date,
+.not-empty span.query-date,
 .not-empty span.nav-type,
 .not-empty span.nav-subtype {
     border-right: 1px solid #cccccc;
     box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
 }
-.data-query-sammery > span {
+.summary > span {
     margin-top: 8px;
     margin-bottom: 8px;
     padding: 0 1rem;
