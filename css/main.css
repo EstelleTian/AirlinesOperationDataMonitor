@@ -11,8 +11,6 @@ body{
     font-size: 12px;
     /*font-family: Calibri, 'Microsoft Yahei', sans-serif;*/
     font-family: Tahoma, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
-    display: flex;
-    flex-direction: column;
 }
 
 header{
@@ -83,12 +81,6 @@ header{
 }
 #nav li.active, #nav a.active {
     background: #103d5f;
-}
-
-.content-container {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
 }
 
 .content-container .row {
