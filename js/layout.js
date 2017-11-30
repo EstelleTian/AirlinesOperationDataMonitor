@@ -3,7 +3,15 @@ $(document).ready(function () {
 
    var nav = $('#nav');
     // 当日运行数据监控
+    $('.nav_monitor').on('click',function () {
 
+        $('li',nav).removeClass('active');
+        $(this).addClass('active');
+        $('#body .row').removeClass('active');
+        $('#home').addClass('active');
+
+
+    });
     // 历史运行数据量统计
    $('.nav-history-data-statistics').on('click',function () {
 
@@ -21,8 +29,6 @@ $(document).ready(function () {
        $('#body .row').removeClass('active');
        $('#operating-data-query').addClass('active');
    });
-
-
     // 登出
 
 });
