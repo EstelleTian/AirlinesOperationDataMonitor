@@ -657,6 +657,22 @@ var MONITOR = function () {
             $('#company').addClass('active');
             resizeFit();
         });
+        $('.bread_air').on('click',function () {
+
+            $('li',nav).removeClass('active');
+            $(this).addClass('active');
+            $('.content-container .row').removeClass('active');
+            $('#home').addClass('active');
+            resizeFit();
+        });
+        $('.bread_com').on('click',function () {
+
+            $('li',nav).removeClass('active');
+            $(this).addClass('active');
+            $('.content-container .row').removeClass('active');
+            $('#home').addClass('active');
+            resizeFit();
+        });
     }
 //适应屏幕宽高尺寸
     $.fn.resizeEnd = function (callback, timeout) {

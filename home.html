@@ -19,7 +19,7 @@
 <body class="hide-modal">
     <header class="headbar">
         <div class="container">
-            <div class="row   clearfix">
+            <div class="row clearfix">
                 <div class="col-md-4 ">
                     <div>
                         <a href="javascript:;" class="navbar-brand">民航运行数据共享平台</a>
@@ -279,16 +279,21 @@
         </div>
         <!--机场-->
         <div class="row" id="airport">
-            <ol class="breadcrumb">
-                <li><a class="">当日</a></li>
-                <li class="active">Data</li>
-            </ol>
-            <div id="airport_container">
+            <div id="airport_container" class="col-md-12">
+                <ul class="breadcrumb ">
+                    <li><a class="bread_air">当日运行数据监控</a></li>
+                    <li class="curnt">机场运行信息详情</li>
+                </ul>
             </div>
         </div>
         <!--航空公司-->
         <div class="row" id="company">
-            <div id="company_container"></div>
+            <div id="company_container" class="col-md-12">
+                <ul class="breadcrumb ">
+                    <li><a class="bread_com">当日运行数据监控</a></li>
+                    <li class="curnt">航空公司运行信息详情</li>
+                </ul>
+            </div>
         </div>
     </div>
     <script src="plugins/jquery/js/jquery.min.js"></script>
