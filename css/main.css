@@ -9,8 +9,8 @@ html,body {
 body{
     background: #2e5e79;
     font-size: 12px;
-    /*font-family: Calibri, 'Microsoft Yahei', sans-serif;*/
-    font-family: Tahoma, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+    font-family: Calibri, 'Microsoft Yahei',"Helvetica Neue",Helvetica,Arial, sans-serif;
+    /*font-family: Tahoma, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;*/
 }
 
 header{
@@ -83,7 +83,7 @@ header{
     background: #103d5f;
 }
 
-.content-container .row {
+.content-container > .row {
     display: none;
 }
 .content-container .active {
