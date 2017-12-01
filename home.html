@@ -73,10 +73,11 @@
             <div class="col-md-12">
                 <ul class="group_list">
                     <li class="flight_group box">
-                        <h2>监控中心运行信息</h2>
+                        <h2>监控中心运行信息
+                        </h2>
                         <div class="information">
-                            <div class="num_chart col-md-5" id="monitor_num_chart"></div>
-                            <div class="airport col-md-2">
+                            <div class="num_chart col-lg-5 col-sm-4" id="monitor_num_chart"></div>
+                            <div class="airport col-lg-2 col-sm-4">
                                 <div class="airport_head">
                                     <div class="airport_num">数量</div>
                                     <div class="information_name">信息类型</div>
@@ -100,15 +101,15 @@
                                     </li>
                                 </ul>
                             </div>
-                            <div class="file_chart col-md-5" id="monitor_file_chart"></div>
+                            <div class="file_chart col-lg-5 col-sm-4" id="monitor_file_chart"></div>
                             <div class="clb"></div>
                         </div>
                     </li>
                     <li class="flight_group box">
                         <h2>空管运行中心信息</h2>
                         <div class="information">
-                            <div class="num_chart col-md-5" id="manage_num_chart"></div>
-                            <div class="airport col-md-2">
+                            <div class="num_chart col-lg-5 col-sm-4" id="manage_num_chart"></div>
+                            <div class="airport col-lg-2 col-sm-4">
                                 <div class="airport_head">
                                     <div class="airport_num">数量</div>
                                     <div class="information_name">信息类型</div>
@@ -145,16 +146,17 @@
                                 </div>
 
                             </div>
-                            <div class="file_chart col-md-5" id="manage_file_chart"></div>
+                            <div class="file_chart col-lg-5 col-sm-4" id="manage_file_chart"></div>
                             <div class="clb"></div>
                         </div>
                     </li>
-
                     <li class="flight_group box">
-                        <h2>机场运行信息</h2>
+                        <h2>机场运行信息
+                            <a id="airport_operation" class="airports_detail">(查看详情)</a>
+                        </h2>
                         <div class="information">
-                            <div class="num_chart col-md-5" id="airport_num_chart"></div>
-                            <div class="airport col-md-2">
+                            <div class="num_chart col-lg-5 col-sm-4" id="airport_num_chart"></div>
+                            <div class="airport col-lg-2 col-sm-4">
                                 <div class="airport_head">
                                     <div class="airport_num">数量</div>
                                     <div class="information_name">信息类型</div>
@@ -162,7 +164,6 @@
 
 
                                 </div>
-                                <a href="#airports" id="airport_operation" aria-controls="airports" role="tab" data-toggle="tab">
                                     <ul class="airport_data_detail">
                                         <li>
                                             <p class="num airport_position_num"></p>
@@ -185,23 +186,23 @@
                                             <p class="f_num ppci_file"></p>
                                         </li>
                                     </ul>
-                                </a>
                             </div>
-                            <div class="file_chart col-md-5" id="airport_file_chart"></div>
+                            <div class="file_chart col-lg-5 col-sm-4" id="airport_file_chart"></div>
                             <div class="clb"></div>
                         </div>
                     </li>
                     <li class="flight_group box">
-                        <h2>航空公司运行信息</h2>
+                        <h2>航空公司运行信息
+                            <a id="flights_operation" class="airports_detail">(查看详情)</a>
+                        </h2>
                         <div class="information">
-                            <div class="num_chart col-md-5" id="flight_num_chart"></div>
-                            <div class="airport col-md-2">
+                            <div class="num_chart col-lg-5 col-sm-4" id="flight_num_chart"></div>
+                            <div class="airport col-lg-2 col-sm-4">
                                 <div class="airport_head">
                                     <div class="airport_num">数量</div>
                                     <div class="information_name">信息类型</div>
                                     <div class="file_num">文件数</div>
                                 </div>
-                                <a href="#flights" id="flights_operation" aria-controls="flights" role="tab" data-toggle="tab">
                                     <ul class="airport_data_detail">
                                         <li>
                                             <p class="num flgh"></p>
@@ -234,10 +235,9 @@
                                             <p class="f_num faci_file"></p>
                                         </li>
                                     </ul>
-                                </a>
 
                             </div>
-                            <div class="file_chart col-md-5" id="flight_file_chart"></div>
+                            <div class="file_chart col-lg-5 col-sm-4" id="flight_file_chart"></div>
                             <div class="clb"></div>
                         </div>
                     </li>
@@ -273,6 +273,10 @@
         </div>
         <!--机场-->
         <div class="row" id="airport">
+            <ol class="breadcrumb">
+                <li><a class="">当日</a></li>
+                <li class="active">Data</li>
+            </ol>
             <div id="airport_container">
             </div>
         </div>

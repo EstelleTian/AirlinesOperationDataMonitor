@@ -30,7 +30,7 @@ header{
     list-style: none;
     color: #fff;
 }
-
+s
 .headbar .user-info ul, .user-info li {
     margin: 0px;
     padding: 0px;
@@ -54,7 +54,7 @@ header{
     color: #C2C2C2;
 }
 .headbar .navbar-brand {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
     padding-left: 1rem;

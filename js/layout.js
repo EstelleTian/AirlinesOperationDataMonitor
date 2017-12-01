@@ -9,8 +9,7 @@ $(document).ready(function () {
         $(this).addClass('active');
         $('.content-container .row').removeClass('active');
         $('#home').addClass('active');
-
-
+        MONITOR.resizeFit();
     });
     // 历史运行数据量统计
    $('.nav-history-data-statistics').on('click',function () {
