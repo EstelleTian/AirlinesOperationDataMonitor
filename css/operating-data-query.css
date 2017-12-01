@@ -1,8 +1,7 @@
-.operating-data-query, .operating-data-query .row, .operating-data-query .col-md-12, .operating-data-query .data-query-wrap, .operating-data-query .table-contianer{
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
+.operating-data-query .table-contianer {
+    min-height: 20rem;
+    color: #646464;
+    font-size: 14px;
 }
 .operating-data-query .data-query-summary p{
     margin: 0;
@@ -14,14 +13,34 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: #5a738e;
+    /*color: #5a738e;*/
     width: 70%;
+    display: inline-block;
 }
 
 .operating-data-query .data-query-wrap {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
+.operating-data-query .no-datas-tip {
+    position: absolute;
+    width: 100%;
+    color: #8c8c8c;
+    text-align: center;
+    margin-top: 10rem;
+}
+.query-type {
+    width: 100%;
+    display: flex;
+}
+.query-form label.text {
+    font-weight: normal;
+    color: #093857;
+}
+.query-type label.btn {
+    flex: 4;
+    text-align: center;
 
+}
 .not-empty span.query-date,
 .not-empty span.nav-type,
 .not-empty span.nav-subtype {
@@ -33,11 +52,17 @@
     margin-bottom: 8px;
     padding: 0 1rem;
 }
+.modal-header {
+    /*background:#E6F0F3;*/
+    background:#f2fbfd;
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+}
 .modal-body .date-datepicker {
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
 }
 .modal-body .row {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     margin-bottom: 1.5rem;
 }
 .modal-body .row-line {
@@ -49,7 +74,7 @@
     margin: 0px;
 }
 #bootstrap-modal-dialog-body {
-    min-height: 40rem;
+    min-height: 41rem;
 }
 
 .datepicker .table-condensed td {
@@ -64,6 +89,18 @@ body.hide-modal .modal-backdrop {
     padding: 6px 0px;
     margin: 0px;
 }
+
+@media (max-width: 992px) {
+    .operating-data-query .data-query-summary .summary {
+        width: 100%;
+    }
+    .generate-time {
+        position: absolute;
+        top: 5rem;
+        font-weight: normal;
+    }
+
+}
 @media (max-width: 900px) {
     .modal-dialog {
         width: 680px !important;
@@ -72,6 +109,15 @@ body.hide-modal .modal-backdrop {
 @media (max-width: 768px) {
     .modal-dialog {
         width: 480px !important;
+    }
+    .query-form label, .query-form span, .query-form input {
+        font-size: 12px !important;
+    }
+    .query-type label.btn {
+        flex: 4;
+        text-align: center;
+        padding-left: 6px;
+        padding-right: 6px;
     }
 }
 @media (max-width: 512px) {

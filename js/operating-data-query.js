@@ -1,11 +1,11 @@
 var QUERY = function () {
     //模态框内容
     var modalContent =
-        '<div><div class="row"><div class="col-xs-12">' +
+        '<div class="query-form"><div class="row"><div class="col-xs-12">' +
 
         '<div class="row row-line">' +
-        '<div class="col-xs-4 col-sm-4 col-md-2"><p>时间</p></div>'+
-        '<div class="col-xs-8 col-sm-6 col-md-3">' +
+        '<div class="col-sm-6 col-xs-12 col-md-5 col-md-offset-1">' +
+        '<label class="text">时间</label>' +
         '<div class="input-group date date-datepicker">' +
         '<input type="text" class="date-input form-control" maxlength="8" value=""> ' +
         '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
@@ -15,9 +15,9 @@ var QUERY = function () {
 
         '</div>' +
         '<div class="row">' +
-        '<div class="col-xs-4 col-sm-4 col-md-2 ">类型</div>' +
-        '<div class="col-xs-8 col-sm-8 col-md-8">' +
-        '<div class="btn-group " id="types" data-toggle="buttons">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">类型</label>' +
+        '<div class="btn-group query-type " id="types" data-toggle="buttons">' +
         '<label class="btn btn-default active">' +
         '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息' +
         '</label>' +
@@ -35,15 +35,15 @@ var QUERY = function () {
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2"><p>信息子类型</p></div>' +
-        '<div class="col-xs-6">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">信息子类型</label>' +
         '<select id="subtype" class="form-control selectpicker show-tick" multiple >' +
         '</select>' +
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2 "><p>上传单位:<span class="type-label">机场</span></p></div>' +
-        '<div class="col-xs-6">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">上传单位：<span class="type-label"></span></label>' +
         '<select id="unit-list" name="" class="selectpicker show-tick form-control" multiple >' +
         '</select>' +
         '</div>'+
@@ -121,8 +121,17 @@ var QUERY = function () {
         'APOI' :{
             'PSNI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    width : 50,
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
-                    title: 'ID'
+                    title: 'ID',
+                    visible : false
                 },
                 {
                     field: 'airportNameEN',
@@ -1423,19 +1432,11 @@ var QUERY = function () {
                     // 更新顶部导航内容
                     // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
                     updateNavLabel();
+                    //
+                    $('.no-datas-tip').hide();
                     //初始化表格
                     initTable();
                     //表格数据加载
-
-                    for(var i = 0; i<30; i++){
-                        var obj = {};
-                        for(var k in result[0]){
-                            obj[k] = result[0][k];
-                        }
-                        obj['airportNameEN'] = obj['airportNameEN'] + i;
-                        obj['nowOcpStandsASum'] = obj['nowOcpStandsASum']*1 + Math.floor(Math.random()*10+10);
-                        result.push(obj);
-                    }
                     tableLoad(result);
                     //隐藏模态框
                     toggleModal(false);
@@ -1491,10 +1492,10 @@ var QUERY = function () {
         }
         //内容更新
         $('.data-query-summary').addClass('not-empty');
-        $('.query-date').text(date).attr('title','时间:'+date);
-        $('.nav-type').text(typeObj.valCN[index]).attr('title','类型:'+typeObj.valCN[index]);
-        $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型:'+currentSubtypeLabel);
-        $('.nav-unit').text(currentUnitLabel).attr('title','上传单位:'+currentUnitLabel);
+        $('.query-date').text(date).attr('title','时间: '+date);
+        $('.nav-type').text(typeObj.valCN[index]).attr('title','类型: '+typeObj.valCN[index]);
+        $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型: '+currentSubtypeLabel);
+        $('.nav-unit').text(currentUnitLabel).attr('title','上传单位: '+currentUnitLabel);
         $('.to').text('-');
         //更新查询状态
         hasQuery = true;
@@ -1665,7 +1666,7 @@ var QUERY = function () {
      * */
     var initTable = function () {
         //高度获取
-        var height = getTableContianerHeight() - 50;
+        var height = $('.table-contianer').height();
         //先注销表格
         destroyTable();
         tableObj = $('#tb-datas').bootstrapTable({
@@ -1690,7 +1691,8 @@ var QUERY = function () {
             clickToSelect: true,                //是否启用点击选中行
             height: height,                      //定义表格的高度
             uniqueId: "id",                     //每一行的唯一标识，一般为主键列
-            onlyInfoPagination: true,
+            fixedColumns: true,                 //是否开冻结列
+            fixedNumber: "3",                     //结列数
             columns: tableColumns[currentType][currentSubtype],
         });
     };
@@ -1835,8 +1837,9 @@ var QUERY = function () {
      * */
     var initDocumentResize = function () {
         $(window).resize(function () {
-            var height = getTableContianerHeight() - 50;
-            if($.isValidObject(tableObj)){
+            if($('.operating-data-query').is(":visible") &&  $.isValidObject(tableObj)){
+                $('.table-contianer').height(getTableContianerHeight()-20);
+                var height = $('.table-contianer').height();
                 $('#tb-datas').bootstrapTable('resetView',{
                     height: height
                 });
@@ -1851,6 +1854,8 @@ var QUERY = function () {
         //
         $('.nav-operating-data-query').on('click', function () {
             queryModalShow();
+
+            $('.table-contianer').height(getTableContianerHeight()-20);
         });
     };
 
@@ -1869,9 +1874,9 @@ var QUERY = function () {
      * */
     var getTableContianerHeight = function () {
         var  body = $('body').height();
-        var head = $('.headbar')[0].clientHeight;
-        var  nav = $('.nav-menu')[0].clientHeight;
-        var  innerNav = $('.data-query-summary')[0].clientHeight;
+        var head = $('.headbar').outerHeight() + parseInt($('.headbar').css('marginBottom'));
+        var  nav = $('.nav-menu').outerHeight() +parseInt($('.nav-menu').css('marginBottom'));
+        var  innerNav = $('.data-query-summary').outerHeight() +parseInt($('.data-query-summary').css('marginBottom'));
         return body - head - nav - innerNav;
     };
 
