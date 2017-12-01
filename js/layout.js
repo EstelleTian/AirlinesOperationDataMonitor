@@ -7,7 +7,7 @@ $(document).ready(function () {
 
         $('li',nav).removeClass('active');
         $(this).addClass('active');
-        $('#body .row').removeClass('active');
+        $('.content-container .row').removeClass('active');
         $('#home').addClass('active');
 
 
