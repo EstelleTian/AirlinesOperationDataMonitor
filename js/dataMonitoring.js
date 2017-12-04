@@ -152,7 +152,7 @@ var MONITOR = function () {
                 orient:'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj,dataOpt.fpai,type).xTime,
+                name: dataConvert(dataObj,dataOpt,type).xTime,
                 data: ["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
                 boundaryGap : false,
 
@@ -162,12 +162,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj,dataOpt.fpai,type).zoomStartTime,
+                start: dataConvert(dataObj,dataOpt,type).zoomStartTime,
                 height:13,
                 zoomLock:false,
                 minSpan:25,
                 bottom:"5",
-                end: dataConvert(dataObj,dataOpt.fpai,type).zoomEndTime
+                end: dataConvert(dataObj,dataOpt,type).zoomEndTime
             },
             this.series = [
                 {
@@ -241,7 +241,7 @@ var MONITOR = function () {
                 orient:'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj,dataOpt.faci,type).xTime,
+                name: dataConvert(dataObj,dataOpt,type).xTime,
                 data:["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
                 boundaryGap : false,
 
@@ -251,12 +251,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj,dataOpt.faci,type).zoomStartTime,
+                start: dataConvert(dataObj,dataOpt,type).zoomStartTime,
                 height:13,
                 zoomLock:false,
                 minSpan:25,
                 bottom:"5",
-                end: dataConvert(dataObj,dataOpt.faci,type).zoomEndTime
+                end: dataConvert(dataObj,dataOpt,type).zoomEndTime
             },
             this.series =[
                 {
@@ -330,7 +330,7 @@ var MONITOR = function () {
             orient:'vertical'
         },
         this.xAxis = {
-            name: dataConvert(dataObj,"ATMI_FCDM_HOUR",type).xTime,
+            name: dataConvert(dataObj,"",type).xTime,
                 data: ["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
                 boundaryGap : false,
 
@@ -340,12 +340,12 @@ var MONITOR = function () {
         },
         this.dataZoom = {
             show: true,
-                start: dataConvert(dataObj,"ATMI_FCDM_HOUR",type).zoomStartTime,
+                start: dataConvert(dataObj,"",type).zoomStartTime,
                 height:13,
                 zoomLock:false,
                 minSpan:25,
                 bottom:"5",
-                end: dataConvert(dataObj,"ATMI_FCDM_HOUR",type).zoomEndTime
+                end: dataConvert(dataObj,"",type).zoomEndTime
         },
         this.series =[
             {
@@ -428,7 +428,7 @@ var MONITOR = function () {
             orient:'vertical'
         },
         this.xAxis = {
-            name: dataConvert(dataObj,"OSCI_FOSC_HOUR",type).xTime,
+            name: dataConvert(dataObj,"",type).xTime,
             data: ["00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"],
             boundaryGap : false,
             right:"5"
@@ -439,12 +439,12 @@ var MONITOR = function () {
         },
         this.dataZoom = {
             show: true,
-                start: dataConvert(dataObj,"OSCI_FOSC_HOUR",type).zoomStartTime,
+                start: dataConvert(dataObj,"",type).zoomStartTime,
                 height:13,
                 zoomLock:false,
                 minSpan:25,
                 bottom:"5",
-                end: dataConvert(dataObj,"OSCI_FOSC_HOUR",type).zoomEndTime
+                end: dataConvert(dataObj,"",type).zoomEndTime
         },
         this.series = [
             {

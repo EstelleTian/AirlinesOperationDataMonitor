@@ -10,12 +10,9 @@ var LOGIN = function () {
     /**
      * 用户登录
      */
-    function isValidLogonInfo(userName,passWord) {
+    function isValidLogonInfo() {
         // 验证登陆信息
-        if (!$.isValidVariable(userName) || $.trim(userName) == ''
-            || !$.isValidVariable(passWord) || $.trim(passWord) == '') {
             $("#data_form").bootstrapValidator({
-                message: '验证失败',
                 feedbackIcons: {
                     valid: 'glyphicon glyphicon-ok',
                     invalid: 'glyphicon glyphicon-remove',
@@ -39,23 +36,28 @@ var LOGIN = function () {
                     }
                 }
             })
+            $('#data_form').data('bootstrapValidator').validate();
+            if(!$('#data_form').data('bootstrapValidator').isValid()){
             return false;
         }
-
         return true;
     }
     function login(userName,passWord) {
-        if(isValidLogonInfo(userName,passWord)){
+        if(isValidLogonInfo()){
             $.ajax({
                 type: "GET",
-                url: "http://192.168.243.104:1566/shareDataPlatform/login/{"+userName+"}/{"+passWord+"}",
+                url: "http://192.168.243.104:1566/shareDataPlatform/login/"+userName+"/"+passWord+"",
                 dataType: "json",
                 success:function (data) {
                    if($.isValidObject(data)){
-                       localStorage.removeItem("loginTime","")
-                       var generatetime = data.generatetime;
-                       localStorage.setItem("loginTime",generatetime)
-                       window.location = "home.html";
+                       if(data.status == 200){
+                           localStorage.removeItem("loginTime","")
+                           var generatetime = data.generatetime;
+                           localStorage.setItem("loginTime",generatetime)
+                           window.location = "home.html";
+                       }else{
+                           console.log("账号不存在/账号密码不匹配")
+                       }
                    }
                 },
                 error:function (error) {
@@ -63,7 +65,7 @@ var LOGIN = function () {
                 }
             })
         }else{
-
+                console.log("12456")
         }
     }
     $(".sub_button").click(function () {
