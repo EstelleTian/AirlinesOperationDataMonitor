@@ -30,7 +30,13 @@ header{
     list-style: none;
     color: #fff;
 }
-s
+.user_detail{
+    padding-left: 0;
+}
+.loginer_name{
+    display: inline-block;
+    text-align: center;
+}
 .headbar .user-info ul, .user-info li {
     margin: 0px;
     padding: 0px;
@@ -42,6 +48,12 @@ s
 }
 .headbar .avatar {
     margin-right: 1rem;
+    width: 35px;
+    height: 35px;
+}
+.headbar .avatar img{
+    width: 35px;
+    height: 35px;
 }
 .headbar .login-out a{
     color:#A1EAFF; font-weight:normal;

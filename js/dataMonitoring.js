@@ -43,9 +43,6 @@ var MONITOR = function () {
                     //航班机组人员
                     $(".fcri").html(totalDataCount.ALOI_FCRI_DATA)
                     $(".fcri_file").html(totalDataCount.ALOI_FCRI_FILE)
-                    //航空器
-                    $(".faci").html(totalDataCount.ALOI_FACI_DATA)
-                    $(".faci_file").html(totalDataCount.ALOI_FACI_FILE)
                     //CDM
                     $(".fcdm").html(totalDataCount.ATMI_FCDM_DATA)
                     $(".fcdm_file").html(totalDataCount.ATMI_FCDM_FILE)
@@ -237,7 +234,7 @@ var MONITOR = function () {
                 }
             },
             this.legend = {
-                data: ["航空器","机组人员","地面状态","客货","计划变更"],
+                data: ["机组人员","地面状态","客货","计划变更"],
                 top:"20",
                 right: "15",
                 textStyle:{fontSize:"11"},
@@ -263,15 +260,6 @@ var MONITOR = function () {
             },
             this.series =[
                 {
-                    name: "航空器",
-                    type: 'line',
-                    symbol:'none',
-                    smooth:true,
-                    border:0,
-                    itemStyle: {normal: {color:"#9abcc3",}},
-                    lineStyle: {normal: {color:"#9abcc3",}},
-                    data: dataConvert(dataObj,dataOpt.faci,type)
-                },{
                     name: "机组人员",
                     type: 'line',
                     symbol:'none',
@@ -617,7 +605,7 @@ var MONITOR = function () {
                     var generateTime = data.generatetime;
                     for(var i=0;i<companyDatas.length;i++){
                         companyDatas[i].currentTime = generateTime;
-                        var  flightsDom = '<div class="flight_group box company_charts"><h2>'+companyDatas[i].companyName+'航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num'+i+'"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">数量</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">'+companyDatas[i].FLGH_DATA+'</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">'+companyDatas[i].FLGH_FILE+'</p></li><li><p class="num fpln">'+companyDatas[i].FPLN_DATA+'</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">'+companyDatas[i].FPLN_FILE+'</p></li><li><p class="num fpci">'+companyDatas[i].FPCI_DATA+'</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">'+companyDatas[i].FPCI_FILE+'</p> </li> <li> <p class="num fcri">'+companyDatas[i].FCRI_DATA+'</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">'+companyDatas[i].FCRI_FILE+'</p> </li> <li> <p class="num faci">'+companyDatas[i].FACI_DATA+'</p> <p class="airport_position">航空器信息</p> <p class="f_num faci_file">'+companyDatas[i].FACI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file'+i+'"></div> <div class="clb"></div> </div> </div>'
+                        var  flightsDom = '<div class="flight_group box company_charts"><h2>'+companyDatas[i].companyName+'航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num'+i+'"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">数量</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">'+companyDatas[i].FLGH_DATA+'</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">'+companyDatas[i].FLGH_FILE+'</p></li><li><p class="num fpln">'+companyDatas[i].FPLN_DATA+'</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">'+companyDatas[i].FPLN_FILE+'</p></li><li><p class="num fpci">'+companyDatas[i].FPCI_DATA+'</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">'+companyDatas[i].FPCI_FILE+'</p> </li> <li> <p class="num fcri">'+companyDatas[i].FCRI_DATA+'</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">'+companyDatas[i].FCRI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file'+i+'"></div> <div class="clb"></div> </div> </div>'
                         fatherDom.append(flightsDom);
                         var numOptions = new CompanyOptions(companyDatas[i],"data_COUNT",companyChartOpt)
                         comNumOptions.push(numOptions);
