@@ -36,6 +36,8 @@ var HistoryData = function () {
 
         //初始化下拉列表多选插件
         initBootstrapSelect();
+        //设置上传单位名称为默认选中的类型
+        toggleTypeLabel(currentType);
         //设置默认时间
         initDates();
         //初始化日历插件datepicker

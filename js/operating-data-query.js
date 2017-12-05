@@ -1718,7 +1718,7 @@ var OperatingData = function () {
     var toggleTypeLabel = function (typeName) {
         index = BasicData.operatingDataTypeObj.val.indexOf(typeName);
         var label = BasicData.operatingDataTypeObj.label[index];
-        $('.type-label').text(label);
+        $('.query-form .type-label').text(label);
     };
 
 
