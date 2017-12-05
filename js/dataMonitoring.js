@@ -551,7 +551,8 @@ var MONITOR = function () {
                     }
                     //时间转换显示
                     var generateTime = data.generatetime;
-                    for(var i=0;i<airportsData.length;i++){
+                    var airDataLen = airportsData.length;
+                    for(var i=0;i<airDataLen;i++){
                         airportsData[i].currentTime = generateTime;
                         var  airportsDom = '<div class="flight_group box flights_charts"> <h2>'+airportsData[i].airportName+'机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num'+i+'"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">数量</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">'+airportsData[i].PSNI_DATA+'</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">'+airportsData[i].PSNI_FILE+'</p> </li> <li> <p class="num fpdi">'+airportsData[i].FPDI_DATA+'</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">'+airportsData[i].FPDI_FILE+'</p> </li> <li> <p class="num fpai">'+airportsData[i].FPAI_DATA+'</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">'+airportsData[i].FPAI_FILE+'</p> </li> <li> <p class="num ppci">'+airportsData[i].PPCI_DATA+'</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">'+airportsData[i].PPCI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file'+i+'"></div><div class="clb"></div> </div> </div>'
                         fatherDom.append(airportsDom);
@@ -560,7 +561,8 @@ var MONITOR = function () {
                         var fileOptions = new AirportsOptions(airportsData[i],"file_COUNT",airportChartOpt)
                         airFileOptions.push(fileOptions);
                     }
-                    for(var j=0;j<$(".flights_charts").length;j++){
+                    var flightChartLen = $(".flights_charts").length
+                    for(var j=0;j<flightChartLen;j++){
                         var chartsMulNum = echarts.init($("#airport_num"+j)[0])
                         var chartsMulFile = echarts.init($("#airport_file"+j)[0])
                         airportsChartArr.numChartArr.push(chartsMulNum);
@@ -603,7 +605,8 @@ var MONITOR = function () {
                     }
                     //时间转换显示
                     var generateTime = data.generatetime;
-                    for(var i=0;i<companyDatas.length;i++){
+                    var comDataLen = companyDatas.length
+                    for(var i=0;i<comDataLen;i++){
                         companyDatas[i].currentTime = generateTime;
                         var  flightsDom = '<div class="flight_group box company_charts"><h2>'+companyDatas[i].companyName+'航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num'+i+'"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">数量</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">'+companyDatas[i].FLGH_DATA+'</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">'+companyDatas[i].FLGH_FILE+'</p></li><li><p class="num fpln">'+companyDatas[i].FPLN_DATA+'</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">'+companyDatas[i].FPLN_FILE+'</p></li><li><p class="num fpci">'+companyDatas[i].FPCI_DATA+'</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">'+companyDatas[i].FPCI_FILE+'</p> </li> <li> <p class="num fcri">'+companyDatas[i].FCRI_DATA+'</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">'+companyDatas[i].FCRI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file'+i+'"></div> <div class="clb"></div> </div> </div>'
                         fatherDom.append(flightsDom);
@@ -612,7 +615,8 @@ var MONITOR = function () {
                         var fileOptions = new CompanyOptions(companyDatas[i],"file_COUNT",companyChartOpt)
                         comFileOptions.push(fileOptions)
                     }
-                    for(var j=0;j<$(".company_charts").length;j++){
+                    var comChartsLen = $(".company_charts").length
+                    for(var j=0;j<comChartsLen;j++){
                         var chartsMulNum = echarts.init($("#flight_num"+j)[0])
                         var chartsMulFile = echarts.init($("#flight_file"+j)[0])
                         companyChartsArr.numChartArr.push(chartsMulNum);
@@ -662,7 +666,7 @@ var MONITOR = function () {
             resizeFit();
         });
     }
-//适应屏幕宽高尺寸
+    //适应屏幕宽高尺寸
     $.fn.resizeEnd = function (callback, timeout) {
         $(this).resize(function () {
             var $this = $(this);
