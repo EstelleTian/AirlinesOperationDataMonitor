@@ -58,8 +58,19 @@ var HistoryData = function () {
 
     var initNavTabEvent = function () {
         $('.nav-history-data-statistics').on('click',function () {
+            // 计算echarts容器高度
             $('.charts-wrap').height(getChartsWrapHeight()-20);
+            // 若数据总数图表存在，则重新设置图表尺寸
+            if($.isValidObject(dataCountChart)){
+                dataCountChart.resize();
+            }
+            // 若文件总数图表存在，则重新设置图表尺寸
+            if($.isValidObject(fileCountChart)){
+                fileCountChart.resize();
+            }
         });
+
+
     };
 
     /**
