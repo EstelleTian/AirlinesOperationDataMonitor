@@ -1559,7 +1559,7 @@ var OperatingData = function () {
     var initBootstrapSelect = function(){
         $('#subtype').selectpicker({
             liveSearch: true,
-            maxOptions: 1,
+            // maxOptions: 1,
         });
 
         $('#unit-list').selectpicker({
