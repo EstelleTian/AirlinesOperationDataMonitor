@@ -1693,8 +1693,8 @@ var OperatingData = function () {
             clickToSelect: true,                //是否启用点击选中行
             height: height,                      //定义表格的高度
             uniqueId: "id",                     //每一行的唯一标识，一般为主键列
-            fixedColumns: true,                 //是否开冻结列
-            fixedNumber: "3",                     //结列数
+            // fixedColumns: true,                 //是否开冻结列
+            // fixedNumber: "3",                     //结列数
             columns: tableColumns[currentType][currentSubtype],
         });
     };
