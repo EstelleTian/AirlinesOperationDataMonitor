@@ -58,6 +58,15 @@ var LOGIN = function () {
                            localStorage.setItem("userName",userName)
                            window.location = "home.html";
                        }else{
+                           if(data.error == "密码错误"){
+                               $(".form-group").removeClass("has-success");
+                               $(".user").addClass("has-success")
+                               $(".pwd").find(".form-control-feedback").removeClass("glyphicon-ok");
+                               $(".pwd").find(".form-control-feedback").addClass("glyphicon-remove");
+                               $(".pwd").addClass("error");
+                               $(".error_tip").text(data.error).addClass("error");
+                               return
+                           }
                            $(".form-group").removeClass("has-success");
                            $(".form-control-feedback").removeClass("glyphicon-ok");
                            $(".form-control-feedback").addClass("glyphicon-remove");
@@ -81,6 +90,14 @@ var LOGIN = function () {
         var loginPassWord = $('#inputPassword').val();
         login(loginUserName,loginPassWord);
     })
+    $(window).keydown(function (event) {
+        switch (event.keyCode) {
+            case 13:
+                var loginUserName = $('#inputName').val();
+                var loginPassWord = $('#inputPassword').val();
+                login(loginUserName,loginPassWord);
+        };
+    });
 }
 $(document).ready(function () {
     LOGIN();
