@@ -1,5 +1,5 @@
 .operating-data-query .table-contianer {
-    min-height: 20rem;
+    min-height: 15rem;
     color: #646464;
     font-size: 14px;
 }
@@ -81,6 +81,9 @@
     padding: 0.45rem 0.9rem;
 }
 
+body.hide-modal, body.modal-open {
+    padding-right: 0px !important;
+}
 body.hide-modal #bootstrap-modal-dialog,
 body.hide-modal .modal-backdrop {
     display: none !important;
@@ -94,7 +97,7 @@ body.hide-modal .modal-backdrop {
     .operating-data-query .data-query-summary .summary {
         width: 100%;
     }
-    .generate-time {
+    .operating-data-query .generate-time {
         position: absolute;
         top: 5rem;
         font-weight: normal;
