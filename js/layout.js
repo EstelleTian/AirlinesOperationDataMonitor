@@ -29,13 +29,16 @@ $(document).ready(function () {
    });
     //登录时间
     var generateTime = localStorage.getItem("loginTime");
-    var dataTime ="登录时间:"+
-        generateTime.substring(0, 4) + '-' +
-        generateTime.substring(4, 6) + '-' +
-        generateTime.substring(6, 8) + '  ' +
-        generateTime.substring(8, 10) + ':' +
-        generateTime.substring(10, 12);
-    $(".login-time").text(dataTime);
+    if($.isValidVariable(generateTime)){
+        var dataTime ="登录时间:"+
+            generateTime.substring(0, 4) + '-' +
+            generateTime.substring(4, 6) + '-' +
+            generateTime.substring(6, 8) + '  ' +
+            generateTime.substring(8, 10) + ':' +
+            generateTime.substring(10, 12);
+        $(".login-time").text(dataTime);
+    }
+
     var userName = localStorage.getItem("userName");
     $(".loginer_name").text(userName);
     // 登出

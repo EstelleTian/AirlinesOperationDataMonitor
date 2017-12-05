@@ -49,7 +49,7 @@ var OperatingData = function () {
         '</div>'+
         '</div>'+
         '<div class="row">'+
-        '<div class="col-xs-12 alert-container">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1 alert-container">' +
         '</div>' +
         '</div>'+
         '</div></div></div>';
@@ -1286,7 +1286,7 @@ var OperatingData = function () {
             status: 1,//1:正常 2:警告 3:危险  不填:默认情况
             width : 890,
             showCancelBtn :false,
-            mtop: 100,
+            mtop: 200,
             isIcon : false,
             buttons : [{
                 name:"查询",
@@ -1647,7 +1647,7 @@ var OperatingData = function () {
      *  mess str 警告信息内容
      * */
     var showAlear = function (mess) {
-        var $dom = $('.history-data-statistics .alert-container');
+        var $dom = $('.query-form .alert-container');
         var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
             '<p id="alert-mess">'+ mess +' </p>' +

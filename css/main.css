@@ -12,6 +12,18 @@ body{
     font-family: Calibri, 'Microsoft Yahei',"Helvetica Neue",Helvetica,Arial, sans-serif;
     /*font-family: Tahoma, Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;*/
 }
+body.hide-modal, body.modal-open {
+    padding-right: 0px !important;
+}
+body.hide-modal #bootstrap-modal-dialog,
+body.hide-modal .modal-backdrop {
+    display: none !important;
+}
+#bootstrap-modal-dialog-body .row p {
+    padding: 6px 0px;
+    margin: 0px;
+}
+
 
 header{
     margin-bottom: 1rem;
