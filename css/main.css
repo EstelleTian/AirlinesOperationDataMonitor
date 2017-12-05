@@ -34,13 +34,16 @@ header{
     padding-top: 1rem;
     padding-bottom: 1rem;
 }
-
+.headbar .pull-right{
+    margin-left: 10px;
+}
 .headbar .user-info {
     margin: 0px;
     margin-top: 0.8rem;
     padding-right: 1.5rem;
     list-style: none;
     color: #fff;
+    font-size: 16px;
 }
 .user_detail{
     padding-left: 0;
@@ -60,12 +63,12 @@ header{
 }
 .headbar .avatar {
     margin-right: 1rem;
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 .headbar .avatar img{
-    width: 35px;
-    height: 35px;
+    width: 50px;
+    height: 50px;
 }
 .headbar .login-out a{
     color:#A1EAFF; font-weight:normal;
@@ -78,13 +81,14 @@ header{
     color: #C2C2C2;
 }
 .headbar .navbar-brand {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
     color: #fff;
     padding-left: 1rem;
 }
 .headbar .navbar-brand:hover, .headbar .navbar-brand:active, .headbar .navbar-brand:focus{
     color: #fff;
+
 }
 .nav-menu {
     margin-bottom: 1rem;
@@ -141,7 +145,15 @@ header{
     -webkit-border-radius: 5px 5px 0px 0px; /* Safari, Chrome */
     border-radius: 5px 5px 0px 0px; /* CSS3 */
 }
-
+.data_time{
+    float: right;
+    margin-right: 10px;
+    font-size:16px;
+    color: #fff;
+    height: 37px;
+    line-height: 37px;
+    font-weight: bold;
+}
 @media (min-width: 1280px){
     .container {
          width: 1220px;
