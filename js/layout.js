@@ -10,6 +10,7 @@ $(document).ready(function () {
         $('.content-container .row').removeClass('active');
         $('#home').addClass('active');
         MONITOR.resizeFit();
+        $(".data_time").show();
     });
     // 历史运行数据量统计
    $('.nav-history-data-statistics').on('click',function () {
@@ -18,6 +19,7 @@ $(document).ready(function () {
       $(this).addClass('active');
       $('.content-container .row').removeClass('active');
       $('.history-data-statistics').addClass('active');
+       $(".data_time").hide();
 
    });
     // 运行数据查询
@@ -26,6 +28,7 @@ $(document).ready(function () {
        $(this).addClass('active');
        $('.content-container .row').removeClass('active');
        $('.operating-data-query').addClass('active');
+       $(".data_time").hide();
    });
     //登录时间
     var generateTime = localStorage.getItem("loginTime");
