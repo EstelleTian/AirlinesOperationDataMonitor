@@ -29,7 +29,8 @@ var HistoryData = function () {
         date : [],
         fileCount : [],
         dataCount : [],
-        seriesType : 'bar'
+        seriesType : 'bar',
+        colors: ['#9abcc3','#CCCCFF','#1ABB9C','#3498DB','#E74C3C'],
     };
     // 初始化组件
     var initComponent = function () {
@@ -305,20 +306,33 @@ var HistoryData = function () {
         echartOption.dataCount = [];
         // 当前子类型
         var subtypes = currentSubtype  || getSubtypes(BasicData.historyDataTypeObj.result[currentType].subtype );
-        subtypes.map(function (item) {
+        subtypes.map(function (item,index) {
             // 新建对象
             var fileCountObj = {
                 name : BasicData.historyDataTypeObj.result[currentType].subtype[item], // 当前子类型对应的中文名称
                 type : echartOption.seriesType,
+                itemStyle : {
+                    normal : {
+                        color: echartOption.colors[index],
+                    }
+                },
                 data : []
             };
             var dataCountObj = {
                 name : BasicData.historyDataTypeObj.result[currentType].subtype[item], // 当前子类型对应的中文名称
                 type : echartOption.seriesType,
+                itemStyle : {
+                    normal : {
+                        color: echartOption.colors[index],
+                    }
+                },
                 data : []
             };
             // 遍历数据日期
             echartOption.date.map(function (d) {
+                if(!$.isValidObject(result[d][item])){
+                    return;
+                }
                 var obj = result[d][item][0]; // 数据目标对象
                 if($.isValidObject(obj)){
                     // 更新对象data
