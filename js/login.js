@@ -52,11 +52,18 @@ var LOGIN = function () {
                    if($.isValidObject(data)){
                        if(data.status == 200){
                            localStorage.removeItem("loginTime","")
+                           localStorage.removeItem("userName","")
                            var generatetime = data.generatetime;
                            localStorage.setItem("loginTime",generatetime)
+                           localStorage.setItem("userName",userName)
                            window.location = "home.html";
                        }else{
-                           console.log("账号不存在/账号密码不匹配")
+                           $(".form-group").removeClass("has-success");
+                           $(".form-control-feedback").removeClass("glyphicon-ok");
+                           $(".form-control-feedback").addClass("glyphicon-remove");
+                           $(".form-group").addClass("has-error");
+                           $(".error_tip").text(data.error).addClass("error");
+
                        }
                    }
                 },
@@ -65,7 +72,7 @@ var LOGIN = function () {
                 }
             })
         }else{
-                console.log("12456")
+
         }
     }
     $(".sub_button").click(function () {
