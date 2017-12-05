@@ -30,7 +30,23 @@
     .flight_group{
       width: 100%;
       min-height: 210px;
-      margin: 5px  1%;
+      margin: 5px  0;
+      h2{
+        overflow: hidden;
+        .airports_detail{
+          color: #337ab7;
+          font-size: 11px;
+        }
+        .airports_detail:hover{
+          color: #1B548D ;
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+      .infor_time{
+        float: right;
+        padding-right: 15px;
+      }
       .information{
         width: 100%;
         padding-top: 5px;
@@ -55,7 +71,7 @@
           }
           .airport_head{
             overflow: hidden;
-            min-height: 41px;
+            min-height: 38px;
             border-bottom: 1px solid @border_color;
             text-align: center;
             .file_num{
@@ -84,7 +100,7 @@
             li{
               width: 100%;
               overflow: hidden;
-              margin: 2px 0;
+              margin: 3px 0;
               max-height: 22px;
               text-align: center;
               p{
@@ -130,12 +146,30 @@
   #airport_container{
     width: 100%;
     height: 95%;
-    padding-top: 15px;
     clear: both;
+    .breadcrumb{
+      overflow: hidden;
+      li{
+        float: left;
+        a{
+          cursor: pointer;
+        }
+      }
+      .curnt{
+        color: #000;
+      }
+    }
     .flight_group{
       width: 100%;
       min-height: 210px;
-      margin: 5px  1%;
+      margin: 5px  0;
+      h2{
+        overflow: hidden;
+      }
+      .infor_time{
+        float: right;
+        padding-right: 15px;
+      }
       .information{
         width: 100%;
         padding-top: 5px;
@@ -162,23 +196,24 @@
             overflow: hidden;
             min-height: 41px;
             border-bottom: 1px solid @border_color;
+            text-align: center;
             .file_num{
               float: right;
+              width: 20%;
               margin: 10px 0;
-              padding-right: 5%;
               color: @font_color;
             }
             .airport_num{
               float: left;
               margin: 10px 0;
-              padding-left: 5%;
+              width: 20%;
               color: @font_color;
 
             }
             .information_name{
               float: left;
               margin: 10px 0;
-              padding: 0 20%;
+              width: 60%;
               color: @font_color;
             }
           }
@@ -235,12 +270,27 @@
   #company_container{
     width: 100%;
     height: 95%;
-    padding-top: 15px;
     clear: both;
+    .breadcrumb{
+      overflow: hidden;
+      li{
+        float: left;
+        a{
+          cursor: pointer;
+        }
+      }
+    }
     .flight_group{
       width: 100%;
       min-height: 210px;
-      margin: 5px  1%;
+      margin: 5px  0;
+      h2{
+        overflow: hidden;
+      }
+      .infor_time{
+        float: right;
+        padding-right: 15px;
+      }
       .information{
         width: 100%;
         padding-top: 5px;
@@ -267,23 +317,24 @@
             overflow: hidden;
             min-height: 41px;
             border-bottom: 1px solid @border_color;
+            text-align: center;
             .file_num{
               float: right;
+              width: 20%;
               margin: 10px 0;
-              padding-right: 5%;
               color: @font_color;
             }
             .airport_num{
               float: left;
               margin: 10px 0;
-              padding-left: 5%;
+              width: 20%;
               color: @font_color;
 
             }
             .information_name{
               float: left;
               margin: 10px 0;
-              padding: 0 20%;
+              width: 60%;
               color: @font_color;
             }
           }

@@ -9,8 +9,7 @@ $(document).ready(function () {
         $(this).addClass('active');
         $('.content-container .row').removeClass('active');
         $('#home').addClass('active');
-
-
+        MONITOR.resizeFit();
     });
     // 历史运行数据量统计
    $('.nav-history-data-statistics').on('click',function () {
@@ -28,6 +27,17 @@ $(document).ready(function () {
        $('.content-container .row').removeClass('active');
        $('.operating-data-query').addClass('active');
    });
+    //登录时间
+    var generateTime = localStorage.getItem("loginTime");
+    var dataTime ="登录时间:"+
+        generateTime.substring(0, 4) + '-' +
+        generateTime.substring(4, 6) + '-' +
+        generateTime.substring(6, 8) + '  ' +
+        generateTime.substring(8, 10) + ':' +
+        generateTime.substring(10, 12);
+    $(".login-time").text(dataTime);
+    var userName = localStorage.getItem("userName");
+    $(".loginer_name").text(userName);
     // 登出
 
 });

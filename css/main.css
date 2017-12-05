@@ -30,7 +30,13 @@ header{
     list-style: none;
     color: #fff;
 }
-
+.user_detail{
+    padding-left: 0;
+}
+.loginer_name{
+    display: inline-block;
+    text-align: center;
+}
 .headbar .user-info ul, .user-info li {
     margin: 0px;
     padding: 0px;
@@ -42,6 +48,12 @@ header{
 }
 .headbar .avatar {
     margin-right: 1rem;
+    width: 35px;
+    height: 35px;
+}
+.headbar .avatar img{
+    width: 35px;
+    height: 35px;
 }
 .headbar .login-out a{
     color:#A1EAFF; font-weight:normal;
@@ -54,7 +66,7 @@ header{
     color: #C2C2C2;
 }
 .headbar .navbar-brand {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 700;
     color: #fff;
     padding-left: 1rem;
