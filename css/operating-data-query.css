@@ -42,10 +42,16 @@
 }
 
 .modal-header {
+    padding-left: 3rem;
+    padding-right: 3rem;
     /*background:#E6F0F3;*/
     background:#f2fbfd;
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
+}
+.modal-header .close{
+    line-height: 0.6;
+    font-size: 32px;
 }
 .modal-body .date-datepicker {
     margin-bottom: 1.5rem;

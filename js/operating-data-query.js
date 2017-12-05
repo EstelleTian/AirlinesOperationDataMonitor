@@ -1394,13 +1394,14 @@ var OperatingData = function () {
         var options = {
             title : "运行数据查询",
             content :  content,
-            status: 1,//1:正常 2:警告 3:危险  不填:默认情况
+            status: 0,//1:正常 2:警告 3:危险  不填:默认情况
             width : 890,
             showCancelBtn :false,
             mtop: 200,
             isIcon : false,
             buttons : [{
                 name:"查询",
+                status : 0,
                 isHidden : false,
                 className: 'submit-form',
                 callback : function () {
@@ -1717,7 +1718,7 @@ var OperatingData = function () {
     var toggleTypeLabel = function (typeName) {
         index = BasicData.operatingDataTypeObj.val.indexOf(typeName);
         var label = BasicData.operatingDataTypeObj.label[index];
-        $('.type-label').text(label);
+        $('.query-form .type-label').text(label);
     };
 
 
@@ -1744,10 +1745,18 @@ var OperatingData = function () {
      *  拼接下拉列表串
      * */
     var concatOptionString = function (obj) {
+        // 通过Object.keys()获取对象可枚举属性所组成的数组
+        var array = Object.keys(obj);
         var arr = [];
-        for(var i in obj){
-            arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+        // 若array的长度为1，则下拉列表只不一项，设置其为选中
+        if(array.length ==1){
+            arr.push('<option selected  value="'+ array[0] +'">' + obj[array[0]] +'</option>');
+        }else if(array.length > 1) {
+            for(var i in obj){
+                arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+            }
         }
+
         return arr.join(' ');
     };
 
