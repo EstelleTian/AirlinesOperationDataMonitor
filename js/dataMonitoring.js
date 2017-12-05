@@ -166,6 +166,9 @@ var MONITOR = function () {
             },
             this.yAxis = {
                 name: inforType,
+                type : 'value',
+                minInterval : 1
+
             },
             this.dataZoom = {
                 show: true,
@@ -255,6 +258,8 @@ var MONITOR = function () {
             },
             this.yAxis = {
                 name: inforType,
+                type : 'value',
+                minInterval : 1
             },
             this.dataZoom = {
                 show: true,
@@ -344,6 +349,8 @@ var MONITOR = function () {
         },
         this.yAxis = {
             name: inforType,
+            type : 'value',
+            minInterval : 1
         },
         this.dataZoom = {
             show: true,
@@ -443,6 +450,8 @@ var MONITOR = function () {
         },
         this.yAxis = {
             name: inforType,
+            type : 'value',
+            minInterval : 1
         },
         this.dataZoom = {
             show: true,
