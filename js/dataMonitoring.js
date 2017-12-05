@@ -14,6 +14,13 @@ var MONITOR = function () {
                     var totalDataCount = data.totalDataCount
                     //时间转换显示
                     var generateTime = data.generatetime;
+                    var dataTime = "数据生成时间:"+
+                        generateTime.substring(0, 4) + '-' +
+                        generateTime.substring(4, 6) + '-' +
+                        generateTime.substring(6, 8) + '  ' +
+                        generateTime.substring(8, 10) + ':' +
+                        generateTime.substring(10, 12);
+                    $(".data_time").text(dataTime);
                     for(var x in totalDataCount){
                         if(totalDataCount[x] === "undefined"||totalDataCount[x] === ""||totalDataCount[x] === "NAN"){
                             totalDataCount[x] = "-";
