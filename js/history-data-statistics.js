@@ -550,7 +550,7 @@ var HistoryData = function () {
                 currentType = $('#'+ typeSelector).val();
                 HistoryData.currentType = $('#'+ typeSelector).val();
                 updateSelectPicker(val);
-
+                toggleTypeLabel(val);
             }
         });
         //设置当前选中的类型
@@ -593,6 +593,16 @@ var HistoryData = function () {
             arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
         }
         return arr.join(' ');
+    };
+
+    /**
+     * 切换类型标签
+     * val 选中的单选按钮值
+     */
+    var toggleTypeLabel = function (typeName) {
+        index = BasicData.operatingDataTypeObj.val.indexOf(typeName);
+        var label = BasicData.operatingDataTypeObj.label[index];
+        $('.history-data-statistics .type-label').text(label);
     };
 
 
