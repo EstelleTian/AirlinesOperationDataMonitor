@@ -121,7 +121,6 @@ var OperatingData = function () {
                 {
                     field: 'rowNumber',
                     title: '行号',
-                    width : 50,
                     formatter: function (value, row, index) {
                         return index+1;
                     }
@@ -288,6 +287,13 @@ var OperatingData = function () {
             ],
             'FPDI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -389,6 +395,13 @@ var OperatingData = function () {
             ],
             'FPAI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -441,6 +454,13 @@ var OperatingData = function () {
             ],
             'PPCI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -461,6 +481,13 @@ var OperatingData = function () {
         },
         'ALOI' : {
             'FLGH' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -598,6 +625,13 @@ var OperatingData = function () {
             ],
             'FPLN' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -649,6 +683,13 @@ var OperatingData = function () {
                 },
             ],
             'FPCI' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -726,6 +767,13 @@ var OperatingData = function () {
             ],
             'FCRI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -775,6 +823,13 @@ var OperatingData = function () {
             ],
             'FACI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -798,6 +853,13 @@ var OperatingData = function () {
         },
         'ATMI' : {
             'FCDM' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -841,6 +903,13 @@ var OperatingData = function () {
                 }
             ],
             'FTMI' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -897,6 +966,13 @@ var OperatingData = function () {
             ],
             'PADR' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -933,6 +1009,13 @@ var OperatingData = function () {
                 }
             ],
             'MDRS' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -971,6 +1054,13 @@ var OperatingData = function () {
             ],
             'SECT' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -985,6 +1075,13 @@ var OperatingData = function () {
         },
         'OSCI' : {
             'FOSC' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -1074,6 +1171,13 @@ var OperatingData = function () {
             ],
             'FPER' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
                     field: 'id',
                     title: 'ID'
                 },
@@ -1116,6 +1220,13 @@ var OperatingData = function () {
                 }
             ],
             'PPER' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
                 {
                     field: 'id',
                     title: 'ID'
@@ -1215,7 +1326,7 @@ var OperatingData = function () {
     //表格排序列集合
     var tableSortName = {
         'APOI' : {
-            'PSNI' : '',
+            'PSNI' : 'id',
             'FPDI' : 'id',
             'FPAI' : 'id',
             'PPCI' : 'id'
@@ -1559,7 +1670,7 @@ var OperatingData = function () {
     var initBootstrapSelect = function(){
         $('#subtype').selectpicker({
             liveSearch: true,
-            // maxOptions: 1,
+            maxOptions: 1,
         });
 
         $('#unit-list').selectpicker({
