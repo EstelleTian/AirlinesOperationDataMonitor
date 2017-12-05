@@ -1745,10 +1745,18 @@ var OperatingData = function () {
      *  拼接下拉列表串
      * */
     var concatOptionString = function (obj) {
+        // 通过Object.keys()获取对象可枚举属性所组成的数组
+        var array = Object.keys(obj);
         var arr = [];
-        for(var i in obj){
-            arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+        // 若array的长度为1，则下拉列表只不一项，设置其为选中
+        if(array.length ==1){
+            arr.push('<option selected  value="'+ array[0] +'">' + obj[array[0]] +'</option>');
+        }else if(array.length > 1) {
+            for(var i in obj){
+                arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+            }
         }
+
         return arr.join(' ');
     };
 
