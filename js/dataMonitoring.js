@@ -121,7 +121,7 @@ var MONITOR = function () {
         fpln:"ALOI_FPLN_HOUR",
 
     }
-    var AirportsOptions = function (dataObj,type,dataOpt) {
+    var AirportsOptions = function (dataObj,type,dataOpt,inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color =  ['#3398DB'],
             this.title =  {
@@ -158,7 +158,7 @@ var MONITOR = function () {
 
             },
             this.yAxis = {
-                name: "数量/个",
+                name: inforType,
             },
             this.dataZoom = {
                 show: true,
@@ -209,7 +209,7 @@ var MONITOR = function () {
                 }
             ]
     }
-    var CompanyOptions = function (dataObj,type,dataOpt) {
+    var CompanyOptions = function (dataObj,type,dataOpt,inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -247,7 +247,7 @@ var MONITOR = function () {
 
             },
             this.yAxis = {
-                name: "数量/个",
+                name: inforType,
             },
             this.dataZoom = {
                 show: true,
@@ -298,7 +298,7 @@ var MONITOR = function () {
                 }
             ]
     }
-    var ManageOptions = function (dataObj,type) {
+    var ManageOptions = function (dataObj,type,inforType) {
         this.backgroundColor = '#FFFFFF',
         this.color = ['#3398DB'],
         this.title = {
@@ -336,7 +336,7 @@ var MONITOR = function () {
 
         },
         this.yAxis = {
-            name: "数量/个",
+            name: inforType,
         },
         this.dataZoom = {
             show: true,
@@ -396,7 +396,7 @@ var MONITOR = function () {
             }
         ]
     }
-    var MonitorOption =function (dataObj,type) {
+    var MonitorOption =function (dataObj,type,inforType) {
         this.backgroundColor = '#FFFFFF',
         this.color = ['#3398DB'],
         this.title = {
@@ -435,7 +435,7 @@ var MONITOR = function () {
 
         },
         this.yAxis = {
-            name: "数量/个",
+            name: inforType,
         },
         this.dataZoom = {
             show: true,
@@ -479,14 +479,14 @@ var MONITOR = function () {
     }
     var charts = new Charts($("#airport_num_chart")[0],$("#airport_file_chart")[0],$("#flight_num_chart")[0],$("#flight_file_chart")[0],$("#manage_num_chart")[0],$("#manage_file_chart")[0],$("#monitor_num_chart")[0],$("#monitor_file_chart")[0])
     var initCurveCharts = function (dataObj) {
-        var airportNumOption = new AirportsOptions(dataObj,"data_COUNT",indexAirChartOpt)
-        var airportFileOption = new AirportsOptions(dataObj,"file_COUNT",indexAirChartOpt);
-        var companyNumOption = new CompanyOptions(dataObj,"data_COUNT",indexComChartOpt);
-        var companyFileOption = new CompanyOptions(dataObj,"file_COUNT",indexComChartOpt);
-        var manageNumOption = new ManageOptions(dataObj,"data_COUNT");
-        var manageFileOption = new ManageOptions(dataObj,"file_COUNT");;
-        var monitorNumOption = new MonitorOption(dataObj,"data_COUNT");
-        var monitorFileOption = new MonitorOption(dataObj,"file_COUNT");
+        var airportNumOption = new AirportsOptions(dataObj,"data_COUNT",indexAirChartOpt,"信息数/个")
+        var airportFileOption = new AirportsOptions(dataObj,"file_COUNT",indexAirChartOpt,"文件数/个");
+        var companyNumOption = new CompanyOptions(dataObj,"data_COUNT",indexComChartOpt,"信息数/个");
+        var companyFileOption = new CompanyOptions(dataObj,"file_COUNT",indexComChartOpt,"文件数/个");
+        var manageNumOption = new ManageOptions(dataObj,"data_COUNT","信息数/个");
+        var manageFileOption = new ManageOptions(dataObj,"file_COUNT","文件数/个");
+        var monitorNumOption = new MonitorOption(dataObj,"data_COUNT","信息数/个");
+        var monitorFileOption = new MonitorOption(dataObj,"file_COUNT","文件数/个");
 // 曲线图参数设置。
         charts.airportNumChart.setOption(airportNumOption);
         charts.airportFlieChart.setOption(airportFileOption);
@@ -554,11 +554,11 @@ var MONITOR = function () {
                     var airDataLen = airportsData.length;
                     for(var i=0;i<airDataLen;i++){
                         airportsData[i].currentTime = generateTime;
-                        var  airportsDom = '<div class="flight_group box flights_charts"> <h2>'+airportsData[i].airportName+'机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num'+i+'"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">数量</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">'+airportsData[i].PSNI_DATA+'</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">'+airportsData[i].PSNI_FILE+'</p> </li> <li> <p class="num fpdi">'+airportsData[i].FPDI_DATA+'</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">'+airportsData[i].FPDI_FILE+'</p> </li> <li> <p class="num fpai">'+airportsData[i].FPAI_DATA+'</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">'+airportsData[i].FPAI_FILE+'</p> </li> <li> <p class="num ppci">'+airportsData[i].PPCI_DATA+'</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">'+airportsData[i].PPCI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file'+i+'"></div><div class="clb"></div> </div> </div>'
+                        var  airportsDom = '<div class="flight_group box flights_charts"> <h2>'+airportsData[i].airportName+'机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num'+i+'"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">信息数</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">'+airportsData[i].PSNI_DATA+'</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">'+airportsData[i].PSNI_FILE+'</p> </li> <li> <p class="num fpdi">'+airportsData[i].FPDI_DATA+'</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">'+airportsData[i].FPDI_FILE+'</p> </li> <li> <p class="num fpai">'+airportsData[i].FPAI_DATA+'</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">'+airportsData[i].FPAI_FILE+'</p> </li> <li> <p class="num ppci">'+airportsData[i].PPCI_DATA+'</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">'+airportsData[i].PPCI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file'+i+'"></div><div class="clb"></div> </div> </div>'
                         fatherDom.append(airportsDom);
-                        var numOptions = new AirportsOptions(airportsData[i],"data_COUNT",airportChartOpt)
+                        var numOptions = new AirportsOptions(airportsData[i],"data_COUNT",airportChartOpt,"信息数/个")
                         airNumOptions.push(numOptions);
-                        var fileOptions = new AirportsOptions(airportsData[i],"file_COUNT",airportChartOpt)
+                        var fileOptions = new AirportsOptions(airportsData[i],"file_COUNT",airportChartOpt,"文件数/个")
                         airFileOptions.push(fileOptions);
                     }
                     var flightChartLen = $(".flights_charts").length
@@ -608,11 +608,11 @@ var MONITOR = function () {
                     var comDataLen = companyDatas.length
                     for(var i=0;i<comDataLen;i++){
                         companyDatas[i].currentTime = generateTime;
-                        var  flightsDom = '<div class="flight_group box company_charts"><h2>'+companyDatas[i].companyName+'航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num'+i+'"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">数量</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">'+companyDatas[i].FLGH_DATA+'</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">'+companyDatas[i].FLGH_FILE+'</p></li><li><p class="num fpln">'+companyDatas[i].FPLN_DATA+'</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">'+companyDatas[i].FPLN_FILE+'</p></li><li><p class="num fpci">'+companyDatas[i].FPCI_DATA+'</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">'+companyDatas[i].FPCI_FILE+'</p> </li> <li> <p class="num fcri">'+companyDatas[i].FCRI_DATA+'</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">'+companyDatas[i].FCRI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file'+i+'"></div> <div class="clb"></div> </div> </div>'
+                        var  flightsDom = '<div class="flight_group box company_charts"><h2>'+companyDatas[i].companyName+'航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num'+i+'"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">'+companyDatas[i].FLGH_DATA+'</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">'+companyDatas[i].FLGH_FILE+'</p></li><li><p class="num fpln">'+companyDatas[i].FPLN_DATA+'</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">'+companyDatas[i].FPLN_FILE+'</p></li><li><p class="num fpci">'+companyDatas[i].FPCI_DATA+'</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">'+companyDatas[i].FPCI_FILE+'</p> </li> <li> <p class="num fcri">'+companyDatas[i].FCRI_DATA+'</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">'+companyDatas[i].FCRI_FILE+'</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file'+i+'"></div> <div class="clb"></div> </div> </div>'
                         fatherDom.append(flightsDom);
-                        var numOptions = new CompanyOptions(companyDatas[i],"data_COUNT",companyChartOpt)
+                        var numOptions = new CompanyOptions(companyDatas[i],"data_COUNT",companyChartOpt,"信息数/个")
                         comNumOptions.push(numOptions);
-                        var fileOptions = new CompanyOptions(companyDatas[i],"file_COUNT",companyChartOpt)
+                        var fileOptions = new CompanyOptions(companyDatas[i],"file_COUNT",companyChartOpt,"文件数/个")
                         comFileOptions.push(fileOptions)
                     }
                     var comChartsLen = $(".company_charts").length
