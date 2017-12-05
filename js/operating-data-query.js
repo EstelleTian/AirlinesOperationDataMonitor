@@ -1394,13 +1394,14 @@ var OperatingData = function () {
         var options = {
             title : "运行数据查询",
             content :  content,
-            status: 1,//1:正常 2:警告 3:危险  不填:默认情况
+            status: 0,//1:正常 2:警告 3:危险  不填:默认情况
             width : 890,
             showCancelBtn :false,
             mtop: 200,
             isIcon : false,
             buttons : [{
                 name:"查询",
+                status : 0,
                 isHidden : false,
                 className: 'submit-form',
                 callback : function () {
