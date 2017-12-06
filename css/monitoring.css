@@ -208,6 +208,8 @@
   background-color: #fff;
   border: 1px solid #E6E9ED;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 #airport #airport_container .flight_group .information .airport a {
   height: 100%;
@@ -219,62 +221,85 @@
 }
 #airport #airport_container .flight_group .information .airport .airport_head {
   overflow: hidden;
-  min-height: 41px;
+  height: 40px;
   border-bottom: 1px solid #E6E9ED;
   text-align: center;
 }
 #airport #airport_container .flight_group .information .airport .airport_head .file_num {
   float: right;
   width: 20%;
-  margin: 10px 0;
+  margin: 20px 0 0 ;
   color: #5A738E;
 }
 #airport #airport_container .flight_group .information .airport .airport_head .airport_num {
   float: left;
-  margin: 10px 0;
+  margin: 20px 0 0;
   width: 20%;
   color: #5A738E;
 }
 #airport #airport_container .flight_group .information .airport .airport_head .information_name {
   float: left;
-  margin: 10px 0;
+  line-height: 40px;
+  height: 40px;
   width: 60%;
+  font-size: 16px;
   color: #5A738E;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail {
   height: 97%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-left: 0;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail li {
   width: 100%;
   overflow: hidden;
-  margin: 2px 0;
-  max-height: 22px;
+  margin: 3px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail li p {
-  float: left;
   font-size: 14px;
   margin-bottom: 0;
   color: #5A738E;
+  min-height: 20px;
+  line-height: 20px;
+  display: table-cell;
+  vertical-align: middle;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail li .airport_position {
   float: left;
-  padding-left: 13%;
+  width: 60%;
   color: #5A738E;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail li .num {
   float: left;
-  min-width: 30px;
-  min-height: 30px;
+  width: 20%;
   text-align: center;
-  padding: 0 7%;
   color: #5A738E;
 }
 #airport #airport_container .flight_group .information .airport .airport_data_detail li .f_num {
   float: right;
-  min-width: 30px;
-  min-height: 30px;
+  width: 20%;
   color: #5A738E;
+}
+#airport #airport_container .flight_group .information .airport .airport_data_detail .position {
+  margin-top: 10px;
+}
+#airport #airport_container .flight_group .information .airport .airport_data_detail .ground {
+  margin-top: 10px;
+}
+#airport #airport_container .flight_group .information .airport .monitor_ul {
+  display: block;
+  overflow: hidden;
+}
+#airport #airport_container .flight_group .information .airport .monitor_ul .flight_move {
+  margin: 15px 0 10px;
+}
+#airport #airport_container .flight_group .information .airport .monitor_ul .flight_cal {
+  margin: 10px  0 15px;
 }
 #airport #airport_container .flight_group .information .file_chart {
   margin-top: 15px;
@@ -327,6 +352,8 @@
   background-color: #fff;
   border: 1px solid #E6E9ED;
   padding: 0;
+  display: flex;
+  flex-direction: column;
 }
 #company #company_container .flight_group .information .airport a {
   height: 100%;
@@ -338,62 +365,85 @@
 }
 #company #company_container .flight_group .information .airport .airport_head {
   overflow: hidden;
-  min-height: 41px;
+  height: 40px;
   border-bottom: 1px solid #E6E9ED;
   text-align: center;
 }
 #company #company_container .flight_group .information .airport .airport_head .file_num {
   float: right;
   width: 20%;
-  margin: 10px 0;
+  margin: 20px 0 0 ;
   color: #5A738E;
 }
 #company #company_container .flight_group .information .airport .airport_head .airport_num {
   float: left;
-  margin: 10px 0;
+  margin: 20px 0 0;
   width: 20%;
   color: #5A738E;
 }
 #company #company_container .flight_group .information .airport .airport_head .information_name {
   float: left;
-  margin: 10px 0;
+  line-height: 40px;
+  height: 40px;
   width: 60%;
+  font-size: 16px;
   color: #5A738E;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail {
   height: 97%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   padding-left: 0;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail li {
   width: 100%;
   overflow: hidden;
-  margin: 2px 0;
-  max-height: 22px;
+  margin: 3px 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail li p {
-  float: left;
   font-size: 14px;
   margin-bottom: 0;
   color: #5A738E;
+  min-height: 20px;
+  line-height: 20px;
+  display: table-cell;
+  vertical-align: middle;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail li .airport_position {
   float: left;
-  padding-left: 13%;
+  width: 60%;
   color: #5A738E;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail li .num {
   float: left;
-  min-width: 30px;
-  min-height: 30px;
+  width: 20%;
   text-align: center;
-  padding: 0 7%;
   color: #5A738E;
 }
 #company #company_container .flight_group .information .airport .airport_data_detail li .f_num {
   float: right;
-  min-width: 30px;
-  min-height: 30px;
+  width: 20%;
   color: #5A738E;
+}
+#company #company_container .flight_group .information .airport .airport_data_detail .position {
+  margin-top: 10px;
+}
+#company #company_container .flight_group .information .airport .airport_data_detail .ground {
+  margin-top: 10px;
+}
+#company #company_container .flight_group .information .airport .monitor_ul {
+  display: block;
+  overflow: hidden;
+}
+#company #company_container .flight_group .information .airport .monitor_ul .flight_move {
+  margin: 15px 0 10px;
+}
+#company #company_container .flight_group .information .airport .monitor_ul .flight_cal {
+  margin: 10px  0 15px;
 }
 #company #company_container .flight_group .information .file_chart {
   margin-top: 15px;

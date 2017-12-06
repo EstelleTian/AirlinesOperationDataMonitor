@@ -211,6 +211,8 @@
           background-color: @airport_bgc;
           border: 1px solid #E6E9ED;
           padding: 0;
+          display: flex;
+          flex-direction: column;
           a{
             height: 100%;
           }
@@ -221,62 +223,86 @@
           }
           .airport_head{
             overflow: hidden;
-            min-height: 41px;
+            height: 40px;
             border-bottom: 1px solid @border_color;
             text-align: center;
             .file_num{
               float: right;
               width: 20%;
-              margin: 10px 0;
+              margin: 20px 0 0 ;
               color: @font_color;
             }
             .airport_num{
               float: left;
-              margin: 10px 0;
+              margin: 20px 0 0;
               width: 20%;
               color: @font_color;
 
             }
             .information_name{
               float: left;
-              margin: 10px 0;
+              line-height: 40px;
+              height: 40px;
               width: 60%;
+              font-size: 16px;
               color: @font_color;
             }
           }
           .airport_data_detail{
             height: 97%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             padding-left: 0;
             li{
               width: 100%;
               overflow: hidden;
-              margin: 2px 0;
-              max-height: 22px;
+              margin: 3px 0;
+              text-align: center;
+              //flex: 1;
+              display: flex;
+              align-items: center;
               p{
-                float: left;
                 font-size: 14px;
                 margin-bottom: 0;
                 color: @font_color;
+                min-height: 20px;
+                line-height: 20px;
+                display: table-cell;
+                vertical-align: middle;
               }
               .airport_position{
                 float: left;
-                padding-left: 13%;
+                width: 60%;
                 color: @font_color;
               }
               .num{
                 float: left;
-                min-width: 30px;
-                min-height: 30px;
+                width: 20%;
                 text-align: center;
-                padding:0 7%;
                 color: @font_color;
               }
               .f_num{
                 float: right;
-                min-width: 30px;
-                min-height: 30px;
+                width: 20%;
                 color: @font_color;
               }
+            }
+            .position{
+              margin-top: 10px;
+            }
+            .ground{
+              margin-top: 10px;
+            }
+          }
+          .monitor_ul{
+            display: block;
+            overflow: hidden;
+            .flight_move{
+              margin: 15px 0 10px;
+            }
+            .flight_cal{
+              margin: 10px  0 15px;
             }
           }
         }
@@ -332,6 +358,8 @@
           background-color: @airport_bgc;
           border: 1px solid #E6E9ED;
           padding: 0;
+          display: flex;
+          flex-direction: column;
           a{
             height: 100%;
           }
@@ -342,62 +370,86 @@
           }
           .airport_head{
             overflow: hidden;
-            min-height: 41px;
+            height: 40px;
             border-bottom: 1px solid @border_color;
             text-align: center;
             .file_num{
               float: right;
               width: 20%;
-              margin: 10px 0;
+              margin: 20px 0 0 ;
               color: @font_color;
             }
             .airport_num{
               float: left;
-              margin: 10px 0;
+              margin: 20px 0 0;
               width: 20%;
               color: @font_color;
 
             }
             .information_name{
               float: left;
-              margin: 10px 0;
+              line-height: 40px;
+              height: 40px;
               width: 60%;
+              font-size: 16px;
               color: @font_color;
             }
           }
           .airport_data_detail{
             height: 97%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
             padding-left: 0;
             li{
               width: 100%;
               overflow: hidden;
-              margin: 2px 0;
-              max-height: 22px;
+              margin: 3px 0;
+              text-align: center;
+              //flex: 1;
+              display: flex;
+              align-items: center;
               p{
-                float: left;
                 font-size: 14px;
                 margin-bottom: 0;
                 color: @font_color;
+                min-height: 20px;
+                line-height: 20px;
+                display: table-cell;
+                vertical-align: middle;
               }
               .airport_position{
                 float: left;
-                padding-left: 13%;
+                width: 60%;
                 color: @font_color;
               }
               .num{
                 float: left;
-                min-width: 30px;
-                min-height: 30px;
+                width: 20%;
                 text-align: center;
-                padding:0 7%;
                 color: @font_color;
               }
               .f_num{
                 float: right;
-                min-width: 30px;
-                min-height: 30px;
+                width: 20%;
                 color: @font_color;
               }
+            }
+            .position{
+              margin-top: 10px;
+            }
+            .ground{
+              margin-top: 10px;
+            }
+          }
+          .monitor_ul{
+            display: block;
+            overflow: hidden;
+            .flight_move{
+              margin: 15px 0 10px;
+            }
+            .flight_cal{
+              margin: 10px  0 15px;
             }
           }
         }
