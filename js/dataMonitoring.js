@@ -77,6 +77,8 @@ var MONITOR = function () {
                     //传递曲线图数据参数并初始化echarts
                     totalDataCount.currentTime = generateTime;
                     initCurveCharts(totalDataCount)
+                    setFlightsInformation($("#company_container"));//航空公司数据初始化
+                    setAirportsInformation($("#airport_container"));//机场数据初始化
 
                 }
             },
@@ -753,8 +755,6 @@ var MONITOR = function () {
         initMonitor: function () {
             initAirCom();//机场航空公司点击事件初始化
             getTotalDateCount();//获取航班监控页面数据
-            setFlightsInformation($("#company_container"));//航空公司数据初始化
-            setAirportsInformation($("#airport_container"));//机场数据初始化
         },
         resizeFit:function(){
             resizeFit()
