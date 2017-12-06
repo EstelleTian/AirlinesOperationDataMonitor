@@ -99,6 +99,12 @@ var HistoryData = function () {
         if(!bool){
             //警告
             var mess = "请输入正确的起始时间或截止时间,日期格式:YYYYMMDD";
+            //清空图表
+            clearChart(dataCountChart);
+            clearChart(fileCountChart);
+            // 置空图表对象
+            dataCountChart = {};
+            fileCountChart = {};
             showAlear(mess);
             return;
         }else {
@@ -221,12 +227,6 @@ var HistoryData = function () {
                     }
                     // 若数据为空
                     if(!$.isValidObject(result)){
-                        //清空图表
-                        clearChart(dataCountChart);
-                        clearChart(fileCountChart);
-                        // 置空图表对象
-                        dataCountChart = {};
-                        fileCountChart = {};
                         //显示提示
                         showTip();
                         return;
