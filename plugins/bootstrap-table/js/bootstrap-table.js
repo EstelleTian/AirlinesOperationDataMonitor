@@ -2353,8 +2353,9 @@
 
         if (this.options.showHeader && this.options.height) {
             this.$tableHeader.show();
-            this.resetHeader();
-            padding += this.$header.outerHeight();
+            //解决表头与内容错位问题
+            // this.resetHeader();
+            // padding += this.$header.outerHeight();
         } else {
             this.$tableHeader.hide();
             this.trigger('post-header');
