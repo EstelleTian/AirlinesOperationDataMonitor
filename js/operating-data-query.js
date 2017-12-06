@@ -128,7 +128,7 @@ var OperatingData = function () {
                 {
                     field: 'id',
                     title: 'ID',
-                    visible : false
+                    // visible : false
                 },
                 {
                     field: 'airportNameEN',
