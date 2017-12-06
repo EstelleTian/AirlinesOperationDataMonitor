@@ -132,7 +132,8 @@ var MONITOR = function () {
         this.backgroundColor = '#FFFFFF',
             this.color =  ['#3398DB'],
             this.title =  {
-                text: ''},
+                text: '',
+            },
             this.grid =  {
                 left: '3%',
                 right: '4%',
@@ -528,8 +529,8 @@ var MONITOR = function () {
         var xTime =data.currentTime.substring(0,4)+"-"+data.currentTime.substring(4,6)+"-"+data.currentTime.substring(6,8)
         arr.xTime = xTime;
         if(!(currentTime<3&&currentTime>20)){
-            arr.zoomStartTime = parseInt(100*(currentTime-3)/24);
-            arr.zoomEndTime = parseInt(100*(currentTime+3)/24);
+            arr.zoomStartTime = parseInt(100*(currentTime-3)/24)+4;
+            arr.zoomEndTime = parseInt(100*(currentTime+3)/24)+2;
         }
         var dataarr = data[opt];
         if($.isValidObject(dataarr)&&dataarr != null){
