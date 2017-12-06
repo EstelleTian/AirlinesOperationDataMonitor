@@ -1,4 +1,36 @@
 
+.history-data-statistics label.text{
+    font-weight: normal;
+    color: #093857;
+}
+.history-data-statistics .form-wrap{
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #dddddd;
+}
+.history-data-statistics .history-data-btn{
+    margin-top: 1.8rem;
+}
+.history-data-statistics .box{
+    margin-bottom: 0;
+}
+.history-data-statistics .alert-container{
+    margin-top: 1rem;
+}
+.history-data-statistics .no-datas-tip {
+    position: absolute;
+    width: 100%;
+    color: #8c8c8c;
+    text-align: center;
+    margin-top: 10rem;
+}
+.history-data-statistics .echart-row {
+    height:100%;
+}
+.history-data-statistics .echart-col{
+    height: 95%;
+}
+
 .operating-data-query .table-contianer {
     min-height: 15rem;
     color: #646464;
