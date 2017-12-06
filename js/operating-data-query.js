@@ -1405,8 +1405,9 @@ var OperatingData = function () {
                 isHidden : false,
                 className: 'submit-form',
                 callback : function () {
+                    var btn = this;
                     // 处理表单提交
-                    handleSubmitForm();
+                    handleSubmitForm(btn);
                 }
             },{
                 name:"重置",
@@ -1459,7 +1460,7 @@ var OperatingData = function () {
     /**
      * 处理表单提交
      * */
-    var handleSubmitForm = function () {
+    var handleSubmitForm = function (btn) {
         //处理数据
         handleFormData();
         //校验表单
@@ -1470,10 +1471,12 @@ var OperatingData = function () {
             showAlear(mess);
             return;
         }else {
+            // 清空警告
+            clearAlert();
             //拼接参数
             var str = concatParameter();
             //数据查询
-            searchData(str);
+            searchData(str,btn);
         }
     };
 
@@ -1520,8 +1523,7 @@ var OperatingData = function () {
     /**
      * 数据查询
      * */
-    var searchData = function (str) {
-
+    var searchData = function (str,btn) {
         var url = searchUrl + str;
         $.ajax({
             url: url,
@@ -1535,8 +1537,7 @@ var OperatingData = function () {
                     //提取数据
                     var result = data.sharingDatas;
                     var time = data.generatetime;
-                    // 清空警告
-                    clearAlert();
+
                     // 更新数据时间
                     if($.isValidVariable(time)){
                         // 更新数据时间
