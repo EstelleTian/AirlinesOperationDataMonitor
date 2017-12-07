@@ -1227,7 +1227,16 @@ var BasicData = function () {
             width: 100,
             align: 'center',
             sortable: true,
-            search: true
+            search: true,
+            searchoptions : {
+                sopt : ['cn','nc','eq','ne','lt','le','gt','ge','bw','bn','in','ni','ew','en'],
+                dataEvents:[{
+                    type: 'keyup',
+                    fn: function(e) {
+                        $(this).change();
+                    }
+                }]
+            },
         }
     };
 
