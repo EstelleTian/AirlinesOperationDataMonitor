@@ -131,118 +131,156 @@ var BasicData = function () {
                         en: 'airportNameEN'
                     },startTime: {
                         cn: '开始时间',
-                        en: 'startTime'
+                        en: 'startTime',
+                        width : 200
                     },endTime: {
                         cn: '终止时间',
-                        en: 'endTime'
+                        en: 'endTime',
+                        width : 200
                     },nowOcpStandsASum: {
                         cn: '已占用机位数量（A类）',
-                        en: 'nowOcpStandsASum'
+                        en: 'nowOcpStandsASum',
+                        width : 240
                     },nowAviStandsASum: {
                         cn: '当前空余机位数量（A类）',
-                        en: 'nowAviStandsASum'
+                        en: 'nowAviStandsASum',
+                        width : 240
                     },estOcpStandsASum: {
                         cn: '预占用机位数量（A类）',
-                        en: 'estOcpStandsASum'
+                        en: 'estOcpStandsASum',
+                        width : 240
                     },estAviStandsASum: {
                         cn: '预计空余机位数量（A类）',
-                        en: 'estAviStandsASum'
+                        en: 'estAviStandsASum',
+                        width : 240
                     },estAviCPLStandsASum: {
                         cn: '可用备降机位数量（A类）',
-                        en: 'estAviCPLStandsASum'
+                        en: 'estAviCPLStandsASum',
+                        width : 240
                     },estAviFixStandsASum: {
                         cn: '可用系留机位数量（A类）',
-                        en: 'estAviFixStandsASum'
+                        en: 'estAviFixStandsASum',
+                        width : 240
                     },nowOcpStandsBSum: {
                         cn: '已占用机位数量（B类）',
-                        en: 'nowOcpStandsBSum'
+                        en: 'nowOcpStandsBSum',
+                        width : 240
                     },nowAviStandsBSum: {
                         cn: '当前空余机位数量（B类）',
-                        en: 'nowAviStandsBSum'
+                        en: 'nowAviStandsBSum',
+                        width : 240
                     },estOcpStandsBSum: {
                         cn: '预占用机位数量（B类）',
-                        en: 'estOcpStandsBSum'
+                        en: 'estOcpStandsBSum',
+                        width : 240
                     },nstAviStandsBSum: {
                         cn: '预计空余机位数量（B类）',
-                        en: 'nstAviStandsBSum'
+                        en: 'nstAviStandsBSum',
+                        width : 240
                     },estAviCPLStandsBSum: {
                         cn: '可用备降机位数量（B类）',
-                        en: 'estAviCPLStandsBSum'
+                        en: 'estAviCPLStandsBSum',
+                        width : 240
                     },estAviFixStandsBSum: {
                         cn: '可用系留机位数量（B类）',
-                        en: 'estAviFixStandsBSum'
+                        en: 'estAviFixStandsBSum',
+                        width : 240
                     },nowOcpStandsCSum: {
                         cn: '已占用机位数量（C类）',
-                        en: 'nowOcpStandsCSum'
+                        en: 'nowOcpStandsCSum',
+                        width : 240
                     },nowAviStandsCSum: {
                         cn: '当前空余机位数量（C类）',
-                        en: 'nowAviStandsCSum'
+                        en: 'nowAviStandsCSum',
+                        width : 240
                     },estOcpStandsCSum: {
                         cn: '预占用机位数量（C类）',
-                        en: 'estOcpStandsCSum'
+                        en: 'estOcpStandsCSum',
+                        width : 200
                     },estAviStandsCSum: {
                         cn: '预计空余机位数量（C类）',
-                        en: 'estAviStandsCSum'
+                        en: 'estAviStandsCSum',
+                        width : 240
                     },estAviCPLStandsCSum: {
                         cn: '可用备降机位数量（C类）',
-                        en: 'estAviCPLStandsCSum'
+                        en: 'estAviCPLStandsCSum',
+                        width : 240
                     },estAviFixStandsCSum: {
                         cn: '可用系留机位数量（C类）',
-                        en: 'estAviFixStandsCSum'
+                        en: 'estAviFixStandsCSum',
+                        width : 240
                     },nowOcpStandsDSum: {
                         cn: '已占用机位数量（D类）',
-                        en: 'nowOcpStandsDSum'
+                        en: 'nowOcpStandsDSum',
+                        width : 240
                     },nowAviStandsDSum: {
                         cn: '当前空余机位数量（D类）',
-                        en: 'nowAviStandsDSum'
+                        en: 'nowAviStandsDSum',
+                        width : 240
                     },estOcpStandsDSum: {
                         cn: '预占用机位数量（D类）',
-                        en: 'estOcpStandsDSum'
+                        en: 'estOcpStandsDSum',
+                        width : 240
                     },estAviStandsDSum: {
                         cn: '预计空余机位数量（D类）',
-                        en: 'estAviStandsDSum'
+                        en: 'estAviStandsDSum',
+                        width : 240
                     },estAviCPLStandsDSum: {
                         cn: '可用备降机位数量（D类）',
-                        en: 'estAviCPLStandsDSum'
+                        en: 'estAviCPLStandsDSum',
+                        width : 240
                     },estAviFixStandsDSum: {
                         cn: '可用系留机位数量（D类）',
-                        en: 'estAviFixStandsDSum'
+                        en: 'estAviFixStandsDSum',
+                        width : 240
                     },eowOcpStandsESum: {
                         cn: '已占用机位数量（E类）',
-                        en: 'eowOcpStandsESum'
+                        en: 'eowOcpStandsESum',
+                        width : 240
                     },eowAviStandsESum: {
                         cn: '当前空余机位数量（E类）',
-                        en: 'eowAviStandsESum'
+                        en: 'eowAviStandsESum',
+                        width : 240
                     },estOcpStandsESum: {
                         cn: '预占用机位数量（E类）',
-                        en: 'estOcpStandsESum'
+                        en: 'estOcpStandsESum',
+                        width : 240
                     },estAviStandsESum: {
                         cn: '预计空余机位数量（E类）',
-                        en: 'estAviStandsESum'
+                        en: 'estAviStandsESum',
+                        width : 240
                     },estAviCPLStandsESum: {
                         cn: '可用备降机位数量（E类）',
-                        en: 'estAviCPLStandsESum'
+                        en: 'estAviCPLStandsESum',
+                        width : 240
                     },estAviFixStandsESum: {
                         cn: '可用系留机位数量（E类）',
-                        en: 'estAviFixStandsESum'
+                        en: 'estAviFixStandsESum',
+                        width : 240
                     },nowOcpStandsFSum: {
                         cn: '已占用机位数量（F类）',
-                        en: 'nowOcpStandsFSum'
+                        en: 'nowOcpStandsFSum',
+                        width : 240
                     },nowAviStandsFSum: {
                         cn: '当前空余机位数量（F类）',
-                        en: 'nowAviStandsFSum'
+                        en: 'nowAviStandsFSum',
+                        width : 240
                     },estOcpStandsFSum: {
                         cn: '预占用机位数量（F类）',
-                        en: 'estOcpStandsFSum'
+                        en: 'estOcpStandsFSum',
+                        width : 240
                     },estAviStandsFSum: {
                         cn: '预计空余机位数量（F类）',
-                        en: 'estAviStandsFSum'
+                        en: 'estAviStandsFSum',
+                        width : 240
                     },estAviCPLStandsFSum : {
                         cn: '可用备降机位数量（F类）',
-                        en: 'estAviCPLStandsFSum'
+                        en: 'estAviCPLStandsFSum',
+                        width : 240
                     },estAviFixStandsFSum: {
                         cn: '可用系留机位数量（F类）',
-                        en: 'estAviFixStandsFSum'
+                        en: 'estAviFixStandsFSum',
+                        width : 240
                     }
                 },
                 'FPDI': {
@@ -260,10 +298,12 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -278,70 +318,92 @@ var BasicData = function () {
                         en: 'gate'
                     },startBoradingTime: {
                         cn: '开始登机时间',
-                        en: 'startBoradingTime'
+                        en: 'startBoradingTime',
+                        width : 200
                     },endBoardingTime: {
                         cn: '完成登机时间',
-                        en: 'endBoardingTime'
+                        en: 'endBoardingTime',
+                        width : 200
                     },startLuggageTime: {
                         cn: '开始装载行李时间',
-                        en: 'startLuggageTime'
+                        en: 'startLuggageTime',
+                        width : 200
                     },endLuggageTime: {
                         cn: '完成行李装载时间',
-                        en: 'endLuggageTime'
+                        en: 'endLuggageTime',
+                        width : 200
                     },startCateringTime: {
                         cn: '开始配餐时间',
-                        en: 'startCateringTime'
+                        en: 'startCateringTime',
+                        width : 200
                     },endCateringTime: {
                         cn: '完成配餐时间',
-                        en: 'endCateringTime'
+                        en: 'endCateringTime',
+                        width : 200
                     },startWaterTime: {
                         cn: '开始加清水时间',
-                        en: 'startWaterTime'
+                        en: 'startWaterTime',
+                        width : 200
                     },endWaterTime: {
                         cn: '完成加清水时间',
-                        en: 'endWaterTime'
+                        en: 'endWaterTime',
+                        width : 200
                     },startSewageTime: {
                         cn: '开始排污时间',
-                        en: 'startSewageTime'
+                        en: 'startSewageTime',
+                        width : 200
                     },endSewageTime: {
                         cn: '完成排污时间',
-                        en: 'endSewageTime'
+                        en: 'endSewageTime',
+                        width : 200
                     },startCleanTime: {
                         cn: '开始保洁时间',
-                        en: 'startCleanTime'
+                        en: 'startCleanTime',
+                        width : 200
                     },endCleanTime: {
                         cn: '完成保洁时间',
-                        en: 'endCleanTime'
+                        en: 'endCleanTime',
+                        width : 200
                     },startFuelTime: {
                         cn: '开始供油时间',
-                        en: 'startFuelTime'
+                        en: 'startFuelTime',
+                        width : 200
                     },endFuelTime: {
                         cn: '完成供油时间',
-                        en: 'endFuelTime'
+                        en: 'endFuelTime',
+                        width : 200
                     },startDeiceTime: {
                         cn: '开始除冰时间',
-                        en: 'startDeiceTime'
+                        en: 'startDeiceTime',
+                        width : 200
                     },endDeiceTime: {
                         cn: '完成除冰时间',
-                        en: 'endDeiceTime'
+                        en: 'endDeiceTime',
+                        width : 200
                     },aeroBridgeOffTime: {
                         cn: '离桥时间',
-                        en: 'aeroBridgeOffTime'
+                        en: 'aeroBridgeOffTime',
+                        width : 200
                     },depPassengerStepsOffTime: {
                         cn: '离港客梯车撤离时间',
-                        en: 'depPassengerStepsOffTime'
+                        en: 'depPassengerStepsOffTime',
+                        width : 200
                     },actualDepatureTime: {
                         cn: '实际离港时间',
-                        en: 'actualDepatureTime'
+                        en: 'actualDepatureTime',
+                        width : 200
                     },trailerInPlaceTime: {
                         cn: '拖车到位时间',
-                        en: 'trailerInPlaceTime'
+                        en: 'trailerInPlaceTime',
+                        width : 200
                     },depShuttleOffTime: {
                         cn: '离港摆渡车撤离时间',
-                        en: 'depShuttleOffTime'
+                        en: 'depShuttleOffTime',
+                        width : 200
                     },securityCheckedPassangerSum: {
                         cn: '过安检旅客人数',
-                        en: 'securityCheckedPassangerSum'
+                        en: 'securityCheckedPassangerSum',
+                        width : 200
                     }
                 },
                 'FPAI': {
@@ -359,58 +421,75 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
-                        en: 'depAP'
+                        en: 'depAP',
+                        width : 200
                     },arrAP: {
                         cn: '目的地机场',
-                        en: 'arrAP'
+                        en: 'arrAP',
+                        width : 200
                     },stand: {
                         cn: '到港航班停机位',
-                        en: 'stand'
+                        en: 'stand',
+                        width : 200
                     },gate: {
                         cn: '航班到达口',
-                        en: 'gate'
+                        en: 'gate',
+                        width : 200
                     },actualArrivalTime: {
                         cn: '实际到港时间',
-                        en: 'actualArrivalTime'
+                        en: 'actualArrivalTime',
+                        width : 200
                     },aeroBridgeOnTime: {
                         cn: '靠桥时间',
-                        en: 'aeroBridgeOnTime'
+                        en: 'aeroBridgeOnTime',
+                        width : 200
                     },arrPassengerStepsOnTime: {
                         cn: '进港客梯车对接时间',
-                        en: 'arrPassengerStepsOnTime'
+                        en: 'arrPassengerStepsOnTime',
+                        width : 200
                     },arrShuttleReadyTime: {
                         cn: '进港摆渡车到位时间',
-                        en: 'arrShuttleReadyTime'
+                        en: 'arrShuttleReadyTime',
+                        width : 200
                     },startUnBoardTime: {
                         cn: '开始下客时间',
-                        en: 'startUnBoardTime'
+                        en: 'startUnBoardTime',
+                        width : 200
                     },endUnBoardTime: {
                         cn: '完成下客时间',
-                        en: 'endUnBoardTime'
+                        en: 'endUnBoardTime',
+                        width : 200
                     }
                 },
                 'PPCI': {
                     id: {
                         cn: 'ID',
-                        en: 'ID'
+                        en: 'ID',
+                        width : 300
                     },airportNameEN: {
                         cn: '机场英文名称',
-                        en: 'airportNameEN'
+                        en: 'airportNameEN',
+                        width : 300
                     },date: {
                         cn: '日期',
-                        en: 'date'
+                        en: 'date',
+                        width : 300
                     },depPassengerSum: {
                         cn: '出港旅客总人数',
-                        en: 'depPassengerSum'
+                        en: 'depPassengerSum',
+                        width : 300
                     },arrPassengerSum: {
                         cn: '进港旅客总人数',
-                        en: 'arrPassengerSum'
+                        en: 'arrPassengerSum',
+                        width : 300
                     }
                 },
             },
@@ -430,10 +509,12 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -442,109 +523,144 @@ var BasicData = function () {
                         en: 'arrAP'
                     },crewReadyTime: {
                         cn: '机组到位时间',
-                        en: 'crewReadyTime'
+                        en: 'crewReadyTime',
+                        width : 200
                     },startBoardingTime: {
                         cn: '开始登机时间',
-                        en: 'startBoardingTime'
+                        en: 'startBoardingTime',
+                        width : 200
                     },endBoardingTime: {
                         cn: '完成登机时间',
-                        en: 'endBoardingTime'
+                        en: 'endBoardingTime',
+                        width : 200
                     },startLuggageTime: {
                         cn: '开始行李装载时间',
-                        en: 'startLuggageTime'
+                        en: 'startLuggageTime',
+                        width : 200
                     },endLuggageTime: {
                         cn: '完成行李装载时间',
-                        en: 'endLuggageTime'
+                        en: 'endLuggageTime',
+                        width : 200
                     },startCateringTime: {
                         cn: '开始配餐时间',
-                        en: 'startCateringTime'
+                        en: 'startCateringTime',
+                        width : 200
                     },endCateringTime: {
                         cn: '完成配餐时间',
-                        en: 'endCateringTime'
+                        en: 'endCateringTime',
+                        width : 200
                     },startWaterTime: {
                         cn: '开始加清水时间',
-                        en: 'startWaterTime'
+                        en: 'startWaterTime',
+                        width : 200
                     },endWaterTime: {
                         cn: '完成加清水时间',
-                        en: 'endWaterTime'
+                        en: 'endWaterTime',
+                        width : 200
                     },startSewageTime: {
                         cn: '开始排污时间',
-                        en: 'startSewageTime'
+                        en: 'startSewageTime',
+                        width : 200
                     },endSewageTime: {
                         cn: '完成排污时间',
-                        en: 'endSewageTime'
+                        en: 'endSewageTime',
+                        width : 200
                     },startCleanTime: {
                         cn: '开始保洁时间',
-                        en: 'startCleanTime'
+                        en: 'startCleanTime',
+                        width : 200
                     },endCleanTime: {
                         cn: '完成保洁时间',
-                        en: 'endCleanTime'
+                        en: 'endCleanTime',
+                        width : 200
                     },startFuelTime: {
                         cn: '开始供油时间',
-                        en: 'startFuelTime'
+                        en: 'startFuelTime',
+                        width : 200
                     },endFuelTime: {
                         cn: '完成供油时间',
-                        en: 'endFuelTime'
+                        en: 'endFuelTime',
+                        width : 200
                     },startDeiceTime: {
                         cn: '开始除冰时间',
-                        en: 'startDeiceTime'
+                        en: 'startDeiceTime',
+                        width : 200
                     },endDeiceTime: {
                         cn: '完成除冰时间',
-                        en: 'endDeiceTime'
+                        en: 'endDeiceTime',
+                        width : 200
                     },aeroBridgeOffTime: {
                         cn: '离桥时间',
-                        en: 'aeroBridgeOffTime'
+                        en: 'aeroBridgeOffTime',
+                        width : 200
                     },aeroBridgeOnTime: {
                         cn: '靠桥时间',
-                        en: 'aeroBridgeOnTime'
+                        en: 'aeroBridgeOnTime',
+                        width : 200
                     },depPassengerStepsOffTime: {
                         cn: '离港客梯车撤离时间',
-                        en: 'depPassengerStepsOffTime'
+                        en: 'depPassengerStepsOffTime',
+                        width : 200
                     },arrPassengerStepsOnTime: {
                         cn: '进港客梯车对接时间',
-                        en: 'arrPassengerStepsOnTime'
+                        en: 'arrPassengerStepsOnTime',
+                        width : 200
                     },depShuttleOffTime: {
                         cn: '离港摆渡车撤离时间',
-                        en: 'depShuttleOffTime'
+                        en: 'depShuttleOffTime',
+                        width : 200
                     },arrShuttleReadyTime: {
                         cn: '进港摆渡车到位时间',
-                        en: 'arrShuttleReadyTime'
+                        en: 'arrShuttleReadyTime',
+                        width : 200
                     },trailerReadyTime: {
                         cn: '拖车到位时间',
-                        en: 'trailerReadyTime'
+                        en: 'trailerReadyTime',
+                        width : 200
                     },startUnBoardTime: {
                         cn: '开始下客时间',
-                        en: 'startUnBoardTime'
+                        en: 'startUnBoardTime',
+                        width : 200
                     },endUnBoardTime: {
                         cn: '完成下客时间',
-                        en: 'endUnBoardTime'
+                        en: 'endUnBoardTime',
+                        width : 200
                     },liftFrontWheelTime: {
                         cn: '抬前轮时间',
-                        en: 'liftFrontWheelTime'
+                        en: 'liftFrontWheelTime',
+                        width : 200
                     },landingTime: {
                         cn: '着陆时间',
-                        en: 'landingTime'
+                        en: 'landingTime',
+                        width : 200
                     },looseBrakeTime: {
                         cn: '松刹车时间',
-                        en: 'looseBrakeTime'
+                        en: 'looseBrakeTime',
+                        width : 200
                     },brakeTime: {
                         cn: '刹车时间',
-                        en: 'brakeTime'
+                        en: 'brakeTime',
+                        width : 200
                     },startTaxiingTime: {
                         cn: '开始滑行时间',
-                        en: 'startTaxiingTime'
+                        en: 'startTaxiingTime',
+                        width : 200
                     },actualDepatureTime: {
                         cn: '实际离港时间',
-                        en: 'actualDepatureTime'
+                        en: 'actualDepatureTime',
+                        width : 200
                     },actualArrivalTime: {
                         cn: '实际到港时间',
-                        en: 'actualArrivalTime'
+                        en: 'actualArrivalTime',
+                        width : 200
                     },actualGateCloseTime: {
                         cn: '实际关舱门时间',
-                        en: 'actualGateCloseTime'
+                        en: 'actualGateCloseTime',
+                        width : 200
                     },actualGateOpenTime: {
                         cn: '实际开舱门时间',
-                        en: 'actualGateOpenTime'
+                        en: 'actualGateOpenTime',
+                        width : 200
                     },enduranceDistance: {
                         cn: '航班续航距离',
                         en: 'enduranceDistance'
@@ -565,10 +681,12 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -589,10 +707,12 @@ var BasicData = function () {
                         en: 'PLNDepAp'
                     },PLNSobt: {
                         cn: '变更离港时间',
-                        en: 'PLNSobt'
+                        en: 'PLNSobt',
+                        width : 200
                     },PLNSibt: {
                         cn: '变更进港时间',
-                        en: 'PLNSibt'
+                        en: 'PLNSibt',
+                        width : 200
                     },PLNArrAp: {
                         cn: '变更目的地机场',
                         en: 'PLNArrAp'
@@ -616,10 +736,12 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -691,10 +813,12 @@ var BasicData = function () {
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -727,22 +851,28 @@ var BasicData = function () {
                 },'FACI'  : {
                     id: {
                         cn: 'ID',
-                        en: 'ID'
+                        en: 'ID',
+                        width : 300
                     }, regNumber: {
                         cn: '航空器注册号',
-                        en: 'regNumber'
+                        en: 'regNumber',
+                        width : 300
                     }, aircraftType: {
                         cn: '机型',
-                        en: 'aircraftType'
+                        en: 'aircraftType',
+                        width : 300
                     }, wingSpanLength: {
                         cn: '翼展长度',
-                        en: 'wingSpanLength'
+                        en: 'wingSpanLength',
+                        width : 300
                     }, fuselageLength: {
                         cn: '机身长度',
-                        en: 'fuselageLength'
+                        en: 'fuselageLength',
+                        width : 300
                     }, startServiceTime: {
                         cn: '机龄起始时间',
-                        en: 'startServiceTime'
+                        en: 'startServiceTime',
+                        width : 300
                     }
                 }
             },
@@ -844,10 +974,12 @@ var BasicData = function () {
                         en: 'exempt'
                     }, startTime: {
                         cn: '流控开始时间',
-                        en: 'startTime'
+                        en: 'startTime',
+                        width : 200
                     }, endTime: {
                         cn: '流控结束时间',
-                        en: 'endTime'
+                        en: 'endTime',
+                        width : 200
                     }, reason: {
                         cn: 'reason',
                         en: 'reason'
@@ -994,19 +1126,22 @@ var BasicData = function () {
                         en: 'arrAP'
                     },missionDate: {
                         cn: '计划执行日期',
-                        en: 'missionDate'
+                        en: 'missionDate',
+                        width : 200
                     },SDepAP: {
                         cn: '计划起飞机场',
                         en: 'SDepAP'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        width : 200
                     },SArrAP: {
                         cn: '计划目的地机场',
                         en: 'SArrAP'
                     },SIBT: {
                         cn: '计划到港时间',
-                        en: 'SIBT'
+                        en: 'SIBT',
+                        width : 200
                     },SAircraftType: {
                         cn: '计划机型',
                         en: 'SAircraftType'
@@ -1021,10 +1156,12 @@ var BasicData = function () {
                         en: 'PDepAP'
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        width : 200
                     },EET: {
                         cn: '预计总飞行时间',
-                        en: 'EET'
+                        en: 'EET',
+                        width : 200
                     },PArrAP: {
                         cn: '预计目的地机场',
                         en: 'PArrAP'
@@ -1036,19 +1173,22 @@ var BasicData = function () {
                         en: 'RAircraftType'
                     },executeDate: {
                         cn: '实际执行日期',
-                        en: 'executeDate'
+                        en: 'executeDate',
+                        width : 200
                     },RDepAP: {
                         cn: '实际起飞机场',
                         en: 'RDepAP'
                     },ATOT: {
                         cn: '实际起飞时间',
-                        en: 'ATOT'
+                        en: 'ATOT',
+                        width : 200
                     },RArrAP: {
                         cn: '实际落地机场',
                         en: 'RArrAP'
                     },ALDT: {
                         cn: '实际落地时间',
-                        en: 'ALDT'
+                        en: 'ALDT',
+                        width : 200
                     },regNumber: {
                         cn: '航空器注册号',
                         en: 'regNumber'
