@@ -80,8 +80,9 @@
     margin-bottom: 8px;
     padding: 0 1rem;
 }
-.operating-data-query .table-datas th{
-    overflow: hidden;
+
+.operating-data-query #tb-datas-canvas {
+    height: 100%;
 }
 
 .modal-header {
