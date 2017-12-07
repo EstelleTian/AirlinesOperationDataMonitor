@@ -119,13 +119,6 @@ var OperatingData = function () {
         'APOI' :{
             'PSNI' : [
                 {
-                    field: 'rowNumber',
-                    title: '行号',
-                    formatter: function (value, row, index) {
-                        return index+1;
-                    }
-                },
-                {
                     field: 'id',
                     title: 'ID',
                     // visible : false
@@ -1350,7 +1343,12 @@ var OperatingData = function () {
             'FPER' : 'id',
             'PPER' : 'id'
         },
-    }
+    };
+
+    var tableColName = {
+
+    };
+
     //时间
     var date = '';
     //当前选中的类型值
@@ -1525,6 +1523,8 @@ var OperatingData = function () {
      * */
     var searchData = function (str,btn) {
         var url = searchUrl + str;
+        var load = Ladda.create(btn);
+        load.start();
         $.ajax({
             url: url,
             type: 'GET',
@@ -1552,18 +1552,22 @@ var OperatingData = function () {
                     initTable();
                     //表格数据加载
                     tableLoad(result);
+                    load.stop();
                     //隐藏模态框
                     toggleModal(false);
 
                 } else if($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
+                    load.stop();
                 }else {
                     showAlear("查询失败");
+                    load.stop();
                 }
 
             },
             error: function (xhr, status, error) {
+                load.stop();
                 console.error('Search data failed');
                 console.error(error);
             }

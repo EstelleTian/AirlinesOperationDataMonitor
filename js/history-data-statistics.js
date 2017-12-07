@@ -204,6 +204,8 @@ var HistoryData = function () {
      * 数据查询
      * */
     var searchData = function (str) {
+        var loading = Ladda.create($('.history-data-btn')[0]);
+        loading.start();
         var url  = submitUrl + str;
         $.ajax({
             url: url,
@@ -227,6 +229,7 @@ var HistoryData = function () {
                     if(!$.isValidObject(result)){
                         //显示提示
                         showTip();
+                        loading.stop();
                         return;
                     }
 
@@ -234,12 +237,15 @@ var HistoryData = function () {
                     convertData(result);
                     //初始化图表
                     initEcharts();
+                    loading.stop();
 
                 } else if($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
+                    loading.stop();
                 }else {
                     showAlear("查询失败");
+                    loading.stop();
                 }
 
             },
