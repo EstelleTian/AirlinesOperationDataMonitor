@@ -206,6 +206,7 @@ var HistoryData = function () {
     var searchData = function (str) {
         var loading = Ladda.create($('.history-data-btn')[0]);
         loading.start();
+        $('.form-wrap').addClass('no-event');
         var url  = submitUrl + str;
         $.ajax({
             url: url,
@@ -230,6 +231,7 @@ var HistoryData = function () {
                         //显示提示
                         showTip();
                         loading.stop();
+                        $('.form-wrap').removeClass('no-event');
                         return;
                     }
 
@@ -238,20 +240,25 @@ var HistoryData = function () {
                     //初始化图表
                     initEcharts();
                     loading.stop();
+                    $('.form-wrap').removeClass('no-event');
 
                 } else if($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
                     loading.stop();
+                    $('.form-wrap').removeClass('no-event');
                 }else {
                     showAlear("查询失败");
                     loading.stop();
+                    $('.form-wrap').removeClass('no-event');
                 }
 
             },
             error: function (xhr, status, error) {
                 console.error('Search data failed');
                 console.error(error);
+                loading.stop();
+                $('.form-wrap').removeClass('no-event');
             }
         });
     };

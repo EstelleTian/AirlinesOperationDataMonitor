@@ -287,6 +287,7 @@ var OperatingData = function () {
         var url = searchUrl + str;
         var load = Ladda.create(btn);
         load.start();
+        $('.modal-content').addClass('no-event');
         $.ajax({
             url: url,
             type: 'GET',
@@ -317,6 +318,7 @@ var OperatingData = function () {
                     fireDataChange( result);
 
                     load.stop();
+                    $('.modal-content').removeClass('no-event');
                     //隐藏模态框
                     toggleModal(false);
 
@@ -324,14 +326,17 @@ var OperatingData = function () {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
                     load.stop();
+                    $('.modal-content').removeClass('no-event');
                 }else {
                     showAlear("查询失败");
                     load.stop();
+                    $('.modal-content').removeClass('no-event');
                 }
 
             },
             error: function (xhr, status, error) {
                 load.stop();
+                $('.modal-content').removeClass('no-event');
                 console.error('Search data failed');
                 console.error(error);
             }
