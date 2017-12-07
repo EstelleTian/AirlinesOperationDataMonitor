@@ -181,6 +181,16 @@
 #airport #airport_container .breadcrumb .curnt {
   color: #000;
 }
+#airport #airport_container .no_data {
+  width: 100%;
+  color: #8c8c8c;
+  height: 500px;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding-top: 10rem;
+  display: none;
+  border-radius: 5px;
+}
 #airport #airport_container .flight_group {
   width: 100%;
   min-height: 210px;
@@ -324,6 +334,16 @@
 }
 #company #company_container .breadcrumb li a {
   cursor: pointer;
+}
+#company #company_container .no_data {
+  width: 100%;
+  color: #8c8c8c;
+  height: 500px;
+  background-color: #f5f5f5;
+  text-align: center;
+  padding-top: 10rem;
+  display: none;
+  border-radius: 5px;
 }
 #company #company_container .flight_group {
   width: 100%;
