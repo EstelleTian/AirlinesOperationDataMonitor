@@ -108,6 +108,8 @@ var HistoryData = function () {
             showAlear(mess);
             return;
         }else {
+            // 清空警告
+            clearAlert();
             //拼接参数
             var str = concatParameter();
             //数据查询
@@ -211,12 +213,8 @@ var HistoryData = function () {
                 // 当前数据
                 if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
 
-
-                    // 清空警告
-                    clearAlert();
                     //清空提示
                     clearTip();
-
                     //提取数据
                     var time = data.generatetime;
                     var result = data.hisData;
