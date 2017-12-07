@@ -90,6 +90,7 @@ var LOGIN = function () {
         var loginPassWord = $('#inputPassword').val();
         login(loginUserName,loginPassWord);
     })
+    //键盘回车事件
     $(window).keydown(function (event) {
         switch (event.keyCode) {
             case 13:
