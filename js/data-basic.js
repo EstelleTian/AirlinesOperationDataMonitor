@@ -121,12 +121,13 @@ var BasicData = function () {
 
     //格式化时间
     function timeFormater(cellvalue, options, rowObject) {
-        if ($.isValidVariable(cellvalue)) {
+        var cellvalue = cellvalue*1;
+        if ( $.isValidVariable(cellvalue) && !isNaN(cellvalue) && cellvalue.length == 12 ) {
             return cellvalue.substring(8, 12);
         } else {
             return '';
         }
-    }
+    };
 
     var tableObj = {
         colName: {
