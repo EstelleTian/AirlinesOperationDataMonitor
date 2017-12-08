@@ -114,7 +114,7 @@ header{
 .content-container > .row {
     display: none;
 }
-.content-container .active {
+.content-container .row.active {
     display: block;
 }
 

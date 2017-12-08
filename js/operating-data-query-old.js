@@ -1,29 +1,23 @@
-var QUERY = function () {
+var OperatingData = function () {
     //模态框内容
     var modalContent =
-        '<div><div class="row"><div class="col-xs-12">' +
+        '<div class="query-form"><div class="row"><div class="col-xs-12">' +
 
         '<div class="row row-line">' +
-        '<div class="col-xs-4 col-sm-4 col-md-2"><p>起始时间</p></div>'+
-        '<div class="col-xs-8 col-sm-6 col-md-3">' +
-        '<div class="input-group date" id="start-date-datepicker">' +
-        '<input type="text" class="start-date form-control" maxlength="8" value=""> ' +
+        '<div class="col-sm-6 col-xs-12 col-md-5 col-md-offset-1">' +
+        '<label class="text">时间</label>' +
+        '<div class="input-group date date-datepicker">' +
+        '<input type="text" class="date-input form-control" maxlength="8" value=""> ' +
         '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
         '</div>' +
 
         '</div>'+
-        '<div class="col-xs-4 col-sm-4 col-md-2"><p>截止时间</p></div>'+
-        '<div class="col-xs-8 col-sm-6 col-md-3">' +
-        '<div class="input-group date" id="end-date-datepicker">' +
-        '<input type="text" class="end-date form-control" maxlength="8" value="">' +
-        '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
-        '</div>' +
-        '</div>'+
+
         '</div>' +
         '<div class="row">' +
-        '<div class="col-xs-4 col-sm-4 col-md-2 ">类型</div>' +
-        '<div class="col-xs-8 col-sm-8 col-md-8">' +
-        '<div class="btn-group " id="types" data-toggle="buttons">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">类型</label>' +
+        '<div class="btn-group query-type " id="types" data-toggle="buttons">' +
         '<label class="btn btn-default active">' +
         '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息' +
         '</label>' +
@@ -41,30 +35,28 @@ var QUERY = function () {
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2">信息子类型</div>' +
-        '<div class="col-xs-6">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">信息子类型</label>' +
         '<select id="subtype" class="form-control selectpicker show-tick" multiple >' +
         '</select>' +
         '</div>'+
         '</div>'+
         '<div class="row">' +
-        '<div class="col-xs-2 col-xs-offset-2 ">上传单位:<span class="type-label">机场</span></div>' +
-        '<div class="col-xs-6">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1">' +
+        '<label class="text">上传单位：<span class="type-label"></span></label>' +
         '<select id="unit-list" name="" class="selectpicker show-tick form-control" multiple >' +
         '</select>' +
         '</div>'+
         '</div>'+
         '<div class="row">'+
-        '<div class="col-xs-12 alert-container">' +
+        '<div class="col-xs-12 col-md-10 col-md-offset-1 alert-container">' +
         '</div>' +
         '</div>'+
         '</div></div></div>';
-    /*var modalContent = ['<div><div class="row"><div class="col-xs-12">','<div class="row row-line">', '<div class="col-xs-2"><p>起始时间</p></div>', '<div class="col-xs-3"><input type="text" class="start-date form-control" value=""></div>', '<div class="col-xs-2"><p>截止时间</p></div>', '<div class="col-xs-3"><input type="text" class="end-date form-control" value=""></div>', '</div>', '<div class="row">', '<div class="col-xs-2 ">类型</div>', '<div class="col-xs-8">', '<div class="btn-group " id="types" data-toggle="buttons">', '<label class="btn btn-default active">', '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ALOI" autocomplete="off"> 航空公司运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 运行监控中心运行信息', '</label>', '</div>',
-        '</div>', '</div>', '<div class="row">', '<div class="col-xs-2 col-xs-offset-2">信息类型</div>', '<div class="col-xs-6">', '<select id="subtype" class="form-control selectpicker show-tick" multiple >', '</select>', '', '</div>', '</div>', '<div class="row">', '<div class="col-xs-2 col-xs-offset-2 type-label">机场</div>', '<div class="col-xs-6">', '<select id="unit-list" name="" class="selectpicker show-tick form-control" multiple >', '</select>', '</div>', '</div>','<div class="row"><div class="col-xs-12">','<button type="button" class="close" data-dismiss="alert" aria-label="Close">','<span aria-hidden="true">&times;</span>','</button>','</div></div>', '</div></div></div>'
-        ].join(' ');*/
 
-    // 类型集合
-    var typeObj = {
+
+    /*// 类型集合
+    var BasicData.operatingDataTypeObj = {
         val : ['APOI','ALOI','ATMI','OSCI'],
         valCN :['机场运行信息','航空公司运行信息','空管运行信息','运行监控中心运行信息'],
         label : ['机场','航空公司','空管','监控中心'],
@@ -78,7 +70,7 @@ var QUERY = function () {
                 },
                 unit : {
 
-                }
+                },
             },
             'ALOI' : {
                 subtype : {
@@ -117,15 +109,27 @@ var QUERY = function () {
             }
         },
         unitURL : {
-            'APOI' : iphost + "/shareDataPlatform/allAirport",
-            'ALOI' : iphost + "/shareDataPlatform/allCompany"
+            'APOI' : 'http://192.168.243.104:1566/shareDataPlatform/allAirport',
+            'ALOI' : 'http://192.168.243.104:1566/shareDataPlatform/allCompany'
         }
-    };
+    };*/
 
     // 表格列名称
     var tableColumns = {
         'APOI' :{
             'PSNI' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID',
+                    // visible : false
+                },
                 {
                     field: 'airportNameEN',
                     title: '机场英文名称'
@@ -283,6 +287,17 @@ var QUERY = function () {
             ],
             'FPDI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -380,6 +395,17 @@ var QUERY = function () {
             ],
             'FPAI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -428,6 +454,17 @@ var QUERY = function () {
             ],
             'PPCI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'airportNameEN',
                     title: '机场英文名称'
                 }, {
@@ -444,6 +481,17 @@ var QUERY = function () {
         },
         'ALOI' : {
             'FLGH' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -577,6 +625,17 @@ var QUERY = function () {
             ],
             'FPLN' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -624,6 +683,17 @@ var QUERY = function () {
                 },
             ],
             'FPCI' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -697,6 +767,17 @@ var QUERY = function () {
             ],
             'FCRI' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -741,7 +822,18 @@ var QUERY = function () {
                 }
             ],
             'FACI' : [
-                 {
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'regNumber',
                     title: '航空器注册号'
                 }, {
@@ -761,6 +853,17 @@ var QUERY = function () {
         },
         'ATMI' : {
             'FCDM' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -800,6 +903,17 @@ var QUERY = function () {
                 }
             ],
             'FTMI' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'FTMID',
                     title: '流控标识'
@@ -852,6 +966,17 @@ var QUERY = function () {
             ],
             'PADR' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'airportNameEN',
                     title: '机场英文名称'
                 }, {
@@ -884,6 +1009,17 @@ var QUERY = function () {
                 }
             ],
             'MDRS' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'MDRSIdentification',
                     title: 'MDRS标识'
@@ -918,6 +1054,17 @@ var QUERY = function () {
             ],
             'SECT' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'sectorIdentification',
                     title: '扇区标识'
                 }, {
@@ -928,6 +1075,17 @@ var QUERY = function () {
         },
         'OSCI' : {
             'FOSC' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'callSign',
                     title: '航空器识别标志'
@@ -1013,6 +1171,17 @@ var QUERY = function () {
             ],
             'FPER' : [
                 {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
+                {
                     field: 'callSign',
                     title: '航空器识别标志'
                 },{
@@ -1051,6 +1220,17 @@ var QUERY = function () {
                 }
             ],
             'PPER' : [
+                {
+                    field: 'rowNumber',
+                    title: '行号',
+                    formatter: function (value, row, index) {
+                        return index+1;
+                    }
+                },
+                {
+                    field: 'id',
+                    title: 'ID'
+                },
                 {
                     field: 'airportNameEN',
                     title: '机场英文名称'
@@ -1142,10 +1322,37 @@ var QUERY = function () {
             ]
         }
     };
-    //起始时间
-    var startTime = '';
-    //截止时间
-    var endTime = '';
+
+    //表格排序列集合
+    var tableSortName = {
+        'APOI' : {
+            'PSNI' : 'id',
+            'FPDI' : 'id',
+            'FPAI' : 'id',
+            'PPCI' : 'id'
+        },
+        'ALOI' : {
+            'FLGH' : 'id',
+            'FPLN' : 'id',
+            'FPCI' : 'id',
+            'FCRI' : 'id',
+            'FACI' : 'id'
+        },
+        'ATMI' : {
+            'FCDM' : 'id',
+            'FTMI' : 'id',
+            'PADR' : 'id',
+            'MDRS' : 'id',
+            'SECT' : 'id'
+        },
+        'OSCI' : {
+            'FOSC' : 'id',
+            'FPER' : 'id',
+            'PPER' : 'id'
+        },
+    }
+    //时间
+    var date = '';
     //当前选中的类型值
     var currentType = '';
     //当前选中的类型索引位置
@@ -1155,7 +1362,7 @@ var QUERY = function () {
     //当前选中的单位
     var currentUnit = [];
     //数据查询地址
-    var searchUrl = 'http://192.168.243.104:1566/shareDataPlatform/dataSearch/';
+    var searchUrl = iphost + "/shareDataPlatform/dataSearch/";
     // 表格对象
     var tableObj = {};
     //是否已经成功查询过
@@ -1187,18 +1394,20 @@ var QUERY = function () {
         var options = {
             title : "运行数据查询",
             content :  content,
-            status: 1,//1:正常 2:警告 3:危险  不填:默认情况
-            width : 840,
+            status: 0,//1:正常 2:警告 3:危险  不填:默认情况
+            width : 890,
             showCancelBtn :false,
-            mtop: 100,
+            mtop: 200,
             isIcon : false,
             buttons : [{
                 name:"查询",
+                status : 0,
                 isHidden : false,
                 className: 'submit-form',
                 callback : function () {
+                    var btn = this;
                     // 处理表单提交
-                    handleSubmitForm();
+                    handleSubmitForm(btn);
                 }
             },{
                 name:"重置",
@@ -1225,15 +1434,15 @@ var QUERY = function () {
      * */
     var initDates = function () {
         var nowDate = $.getFullTime(new Date()).substring(0,8);
-        $('.start-date').val(nowDate);
-        $('.end-date').val(nowDate);
+        $('.date-input').val(nowDate);
+
     };
 
     /**
      * 初始化日期插件datepicker
      * */
     var initDatepicker = function () {
-        $('#start-date-datepicker').datepicker({
+        $('#bootstrap-modal-dialog-body .date-datepicker').datepicker({
             language: "zh-CN",
             showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
             autoclose: true, //选择日期后自动关闭面板
@@ -1246,40 +1455,29 @@ var QUERY = function () {
             //格式化
             format: 'yyyymmdd',
         }) ;
-        $('#end-date-datepicker').datepicker({
-            language: "zh-CN",
-            showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
-            autoclose: true, //选择日期后自动关闭面板
-            // clearBtn: true, //是否显示清空按钮
-            // todayHighlight: true,
-            // startDate: '0d', //可选日期的开始日期 0d:当前 -1d:当前的前1天, +1d:当前的后1天
-            // endDate: '+1d', //可选日期最后日期
-            keepEmptyValues: true,
-            //forceParse: true,
-            //格式化
-            format: 'yyyymmdd',
-        }) ;
     };
 
     /**
      * 处理表单提交
      * */
-    var handleSubmitForm = function () {
-            //处理数据
-            handleFormData();
-            //校验表单
-            var bool = validateForm();
-            if(!bool){
-                //警告
-                var mess = "请输入正确的起始时间或截止时间,日期格式:YYYYMMDD";
-                showAlear(mess);
-                return;
-            }else {
-                //拼接参数
-                var str = concatParameter();
-                //数据查询
-                searchData(str);
-            }
+    var handleSubmitForm = function (btn) {
+        //处理数据
+        handleFormData();
+        //校验表单
+        var bool = validateForm();
+        if(!bool){
+            //警告
+            var mess = "请输入正确的时间,日期格式:YYYYMMDD";
+            showAlear(mess);
+            return;
+        }else {
+            // 清空警告
+            clearAlert();
+            //拼接参数
+            var str = concatParameter();
+            //数据查询
+            searchData(str,btn);
+        }
     };
 
     /**
@@ -1289,12 +1487,9 @@ var QUERY = function () {
         var valid = true;
         var regexp = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})(((0[13578]|1[02])(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)(0[1-9]|[12][0-9]|30))|(02(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))0229)/;
         //起始时间
-        var start = regexp.test(startTime);
-        // 截止时间
-        var end = regexp.test(endTime);
-        if(!start){
-            valid = false;
-        }else if(!end){
+        var dateVal = regexp.test(date);
+
+        if(!dateVal){
             valid = false;
         }
         return valid;
@@ -1305,9 +1500,7 @@ var QUERY = function () {
      * */
     var handleFormData = function () {
         //起始时间
-        startTime = $('.start-date').val();
-        //截止时间
-        endTime = $('.end-date').val();
+        date = $('.date-input').val();
         // 当前选中的子类型值(数组)
         currentSubtype =$('#subtype').val();
         // 当前选中的单位值(数组)
@@ -1323,15 +1516,14 @@ var QUERY = function () {
         // 当前选中的单位值(字符串)
         var unitVal = currentUnit ? currentUnit.join(',') : 'null';
         // 拼接参数
-        var str = [startTime,endTime,currentType,subtypeVal,unitVal].join('/');
+        var str = [date,currentType,subtypeVal,unitVal].join('/');
         return str;
     };
 
     /**
      * 数据查询
      * */
-    var searchData = function (str) {
-
+    var searchData = function (str,btn) {
         var url = searchUrl + str;
         $.ajax({
             url: url,
@@ -1345,13 +1537,17 @@ var QUERY = function () {
                     //提取数据
                     var result = data.sharingDatas;
                     var time = data.generatetime;
-                    // 清空警告
-                    clearAlert();
+
                     // 更新数据时间
-                    updateGeneratetime(time);
+                    if($.isValidVariable(time)){
+                        // 更新数据时间
+                        updateGeneratetime(time);
+                    }
                     // 更新顶部导航内容
                     // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
                     updateNavLabel();
+                    //
+                    $('.no-datas-tip').hide();
                     //初始化表格
                     initTable();
                     //表格数据加载
@@ -1395,7 +1591,7 @@ var QUERY = function () {
      * */
     var updateNavLabel = function () {
         //当前选中的类型
-        var currentTypeObj = typeObj.result[currentType];
+        var currentTypeObj = BasicData.operatingDataTypeObj.result[currentType];
         var currentSubtypeLabel = '';
         var currentUnitLabel = '';
         if(Array.isArray(currentSubtype)){
@@ -1409,12 +1605,11 @@ var QUERY = function () {
             }).join(' , ');
         }
         //内容更新
-        $('.data-query-sammery').addClass('not-empty');
-        $('.nav-start-time').text(startTime).attr('title','起始时间:'+startTime);
-        $('.nav-end-time').text(endTime).attr('title','截止时间:'+ endTime);
-        $('.nav-type').text(typeObj.valCN[index]).attr('title','类型:'+typeObj.valCN[index]);
-        $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型:'+currentSubtypeLabel);
-        $('.nav-unit').text(currentUnitLabel).attr('title','上传单位:'+currentUnitLabel);
+        $('.data-query-summary').addClass('not-empty');
+        $('.query-date').text(date).attr('title','时间: '+date);
+        $('.nav-type').text(BasicData.operatingDataTypeObj.valCN[index]).attr('title','类型: '+BasicData.operatingDataTypeObj.valCN[index]);
+        $('.nav-subtype').text(currentSubtypeLabel).attr('title','信息子类型: '+currentSubtypeLabel);
+        $('.nav-unit').text(currentUnitLabel).attr('title','上传单位: '+currentUnitLabel);
         $('.to').text('-');
         //更新查询状态
         hasQuery = true;
@@ -1457,6 +1652,7 @@ var QUERY = function () {
                 return;
             }
             currentType  = val;
+            OperatingData.currentType = val;
             toggleTypeRadio($this);
             toggleTypeLabel(currentType);
             updateSelectPicker(currentType);
@@ -1521,9 +1717,9 @@ var QUERY = function () {
      * val 选中的单选按钮值
      */
     var toggleTypeLabel = function (typeName) {
-        index = typeObj.val.indexOf(typeName);
-        var label = typeObj.label[index];
-        $('.type-label').text(label);
+        index = BasicData.operatingDataTypeObj.val.indexOf(typeName);
+        var label = BasicData.operatingDataTypeObj.label[index];
+        $('.query-form .type-label').text(label);
     };
 
 
@@ -1531,8 +1727,8 @@ var QUERY = function () {
      * 更新下拉列表
      * */
     var updateSelectPicker = function (typeName) {
-        var subtypeStr = concatOptionString(typeObj.result[typeName].subtype);
-        var units = typeObj.result[typeName].unit;
+        var subtypeStr = concatOptionString(BasicData.operatingDataTypeObj.result[typeName].subtype);
+        var units = BasicData.operatingDataTypeObj.result[typeName].unit;
         var unitListStr = concatOptionString(units);
         $('#subtype').empty().append( subtypeStr ).selectpicker('refresh');
         $('#unit-list').empty().append( unitListStr ).selectpicker('refresh');
@@ -1550,10 +1746,18 @@ var QUERY = function () {
      *  拼接下拉列表串
      * */
     var concatOptionString = function (obj) {
+        // 通过Object.keys()获取对象可枚举属性所组成的数组
+        var array = Object.keys(obj);
         var arr = [];
-        for(var i in obj){
-            arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+        // 若array的长度为1，则下拉列表只不一项，设置其为选中
+        if(array.length ==1){
+            arr.push('<option selected  value="'+ array[0] +'">' + obj[array[0]] +'</option>');
+        }else if(array.length > 1) {
+            for(var i in obj){
+                arr.push('<option value="'+ i +'">' + obj[i] +'</option>');
+            }
         }
+
         return arr.join(' ');
     };
 
@@ -1564,7 +1768,7 @@ var QUERY = function () {
      *  mess str 警告信息内容
      * */
     var showAlear = function (mess) {
-        var $dom = $('.alert-container');
+        var $dom = $('.query-form .alert-container');
         var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
             '<p id="alert-mess">'+ mess +' </p>' +
@@ -1577,7 +1781,7 @@ var QUERY = function () {
      *
      * */
     var clearAlert  = function () {
-        $dom = $('.alert-container').empty();
+        $('.alert-container').empty();
     };
 
     /**
@@ -1585,29 +1789,33 @@ var QUERY = function () {
      * */
     var initTable = function () {
         //高度获取
-        var height = getTableContianerHeight() - 50;
+        var height = $('.table-contianer').height();
         //先注销表格
         destroyTable();
         tableObj = $('#tb-datas').bootstrapTable({
             striped: false,                      //是否显示行间隔色
             cache: false,                       //是否使用缓存，默认为true，所以一般情况下需要设置一下这个属性（*）
             pagination: false,                   //是否显示分页（*）
-            sortable: false,                     //是否启用排序
+            sortable: true,                     //是否启用排序
+            sortName : tableSortName[currentType][currentSubtype],      //定义排序列
             sortOrder: "asc",                   //排序方式
             // queryParams: oTableInit.queryParams,//传递参数（*）
+            pagination : true,                   //设置为 true 会在表格底部显示分页条
+            onlyInfoPagination : true,          //设置为 true 只显示总数据数，而不显示分页按钮。需要 pagination='True'
             sidePagination: "client",           //分页方式：client客户端分页，server服务端分页（*）
             pageNumber: 1,                       //初始化加载第一页，默认第一页
-            pageSize: 10,                       //每页的记录行数（*）
-            pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
-            // search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
-            strictSearch: true,
+            pageSize: 99999999999,               //每页的记录行数（*）
+            pageList: '[All]',                  //可供选择的每页的行数（*）
+            search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端
+            strictSearch: false,                 //设置为 true启用 全匹配搜索，否则为模糊搜索
             showColumns: false,                  //是否显示所有的列
-            // showRefresh: true,                  //是否显示刷新按钮
-            minimumCountColumns: 2,             //最少允许的列数
+            // showRefresh: true,                //是否显示刷新按钮
+            minimumCountColumns: 1,             //最少允许的列数
             clickToSelect: true,                //是否启用点击选中行
-            height: height,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
-            uniqueId: "ID",                     //每一行的唯一标识，一般为主键列
-            onlyInfoPagination: true,
+            height: height,                      //定义表格的高度
+            uniqueId: "id",                     //每一行的唯一标识，一般为主键列
+            // fixedColumns: true,                 //是否开冻结列
+            // fixedNumber: "3",                     //结列数
             columns: tableColumns[currentType][currentSubtype],
         });
     };
@@ -1646,13 +1854,13 @@ var QUERY = function () {
         //绑定Window事件，窗口变化时重新调整表格大小
         initDocumentResize();
         //绑定左侧导航'运行数据查询'点击事件
-        initLeftNavMenu();
+        initNavMenu();
     };
     /**
      * 获取机场单位数据
      * */
     var initAPOIUnitData = function () {
-        var url = typeObj.unitURL['APOI'];
+        var url = BasicData.operatingDataTypeObj.unitURL['APOI'];
         $.ajax({
             url: url,
             type: 'GET',
@@ -1687,7 +1895,7 @@ var QUERY = function () {
      * 获取航空公司单位数据
      * */
     var initALOIUnitData = function () {
-        var url = typeObj.unitURL['ALOI'];
+        var url = BasicData.operatingDataTypeObj.unitURL['ALOI'];
         $.ajax({
             url: url,
             type: 'GET',
@@ -1719,12 +1927,12 @@ var QUERY = function () {
      *  更新单位
      * */
     var updateUints = function (typeName,data) {
-        typeObj.result[typeName].unit = {};
-          for(var i in data){
-              var key = i;
-              var val = data[i];
-              typeObj.result[typeName].unit[key] = val;
-          }
+        BasicData.operatingDataTypeObj.result[typeName].unit = {};
+        for(var i in data){
+            var key = i;
+            var val = data[i];
+            BasicData.operatingDataTypeObj.result[typeName].unit[key] = val;
+        }
     };
 
 
@@ -1752,8 +1960,9 @@ var QUERY = function () {
      * */
     var initDocumentResize = function () {
         $(window).resize(function () {
-            var height = getTableContianerHeight() - 50;
-            if($.isValidObject(tableObj)){
+            if($('.operating-data-query').is(":visible")){
+                $('.table-contianer').height(getTableContianerHeight()-20);
+                var height = $('.table-contianer').height();
                 $('#tb-datas').bootstrapTable('resetView',{
                     height: height
                 });
@@ -1764,14 +1973,13 @@ var QUERY = function () {
      *
      * 绑定左侧导航'运行数据查询'点击事件
      * */
-    var initLeftNavMenu = function () {
+    var initNavMenu = function () {
         //
-        $('#run_query').on('click', function () {
+        $('.nav-operating-data-query').on('click', function () {
             queryModalShow();
+
+            $('.table-contianer').height(getTableContianerHeight()-20);
         });
-        $('.search_sm').on('click',function () {
-            queryModalShow();
-        })
     };
 
     var queryModalShow = function () {
@@ -1789,34 +1997,38 @@ var QUERY = function () {
      * */
     var getTableContianerHeight = function () {
         var  body = $('body').height();
-        var  nav = $('.nav_menu').height();
-        var  innerNav = $('#data-query .nav-menu').height();
-        return body - nav - innerNav;
+        var head = $('.headbar').outerHeight() + parseInt($('.headbar').css('marginBottom'));
+        var  nav = $('.nav-menu').outerHeight() +parseInt($('.nav-menu').css('marginBottom'));
+        var  innerNav = $('.data-query-summary').outerHeight() +parseInt($('.data-query-summary').css('marginBottom'));
+        return body - head - nav - innerNav;
     };
 
     /**
      * 格式化时间
      * */
     var formateTime = function (time) {
-          var year = time.substring(0,4);
-          var mon = time.substring(4,6);
-          var date = time.substring(6,8);
-          var hour = time.substring(8,10);
-          var min = time.substring(10,12);
-          var str = year+'年' + mon +'月' + date + '日 ' + hour +":"+ min;
-          return str;
+        var year = time.substring(0,4);
+        var mon = time.substring(4,6);
+        var date = time.substring(6,8);
+        var hour = time.substring(8,10);
+        var min = time.substring(10,12);
+        var str = year+'-' + mon +'-' + date + ' ' + hour +":"+ min;
+        return str;
     };
     return {
         init: function () {
             //初始始化基础数据
-            initBasicData();
+            // initBasicData();
             //初始始化操作
             initOperators();
 
-        }
+        },
+        updateSelectPicker : updateSelectPicker,
+        currentType : currentType
+
     }
 }();
 $(document).ready(function () {
-    QUERY.init();
+    OperatingData.init();
 
 });

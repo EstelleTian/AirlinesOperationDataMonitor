@@ -1,7 +1,7 @@
 var HistoryData = function () {
 
     // URL
-    var submitUrl = 'http://192.168.243.104:1566/shareDataPlatform/hisDataCount/';
+    var submitUrl = iphost + '/shareDataPlatform/hisDataCount/';
     var startDateSelector ='start-date-input';
     var endDateSelector ='end-date-input';
     var typeSelector = 'history-data-type-select';
@@ -92,6 +92,13 @@ var HistoryData = function () {
      * */
     var handleSubmitForm = function () {
 
+        //清空图表
+        clearChart(dataCountChart);
+        clearChart(fileCountChart);
+        // 置空图表对象
+        dataCountChart = {};
+        fileCountChart = {};
+
         //处理数据
         handleFormData();
         //校验表单
@@ -99,12 +106,6 @@ var HistoryData = function () {
         if(!bool){
             //警告
             var mess = "请输入正确的起始时间或截止时间,日期格式:YYYYMMDD";
-            //清空图表
-            clearChart(dataCountChart);
-            clearChart(fileCountChart);
-            // 置空图表对象
-            dataCountChart = {};
-            fileCountChart = {};
             showAlear(mess);
             return;
         }else {
@@ -204,6 +205,9 @@ var HistoryData = function () {
      * 数据查询
      * */
     var searchData = function (str) {
+        var loading = Ladda.create($('.history-data-btn')[0]);
+        loading.start();
+        $('.form-wrap').addClass('no-event');
         var url  = submitUrl + str;
         $.ajax({
             url: url,
@@ -227,6 +231,8 @@ var HistoryData = function () {
                     if(!$.isValidObject(result)){
                         //显示提示
                         showTip();
+                        loading.stop();
+                        $('.form-wrap').removeClass('no-event');
                         return;
                     }
 
@@ -234,18 +240,26 @@ var HistoryData = function () {
                     convertData(result);
                     //初始化图表
                     initEcharts();
+                    loading.stop();
+                    $('.form-wrap').removeClass('no-event');
 
                 } else if($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
+                    loading.stop();
+                    $('.form-wrap').removeClass('no-event');
                 }else {
                     showAlear("查询失败");
+                    loading.stop();
+                    $('.form-wrap').removeClass('no-event');
                 }
 
             },
             error: function (xhr, status, error) {
                 console.error('Search data failed');
                 console.error(error);
+                loading.stop();
+                $('.form-wrap').removeClass('no-event');
             }
         });
     };
@@ -367,8 +381,6 @@ var HistoryData = function () {
      * 数据总数图表
      * */
     var createDataCountChart = function () {
-        // 先清空图表
-        clearChart(dataCountChart);
         // 图表初始化
         dataCountChart = echarts.init($('#data-count')[0]);
         // 图表使用
@@ -419,10 +431,6 @@ var HistoryData = function () {
      * 文件总数图表
      * */
     var createFileCountChart = function () {
-        // 若图表已经存在，则先清空图表
-        if($.isValidObject(fileCountChart)){
-            clearChart(fileCountChart);
-        }
         // 图表初始化
         fileCountChart = echarts.init($('#file-count')[0]);
         // 图表使用

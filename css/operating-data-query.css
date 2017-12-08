@@ -42,7 +42,7 @@
 .operating-data-query .table-contianer {
     min-height: 15rem;
     color: #646464;
-    font-size: 14px;
+    /*font-size: 14px;*/
 }
 .operating-data-query .data-query-summary p{
     margin: 0;
@@ -79,6 +79,10 @@
     margin-top: 8px;
     margin-bottom: 8px;
     padding: 0 1rem;
+}
+
+.operating-data-query #tb-datas-canvas {
+    height: 100%;
 }
 
 .modal-header {
@@ -128,7 +132,9 @@
 .datepicker .table-condensed td {
     padding: 0.45rem 0.9rem;
 }
-
+.no-event {
+    pointer-events: none !important;
+}
 
 
 @media (max-width: 992px) {
