@@ -119,6 +119,15 @@ var BasicData = function () {
         'ALOI' : 'http://192.168.243.104:1566/shareDataPlatform/allCompany'
     };
 
+    //格式化时间
+    function timeFormater(cellvalue, options, rowObject) {
+        if ($.isValidVariable(cellvalue)) {
+            return cellvalue.substring(8, 12);
+        } else {
+            return '';
+        }
+    }
+
     var tableObj = {
         colName: {
             'APOI': {
@@ -132,11 +141,13 @@ var BasicData = function () {
                     },startTime: {
                         cn: '开始时间',
                         en: 'startTime',
-                        width : 200
+                        width : 200,
+                        formatter: timeFormater
                     },endTime: {
                         cn: '终止时间',
                         en: 'endTime',
-                        width : 200
+                        width : 200,
+                        formatter: timeFormater
                     },nowOcpStandsASum: {
                         cn: '已占用机位数量（A类）',
                         en: 'nowOcpStandsASum',
@@ -289,20 +300,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -312,93 +327,115 @@ var BasicData = function () {
                         en: 'arrAP'
                     },stand: {
                         cn: '离港航班停机位',
-                        en: 'stand'
+                        en: 'stand',
+                        width : 200
                     },gate: {
                         cn: '航班登机口',
                         en: 'gate'
                     },startBoradingTime: {
                         cn: '开始登机时间',
                         en: 'startBoradingTime',
+                        formatter: timeFormater,
                         width : 200
                     },endBoardingTime: {
                         cn: '完成登机时间',
                         en: 'endBoardingTime',
+                        formatter: timeFormater,
                         width : 200
                     },startLuggageTime: {
                         cn: '开始装载行李时间',
                         en: 'startLuggageTime',
+                        formatter: timeFormater,
                         width : 200
                     },endLuggageTime: {
                         cn: '完成行李装载时间',
                         en: 'endLuggageTime',
+                        formatter: timeFormater,
                         width : 200
                     },startCateringTime: {
                         cn: '开始配餐时间',
                         en: 'startCateringTime',
+                        formatter: timeFormater,
                         width : 200
                     },endCateringTime: {
                         cn: '完成配餐时间',
                         en: 'endCateringTime',
+                        formatter: timeFormater,
                         width : 200
                     },startWaterTime: {
                         cn: '开始加清水时间',
                         en: 'startWaterTime',
+                        formatter: timeFormater,
                         width : 200
                     },endWaterTime: {
                         cn: '完成加清水时间',
                         en: 'endWaterTime',
+                        formatter: timeFormater,
                         width : 200
                     },startSewageTime: {
                         cn: '开始排污时间',
                         en: 'startSewageTime',
+                        formatter: timeFormater,
                         width : 200
                     },endSewageTime: {
                         cn: '完成排污时间',
                         en: 'endSewageTime',
+                        formatter: timeFormater,
                         width : 200
                     },startCleanTime: {
                         cn: '开始保洁时间',
                         en: 'startCleanTime',
+                        formatter: timeFormater,
                         width : 200
                     },endCleanTime: {
                         cn: '完成保洁时间',
                         en: 'endCleanTime',
+                        formatter: timeFormater,
                         width : 200
                     },startFuelTime: {
                         cn: '开始供油时间',
                         en: 'startFuelTime',
+                        formatter: timeFormater,
                         width : 200
                     },endFuelTime: {
                         cn: '完成供油时间',
                         en: 'endFuelTime',
+                        formatter: timeFormater,
                         width : 200
                     },startDeiceTime: {
                         cn: '开始除冰时间',
                         en: 'startDeiceTime',
+                        formatter: timeFormater,
                         width : 200
                     },endDeiceTime: {
                         cn: '完成除冰时间',
                         en: 'endDeiceTime',
+                        formatter: timeFormater,
                         width : 200
                     },aeroBridgeOffTime: {
                         cn: '离桥时间',
                         en: 'aeroBridgeOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },depPassengerStepsOffTime: {
                         cn: '离港客梯车撤离时间',
                         en: 'depPassengerStepsOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },actualDepatureTime: {
                         cn: '实际离港时间',
                         en: 'actualDepatureTime',
+                        formatter: timeFormater,
                         width : 200
                     },trailerInPlaceTime: {
                         cn: '拖车到位时间',
                         en: 'trailerInPlaceTime',
+                        formatter: timeFormater,
                         width : 200
                     },depShuttleOffTime: {
                         cn: '离港摆渡车撤离时间',
                         en: 'depShuttleOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },securityCheckedPassangerSum: {
                         cn: '过安检旅客人数',
@@ -412,20 +449,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -446,26 +487,32 @@ var BasicData = function () {
                     },actualArrivalTime: {
                         cn: '实际到港时间',
                         en: 'actualArrivalTime',
+                        formatter: timeFormater,
                         width : 200
                     },aeroBridgeOnTime: {
                         cn: '靠桥时间',
                         en: 'aeroBridgeOnTime',
+                        formatter: timeFormater,
                         width : 200
                     },arrPassengerStepsOnTime: {
                         cn: '进港客梯车对接时间',
                         en: 'arrPassengerStepsOnTime',
+                        formatter: timeFormater,
                         width : 200
                     },arrShuttleReadyTime: {
                         cn: '进港摆渡车到位时间',
                         en: 'arrShuttleReadyTime',
+                        formatter: timeFormater,
                         width : 200
                     },startUnBoardTime: {
                         cn: '开始下客时间',
                         en: 'startUnBoardTime',
+                        formatter: timeFormater,
                         width : 200
                     },endUnBoardTime: {
                         cn: '完成下客时间',
                         en: 'endUnBoardTime',
+                        formatter: timeFormater,
                         width : 200
                     }
                 },
@@ -473,23 +520,23 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width : 300
+                        width : 100
                     },airportNameEN: {
                         cn: '机场英文名称',
                         en: 'airportNameEN',
-                        width : 300
+                        width : 280
                     },date: {
                         cn: '日期',
                         en: 'date',
-                        width : 300
+                        width : 280
                     },depPassengerSum: {
                         cn: '出港旅客总人数',
                         en: 'depPassengerSum',
-                        width : 300
+                        width : 280
                     },arrPassengerSum: {
                         cn: '进港旅客总人数',
                         en: 'arrPassengerSum',
-                        width : 300
+                        width : 280
                     }
                 },
             },
@@ -500,20 +547,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -524,142 +575,177 @@ var BasicData = function () {
                     },crewReadyTime: {
                         cn: '机组到位时间',
                         en: 'crewReadyTime',
+                        formatter: timeFormater,
                         width : 200
                     },startBoardingTime: {
                         cn: '开始登机时间',
                         en: 'startBoardingTime',
+                        formatter: timeFormater,
                         width : 200
                     },endBoardingTime: {
                         cn: '完成登机时间',
                         en: 'endBoardingTime',
+                        formatter: timeFormater,
                         width : 200
                     },startLuggageTime: {
                         cn: '开始行李装载时间',
                         en: 'startLuggageTime',
+                        formatter: timeFormater,
                         width : 200
                     },endLuggageTime: {
                         cn: '完成行李装载时间',
                         en: 'endLuggageTime',
+                        formatter: timeFormater,
                         width : 200
                     },startCateringTime: {
                         cn: '开始配餐时间',
                         en: 'startCateringTime',
+                        formatter: timeFormater,
                         width : 200
                     },endCateringTime: {
                         cn: '完成配餐时间',
                         en: 'endCateringTime',
+                        formatter: timeFormater,
                         width : 200
                     },startWaterTime: {
                         cn: '开始加清水时间',
                         en: 'startWaterTime',
+                        formatter: timeFormater,
                         width : 200
                     },endWaterTime: {
                         cn: '完成加清水时间',
                         en: 'endWaterTime',
+                        formatter: timeFormater,
                         width : 200
                     },startSewageTime: {
                         cn: '开始排污时间',
                         en: 'startSewageTime',
+                        formatter: timeFormater,
                         width : 200
                     },endSewageTime: {
                         cn: '完成排污时间',
                         en: 'endSewageTime',
+                        formatter: timeFormater,
                         width : 200
                     },startCleanTime: {
                         cn: '开始保洁时间',
                         en: 'startCleanTime',
+                        formatter: timeFormater,
                         width : 200
                     },endCleanTime: {
                         cn: '完成保洁时间',
                         en: 'endCleanTime',
+                        formatter: timeFormater,
                         width : 200
                     },startFuelTime: {
                         cn: '开始供油时间',
                         en: 'startFuelTime',
+                        formatter: timeFormater,
                         width : 200
                     },endFuelTime: {
                         cn: '完成供油时间',
                         en: 'endFuelTime',
+                        formatter: timeFormater,
                         width : 200
                     },startDeiceTime: {
                         cn: '开始除冰时间',
                         en: 'startDeiceTime',
+                        formatter: timeFormater,
                         width : 200
                     },endDeiceTime: {
                         cn: '完成除冰时间',
                         en: 'endDeiceTime',
+                        formatter: timeFormater,
                         width : 200
                     },aeroBridgeOffTime: {
                         cn: '离桥时间',
                         en: 'aeroBridgeOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },aeroBridgeOnTime: {
                         cn: '靠桥时间',
                         en: 'aeroBridgeOnTime',
+                        formatter: timeFormater,
                         width : 200
                     },depPassengerStepsOffTime: {
                         cn: '离港客梯车撤离时间',
                         en: 'depPassengerStepsOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },arrPassengerStepsOnTime: {
                         cn: '进港客梯车对接时间',
                         en: 'arrPassengerStepsOnTime',
+                        formatter: timeFormater,
                         width : 200
                     },depShuttleOffTime: {
                         cn: '离港摆渡车撤离时间',
                         en: 'depShuttleOffTime',
+                        formatter: timeFormater,
                         width : 200
                     },arrShuttleReadyTime: {
                         cn: '进港摆渡车到位时间',
                         en: 'arrShuttleReadyTime',
+                        formatter: timeFormater,
                         width : 200
                     },trailerReadyTime: {
                         cn: '拖车到位时间',
                         en: 'trailerReadyTime',
+                        formatter: timeFormater,
                         width : 200
                     },startUnBoardTime: {
                         cn: '开始下客时间',
                         en: 'startUnBoardTime',
+                        formatter: timeFormater,
                         width : 200
                     },endUnBoardTime: {
                         cn: '完成下客时间',
                         en: 'endUnBoardTime',
+                        formatter: timeFormater,
                         width : 200
                     },liftFrontWheelTime: {
                         cn: '抬前轮时间',
                         en: 'liftFrontWheelTime',
+                        formatter: timeFormater,
                         width : 200
                     },landingTime: {
                         cn: '着陆时间',
                         en: 'landingTime',
+                        formatter: timeFormater,
                         width : 200
                     },looseBrakeTime: {
                         cn: '松刹车时间',
                         en: 'looseBrakeTime',
+                        formatter: timeFormater,
                         width : 200
                     },brakeTime: {
                         cn: '刹车时间',
                         en: 'brakeTime',
+                        formatter: timeFormater,
                         width : 200
                     },startTaxiingTime: {
                         cn: '开始滑行时间',
                         en: 'startTaxiingTime',
+                        formatter: timeFormater,
                         width : 200
                     },actualDepatureTime: {
                         cn: '实际离港时间',
                         en: 'actualDepatureTime',
+                        formatter: timeFormater,
                         width : 200
                     },actualArrivalTime: {
                         cn: '实际到港时间',
                         en: 'actualArrivalTime',
+                        formatter: timeFormater,
                         width : 200
                     },actualGateCloseTime: {
                         cn: '实际关舱门时间',
                         en: 'actualGateCloseTime',
+                        formatter: timeFormater,
                         width : 200
                     },actualGateOpenTime: {
                         cn: '实际开舱门时间',
                         en: 'actualGateOpenTime',
+                        formatter: timeFormater,
                         width : 200
                     },enduranceDistance: {
                         cn: '航班续航距离',
@@ -672,20 +758,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -708,10 +798,12 @@ var BasicData = function () {
                     },PLNSobt: {
                         cn: '变更离港时间',
                         en: 'PLNSobt',
+                        formatter: timeFormater,
                         width : 200
                     },PLNSibt: {
                         cn: '变更进港时间',
                         en: 'PLNSibt',
+                        formatter: timeFormater,
                         width : 200
                     },PLNArrAp: {
                         cn: '变更目的地机场',
@@ -727,20 +819,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -750,16 +846,20 @@ var BasicData = function () {
                         en: 'arrAP'
                     },checkinPassengerSum: {
                         cn: '已值机旅客人数',
-                        en: 'checkinPassengerSum'
+                        en: 'checkinPassengerSum',
+                        width : 170
                     },boardingPassengerSum: {
                         cn: '已登机旅客人数',
-                        en: 'boardingPassengerSum'
+                        en: 'boardingPassengerSum',
+                        width : 170
                     },passengerDomesticSum: {
                         cn: '国内旅客总人数',
-                        en: 'passengerDomesticSum'
+                        en: 'passengerDomesticSum',
+                        width : 170
                     },passengerInternationalSum: {
                         cn: '国际旅客总人数',
-                        en: 'passengerInternationalSum'
+                        en: 'passengerInternationalSum',
+                        width : 170
                     },passengerAdultSum: {
                         cn: '成年旅客人数',
                         en: 'passengerAdultSum'
@@ -804,20 +904,24 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 200
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 200
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },depAP: {
                         cn: '起飞机场',
@@ -836,43 +940,48 @@ var BasicData = function () {
                         en: 'NewCaptain'
                     },ForeignCaptain: {
                         cn: '是否为外籍人员',
-                        en: 'ForeignCaptain'
+                        en: 'ForeignCaptain',
+                        width : 170
                     },Remark: {
                         cn: '备注',
                         en: 'Remark'
                     }, crewILSLevel: {
                         cn: '机组仪表飞行标准',
-                        en: 'crewILSLevel'
+                        en: 'crewILSLevel',
+                        width : 200
                     }, crewEstTimeoutTime: {
                         cn: '机组预计超时时间',
-                        en: 'crewEstTimeoutTime'
+                        en: 'crewEstTimeoutTime',
+                        formatter: timeFormater,
+                        width : 200
                     }
 
                 },'FACI'  : {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width : 300
+                        width : 150
                     }, regNumber: {
                         cn: '航空器注册号',
                         en: 'regNumber',
-                        width : 300
+                        width : 250
                     }, aircraftType: {
                         cn: '机型',
                         en: 'aircraftType',
-                        width : 300
+                        width : 250
                     }, wingSpanLength: {
                         cn: '翼展长度',
                         en: 'wingSpanLength',
-                        width : 300
+                        width : 250
                     }, fuselageLength: {
                         cn: '机身长度',
                         en: 'fuselageLength',
-                        width : 300
+                        width : 250
                     }, startServiceTime: {
                         cn: '机龄起始时间',
                         en: 'startServiceTime',
-                        width : 300
+                        formatter: timeFormater,
+                        width : 250
                     }
                 }
             },
@@ -889,7 +998,7 @@ var BasicData = function () {
                     }, GUFI: {
                         cn: '全球航班唯一标识符',
                         en: 'GUFI',
-                        width : 110
+                        width : 130
                     }, regNumber: {
                         cn: '注册号',
                         en: 'regNumber',
@@ -897,11 +1006,13 @@ var BasicData = function () {
                     }, SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     }, EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     }, depAP: {
                         cn: '起飞机场',
                         en: 'depAP',
@@ -913,19 +1024,23 @@ var BasicData = function () {
                     }, CTOT: {
                         cn: '计算起飞时间',
                         en: 'CTOT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     }, COBT: {
                         cn: '计算撤轮挡时间',
                         en: 'COBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     }, TOBT: {
                         cn: '目标撤轮挡时间',
                         en: 'TOBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     }, TSAT: {
                         cn: '目标许可开车时间',
                         en: 'TSAT',
-                        width : 110
+                        width : 130,
+                        formatter: timeFormater
                     }, reason: {
                         cn: '航班受控原因',
                         en: 'reason',
@@ -950,10 +1065,12 @@ var BasicData = function () {
                         en: 'acceptUnit'
                     }, applyTime: {
                         cn: '流控申请时间',
-                        en: 'applyTime'
+                        en: 'applyTime',
+                        formatter: timeFormater
                     }, publicTime: {
                         cn: '流控发布时间',
-                        en: 'publicTime'
+                        en: 'publicTime',
+                        formatter: timeFormater
                     }, fix: {
                         cn: '交接点',
                         en: 'fix'
@@ -975,11 +1092,11 @@ var BasicData = function () {
                     }, startTime: {
                         cn: '流控开始时间',
                         en: 'startTime',
-                        width : 200
+                        formatter: timeFormater,
                     }, endTime: {
                         cn: '流控结束时间',
                         en: 'endTime',
-                        width : 200
+                        formatter: timeFormater,
                     }, reason: {
                         cn: 'reason',
                         en: 'reason'
@@ -1004,11 +1121,13 @@ var BasicData = function () {
                     }, startTime: {
                         cn: '开始时间',
                         en: 'startTime',
+                        formatter: timeFormater,
                         width : 130
                     }, endTime: {
                         cn: '终止时间',
                         en: 'endTime',
-                        width : 130
+                        width : 130,
+                        formatter: timeFormater
                     }, depRunWay: {
                         cn: '起飞跑道',
                         en: 'depRunWay',
@@ -1051,7 +1170,8 @@ var BasicData = function () {
                     }, MDRSPublishTime: {
                         cn: 'MDRS发布时间',
                         en: 'MDRSPublishTime',
-                        width : 130
+                        width : 130,
+                        formatter: timeFormater
                     }, MDRSPublishUnit: {
                         cn: 'MDRS发布单位',
                         en: 'MDRSPublishUnit',
@@ -1105,19 +1225,23 @@ var BasicData = function () {
                         en: 'ID'
                     },callSign: {
                         cn: '航空器识别标志',
-                        en: 'callSign'
+                        en: 'callSign',
+                        width : 110
                     },GUFI: {
                         cn: '全球航班唯一标识符',
-                        en: 'GUFI'
+                        en: 'GUFI',
+                        width : 130
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber'
                     },SOBT: {
                         cn: '计划离港时间',
-                        en: 'SOBT'
+                        en: 'SOBT',
+                        formatter: timeFormater
                     },EOBT: {
                         cn: '预计撤轮档时间',
-                        en: 'EOBT'
+                        en: 'EOBT',
+                        formatter: timeFormater
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP'
@@ -1134,6 +1258,7 @@ var BasicData = function () {
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
+                        formatter: timeFormater,
                         width : 200
                     },SArrAP: {
                         cn: '计划目的地机场',
@@ -1141,6 +1266,7 @@ var BasicData = function () {
                     },SIBT: {
                         cn: '计划到港时间',
                         en: 'SIBT',
+                        formatter: timeFormater,
                         width : 200
                     },SAircraftType: {
                         cn: '计划机型',
@@ -1157,10 +1283,12 @@ var BasicData = function () {
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
+                        formatter: timeFormater,
                         width : 200
                     },EET: {
                         cn: '预计总飞行时间',
                         en: 'EET',
+                        formatter: timeFormater,
                         width : 200
                     },PArrAP: {
                         cn: '预计目的地机场',
@@ -1181,6 +1309,7 @@ var BasicData = function () {
                     },ATOT: {
                         cn: '实际起飞时间',
                         en: 'ATOT',
+                        formatter: timeFormater,
                         width : 200
                     },RArrAP: {
                         cn: '实际落地机场',
@@ -1188,6 +1317,7 @@ var BasicData = function () {
                     },ALDT: {
                         cn: '实际落地时间',
                         en: 'ALDT',
+                        formatter: timeFormater,
                         width : 200
                     },regNumber: {
                         cn: '航空器注册号',
@@ -1206,7 +1336,7 @@ var BasicData = function () {
                     },GUFI: {
                         cn: '全球航班唯一标识符',
                         en: 'GUFI',
-                        width : 110
+                        width : 130
                     },regNumber: {
                         cn: '注册号',
                         en: 'regNumber',
@@ -1214,11 +1344,13 @@ var BasicData = function () {
                     },SOBT: {
                         cn: '计划离港时间',
                         en: 'SOBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     },EOBT: {
                         cn: '预计撤轮档时间',
                         en: 'EOBT',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     },depAP: {
                         cn: '起飞机场',
                         en: 'depAP',
@@ -1230,23 +1362,28 @@ var BasicData = function () {
                     },ETA: {
                         cn: '航班预达时间',
                         en: 'ETA',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     },delayTime: {
                         cn: '航班延误时间',
                         en: 'delayTime',
-                        width : 110
+                        width : 110,
+                        formatter: timeFormater
                     },closeWaitTime: {
                         cn: '关舱门后等待时间',
                         en: 'closeWaitTime',
-                        width : 110
+                        width : 130,
+                        formatter: timeFormater
                     },AXIT: {
                         cn: '航班进港滑行时间',
                         en: 'AXIT',
-                        width : 110
+                        width : 130,
+                        formatter: timeFormater
                     },AXOT: {
                         cn: '航班离港滑行时间',
                         en: 'AXOT',
-                        width : 110
+                        width : 130,
+                        formatter: timeFormater
                     }
                 },
                 'PPER' : {
@@ -1259,103 +1396,115 @@ var BasicData = function () {
                     }, hourlySchDepSum: {
                         cn: '机场小时计划离港架次',
                         en: 'hourlySchDepSum',
-                        width : 320
+                        width : 350
                     }, hourlySchArrSum: {
                         cn: '机场小时计划进港架次',
                         en: 'hourlySchArrSum',
-                        width : 320
+                        width : 350
                     }, hourlyActTakeOffSum: {
                         cn: '机场小时实际起飞架次',
                         en: 'hourlyActTakeOffSum',
-                        width : 320
+                        width : 350
                     }, hourlyActLandingSum: {
                         cn: '机场小时实际落地架次',
                         en: 'hourlyActLandingSum',
-                        width : 320
+                        width : 350
                     }, hourlyActTakeOffPunctualityRate: {
                         cn: '小时实际起飞正常率',
                         en: 'hourlyActTakeOffPunctualityRate',
-                        width : 320
+                        width : 350
                     }, dailyActTakeOffPunctualityRate: {
                         cn: '当日实际起飞正常率',
-                        en: 'dailyActTakeOffPunctualityRate'
+                        en: 'dailyActTakeOffPunctualityRate',
+                        width : 180
                     }, hourlySchTakeOffPunctualityRate: {
                         cn: '小时计划起飞正常率',
                         en: 'hourlySchTakeOffPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailySchTakeOffPunctualityRate: {
                         cn: '当日计划起飞正常率',
-                        en: 'dailySchTakeOffPunctualityRate'
+                        en: 'dailySchTakeOffPunctualityRate',
+                        width : 180
                     }, hourlyActDepPunctualityRate: {
                         cn: '小时实际离港正常率',
                         en: 'hourlyActDepPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailyActDepPunctualityRate: {
                         cn: '当日实际离港正常率',
-                        en: 'dailyActDepPunctualityRate'
+                        en: 'dailyActDepPunctualityRate',
+                        width : 180
                     }, hourlySchDepPunctualityRate: {
                         cn: '小时计划离港正常率',
                         en: 'hourlySchDepPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailySchDepPunctualityRate: {
                         cn: '当日计划离港正常率',
-                        en: 'dailySchDepPunctualityRate'
+                        en: 'dailySchDepPunctualityRate',
+                        width : 180
                     }, hourlyOriActTakeOffPunctualityRate: {
                         cn: '小时始发航班实际起飞正常率',
                         en: 'hourlyOriActTakeOffPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailyOriActTakeOffPunctualityRate: {
                         cn: '当日始发航班实际起飞正常率',
-                        en: 'dailyOriActTakeOffPunctualityRate'
+                        en: 'dailyOriActTakeOffPunctualityRate',
+                        width : 180
                     }, hourlyOriSchTakeOffPunctualityRate: {
                         cn: '小时始发航班计划起飞正常率',
                         en: 'hourlyOriSchTakeOffPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailyOriSchTakeOffPunctualityRate: {
                         cn: '当日始发航班计划起飞正常率',
-                        en: 'dailyOriSchTakeOffPunctualityRate'
+                        en: 'dailyOriSchTakeOffPunctualityRate',
+                        width : 180
                     }, hourlyActClearancePunctualityRate: {
                         cn: '小时机场实际放行正常率',
                         en: 'hourlyActClearancePunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailyActClearancePunctualityRate: {
                         cn: '当日机场实际放行正常率',
-                        en: 'dailyActClearancePunctualityRate'
+                        en: 'dailyActClearancePunctualityRate',
+                        width : 180
                     }, hourlySchClearancePunctualityRate: {
                         cn: '机场计划放行正常率',
                         en: 'hourlySchClearancePunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailySchClearancePunctualityRate: {
                         cn: '当日机场计划放行正常率',
-                        en: 'dailySchClearancePunctualityRate'
+                        en: 'dailySchClearancePunctualityRate',
+                        width : 180
                     }, hourlyActLandingPunctualityRate: {
                         cn: '小时实际落地正常率',
                         en: 'hourlyActLandingPunctualityRate',
-                        width : 320
+                        width : 350
                     }, dailyActLandingPunctualityRate: {
                         cn: '当日实际落地正常率',
-                        en: 'dailyActLandingPunctualityRate'
+                        en: 'dailyActLandingPunctualityRate',
+                        width : 180
                     },hourlySchLandingPunctualityRate: {
                         cn: '小时计划落地正常率',
                         en: 'hourlySchLandingPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailySchLandingPunctualityRate: {
                         cn: '当日计划落地正常率',
-                        en: 'dailySchLandingPunctualityRate'
+                        en: 'dailySchLandingPunctualityRate',
+                        width : 180
                     }, hourlyActArrPunctualityRate: {
                         cn: '小时实际到港正常率',
                         en: 'hourlyActArrPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailyActArrPunctualityRate: {
                         cn: '当日实际到港正常率',
-                        en: 'dailyActArrPunctualityRate'
+                        en: 'dailyActArrPunctualityRate',
+                        width : 180
                     },hourlySchArrPunctualityRate: {
                         cn: '小时计划到港正常率',
                         en: 'hourlySchArrPunctualityRate',
-                        width : 320
+                        width : 400
                     }, dailySchArrPunctualityRate: {
                         cn: '当日计划到港正常率',
-                        en: 'dailySchArrPunctualityRate'
+                        en: 'dailySchArrPunctualityRate',
+                        width : 180
                     }
                 }
             }
@@ -1377,7 +1526,24 @@ var BasicData = function () {
                     }
                 }]
             },
-        }
+            cellattr : function(rowId, value, rowObject, colModel, arrData) {
+                // 需要赋予表格的属性
+                var attrs = '';
+                // 无效数值不做处理
+                if (!$.isValidVariable(value)) {
+                    return attrs;
+                }
+
+                var title =  rowObject[colModel.name];
+                if(!$.isValidVariable(title)){
+                    title = '';
+                }
+                attrs = ' title="' + title + '"';
+
+                return attrs;
+            }
+        },
+
     };
 
     /**
@@ -1410,6 +1576,10 @@ var BasicData = function () {
                     if($.isValidVariable(val.width)){
                         tableObj.colModel[i][k][j]['width'] =  val.width;
                     }
+                    if($.isValidVariable(val.formatter)){
+                        tableObj.colModel[i][k][j]['formatter'] = val.formatter;
+                    }
+
                     tableObj.display[i][k][j] = {display : 1};
                     tableObj.title[i][k][j] = val.cn;
                 }
@@ -1436,10 +1606,10 @@ var BasicData = function () {
                     // 更新下拉列表
                     updateSelectMultiple('APOI');
                     //若当前选中的类型为机场
-                   /* if(currentType == 'APOI'){
-                        // 更新下拉列表
-                        updateSelectPicker('APOI');
-                    };*/
+                    /* if(currentType == 'APOI'){
+                         // 更新下拉列表
+                         updateSelectPicker('APOI');
+                     };*/
 
                 } else {
                     console.error('retrieve APOI unit data failed');
