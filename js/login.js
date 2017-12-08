@@ -46,7 +46,7 @@ var LOGIN = function () {
         if(isValidLogonInfo()){
             $.ajax({
                 type: "GET",
-                url: "http://192.168.243.104:1566/shareDataPlatform/login/"+userName+"/"+passWord+"",
+                url: iphost + "/shareDataPlatform/login/"+userName+"/"+passWord+"",
                 dataType: "json",
                 success:function (data) {
                    if($.isValidObject(data)){

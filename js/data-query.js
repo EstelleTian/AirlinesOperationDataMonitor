@@ -117,8 +117,8 @@ var QUERY = function () {
             }
         },
         unitURL : {
-            'APOI' : 'http://192.168.243.104:1566/shareDataPlatform/allAirport',
-            'ALOI' : 'http://192.168.243.104:1566/shareDataPlatform/allCompany'
+            'APOI' : iphost + "/shareDataPlatform/allAirport",
+            'ALOI' : iphost + "/shareDataPlatform/allCompany"
         }
     };
 

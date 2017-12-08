@@ -1362,7 +1362,7 @@ var OperatingData = function () {
     //当前选中的单位
     var currentUnit = [];
     //数据查询地址
-    var searchUrl = 'http://192.168.243.104:1566/shareDataPlatform/dataSearch/';
+    var searchUrl = iphost + "/shareDataPlatform/dataSearch/";
     // 表格对象
     var tableObj = {};
     //是否已经成功查询过
