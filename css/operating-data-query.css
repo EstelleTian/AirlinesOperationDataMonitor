@@ -132,7 +132,9 @@
 .datepicker .table-condensed td {
     padding: 0.45rem 0.9rem;
 }
-
+.no-event {
+    pointer-events: none !important;
+}
 
 
 @media (max-width: 992px) {
