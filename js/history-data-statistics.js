@@ -1,7 +1,7 @@
 var HistoryData = function () {
 
     // URL
-    var submitUrl = 'http://192.168.243.104:1566/shareDataPlatform/hisDataCount/';
+    var submitUrl = iphost + '/shareDataPlatform/hisDataCount/';
     var startDateSelector ='start-date-input';
     var endDateSelector ='end-date-input';
     var typeSelector = 'history-data-type-select';
