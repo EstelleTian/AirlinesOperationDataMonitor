@@ -117,8 +117,8 @@ var QUERY = function () {
             }
         },
         unitURL : {
-            'APOI' : iphost + "/shareDataPlatform/allAirport",
-            'ALOI' : iphost + "/shareDataPlatform/allCompany"
+            'APOI' : iphost + "shareDataPlatform/allAirport",
+            'ALOI' : iphost + "shareDataPlatform/allCompany"
         }
     };
 

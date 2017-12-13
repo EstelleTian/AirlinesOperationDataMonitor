@@ -6,7 +6,7 @@ var MONITOR = function () {
     var getTotalDateCount = function () {
         $.ajax({
             type: "GET",
-            url: iphost + "/shareDataPlatform/totalDataCount",
+            url: iphost + "shareDataPlatform/totalDataCount",
             data: {},
             dataType: "json",
             success: function (data) {
@@ -1086,7 +1086,7 @@ var MONITOR = function () {
     var setAirportsInformation = function (fatherDom) {
         $.ajax({
             type: "GET",
-            url: iphost + "/shareDataPlatform/airportDataCount",
+            url: iphost + "shareDataPlatform/airportDataCount",
             data: {},
             dataType: "json",
             success: function (data) {
@@ -1149,7 +1149,7 @@ var MONITOR = function () {
     var setFlightsInformation = function (fatherDom) {
         $.ajax({
             type: "GET",
-            url: iphost + "/shareDataPlatform/companyDataCount",
+            url: iphost + "shareDataPlatform/companyDataCount",
             data: {},
             dataType: "json",
             success: function (data) {

@@ -122,7 +122,7 @@ var OperatingData = function () {
     //当前选中的单位
     var currentUnit = [];
     //数据查询地址
-    var searchUrl = iphost + '/shareDataPlatform/dataSearch/';
+    var searchUrl = iphost + 'shareDataPlatform/dataSearch/';
     // 表格对象
     var tableObj = {};
     //是否已经成功查询过
