@@ -233,6 +233,9 @@ var OperatingData = function () {
         }else {
             // 清空警告
             clearAlert();
+            // 清空提示
+            clearTip();
+
             //拼接参数
             var str = concatParameter();
             //数据查询
@@ -311,6 +314,16 @@ var OperatingData = function () {
                     updateNavLabel();
                     //
                     $('.no-datas-tip').hide();
+                    // 若数据为空
+                    if(!$.isValidObject(result)){
+                        //显示提示
+                        showTip();
+                        load.stop();
+                        $('.modal-content').removeClass('no-event');
+                        //隐藏模态框
+                        toggleModal(false);
+                        return;
+                    }
                     //初始化表格
                     initTable();
                     //表格数据加载
@@ -356,6 +369,9 @@ var OperatingData = function () {
         deselectList();
         // 清空警告
         clearAlert();
+        //显示提示
+        showTip();
+        showTip();
     };
 
     /**
@@ -555,6 +571,22 @@ var OperatingData = function () {
      * */
     var clearAlert  = function () {
         $('.alert-container').empty();
+    };
+
+    /**
+     *
+     * 提示
+     * */
+
+    var showTip = function () {
+        $('.operating-data-query .no-datas-tip').show();
+    };
+
+    /**
+     * 清空提示
+     * */
+    var clearTip = function () {
+        $('.operating-data-query .no-datas-tip').hide();
     };
 
     /**
