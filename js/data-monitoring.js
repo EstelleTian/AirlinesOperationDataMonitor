@@ -604,7 +604,7 @@ var MONITOR = function () {
             this.legend = {
                 data: ["航班CDM", "流量控制措施", "MDRS", "机场通行能力", "扇区开放合并"],
                 top: "20",
-                right: "10",
+                right: "-8",
                 textStyle: {
                     fontSize: "11"
                 },
@@ -856,7 +856,7 @@ var MONITOR = function () {
             this.legend = {
                 data: ["航班计划动态", "航班统计", "机场统计"],
                 top: "20",
-                right: "10",
+                right: "-8",
                 textStyle: {
                     fontSize: "11"
                 },
