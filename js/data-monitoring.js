@@ -127,7 +127,7 @@ var MONITOR = function () {
         fpdi: "APOI_FPDI_HOUR",
         psni: "APOI_PSNI_HOUR"
 
-    }
+    };
     var indexComChartOpt = {
         faci: "ALOI_FACI_HOUR",
         fcri: "ALOI_FCRI_HOUR",
@@ -135,7 +135,7 @@ var MONITOR = function () {
         fpci: "ALOI_FPCI_HOUR",
         fpln: "ALOI_FPLN_HOUR",
 
-    }
+    };
     var AirportsOptions = function (dataObj, dataOpt, type, inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
@@ -263,7 +263,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, dataOpt.psni, type)
                 }
             ]
-    }
+    };
     AirportsOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
@@ -358,7 +358,7 @@ var MONITOR = function () {
                 }
             ]
 
-    }
+    };
     var CompanyOptions = function (dataObj, dataOpt, type, inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
@@ -485,7 +485,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, dataOpt.fpln, type)
                 }
             ]
-    }
+    };
     CompanyOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
@@ -578,7 +578,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, dataOpt.fpln, type)
                 }
             ]
-    }
+    };
     var ManageOptions = function (dataObj, type, inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
@@ -608,7 +608,7 @@ var MONITOR = function () {
             this.legend = {
                 data: ["航班CDM", "流量控制措施", "MDRS", "机场通行能力", "扇区开放合并"],
                 top: "20",
-                right: "0",
+                right: "10",
                 textStyle: {
                     fontSize: "11"
                 },
@@ -722,7 +722,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, "ATMI_SECT_HOUR", type)
             }
         ]
-    }
+    };
     ManageOptions.prototype.refreshOption = function (dataObj, type, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
@@ -832,7 +832,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, "ATMI_SECT_HOUR", type)
                 }
             ]
-    }
+    };
     var MonitorOption = function (dataObj, type, inforType) {
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
@@ -862,7 +862,7 @@ var MONITOR = function () {
             this.legend = {
                 data: ["航班计划动态", "航班统计", "机场统计"],
                 top: "20",
-                right: "0",
+                right: "10",
                 textStyle: {
                     fontSize: "11"
                 },
@@ -943,7 +943,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, "OSCI_PPER_HOUR", type)
             }
         ]
-    }
+    };
     MonitorOption.prototype.refreshOption = function (dataObj, type, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
@@ -1020,7 +1020,7 @@ var MONITOR = function () {
                     data: dataConvert(dataObj, "OSCI_PPER_HOUR", type)
                 }
             ]
-    }
+    };
     var charts = new Charts($("#airport_num_chart")[0], $("#airport_file_chart")[0], $("#flight_num_chart")[0], $("#flight_file_chart")[0], $("#manage_num_chart")[0], $("#manage_file_chart")[0], $("#monitor_num_chart")[0], $("#monitor_file_chart")[0])
     //首页曲线图参数对象原型
     var Options = function (dataObj) {
@@ -1032,12 +1032,12 @@ var MONITOR = function () {
         this.manageFileOption = new ManageOptions(dataObj, "file_COUNT", "文件数/个");
         this.monitorNumOption = new MonitorOption(dataObj, "data_COUNT", "信息数/个");
         this.monitorFileOption = new MonitorOption(dataObj, "file_COUNT", "文件数/个");
-    }
+    };
     //首页曲线图参数实例
     var options = {};
     //初始化当日监控曲线图
     var initCurveCharts = function (dataObj) {
-        options = new Options(dataObj)
+        options = new Options(dataObj);
         // 曲线图参数设置。
         charts.airportNumChart.setOption(options.airportNumOption);
         charts.airportFlieChart.setOption(options.airportFileOption);
@@ -1047,7 +1047,7 @@ var MONITOR = function () {
         charts.manageFlieChart.setOption(options.manageFileOption);
         charts.monitorNumChart.setOption(options.monitorNumOption);
         charts.monitorFlieChart.setOption(options.monitorFileOption);
-    }
+    };
     /**曲线图数据转换
      * data数据集合
      * opt机场、航空公司、空管、监控中心的字段
@@ -1081,7 +1081,7 @@ var MONITOR = function () {
             }
         }
         return arr;
-    }
+    };
     /*机场运行信息*/
     var airportsChartArr = {
         numChartArr: [],
@@ -1144,7 +1144,7 @@ var MONITOR = function () {
                 console.log(error);
             }
         })
-    }
+    };
     /*航空公司运行信息*/
     var companyChartsArr = {
         numChartArr: [],
@@ -1208,7 +1208,7 @@ var MONITOR = function () {
                 console.log(error);
             }
         })
-    }
+    };
     /*机场航空公司切换事件*/
     var initAirCom = function () {
         //机场
@@ -1241,7 +1241,7 @@ var MONITOR = function () {
             refreshData(true); //监控页面数据刷新
             resizeFit();
         });
-    }
+    };
     //适应屏幕宽高尺寸
     $.fn.resizeEnd = function (callback, timeout) {
         $(this).resize(function () {
@@ -1336,12 +1336,12 @@ var MONITOR = function () {
         }
         //机场数据刷新
         if ($("#airport_container").is(":visible")) {
-            $("#airport_container").find(".flight_group").remove()
+            $("#airport_container").find(".flight_group").remove();
             setAirportsInformation($("#airport_container")); //机场数据初始化
         }
         //航空公司数据刷新
         if ($("#company_container").is(":visible")) {
-            $("#company_container").find(".flight_group").remove()
+            $("#company_container").find(".flight_group").remove();
             setFlightsInformation($("#company_container")); //航空公司数据初始化
         }
     }
@@ -1349,7 +1349,7 @@ var MONITOR = function () {
     var refreshTime = 1000 * 60;
     var refreshData = function () {
         refreshChartsOption()
-    }
+    };
     //开始定时器
     var startTimer = function (func, isNext, time) {
         if (isNext) { // 定时器总开关为true
@@ -1388,7 +1388,7 @@ var MONITOR = function () {
                 comChartFileArr[i].resize();
             }
         }
-    }
+    };
     return {
         initMonitor: function () {
             initAirCom(); //机场航空公司点击事件初始化
@@ -1402,4 +1402,4 @@ var MONITOR = function () {
 }();
 $(document).ready(function () {
     MONITOR.initMonitor()
-})
+});
