@@ -173,7 +173,7 @@ var MONITOR = function () {
             },
             this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -185,12 +185,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, dataOpt, type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, dataOpt, type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -267,7 +267,7 @@ var MONITOR = function () {
     AirportsOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -279,12 +279,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, dataOpt, type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, dataOpt, type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -396,7 +396,7 @@ var MONITOR = function () {
             },
             this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -407,12 +407,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, dataOpt, type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, dataOpt, type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -489,7 +489,7 @@ var MONITOR = function () {
     CompanyOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -500,12 +500,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, dataOpt, type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, dataOpt, type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -616,7 +616,7 @@ var MONITOR = function () {
             },
             this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, "", type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -627,12 +627,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, "", type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, "", type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -726,7 +726,7 @@ var MONITOR = function () {
     ManageOptions.prototype.refreshOption = function (dataObj, type, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, "", type).xTimeArr,
                 boundaryGap: false,
 
             },
@@ -737,12 +737,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, "", type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, "", type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -870,7 +870,7 @@ var MONITOR = function () {
             },
             this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, "", type).xTimeArr,
                 boundaryGap: false,
                 right: "5"
 
@@ -882,12 +882,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, "", type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, "", type).zoomEndTime
+                end: 100
             },
             this.series = [
                 {
@@ -947,7 +947,7 @@ var MONITOR = function () {
     MonitorOption.prototype.refreshOption = function (dataObj, type, inforType) {
         this.xAxis = {
                 name: dataConvert(dataObj, "", type).xTime,
-                data: ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+                data: dataConvert(dataObj, "", type).xTimeArr,
                 boundaryGap: false,
                 right: "5"
 
@@ -959,12 +959,12 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: dataConvert(dataObj, "", type).zoomStartTime,
+                start: 70,
                 height: 13,
                 zoomLock: false,
                 minSpan: 25,
                 bottom: "5",
-                end: dataConvert(dataObj, "", type).zoomEndTime
+                end:100
             },
             this.series = [
                 {
@@ -1056,21 +1056,27 @@ var MONITOR = function () {
     var dataConvert = function (data, opt, type) {
         //最终返回的数据arr
         var arr = [];
-        //用于计算曲线图下方滚动条位置
-        arr.zoomStartTime = 0;
-        arr.zoomEndTime = 100;
         var currentTime = parseInt(data.currentTime.substring(8, 10));
+        //用于计算曲线图下方滚动条位置
+        // arr.zoomStartTime = 0;
+        // arr.zoomEndTime = 100;
+        // if (!(currentTime < 3 && currentTime > 20)) {
+        //     arr.zoomStartTime = parseInt(100 * (currentTime - 3) / 24) + 4;
+        //     arr.zoomEndTime = parseInt(100 * (currentTime + 3) / 24) + 2;
+        // }
         var xTime = data.currentTime.substring(0, 4) + "-" + data.currentTime.substring(4, 6) + "-" + data.currentTime.substring(6, 8)
         //X轴日期
         arr.xTime = xTime;
-        if (!(currentTime < 3 && currentTime > 20)) {
-            arr.zoomStartTime = parseInt(100 * (currentTime - 3) / 24) + 4;
-            arr.zoomEndTime = parseInt(100 * (currentTime + 3) / 24) + 2;
-        }
+        arr.xTimeArr = [];
+        var nowTime =  data.currentTime.substring(8, 10);
+        nowTime = parseInt(nowTime);
+        var xTimeArr = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
+        xTimeArr = xTimeArr.slice(0,nowTime+1);
+        arr.xTimeArr = xTimeArr
         var dataarr = data[opt];
         if ($.isValidObject(dataarr) && dataarr != null) {
             var len = dataarr.length;
-            for (var i = 0; i < len; i++) {
+            for (var i = 0; i < nowTime+1; i++) {
                 arr.push(dataarr[i][type]);
             }
         }
