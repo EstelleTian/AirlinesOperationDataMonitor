@@ -123,7 +123,7 @@ var BasicData = function () {
     function timeFormater(cellvalue, options, rowObject) {
         var val = cellvalue*1;
         if ( $.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 12 ) {
-            return cellvalue.substring(8, 12);
+            return cellvalue.substring(6,8)+ '/'+ cellvalue.substring(8, 12);
         } else {
             return '';
         }
@@ -1538,6 +1538,11 @@ var BasicData = function () {
                 var title =  rowObject[colModel.name];
                 if(!$.isValidVariable(title)){
                     title = '';
+                }
+                //时间格式化 YYYYMMDD HH:MM
+                var regexp = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})(((0[13578]|1[02])(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)(0[1-9]|[12][0-9]|30))|(02(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))0229)/;
+                if(regexp.test(title)){
+                    title = title.substring(0,8) +' '+ title.substring(8,10) + ":" + title.substring(10,12);
                 }
                 attrs = ' title="' + title + '"';
 
