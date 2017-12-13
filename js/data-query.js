@@ -112,7 +112,7 @@ var QUERY = function () {
 
                 },
                 unit : {
-                    'OMCCAAC' :'运行监控中心'
+                    'OMCCAAC' :'监控中心'
                 }
             }
         },
