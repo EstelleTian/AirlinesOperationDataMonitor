@@ -83,81 +83,6 @@
         <div class="col-md-12">
             <ul class="group_list">
                 <li class="flight_group box">
-                    <h2>监控中心运行信息
-                    </h2>
-                    <div class="information">
-                        <div class="num_chart col-lg-5 col-sm-4" id="monitor_num_chart"></div>
-                        <div class="airport col-lg-2 col-sm-4">
-                            <div class="airport_head">
-                                <div class="airport_num">信息数</div>
-                                <div class="information_name">信息类型</div>
-                                <div class="file_num">文件数</div>
-                            </div>
-                            <ul class="airport_data_detail monitor_ul">
-                                <li class="flight_move">
-                                    <p class="num fosc" id="fosc"></p>
-                                    <p class="airport_position">航班计划动态信息</p>
-                                    <p class="f_num fosc_file" id="fosc_file"></p>
-                                </li>
-                                <li>
-                                    <p class="num fper" id="fper"></p>
-                                    <p class="airport_position">航班统计信息</p>
-                                    <p class="f_num fper_file" id="fper_file"></p>
-                                </li>
-                                <li class="flight_cal">
-                                    <p class="num pper" id="pper"></p>
-                                    <p class="airport_position">机场统计信息</p>
-                                    <p class="f_num pper_file" id="pper_file"></p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="file_chart col-lg-5 col-sm-4" id="monitor_file_chart"></div>
-                        <div class="clb"></div>
-                    </div>
-                </li>
-                <li class="flight_group box">
-                    <h2>空管运行中心信息</h2>
-                    <div class="information">
-                        <div class="num_chart col-lg-5 col-sm-4" id="manage_num_chart"></div>
-                        <div class="airport col-lg-2 col-sm-4">
-                            <div class="airport_head">
-                                <div class="airport_num">信息数</div>
-                                <div class="information_name">信息类型</div>
-                                <div class="file_num">文件数</div>
-                            </div>
-                            <ul class="airport_data_detail">
-                                <li>
-                                    <p class="num fcdm" id="fcdm"></p>
-                                    <p class="airport_position">航班CDM信息</p>
-                                    <p class="f_num fcdm_file" id="fcdm_file"></p>
-                                </li>
-                                <li>
-                                    <p class="num ftmi" id="ftmi"></p>
-                                    <p class="airport_position">流量控制措施信息</p>
-                                    <p class="f_num ftmi_file" id="ftmi_file"></p>
-                                </li>
-                                <li>
-                                    <p class="num padr" id="padr"></p>
-                                    <p class="airport_position">机场通行能力信息</p>
-                                    <p class="f_num padr_file" id="padr_file"></p>
-                                </li>
-                                <li>
-                                    <p class="num mdrs" id="mdrs"></p>
-                                    <p class="airport_position">MDRS信息</p>
-                                    <p class="f_num mdrs_file" id="mdrs_file"></p>
-                                </li>
-                                <li>
-                                    <p class="num sect" id="sect"></p>
-                                    <p class="airport_position">扇区开放合并信息</p>
-                                    <p class="f_num sect_file" id="sect_file"></p>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="file_chart col-lg-5 col-sm-4" id="manage_file_chart"></div>
-                        <div class="clb"></div>
-                    </div>
-                </li>
-                <li class="flight_group box">
                     <h2>机场运行信息
                         <a id="airport_operation" class="airports_detail">(查看详情)</a>
                     </h2>
@@ -239,6 +164,81 @@
 
                         </div>
                         <div class="file_chart col-lg-5 col-sm-4" id="flight_file_chart"></div>
+                        <div class="clb"></div>
+                    </div>
+                </li>
+                <li class="flight_group box">
+                    <h2>空管运行信息</h2>
+                    <div class="information">
+                        <div class="num_chart col-lg-5 col-sm-4" id="manage_num_chart"></div>
+                        <div class="airport col-lg-2 col-sm-4">
+                            <div class="airport_head">
+                                <div class="airport_num">信息数</div>
+                                <div class="information_name">信息类型</div>
+                                <div class="file_num">文件数</div>
+                            </div>
+                            <ul class="airport_data_detail">
+                                <li>
+                                    <p class="num fcdm" id="fcdm"></p>
+                                    <p class="airport_position">航班CDM信息</p>
+                                    <p class="f_num fcdm_file" id="fcdm_file"></p>
+                                </li>
+                                <li>
+                                    <p class="num ftmi" id="ftmi"></p>
+                                    <p class="airport_position">流量控制措施信息</p>
+                                    <p class="f_num ftmi_file" id="ftmi_file"></p>
+                                </li>
+                                <li>
+                                    <p class="num padr" id="padr"></p>
+                                    <p class="airport_position">机场通行能力信息</p>
+                                    <p class="f_num padr_file" id="padr_file"></p>
+                                </li>
+                                <li>
+                                    <p class="num mdrs" id="mdrs"></p>
+                                    <p class="airport_position">MDRS信息</p>
+                                    <p class="f_num mdrs_file" id="mdrs_file"></p>
+                                </li>
+                                <li>
+                                    <p class="num sect" id="sect"></p>
+                                    <p class="airport_position">扇区开放合并信息</p>
+                                    <p class="f_num sect_file" id="sect_file"></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="file_chart col-lg-5 col-sm-4" id="manage_file_chart"></div>
+                        <div class="clb"></div>
+                    </div>
+                </li>
+                <li class="flight_group box">
+                    <h2>监控中心运行信息
+                    </h2>
+                    <div class="information">
+                        <div class="num_chart col-lg-5 col-sm-4" id="monitor_num_chart"></div>
+                        <div class="airport col-lg-2 col-sm-4">
+                            <div class="airport_head">
+                                <div class="airport_num">信息数</div>
+                                <div class="information_name">信息类型</div>
+                                <div class="file_num">文件数</div>
+                            </div>
+                            <ul class="airport_data_detail monitor_ul">
+                                <li class="flight_move">
+                                    <p class="num fosc" id="fosc"></p>
+                                    <p class="airport_position">航班计划动态信息</p>
+                                    <p class="f_num fosc_file" id="fosc_file"></p>
+                                </li>
+                                <li>
+                                    <p class="num fper" id="fper"></p>
+                                    <p class="airport_position">航班统计信息</p>
+                                    <p class="f_num fper_file" id="fper_file"></p>
+                                </li>
+                                <li class="flight_cal">
+                                    <p class="num pper" id="pper"></p>
+                                    <p class="airport_position">机场统计信息</p>
+                                    <p class="f_num pper_file" id="pper_file"></p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="file_chart col-lg-5 col-sm-4" id="monitor_file_chart"></div>
                         <div class="clb"></div>
                     </div>
                 </li>
