@@ -1279,7 +1279,7 @@ var MONITOR = function () {
         if ($("#home").is(":visible")) {
             $.ajax({
                 type: "GET",
-                url: "http://192.168.243.104:1566/shareDataPlatform/totalDataCount",
+                url: iphost + "shareDataPlatform/totalDataCount",
                 data: {},
                 dataType: "json",
                 success: function (data) {
