@@ -28,7 +28,7 @@ var OperatingData = function () {
         '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息' +
         '</label>'+
         '<label class="btn btn-default">' +
-        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 运行监控中心运行信息' +
+        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 监控中心运行信息' +
         '</label>'+
         '</div>' +
 
@@ -312,12 +312,15 @@ var OperatingData = function () {
                     // 更新顶部导航内容
                     // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
                     updateNavLabel();
-                    //
-                    $('.no-datas-tip').hide();
                     // 若数据为空
                     if(!$.isValidObject(result)){
+                        // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
+                        if($.isValidObject(tableInstance)){
+                            $.jgrid.gridUnload("tb-datas");
+                        }
                         //显示提示
                         showTip();
+
                         load.stop();
                         $('.modal-content').removeClass('no-event');
                         //隐藏模态框

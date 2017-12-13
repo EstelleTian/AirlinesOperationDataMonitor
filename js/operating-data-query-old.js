@@ -28,7 +28,7 @@ var OperatingData = function () {
         '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息' +
         '</label>'+
         '<label class="btn btn-default">' +
-        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 运行监控中心运行信息' +
+        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 监控中心运行信息' +
         '</label>'+
         '</div>' +
 
@@ -58,7 +58,7 @@ var OperatingData = function () {
     /*// 类型集合
     var BasicData.operatingDataTypeObj = {
         val : ['APOI','ALOI','ATMI','OSCI'],
-        valCN :['机场运行信息','航空公司运行信息','空管运行信息','运行监控中心运行信息'],
+        valCN :['机场运行信息','航空公司运行信息','空管运行信息','监控中心运行信息'],
         label : ['机场','航空公司','空管','监控中心'],
         result: {
             'APOI' :{

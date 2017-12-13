@@ -34,7 +34,7 @@ var QUERY = function () {
         '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息' +
         '</label>'+
         '<label class="btn btn-default">' +
-        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 运行监控中心运行信息' +
+        '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 监控中心运行信息' +
         '</label>'+
         '</div>' +
 
@@ -59,14 +59,14 @@ var QUERY = function () {
         '</div>' +
         '</div>'+
         '</div></div></div>';
-    /*var modalContent = ['<div><div class="row"><div class="col-xs-12">','<div class="row row-line">', '<div class="col-xs-2"><p>起始时间</p></div>', '<div class="col-xs-3"><input type="text" class="start-date form-control" value=""></div>', '<div class="col-xs-2"><p>截止时间</p></div>', '<div class="col-xs-3"><input type="text" class="end-date form-control" value=""></div>', '</div>', '<div class="row">', '<div class="col-xs-2 ">类型</div>', '<div class="col-xs-8">', '<div class="btn-group " id="types" data-toggle="buttons">', '<label class="btn btn-default active">', '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ALOI" autocomplete="off"> 航空公司运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 运行监控中心运行信息', '</label>', '</div>',
+    /*var modalContent = ['<div><div class="row"><div class="col-xs-12">','<div class="row row-line">', '<div class="col-xs-2"><p>起始时间</p></div>', '<div class="col-xs-3"><input type="text" class="start-date form-control" value=""></div>', '<div class="col-xs-2"><p>截止时间</p></div>', '<div class="col-xs-3"><input type="text" class="end-date form-control" value=""></div>', '</div>', '<div class="row">', '<div class="col-xs-2 ">类型</div>', '<div class="col-xs-8">', '<div class="btn-group " id="types" data-toggle="buttons">', '<label class="btn btn-default active">', '<input type="radio" name="type" class="type"  value="APOI" autocomplete="off" checked>机场运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ALOI" autocomplete="off"> 航空公司运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="ATMI" autocomplete="off"> 空管运行信息', '</label>', '<label class="btn btn-default">', '<input type="radio" name="type" class="type"  value="OSCI" autocomplete="off"> 监控中心运行信息', '</label>', '</div>',
         '</div>', '</div>', '<div class="row">', '<div class="col-xs-2 col-xs-offset-2">信息类型</div>', '<div class="col-xs-6">', '<select id="subtype" class="form-control selectpicker show-tick" multiple >', '</select>', '', '</div>', '</div>', '<div class="row">', '<div class="col-xs-2 col-xs-offset-2 type-label">机场</div>', '<div class="col-xs-6">', '<select id="unit-list" name="" class="selectpicker show-tick form-control" multiple >', '</select>', '</div>', '</div>','<div class="row"><div class="col-xs-12">','<button type="button" class="close" data-dismiss="alert" aria-label="Close">','<span aria-hidden="true">&times;</span>','</button>','</div></div>', '</div></div></div>'
         ].join(' ');*/
 
     // 类型集合
     var typeObj = {
         val : ['APOI','ALOI','ATMI','OSCI'],
-        valCN :['机场运行信息','航空公司运行信息','空管运行信息','运行监控中心运行信息'],
+        valCN :['机场运行信息','航空公司运行信息','空管运行信息','监控中心运行信息'],
         label : ['机场','航空公司','空管','监控中心'],
         result: {
             'APOI' :{

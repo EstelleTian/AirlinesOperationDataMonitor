@@ -3,7 +3,7 @@ var BasicData = function () {
     // 类型集合
     var historyDataTypeObj = {
         val : ['APOI','ALOI','ATMI','OSCI'],
-        valCN :['机场运行信息','航空公司运行信息','空管运行信息','运行监控中心运行信息'],
+        valCN :['机场运行信息','航空公司运行信息','空管运行信息','监控中心运行信息'],
         label : ['机场','航空公司','空管','监控中心'],
         result: {
             'APOI' :{
@@ -57,7 +57,7 @@ var BasicData = function () {
 
     var operatingDataTypeObj ={
         val : ['APOI','ALOI','ATMI','OSCI'],
-        valCN :['机场运行信息','航空公司运行信息','空管运行信息','运行监控中心运行信息'],
+        valCN :['机场运行信息','航空公司运行信息','空管运行信息','监控中心运行信息'],
         label : ['机场','航空公司','空管','监控中心'],
         result: {
             'APOI' :{
