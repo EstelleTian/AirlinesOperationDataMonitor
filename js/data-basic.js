@@ -108,21 +108,21 @@ var BasicData = function () {
             }
         },
         unitURL : {
-            'APOI' : iphost + "/shareDataPlatform/allAirport",
-            'ALOI' : iphost + "/shareDataPlatform/allCompany"
+            'APOI' : iphost + "shareDataPlatform/allAirport",
+            'ALOI' : iphost + "shareDataPlatform/allCompany"
         }
     };
 
 
     var unitURL = {
-        'APOI' : iphost + "/shareDataPlatform/allAirport",
-        'ALOI' : iphost + "/shareDataPlatform/allCompany"
+        'APOI' : iphost + "shareDataPlatform/allAirport",
+        'ALOI' : iphost + "shareDataPlatform/allCompany"
     };
 
     //格式化时间
     function timeFormater(cellvalue, options, rowObject) {
-        var cellvalue = cellvalue*1;
-        if ( $.isValidVariable(cellvalue) && !isNaN(cellvalue) && cellvalue.length == 12 ) {
+        var val = cellvalue*1;
+        if ( $.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 12 ) {
             return cellvalue.substring(8, 12);
         } else {
             return '';
