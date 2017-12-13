@@ -188,7 +188,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -282,7 +281,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -410,7 +408,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -503,7 +500,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -630,7 +626,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -740,7 +735,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -885,7 +879,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end: 100
             },
@@ -962,7 +955,6 @@ var MONITOR = function () {
                 start: 70,
                 height: 13,
                 zoomLock: false,
-                minSpan: 25,
                 bottom: "5",
                 end:100
             },
