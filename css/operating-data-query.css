@@ -135,7 +135,9 @@
 .no-event {
     pointer-events: none !important;
 }
-
+.date-datepicker .form-control[readonly] {
+    background: #fff;
+}
 
 @media (max-width: 992px) {
     .operating-data-query .data-query-summary .summary {

@@ -679,13 +679,13 @@ var HistoryData = function () {
     var initDatepicker = function () {
         $('.history-data-statistics .date-datepicker').datepicker({
             language: "zh-CN",
-            showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
+            // showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
             autoclose: true, //选择日期后自动关闭面板
             // clearBtn: true, //是否显示清空按钮
             //todayHighlight: true,
             // startDate: '0d', //可选日期的开始日期 0d:当前 -1d:当前的前1天, +1d:当前的后1天
             endDate: '-1d', //可选日期最后日期
-            keepEmptyValues: true,
+            // keepEmptyValues: true,
             // forceParse: true,
             //格式化
             format: 'yyyymmdd',

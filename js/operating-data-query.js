@@ -7,7 +7,7 @@ var OperatingData = function () {
         '<div class="col-sm-6 col-xs-12 col-md-5 col-md-offset-1">' +
         '<label class="text">时间</label>' +
         '<div class="input-group date date-datepicker">' +
-        '<input type="text" class="date-input form-control" maxlength="8" value=""> ' +
+        '<input type="text" class="date-input form-control" maxlength="8" value="" readonly> ' +
         '<span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>' +
         '</div>' +
 
@@ -205,7 +205,7 @@ var OperatingData = function () {
     var initDatepicker = function () {
         $('#bootstrap-modal-dialog-body .date-datepicker').datepicker({
             language: "zh-CN",
-            showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
+            // showOnFocus: false, //是否在获取焦点时显示面板 true显示 false不显示 默认true
             autoclose: true, //选择日期后自动关闭面板
             // clearBtn: true, //是否显示清空按钮
             //todayHighlight: true,
