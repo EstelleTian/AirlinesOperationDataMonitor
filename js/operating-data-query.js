@@ -135,10 +135,10 @@ var OperatingData = function () {
     var initModal = function (content) {
         //创建模态框
         createModal(content);
-        //设置默认时间
-        initDates();
         //初始化日历插件datepicker
         initDatepicker();
+        //设置默认时间
+        initDates();
         //初始化下拉列表多选插件
         initBootstrapSelect();
         //类型选项切换
@@ -194,8 +194,9 @@ var OperatingData = function () {
      * */
     var initDates = function () {
         var nowDate = $.getFullTime(new Date()).substring(0,8);
-        $('.date-input').val(nowDate);
+        // $('.date-input').val(nowDate);
 
+        $('#bootstrap-modal-dialog-body .date-datepicker').datepicker('setDate', $.parseFullTime(nowDate+'0000') );
     };
 
     /**
@@ -209,7 +210,7 @@ var OperatingData = function () {
             // clearBtn: true, //是否显示清空按钮
             //todayHighlight: true,
             // startDate: '0d', //可选日期的开始日期 0d:当前 -1d:当前的前1天, +1d:当前的后1天
-            // endDate: '+1d', //可选日期最后日期
+            endDate: '0d', //可选日期最后日期
             keepEmptyValues: true,
             // forceParse: true,
             //格式化
@@ -224,11 +225,10 @@ var OperatingData = function () {
         //处理数据
         handleFormData();
         //校验表单
-        var bool = validateForm();
-        if(!bool){
-            //警告
-            var mess = "请输入正确的时间,日期格式:YYYYMMDD";
-            showAlear(mess);
+        var validate = validateForm();
+        if(!validate.valid){
+
+            showAlear(validate);
             return;
         }else {
             // 清空警告
@@ -247,15 +247,33 @@ var OperatingData = function () {
      * 校验表单
      * */
     var validateForm = function () {
-        var valid = true;
+        var nowDate = $.getFullTime( new Date()).substring(0,8);
         var regexp = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})(((0[13578]|1[02])(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)(0[1-9]|[12][0-9]|30))|(02(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))0229)/;
         //起始时间
         var dateVal = regexp.test(date);
 
         if(!dateVal){
-            valid = false;
+
+            return {
+                valid : false,
+                mess : '请输入正确的时间,日期格式:YYYYMMDD'
+            }
+        }else if(date.substring(0,8) *1 > nowDate*1){
+            return {
+                valid : false,
+                mess : "时间不能晚于今日"
+            }
+        } else if(currentSubtype == null){
+            return {
+                valid : false,
+                mess : "信息子类型不能为空"
+            }
         }
-        return valid;
+
+        return {
+            valid : true
+        }
+
     };
 
     /**
@@ -559,7 +577,13 @@ var OperatingData = function () {
      *
      *  mess str 警告信息内容
      * */
-    var showAlear = function (mess) {
+    var showAlear = function (validate) {
+        var mess = '';
+        if($.isValidObject(validate)){
+            mess = validate.mess;
+        }else if($.isValidVariable(validate)){
+            mess = validate;
+        }
         var $dom = $('.query-form .alert-container');
         var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
