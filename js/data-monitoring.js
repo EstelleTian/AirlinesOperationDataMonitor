@@ -1165,7 +1165,7 @@ var MONITOR = function () {
                             airportsChartArr.airFileOptions[i].refreshOption(airportsData[i], "file_COUNT", airportChartOpt, "文件数/个")
                             airportsChartArr.fileChartArr[i].setOption(airportsChartArr.airFileOptions[i]);
                         }
-                    }else{
+                    }else if(airportsData.length > airportsChartArr.dataArr.length){
                         var len =  airportsChartArr.dataArr.length;
                         for(var i=0;i<len;i++){
                             for(var j=0;j<airportsData.length;j++){
@@ -1193,7 +1193,22 @@ var MONITOR = function () {
                                 }
                             }
                         }
-
+                    }else if(airportsData.length < airportsChartArr.dataArr.length){
+                        var len =  airportsData.length;
+                        var difLen = airportsChartArr.dataArr.length - airportsData.length;
+                        airportsChartArr.comNumOptions.slice(0,len+1);
+                        for(var i=0;i<difLen;i++){
+                            $("#airport_container").removeChild($(".flights_charts")[i]);
+                        }
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<airportsData.length;j++){
+                                airportsData[i].currentTime = generateTime;
+                                airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], "data_COUNT", airportChartOpt, "信息数/个")
+                                airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i]);
+                                airportsChartArr.airFileOptions[i].refreshOption(airportsData, "file_COUNT", airportChartOpt, "文件数/个")
+                                airportsChartArr.fileChartArr[i].setOption(airportsChartArr[i].airFileOptions[i]);
+                            }
+                        }
                     }
                 }
             },
@@ -1293,7 +1308,7 @@ var MONITOR = function () {
                             companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], "file_COUNT", companyChartOpt, "文件数/个")
                             companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i]);
                         }
-                    }else{
+                    }else if(companyDatas.length > companyChartsArr.dataArr.length ){
                         var len =  companyChartsArr.dataArr.length;
                         for(var i=0;i<len;i++){
                             for(var j=0;j<companyDatas.length;j++){
@@ -1306,7 +1321,7 @@ var MONITOR = function () {
                                 }else{
                                     airportsData[i].currentTime = generateTime;
                                     var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num' + i + '"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">' + companyDatas[i].FLGH_FILE + '</p></li><li><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">' + companyDatas[i].FPLN_FILE + '</p></li><li><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">' + companyDatas[i].FPCI_FILE + '</p> </li> <li> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">' + companyDatas[i].FCRI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file' + i + '"></div> <div class="clb"></div> </div> </div>'
-                                    fatherDom.append(flightsDom);
+                                    $("#company_container").append(flightsDom);
                                     var numOptions = new CompanyOptions(companyDatas[i], companyChartOpt, "data_COUNT", "信息数/个");
                                     companyChartsArr.comNumOptions.push(numOptions);
                                     var fileOptions = new CompanyOptions(companyDatas[i], companyChartOpt, "file_COUNT", "文件数/个");
@@ -1321,6 +1336,22 @@ var MONITOR = function () {
                             }
                         }
 
+                    }else if( companyDatas.length < companyChartsArr.dataArr.length){
+                        var len =  companyDatas.length;
+                        var difLen = companyChartsArr.dataArr.length - companyDatas.length;
+                        companyChartsArr.comNumOptions.slice(0,len+1);
+                        for(var i=0;i<difLen;i++){
+                            $("#company_container").removeChild($(".company_charts")[i]);
+                        }
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<companyDatas.length;j++){
+                                    companyDatas[i].currentTime = generateTime;
+                                    companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], "data_COUNT", companyChartOpt, "信息数/个")
+                                    companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i]);
+                                    companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], "file_COUNT", companyChartOpt, "文件数/个")
+                                    companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i]);
+                            }
+                        }
                     }
 
                 }
