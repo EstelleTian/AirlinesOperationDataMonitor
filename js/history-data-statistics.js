@@ -100,6 +100,11 @@ var HistoryData = function () {
         dataCountChart = {};
         fileCountChart = {};
 
+        // 清空警告
+        clearAlert();
+        // 清空提示
+        clearTip();
+
         //处理数据
         handleFormData();
         //校验表单
@@ -108,8 +113,6 @@ var HistoryData = function () {
             showAlear(validate);
             return;
         }else {
-            // 清空警告
-            clearAlert();
             //拼接参数
             var str = concatParameter();
             //数据查询
@@ -216,15 +219,16 @@ var HistoryData = function () {
      * 提示
      * */
 
-    var showTip = function () {
-        $('.history-data-statistics .no-datas-tip').show();
+    var showTip = function (mess) {
+        mess = mess || '';
+        $('.history-data-statistics .no-datas-tip').text(mess).show();
     };
 
     /**
      * 清空提示
      * */
     var clearTip = function () {
-        $('.history-data-statistics .no-datas-tip').hide();
+        $('.history-data-statistics .no-datas-tip').text('').hide();
     };
 
     /**
@@ -242,9 +246,6 @@ var HistoryData = function () {
             success: function (data, status, xhr) {
                 // 当前数据
                 if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
-
-                    //清空提示
-                    clearTip();
                     //提取数据
                     var time = data.generatetime;
                     var result = data.hisData;
@@ -256,7 +257,7 @@ var HistoryData = function () {
                     // 若数据为空
                     if(!$.isValidObject(result)){
                         //显示提示
-                        showTip();
+                        showTip('本次统计数据结果为空');
                         loading.stop();
                         $('.form-wrap').removeClass('no-event');
                         return;
@@ -285,6 +286,7 @@ var HistoryData = function () {
                 console.error('Search data failed');
                 console.error(error);
                 loading.stop();
+                showAlear("查询失败");
                 $('.form-wrap').removeClass('no-event');
             }
         });

@@ -337,7 +337,7 @@ var OperatingData = function () {
                             $.jgrid.gridUnload("tb-datas");
                         }
                         //显示提示
-                        showTip();
+                        showTip('本次查询数据结果为空');
 
                         load.stop();
                         $('.modal-content').removeClass('no-event');
@@ -360,10 +360,14 @@ var OperatingData = function () {
                     var err = "查询失败:" + data.error;
                     showAlear(err);
                     load.stop();
+                    //显示提示
+                    showTip('本次查询失败');
                     $('.modal-content').removeClass('no-event');
                 }else {
                     showAlear("查询失败");
-                    load.stop();
+                    load.stop();//显示提示
+                    showTip('本次查询失败');
+
                     $('.modal-content').removeClass('no-event');
                 }
 
@@ -371,6 +375,8 @@ var OperatingData = function () {
             error: function (xhr, status, error) {
                 load.stop();
                 $('.modal-content').removeClass('no-event');
+                showAlear("查询失败");
+                showTip('本次查询失败');
                 console.error('Search data failed');
                 console.error(error);
             }
@@ -605,15 +611,16 @@ var OperatingData = function () {
      * 提示
      * */
 
-    var showTip = function () {
-        $('.operating-data-query .no-datas-tip').show();
+    var showTip = function (mess) {
+        mess = mess || '';
+        $('.operating-data-query .no-datas-tip').text(mess).show();
     };
 
     /**
      * 清空提示
      * */
     var clearTip = function () {
-        $('.operating-data-query .no-datas-tip').hide();
+        $('.operating-data-query .no-datas-tip').text('').hide();
     };
 
     /**
