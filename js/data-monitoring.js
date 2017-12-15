@@ -1079,8 +1079,15 @@ var MONITOR = function () {
         numChartArr: [],
         fileChartArr: [],
         airNumOptions: [],
-        airFileOptions: []
+        airFileOptions: [],
+        dataArr:[]
     };
+    var airportChartOpt = {
+        fpai: "FPAI_HOUR",
+        fpdi: "FPDI_HOUR",
+        ppci: "PPCI_HOUR",
+        psni: "PSNI_HOUR",
+    }
     var setAirportsInformation = function (fatherDom) {
         $.ajax({
             type: "GET",
@@ -1090,6 +1097,7 @@ var MONITOR = function () {
             success: function (data) {
                 if ($.isValidObject(data)) {
                     var airportsData = data.airportDatas;
+                    airportsChartArr.dataArr = airportsData;
                     var generateTime = data.generatetime;
                     var dataTime = "数据生成时间:" +
                         generateTime.substring(0, 4) + '-' +
@@ -1100,12 +1108,6 @@ var MONITOR = function () {
                     $(".data_time").text(dataTime);
                     if (airportsData.length > 0) {
                         $("#company_container").find(".no_data").hide()
-                        var airportChartOpt = {
-                            fpai: "FPAI_HOUR",
-                            fpdi: "FPDI_HOUR",
-                            ppci: "PPCI_HOUR",
-                            psni: "PSNI_HOUR",
-                        }
                         //时间转换显示
                         var generateTime = data.generatetime;
                         var airDataLen = airportsData.length;
@@ -1137,13 +1139,99 @@ var MONITOR = function () {
             }
         })
     };
+    var refreshAirportsInformation = function () {
+        $.ajax({
+            type: "GET",
+            url: iphost + "shareDataPlatform/airportDataCount",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                if ($.isValidObject(data)) {
+                    var generateTime = data.generatetime;
+                    var dataTime = "数据生成时间:" +
+                        generateTime.substring(0, 4) + '-' +
+                        generateTime.substring(4, 6) + '-' +
+                        generateTime.substring(6, 8) + '  ' +
+                        generateTime.substring(8, 10) + ':' +
+                        generateTime.substring(10, 12);
+                    $(".data_time").text(dataTime);
+                    var airportsData = data.airportDatas;
+                    if(airportsChartArr.dataArr.length == airportsData.length){
+                        var len =  airportsChartArr.airNumOptions.length;
+                        for(var i=0;i<len;i++){
+                            airportsData[i].currentTime = generateTime;
+                            airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], "data_COUNT", airportChartOpt, "信息数/个")
+                            airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i]);
+                            airportsChartArr.airFileOptions[i].refreshOption(airportsData[i], "file_COUNT", airportChartOpt, "文件数/个")
+                            airportsChartArr.fileChartArr[i].setOption(airportsChartArr.airFileOptions[i]);
+                        }
+                    }else if(airportsData.length > airportsChartArr.dataArr.length){
+                        var len =  airportsChartArr.dataArr.length;
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<airportsData.length;j++){
+                                if(airportsData[j].airportName == airportsChartArr.dataArr[i].airportName ){
+                                    airportsData[i].currentTime = generateTime;
+                                    airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], "data_COUNT", airportChartOpt, "信息数/个")
+                                    airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i]);
+                                    airportsChartArr.airFileOptions[i].refreshOption(airportsData, "file_COUNT", airportChartOpt, "文件数/个")
+                                    airportsChartArr.fileChartArr[i].setOption(airportsChartArr[i].airFileOptions[i]);
+                                }else{
+                                    airportsData[i].currentTime = generateTime;
+                                    var airportsDom = '<div class="flight_group box flights_charts"> <h2>' + airportsData[i].airportName + '机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num' + i + '"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">信息数</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">' + airportsData[i].PSNI_DATA + '</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">' + airportsData[i].PSNI_FILE + '</p> </li> <li> <p class="num fpdi">' + airportsData[i].FPDI_DATA + '</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">' + airportsData[i].FPDI_FILE + '</p> </li> <li> <p class="num fpai">' + airportsData[i].FPAI_DATA + '</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">' + airportsData[i].FPAI_FILE + '</p> </li> <li> <p class="num ppci">' + airportsData[i].PPCI_DATA + '</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">' + airportsData[i].PPCI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file' + i + '"></div><div class="clb"></div> </div> </div>'
+                                    $("#airport_container").append(airportsDom);
+                                    var numOptions = new AirportsOptions(airportsData[i], airportChartOpt, "data_COUNT", "信息数/个")
+                                    airportsChartArr.airNumOptions.push(numOptions);
+                                    var fileOptions = new AirportsOptions(airportsData[i], airportChartOpt, "file_COUNT", "文件数/个")
+                                    airportsChartArr.airFileOptions.push(fileOptions);
+                                    var chartsMulNum = echarts.init($("#airport_num" + j)[0])
+                                    var chartsMulFile = echarts.init($("#airport_file" + j)[0])
+                                    airportsChartArr.numChartArr.push(chartsMulNum);
+                                    airportsChartArr.fileChartArr.push(chartsMulFile);
+                                    chartsMulNum.setOption(airportsChartArr.airNumOptions[j]);
+                                    chartsMulFile.setOption(airportsChartArr.airFileOptions[j]);
+                                    airportsChartArr.dataArr.push(airportsData[j]);
+                                }
+                            }
+                        }
+                    }else if(airportsData.length < airportsChartArr.dataArr.length){
+                        var len =  airportsData.length;
+                        var difLen = airportsChartArr.dataArr.length - airportsData.length;
+                        airportsChartArr.comNumOptions.slice(0,len+1);
+                        for(var i=0;i<difLen;i++){
+                            $("#airport_container").removeChild($(".flights_charts")[i]);
+                        }
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<airportsData.length;j++){
+                                airportsData[i].currentTime = generateTime;
+                                airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], "data_COUNT", airportChartOpt, "信息数/个")
+                                airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i]);
+                                airportsChartArr.airFileOptions[i].refreshOption(airportsData, "file_COUNT", airportChartOpt, "文件数/个")
+                                airportsChartArr.fileChartArr[i].setOption(airportsChartArr[i].airFileOptions[i]);
+                            }
+                        }
+                    }
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
     /*航空公司运行信息*/
     var companyChartsArr = {
         numChartArr: [],
         fileChartArr: [],
         comNumOptions: [],
-        comFileOptions: []
+        comFileOptions: [],
+        dataArr:[]
     };
+    var companyChartOpt = {
+        faci: "FACI_HOUR",
+        fcri: "FCRI_HOUR",
+        flgh: "FLGH_HOUR",
+        fpci: "FPCI_HOUR",
+        fpln: "FPLN_HOUR",
+    }
     var setFlightsInformation = function (fatherDom) {
         $.ajax({
             type: "GET",
@@ -1163,13 +1251,6 @@ var MONITOR = function () {
                     var companyDatas = data.companyDatas;
                     if (companyDatas.length > 0) {
                         $("#company_container").find(".no_data").hide()
-                        var companyChartOpt = {
-                            faci: "FACI_HOUR",
-                            fcri: "FCRI_HOUR",
-                            flgh: "FLGH_HOUR",
-                            fpci: "FPCI_HOUR",
-                            fpln: "FPLN_HOUR",
-                        }
                         //时间转换显示
                         var generateTime = data.generatetime;
                         var comDataLen = companyDatas.length
@@ -1201,6 +1282,85 @@ var MONITOR = function () {
             }
         })
     };
+    var refreshFlightInformation = function () {
+        $.ajax({
+            type: "GET",
+            url: iphost + "shareDataPlatform/companyDataCount",
+            data: {},
+            dataType: "json",
+            success: function (data) {
+                if ($.isValidObject(data)) {
+                    var generateTime = data.generatetime;
+                    var dataTime = "数据生成时间:" +
+                        generateTime.substring(0, 4) + '-' +
+                        generateTime.substring(4, 6) + '-' +
+                        generateTime.substring(6, 8) + '  ' +
+                        generateTime.substring(8, 10) + ':' +
+                        generateTime.substring(10, 12);
+                    $(".data_time").text(dataTime);
+                    var companyDatas = data.companyDatas;
+                    if(companyChartsArr.dataArr.length == companyDatas.length){
+                        var len =  companyChartsArr.comFileOptions.length;
+                        for(var i=0;i<len;i++){
+                            companyDatas[i].currentTime = generateTime;
+                            companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], "data_COUNT", companyChartOpt, "信息数/个")
+                            companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i]);
+                            companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], "file_COUNT", companyChartOpt, "文件数/个")
+                            companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i]);
+                        }
+                    }else if(companyDatas.length > companyChartsArr.dataArr.length ){
+                        var len =  companyChartsArr.dataArr.length;
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<companyDatas.length;j++){
+                                if(companyDatas[j].airportName == companyChartsArr.dataArr[i].airportName ){
+                                    airportsData[i].currentTime = generateTime;
+                                    companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], "data_COUNT", companyChartOpt, "信息数/个")
+                                    companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i]);
+                                    companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], "file_COUNT", companyChartOpt, "文件数/个")
+                                    companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i]);
+                                }else{
+                                    airportsData[i].currentTime = generateTime;
+                                    var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num' + i + '"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">' + companyDatas[i].FLGH_FILE + '</p></li><li><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">' + companyDatas[i].FPLN_FILE + '</p></li><li><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">' + companyDatas[i].FPCI_FILE + '</p> </li> <li> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">' + companyDatas[i].FCRI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file' + i + '"></div> <div class="clb"></div> </div> </div>'
+                                    $("#company_container").append(flightsDom);
+                                    var numOptions = new CompanyOptions(companyDatas[i], companyChartOpt, "data_COUNT", "信息数/个");
+                                    companyChartsArr.comNumOptions.push(numOptions);
+                                    var fileOptions = new CompanyOptions(companyDatas[i], companyChartOpt, "file_COUNT", "文件数/个");
+                                    companyChartsArr.comFileOptions.push(fileOptions);
+                                    var chartsMulNum = echarts.init($("#flight_num" + j)[0]);
+                                    var chartsMulFile = echarts.init($("#flight_file" + j)[0]);
+                                    companyChartsArr.numChartArr.push(chartsMulNum);
+                                    companyChartsArr.fileChartArr.push(chartsMulFile);
+                                    chartsMulNum.setOption(companyChartsArr.comNumOptions[j]);
+                                    chartsMulFile.setOption(companyChartsArr.comFileOptions[j]);
+                                }
+                            }
+                        }
+
+                    }else if( companyDatas.length < companyChartsArr.dataArr.length){
+                        var len =  companyDatas.length;
+                        var difLen = companyChartsArr.dataArr.length - companyDatas.length;
+                        companyChartsArr.comNumOptions.slice(0,len+1);
+                        for(var i=0;i<difLen;i++){
+                            $("#company_container").removeChild($(".company_charts")[i]);
+                        }
+                        for(var i=0;i<len;i++){
+                            for(var j=0;j<companyDatas.length;j++){
+                                    companyDatas[i].currentTime = generateTime;
+                                    companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], "data_COUNT", companyChartOpt, "信息数/个")
+                                    companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i]);
+                                    companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], "file_COUNT", companyChartOpt, "文件数/个")
+                                    companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i]);
+                            }
+                        }
+                    }
+
+                }
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        })
+    }
     /*机场航空公司切换事件*/
     var initAirCom = function () {
         //机场
@@ -1328,13 +1488,16 @@ var MONITOR = function () {
         }
         //机场数据刷新
         if ($("#airport_container").is(":visible")) {
-            $("#airport_container").find(".flight_group").remove();
-            setAirportsInformation($("#airport_container")); //机场数据初始化
+            // $("#airport_container").find(".flight_group").remove();
+            // setAirportsInformation($("#airport_container")); //机场数据初始化
+            refreshAirportsInformation();
+
         }
         //航空公司数据刷新
         if ($("#company_container").is(":visible")) {
-            $("#company_container").find(".flight_group").remove();
-            setFlightsInformation($("#company_container")); //航空公司数据初始化
+            // $("#company_container").find(".flight_group").remove();
+            // setFlightsInformation($("#company_container")); //航空公司数据初始化
+            refreshFlightInformation()
         }
     }
     //定时刷新
