@@ -370,8 +370,14 @@ var HistoryData = function () {
             };
             // 遍历数据日期
             echartOption.date.map(function (d) {
+                //若某一日期数据中无该子类型数据，则创建一个假数据，这个数据的fileCount和dataCount设置为0(防止数据错乱)
                 if(!$.isValidObject(result[d][item])){
-                    return;
+                    var obj = {
+                        fileCount : 0,
+                        dataCount : 0
+                    };
+                    result[d][item] =[];
+                    result[d][item].push(obj);
                 }
                 var obj = result[d][item][0]; // 数据目标对象
                 if($.isValidObject(obj)){
