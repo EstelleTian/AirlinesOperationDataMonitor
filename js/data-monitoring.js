@@ -134,9 +134,22 @@ var MONITOR = function () {
         flgh: "ALOI_FLGH_HOUR",
         fpci: "ALOI_FPCI_HOUR",
         fpln: "ALOI_FPLN_HOUR",
+    };
+    var manageOpt = {
+        fcdm: "ATMI_FCDM_HOUR",
+        ftmi: "ATMI_FTMI_HOUR",
+        mdrs: "ATMI_MDRS_HOUR",
+        padr: "ATMI_PADR_HOUR",
+        sect: "ATMI_SECT_HOUR"
+    };
 
+    var monitorOpt = {
+        fosc: "OSCI_FOSC_HOUR",
+        fper: "OSCI_FPER_HOUR",
+        pper: "OSCI_PPER_HOUR"
     };
     var AirportsOptions = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -172,8 +185,14 @@ var MONITOR = function () {
                 orient: 'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
+                name: resData.xTime || "",
+                data: resData.xTimeArr,
+                axisLabel:{
+                    formatter: function(value, inde){
+                        var res = value.substring(6,8) + "/" +value.substring(8,12);
+                        return res;
+                    },
+                },
                 boundaryGap: false,
 
             },
@@ -208,7 +227,7 @@ var MONITOR = function () {
                             color: "#9abcc3",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpai, type)
+                    data: Object.values( resData[dataOpt.fpai] )
                 }, {
                     name: "离港航班",
                     type: 'line',
@@ -225,7 +244,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpdi, type)
+                    data: Object.values( resData[dataOpt.fpdi] )
                 }, {
                     name: "客货",
                     type: 'line',
@@ -242,7 +261,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.ppci, type)
+                    data: Object.values( resData[dataOpt.ppci] )
                 }, {
                     name: "机位",
                     type: 'line',
@@ -259,17 +278,24 @@ var MONITOR = function () {
                             color: "#3498DB",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.psni, type)
+                    data: Object.values( resData[dataOpt.psni] )
                 }
             ]
     };
-    AirportsOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
+    AirportsOptions.prototype.refreshOption = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.xAxis = {
-                name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
-                boundaryGap: false,
-
+            name: resData.xTime || "",
+            data: resData.xTimeArr,
+            axisLabel:{
+                formatter: function(value, inde){
+                    var res = value.substring(6,8) + "/" +value.substring(8,12)
+                    return res
+                },
             },
+            boundaryGap: false,
+
+        };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -301,7 +327,7 @@ var MONITOR = function () {
                             color: "#9abcc3",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpai, type)
+                    data: Object.values( resData[dataOpt.fpai] )
                 }, {
                     name: "离港航班",
                     type: 'line',
@@ -318,7 +344,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpdi, type)
+                    data: Object.values( resData[dataOpt.fpdi] )
                 }, {
                     name: "客货",
                     type: 'line',
@@ -335,7 +361,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.ppci, type)
+                    data: Object.values( resData[dataOpt.ppci] )
                 }, {
                     name: "机位",
                     type: 'line',
@@ -352,12 +378,13 @@ var MONITOR = function () {
                             color: "#3498DB",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.psni, type)
+                    data: Object.values( resData[dataOpt.psni] )
                 }
             ]
 
     };
     var CompanyOptions = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -393,11 +420,16 @@ var MONITOR = function () {
                 orient: 'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
+                name: resData.xTime || "",
+                data: resData.xTimeArr,
+                axisLabel:{
+                    formatter: function(value, inde){
+                        var res = value.substring(6,8) + "/" +value.substring(8,12)
+                        return res
+                    },
+                },
                 boundaryGap: false,
-
-            },
+            };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -428,7 +460,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fcri, type)
+                    data: Object.values( resData[dataOpt.fcri] )
                 }, {
                     name: "地面状态",
                     type: 'line',
@@ -445,7 +477,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.flgh, type)
+                    data: Object.values( resData[dataOpt.flgh] )
                 }, {
                     name: "客货",
                     type: 'line',
@@ -462,7 +494,7 @@ var MONITOR = function () {
                             color: "#3498DB",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpci, type)
+                    data: Object.values( resData[dataOpt.fpci] )
                 }, {
                     name: "计划变更",
                     type: 'line',
@@ -479,17 +511,24 @@ var MONITOR = function () {
                             color: "#E74C3C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpln, type)
+                    data: Object.values( resData[dataOpt.fpln] )
                 }
             ]
     };
-    CompanyOptions.prototype.refreshOption = function (dataObj, type, dataOpt, inforType) {
+    CompanyOptions.prototype.refreshOption = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.xAxis = {
-                name: dataConvert(dataObj, dataOpt, type).xTime,
-                data: dataConvert(dataObj, dataOpt, type).xTimeArr,
-                boundaryGap: false,
-
+            name: resData.xTime || "",
+            data: resData.xTimeArr,
+            axisLabel:{
+                formatter: function(value, inde){
+                    var res = value.substring(6,8) + "/" +value.substring(8,12)
+                    return res
+                },
             },
+            boundaryGap: false,
+
+        };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -520,7 +559,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fcri, type)
+                    data: Object.values( resData[dataOpt.fcri] )
                 }, {
                     name: "地面状态",
                     type: 'line',
@@ -537,7 +576,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.flgh, type)
+                    data: Object.values( resData[dataOpt.flgh] )
                 }, {
                     name: "客货",
                     type: 'line',
@@ -554,7 +593,7 @@ var MONITOR = function () {
                             color: "#3498DB",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpci, type)
+                    data: Object.values( resData[dataOpt.fpci] )
                 }, {
                     name: "计划变更",
                     type: 'line',
@@ -571,11 +610,13 @@ var MONITOR = function () {
                             color: "#E74C3C",
                         }
                     },
-                    data: dataConvert(dataObj, dataOpt.fpln, type)
+                    data: Object.values( resData[dataOpt.fpln] )
                 }
             ]
     };
-    var ManageOptions = function (dataObj, type, inforType) {
+    var ManageOptions = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
+        console.log(resData);
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -611,11 +652,17 @@ var MONITOR = function () {
                 orient: 'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj, "", type).xTime,
-                data: dataConvert(dataObj, "", type).xTimeArr,
+                name: resData.xTime || "",
+                data: resData.xTimeArr,
+                axisLabel:{
+                    formatter: function(value, inde){
+                        var res = value.substring(6,8) + "/" +value.substring(8,12)
+                        return res
+                    },
+                },
                 boundaryGap: false,
 
-            },
+            };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -646,7 +693,7 @@ var MONITOR = function () {
                             color: "#9abcc3"
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_FCDM_HOUR", type)
+                    data: Object.values( resData[dataOpt.fcdm] )
             }, {
                     name: "流量控制措施",
                     type: 'line',
@@ -663,7 +710,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_FTMI_HOUR", type)
+                    data: Object.values( resData[dataOpt.ftmi] )
             }, {
                     name: "MDRS",
                     type: 'line',
@@ -680,7 +727,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_MDRS_HOUR", type)
+                    data: Object.values( resData[dataOpt.mdrs] )
             }, {
                     name: "机场通行能力",
                     type: 'line',
@@ -697,7 +744,7 @@ var MONITOR = function () {
                             color: "#3498DB"
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_PADR_HOUR", type)
+                    data: Object.values( resData[dataOpt.padr] )
             }, {
                     name: "扇区开放合并",
                     type: 'line',
@@ -714,17 +761,24 @@ var MONITOR = function () {
                             color: "#E74C3C",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_SECT_HOUR", type)
+                    data: Object.values( resData[dataOpt.sect] )
             }
         ]
     };
-    ManageOptions.prototype.refreshOption = function (dataObj, type, inforType) {
+    ManageOptions.prototype.refreshOption = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.xAxis = {
-                name: dataConvert(dataObj, "", type).xTime,
-                data: dataConvert(dataObj, "", type).xTimeArr,
-                boundaryGap: false,
-
+            name: resData.xTime || "",
+            data: resData.xTimeArr,
+            axisLabel:{
+                formatter: function(value, inde){
+                    var res = value.substring(6,8) + "/" +value.substring(8,12)
+                    return res
+                },
             },
+            boundaryGap: false,
+
+        };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -755,7 +809,7 @@ var MONITOR = function () {
                             color: "#9abcc3"
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_FCDM_HOUR", type)
+                    data: Object.values( resData[dataOpt.fcdm] )
                 }, {
                     name: "流量控制措施",
                     type: 'line',
@@ -772,7 +826,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_FTMI_HOUR", type)
+                    data: Object.values( resData[dataOpt.ftmi] )
                 }, {
                     name: "MDRS",
                     type: 'line',
@@ -789,7 +843,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_MDRS_HOUR", type)
+                    data: Object.values( resData[dataOpt.mdrs] )
                 }, {
                     name: "机场通行能力",
                     type: 'line',
@@ -806,7 +860,7 @@ var MONITOR = function () {
                             color: "#3498DB"
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_PADR_HOUR", type)
+                    data: Object.values( resData[dataOpt.padr] )
                 }, {
                     name: "扇区开放合并",
                     type: 'line',
@@ -823,11 +877,12 @@ var MONITOR = function () {
                             color: "#E74C3C",
                         }
                     },
-                    data: dataConvert(dataObj, "ATMI_SECT_HOUR", type)
+                    data: Object.values( resData[dataOpt.sect] )
                 }
             ]
     };
-    var MonitorOption = function (dataObj, type, inforType) {
+    var MonitorOption = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -863,12 +918,17 @@ var MONITOR = function () {
                 orient: 'vertical'
             },
             this.xAxis = {
-                name: dataConvert(dataObj, "", type).xTime,
-                data: dataConvert(dataObj, "", type).xTimeArr,
+                name: resData.xTime || "",
+                data: resData.xTimeArr,
+                axisLabel:{
+                    formatter: function(value, inde){
+                        var res = value.substring(6,8) + "/" +value.substring(8,12)
+                        return res
+                    },
+                },
                 boundaryGap: false,
-                right: "5"
 
-            },
+            };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -876,7 +936,7 @@ var MONITOR = function () {
             },
             this.dataZoom = {
                 show: true,
-                start: 70,
+                start: 67,
                 height: 13,
                 zoomLock: false,
                 bottom: "5",
@@ -899,7 +959,7 @@ var MONITOR = function () {
                             color: "#9abcc3",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_FOSC_HOUR", type)
+                    data: Object.values( resData[dataOpt.fosc] )
             }, {
                     name: "航班统计",
                     type: 'line',
@@ -916,7 +976,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_FPER_HOUR", type)
+                    data: Object.values( resData[dataOpt.fper] )
             }, {
                     name: "机场统计",
                     type: 'line',
@@ -933,18 +993,24 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_PPER_HOUR", type)
+                    data: Object.values( resData[dataOpt.pper] )
             }
         ]
     };
-    MonitorOption.prototype.refreshOption = function (dataObj, type, inforType) {
+    MonitorOption.prototype.refreshOption = function (dataObj, dataOpt, type, inforType) {
+        var resData = dataConvert(dataObj, dataOpt, type) || {};
         this.xAxis = {
-                name: dataConvert(dataObj, "", type).xTime,
-                data: dataConvert(dataObj, "", type).xTimeArr,
-                boundaryGap: false,
-                right: "5"
-
+            name: resData.xTime || "",
+            data: resData.xTimeArr,
+            axisLabel:{
+                formatter: function(value, inde){
+                    var res = value.substring(6,8) + "/" +value.substring(8,12)
+                    return res
+                },
             },
+            boundaryGap: false,
+
+        };
             this.yAxis = {
                 name: inforType,
                 type: 'value',
@@ -975,7 +1041,7 @@ var MONITOR = function () {
                             color: "#9abcc3",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_FOSC_HOUR", type)
+                    data: Object.values( resData[dataOpt.fosc] )
                 }, {
                     name: "航班统计",
                     type: 'line',
@@ -992,7 +1058,7 @@ var MONITOR = function () {
                             color: "#CCCCFF",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_FPER_HOUR", type)
+                    data: Object.values( resData[dataOpt.fper] )
                 }, {
                     name: "机场统计",
                     type: 'line',
@@ -1009,7 +1075,7 @@ var MONITOR = function () {
                             color: "#1ABB9C",
                         }
                     },
-                    data: dataConvert(dataObj, "OSCI_PPER_HOUR", type)
+                    data: Object.values( resData[dataOpt.pper] )
                 }
             ]
     };
@@ -1020,10 +1086,10 @@ var MONITOR = function () {
         this.airportFileOption = new AirportsOptions(dataObj, indexAirChartOpt, "file_COUNT", "文件数/个");
         this.companyNumOption = new CompanyOptions(dataObj, indexComChartOpt, "data_COUNT", "信息数/个");
         this.companyFileOption = new CompanyOptions(dataObj, indexComChartOpt, "file_COUNT", "文件数/个");
-        this.manageNumOption = new ManageOptions(dataObj, "data_COUNT", "信息数/个");
-        this.manageFileOption = new ManageOptions(dataObj, "file_COUNT", "文件数/个");
-        this.monitorNumOption = new MonitorOption(dataObj, "data_COUNT", "信息数/个");
-        this.monitorFileOption = new MonitorOption(dataObj, "file_COUNT", "文件数/个");
+        this.manageNumOption = new ManageOptions(dataObj, manageOpt, "data_COUNT", "信息数/个");
+        this.manageFileOption = new ManageOptions(dataObj, manageOpt, "file_COUNT", "文件数/个");
+        this.monitorNumOption = new MonitorOption(dataObj, monitorOpt, "data_COUNT", "信息数/个");
+        this.monitorFileOption = new MonitorOption(dataObj, monitorOpt, "file_COUNT", "文件数/个");
     };
     //首页曲线图参数实例
     var options = {};
@@ -1046,33 +1112,41 @@ var MONITOR = function () {
      * type 数量 文件数量字段
      * **/
     var dataConvert = function (data, opt, type) {
-        //最终返回的数据arr
-        var arr = [];
-        var currentTime = parseInt(data.currentTime.substring(8, 10));
-        //用于计算曲线图下方滚动条位置
-        // arr.zoomStartTime = 0;
-        // arr.zoomEndTime = 100;
-        // if (!(currentTime < 3 && currentTime > 20)) {
-        //     arr.zoomStartTime = parseInt(100 * (currentTime - 3) / 24) + 4;
-        //     arr.zoomEndTime = parseInt(100 * (currentTime + 3) / 24) + 2;
-        // }
-        var xTime = data.currentTime.substring(0, 4) + "-" + data.currentTime.substring(4, 6) + "-" + data.currentTime.substring(6, 8)
-        //X轴日期
-        arr.xTime = xTime;
-        arr.xTimeArr = [];
-        var nowTime =  data.currentTime.substring(8, 10);
-        nowTime = parseInt(nowTime);
-        var xTimeArr = ["00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"];
-        xTimeArr = xTimeArr.slice(0,nowTime+1);
-        arr.xTimeArr = xTimeArr
-        var dataarr = data[opt];
-        if ($.isValidObject(dataarr) && dataarr != null) {
-            var len = dataarr.length;
-            for (var i = 0; i < nowTime+1; i++) {
-                arr.push(dataarr[i][type]);
+        var res = {};
+        if(!$.isValidVariable(opt) || !$.isValidVariable(type)){
+            return res;
+        }
+        //x轴标题
+        var xTime = data.currentTime.substring(0, 4) + "年" + data.currentTime.substring(4, 6) + "月";
+        //X轴日期 yyyy-MM
+        res.xTime = xTime;
+        var xTimeArr = [];
+
+        for(var key in opt){
+            if($.isValidVariable(key)){
+                //子类型
+                var option = opt[key];
+                res[option] = {};
+                //子类型对应的数值
+                var dataarr = data[option];
+                if ($.isValidObject(dataarr) && dataarr != null) {
+                    //遍历数据
+                    for  (var i = 0, len = dataarr.length; i < len; i++ ) {
+                        //获取时间
+                        var time = dataarr[i]["hour"];
+                        //获取数值
+                        var value = dataarr[i][type]*1;
+                        //添加数据
+                        if( xTimeArr.indexOf(time) == -1){
+                            xTimeArr.push(time);
+                        }
+                        res[option][time] = value;
+                    }
+                }
             }
         }
-        return arr;
+        res.xTimeArr = xTimeArr.sort();
+        return res;
     };
     /*机场运行信息*/
     var airportsChartArr = {
