@@ -119,7 +119,7 @@ var BasicData = function () {
         'ALOI' : iphost + "shareDataPlatform/allCompany"
     };
 
-    //格式化时间
+    //格式化12位时间
     function timeFormater(cellvalue, options, rowObject) {
         var val = cellvalue*1;
         if ( $.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 12 ) {
@@ -128,6 +128,15 @@ var BasicData = function () {
             return '';
         }
     };
+    // 格式化14位时间
+    function fullTimeFormater(cellvalue, options, rowObject) {
+        var val = cellvalue*1;
+        if ( $.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 14 ) {
+            return cellvalue.substring(6,8)+ '/'+ cellvalue.substring(8, 14);
+        } else {
+            return '';
+        }
+    }
 
     var tableObj = {
         colName: {
@@ -136,6 +145,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },airportNameEN: {
                         cn: '机场英文名称',
                         en: 'airportNameEN'
@@ -299,6 +318,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -448,6 +477,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -522,6 +561,16 @@ var BasicData = function () {
                         cn: 'ID',
                         en: 'ID',
                         width : 100
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },airportNameEN: {
                         cn: '机场英文名称',
                         en: 'airportNameEN',
@@ -546,6 +595,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -753,10 +812,21 @@ var BasicData = function () {
                         en: 'enduranceDistance'
                     }
 
-                },'FPLN'  : {
+                },
+                'FPLN'  : {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -814,10 +884,21 @@ var BasicData = function () {
                         en: 'remark'
                     }
 
-                },'FPCI'  : {
+                },
+                'FPCI'  : {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -899,10 +980,21 @@ var BasicData = function () {
                         en: 'cargoFreeLoad'
                     }
 
-                },'FCRI'  : {
+                },
+                'FCRI'  : {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -957,11 +1049,22 @@ var BasicData = function () {
                         width : 200
                     }
 
-                },'FACI'  : {
+                },
+                'FACI'  : {
                     id: {
                         cn: 'ID',
                         en: 'ID',
                         width : 150
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, regNumber: {
                         cn: '航空器注册号',
                         en: 'regNumber',
@@ -992,6 +1095,16 @@ var BasicData = function () {
                         cn: 'ID',
                         en: 'ID',
                         width : 110
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -1052,6 +1165,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, FTMID: {
                         cn: '流控标识',
                         en: 'FTMID'
@@ -1111,6 +1234,16 @@ var BasicData = function () {
                         cn: 'ID',
                         en: 'ID',
                         width : 130
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, airportNameEN: {
                         cn: '机场英文名称',
                         en: 'airportNameEN',
@@ -1160,6 +1293,16 @@ var BasicData = function () {
                         cn: 'ID',
                         en: 'ID',
                         width : 130
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, MDRSIdentification: {
                         cn: 'MDRS标识',
                         en: 'MDRSIdentification',
@@ -1207,15 +1350,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width : 475
+                        width : 400
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 400,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 400,
+                        formatter: fullTimeFormater
                     }, sectorIdentification: {
                         cn: '扇区标识',
                         en: 'sectorIdentification',
-                        width : 475
+                        width : 400
                     }, mergedSector: {
                         cn: '被合并扇区',
                         en: 'mergedSector',
-                        width : 475
+                        width : 400
                     }
                 },
             },
@@ -1224,6 +1377,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -1330,6 +1493,16 @@ var BasicData = function () {
                         cn: 'ID',
                         en: 'ID',
                         width : 110
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     },callSign: {
                         cn: '航空器识别标志',
                         en: 'callSign',
@@ -1391,6 +1564,16 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID'
+                    },messageSendDateTime: {
+                        cn: '发送时间',
+                        en: 'messageSendDateTime',
+                        width : 200,
+                        formatter: fullTimeFormater
+                    },generatetime: {
+                        cn: '接收时间',
+                        en: 'generatetime',
+                        width : 200,
+                        formatter: fullTimeFormater
                     }, airportNameEN: {
                         cn: '机场英文名称',
                         en: 'airportNameEN'
@@ -1539,10 +1722,14 @@ var BasicData = function () {
                 if(!$.isValidVariable(title)){
                     title = '';
                 }
+                var len = title.length;
                 //时间格式化 YYYYMMDD HH:MM
                 var regexp = /(([0-9]{3}[1-9]|[0-9]{2}[1-9][0-9]{1}|[0-9]{1}[1-9][0-9]{2}|[1-9][0-9]{3})(((0[13578]|1[02])(0[1-9]|[12][0-9]|3[01]))|((0[469]|11)(0[1-9]|[12][0-9]|30))|(02(0[1-9]|[1][0-9]|2[0-8]))))|((([0-9]{2})(0[48]|[2468][048]|[13579][26])|((0[48]|[2468][048]|[3579][26])00))0229)/;
-                if(regexp.test(title)){
-                    title = title.substring(0,8) +' '+ title.substring(8,10) + ":" + title.substring(10,12);
+                //12位有效时间
+                if(regexp.test(title) && len == 12){
+                    title = title.substring(0,8) +' '+ title.substring(8,10) + ":" + title.substring(10,12) ;
+                }else if(regexp.test(title) && len == 14){ //14位有效时间
+                    title = title.substring(0,8) +' '+ title.substring(8,10) + ":" + title.substring(10,12) + ':' + title.substring(12,14);
                 }
                 attrs = ' title="' + title + '"';
 

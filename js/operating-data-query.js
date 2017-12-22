@@ -67,10 +67,10 @@ var OperatingData = function () {
      * 初始化表格
      * */
     var initTable = function () {
-        // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
+        /*// 若表格已经存在，则重新加载表格(清空表格头及表格数据)
         if($.isValidObject(tableInstance)){
             $.jgrid.gridUnload("tb-datas");
-        }
+        }*/
         //生成表格实例
         tableInstance = new FlightGridTable({
             canvasId: canvasId,
@@ -235,6 +235,13 @@ var OperatingData = function () {
             clearAlert();
             // 清空提示
             clearTip();
+            // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
+            if($.isValidObject(tableInstance)){
+                $.jgrid.gridUnload("tb-datas");
+            }
+            // 更新顶部导航查询条件内容
+            // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
+            updateNavLabel();
 
             //拼接参数
             var str = concatParameter();
@@ -327,15 +334,9 @@ var OperatingData = function () {
                         // 更新数据时间
                         updateGeneratetime(time);
                     }
-                    // 更新顶部导航内容
-                    // (要在表格初始化前，因为顶部导航内容多少影响顶部导航高度进而影响表格容器的高度)
-                    updateNavLabel();
                     // 若数据为空
                     if(!$.isValidObject(result)){
-                        // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
-                        if($.isValidObject(tableInstance)){
-                            $.jgrid.gridUnload("tb-datas");
-                        }
+
                         //显示提示
                         showTip('本次查询数据结果为空');
 
