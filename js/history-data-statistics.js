@@ -62,8 +62,8 @@ var HistoryData = function () {
 
     var initNavTabEvent = function () {
         $('.nav-history-data-statistics').on('click',function () {
-            // 计算echarts容器高度
-            $('.charts-wrap').height(getChartsWrapHeight()-20);
+            // echarts高度自适应
+            resizeToFitContainer();
             // 若数据总数图表存在，则重新设置图表尺寸
             if($.isValidObject(dataCountChart)){
                 dataCountChart.resize();
@@ -110,11 +110,18 @@ var HistoryData = function () {
         //校验表单
         var validate = validateForm();
         if(!validate.valid){
+            // 清空数据时间
+            clearGeneratetime();
+            //隐藏当前统计条件
+            hideConditions();
+            // 显示警告信息内容
             showAlear(validate);
             return;
         }else {
             //拼接参数
             var str = concatParameter();
+            //显示当前统计条件
+            showConditions();
             //数据查询
             searchData(str);
         }
@@ -137,12 +144,12 @@ var HistoryData = function () {
         if(!startDateValid){
             return {
                 valid : false,
-                mess : "输入正确的起始时间,日期格式:YYYYMMDD"
+                mess : "请输入正确的起始时间,日期格式:YYYYMMDD"
             }
         }else if(!endDateValid){
             return {
                 valid : false,
-                mess : "输入正确的截止时间,日期格式:YYYYMMDD"
+                mess : "请输入正确的截止时间,日期格式:YYYYMMDD"
             }
         }else if(startDate.substring(0,8) *1 >= nowDate*1){
             return {
@@ -229,6 +236,62 @@ var HistoryData = function () {
      * */
     var clearTip = function () {
         $('.history-data-statistics .no-datas-tip').text('').hide();
+    };
+
+
+    /**
+     * 显示当前统计条件
+     * */
+    var showConditions = function () {
+        //当前选中的类型
+        var currentTypeObj = BasicData.operatingDataTypeObj.result[currentType];
+        var typeCN = BasicData.historyDataTypeObj.valCN[BasicData.historyDataTypeObj.val.indexOf(currentType)];
+
+        var subtypeCN = '';
+        if(Array.isArray(currentSubtype)){
+            subtypeCN = currentSubtype.map(function (item,index) {
+                return currentTypeObj.subtype[item];
+            }).join(' , ');
+        }
+
+        /*else {
+            var arr = [];
+            var types = currentTypeObj.subtype;
+            for(var i in types){
+                arr.push(types[i]);
+            }
+            subtypeCN = arr.join(' , ') ;
+        }*/
+
+        //上传单位
+        var unitCN = '';
+        if(Array.isArray(currentUnit)){
+            unitCN = currentUnit.map(function (item,index) {
+                return currentTypeObj.unit[item];
+            }).join(' , ');
+        }
+
+        /*else {
+            var arr = [];
+            var units = currentTypeObj.unit;
+            for(var i in units){
+                arr.push(units[i]);
+            }
+            unitCN = arr.join(' , ') ;
+        }*/
+
+
+        $('.conditions-start-data').text(startDate).attr('title','时间: '+ startDate + '-'+ endDate);
+        $('.conditions-end-data').text(endDate).attr('title','时间: '+ startDate + '-'+ endDate);
+        $('.conditions-type').text(typeCN).attr('title','类型: '+ typeCN);
+        $('.conditions-subtype').text(subtypeCN).attr('title','信息子类型: '+subtypeCN);
+        $('.conditions-unit').text(unitCN).attr('title','上传单位: '+unitCN);
+
+        $('.conditions-content').removeClass('hidden');
+    };
+
+    var hideConditions = function () {
+        $('.conditions-content').addClass('hidden');
     };
 
     /**
@@ -573,21 +636,25 @@ var HistoryData = function () {
     var initDocumentResize = function () {
         $(window).resize(function () {
             if($('.history-data-statistics').is(":visible") ){
-                $('.charts-wrap').height(getChartsWrapHeight()-20);
+                resizeToFitContainer();
             }
         });
     };
 
     /**
-     *  计算表格初始化前父容器的高度
+     *  计算echarts初始化前父容器的高度, echarts高度自适应
      * */
-    var getChartsWrapHeight = function () {
+    var resizeToFitContainer = function () {
         var  body = $('body').height();
         var head = $('.headbar').outerHeight() + parseInt($('.headbar').css('marginBottom'));
         var  nav = $('.nav-menu').outerHeight() +parseInt($('.nav-menu').css('marginBottom'));
         var  innerNav = $('.history-data-title').outerHeight() +parseInt($('.history-data-title').css('marginBottom'));
         var  form = $('.form-wrap').outerHeight() +parseInt($('.form-wrap').css('marginBottom'));
-        return body - head - nav - innerNav-form;
+
+        var wrapHeight = body - head - nav - innerNav-form -20;
+        var chartHeight = wrapHeight - $('.conditions').outerHeight();
+        $('.charts-wrap').height(wrapHeight);
+        $('.echart-row').height(chartHeight);
     };
 
 
