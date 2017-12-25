@@ -40,7 +40,7 @@ header{
     height: 90px;
     position: fixed;
     width: 100%;
-    z-index: 100000;
+    z-index: 1000;
 }
 .headbar .pull-right{
     margin-left: 10px;
@@ -103,7 +103,7 @@ header{
     width: 100%;
     top:90px;
     height: 30px;
-    z-index: 100000;
+    z-index: 1000;
 }
 #nav{
     background: url(../img/nav-repeat2.jpg) repeat-x #305b7b !important;

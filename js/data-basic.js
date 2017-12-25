@@ -132,7 +132,7 @@ var BasicData = function () {
     function fullTimeFormater(cellvalue, options, rowObject) {
         var val = cellvalue*1;
         if ( $.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 14 ) {
-            return cellvalue.substring(6,8)+ '/'+ cellvalue.substring(8, 14);
+            return cellvalue.substring(6,8)+ '/'+cellvalue.substring(8, 10) +':' + cellvalue.substring(10, 12) + ':' +  cellvalue.substring(12, 14);
         } else {
             return '';
         }
@@ -150,9 +150,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },airportNameEN: {
@@ -323,9 +323,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -482,9 +482,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -566,9 +566,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },airportNameEN: {
@@ -600,9 +600,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -822,9 +822,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -894,9 +894,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -990,9 +990,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -1060,9 +1060,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, regNumber: {
@@ -1100,9 +1100,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, callSign: {
@@ -1170,9 +1170,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, FTMID: {
@@ -1239,9 +1239,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, airportNameEN: {
@@ -1298,9 +1298,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, MDRSIdentification: {
@@ -1356,9 +1356,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 400,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 400,
                         formatter: fullTimeFormater
                     }, sectorIdentification: {
@@ -1382,9 +1382,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -1498,9 +1498,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     },callSign: {
@@ -1569,9 +1569,9 @@ var BasicData = function () {
                         en: 'messageSendDateTime',
                         width : 200,
                         formatter: fullTimeFormater
-                    },generatetime: {
+                    },generateTime: {
                         cn: '接收时间',
-                        en: 'generatetime',
+                        en: 'generateTime',
                         width : 200,
                         formatter: fullTimeFormater
                     }, airportNameEN: {
