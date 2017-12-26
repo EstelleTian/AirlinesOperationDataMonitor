@@ -1222,7 +1222,7 @@ var BasicData = function () {
                         en: 'endTime',
                         formatter: timeFormater,
                     }, reason: {
-                        cn: 'reason',
+                        cn: '流控限制原因',
                         en: 'reason'
                     }, targetArea: {
                         cn: '事发地',
