@@ -6,7 +6,7 @@ var MONITOR = function () {
     var isRefresh = true;
     var totalDataCount
     /*获取监控主页数据统计*/
-    var getTotalDateCount = function (isRefresh) {
+    var getTotalDateCount = function (totalDataCount,isRefresh) {
         $.ajax({
             type: "GET",
             url: iphost + "shareDataPlatform/totalDataCount",
@@ -1624,7 +1624,7 @@ var MONITOR = function () {
     return {
         initMonitor: function () {
             initAirCom(); //机场航空公司点击事件初始化
-            getTotalDateCount(true); //获取航班监控页面数据
+            getTotalDateCount(totalDataCount,true); //获取航班监控页面数据
         },
         resizeFit: function () {
             resizeFit()
