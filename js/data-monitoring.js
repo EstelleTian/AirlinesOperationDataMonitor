@@ -2,8 +2,11 @@
  * Created by caowei on 2017/11/20.
  */
 var MONITOR = function () {
+    /*定时器总开关*/
+    var isRefresh = true;
+    var totalDataCount
     /*获取监控主页数据统计*/
-    var getTotalDateCount = function () {
+    var getTotalDateCount = function (isRefresh) {
         $.ajax({
             type: "GET",
             url: iphost + "shareDataPlatform/totalDataCount",
@@ -11,7 +14,7 @@ var MONITOR = function () {
             dataType: "json",
             success: function (data) {
                 if ($.isValidObject(data)) {
-                    var totalDataCount = data.totalDataCount
+                    totalDataCount = data.totalDataCount
                     //时间转换显示
                     var generateTime = data.generatetime;
                     var dataTime = "数据生成时间:" +
@@ -32,6 +35,9 @@ var MONITOR = function () {
                     initCurveCharts(totalDataCount)
                     // setFlightsInformation($("#company_container"));//航空公司数据初始化
                     // setAirportsInformation($("#airport_container"));//机场数据初始化
+                    if(isRefresh){
+                        startTimer(getTotalDateCount,totalDataCount,true,1000*30)
+                    }
 
                 }
             },
@@ -616,7 +622,6 @@ var MONITOR = function () {
     };
     var ManageOptions = function (dataObj, dataOpt, type, inforType) {
         var resData = dataConvert(dataObj, dataOpt, type) || {};
-        console.log(resData);
         this.backgroundColor = '#FFFFFF',
             this.color = ['#3398DB'],
             this.title = {
@@ -1575,20 +1580,18 @@ var MONITOR = function () {
         }
     }
     //定时刷新
-    var refreshTime = 1000 * 60;
     var refreshData = function () {
         refreshChartsOption()
     };
     //开始定时器
-    var startTimer = function (func, isNext, time) {
-        if (isNext) { // 定时器总开关为true
+    var startTimer = function (func,instance, isNext, time) {
+        if(isRefresh) { // 定时器总开关为true
             if (typeof func == "function") {
-                setInterval(function () {
-                    func();
+                setTimeout(function () {
+                    func(instance, isNext);
                 }, time);
             }
         }
-
     };
     var resizeFit = function () {
         charts.airportNumChart.resize();
@@ -1621,8 +1624,7 @@ var MONITOR = function () {
     return {
         initMonitor: function () {
             initAirCom(); //机场航空公司点击事件初始化
-            getTotalDateCount(); //获取航班监控页面数据
-            startTimer(refreshData, true, refreshTime); //定时器
+            getTotalDateCount(true); //获取航班监控页面数据
         },
         resizeFit: function () {
             resizeFit()
