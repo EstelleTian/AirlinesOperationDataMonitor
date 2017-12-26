@@ -117,6 +117,10 @@
 .operating-data-query #tb-datas-canvas {
     height: 100%;
 }
+.operating-data-query .ui-jqgrid .ui-jqgrid-pager,
+.operating-data-query .ui-jqgrid .ui-jqgrid-pager .table>tbody>tr>td{
+    border: none;
+}
 
 .modal-header {
     padding-left: 3rem;
