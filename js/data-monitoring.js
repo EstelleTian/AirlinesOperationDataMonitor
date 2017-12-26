@@ -1175,7 +1175,7 @@ var MONITOR = function () {
             dataType: "json",
             success: function (data) {
                 if ($.isValidObject(data)) {
-                    var airportsData = data.airportDatas;
+                    var airportsData = Object.values(data.airportDatas);
                     airportsChartArr.dataArr = airportsData;
                     var generateTime = data.generatetime;
                     var dataTime = "数据生成时间:" +
@@ -1327,7 +1327,7 @@ var MONITOR = function () {
                         generateTime.substring(8, 10) + ':' +
                         generateTime.substring(10, 12);
                     $(".data_time").text(dataTime);
-                    var companyDatas = data.companyDatas;
+                    var companyDatas =  Object.values(data.companyDatas);
                     if (companyDatas.length > 0) {
                         $("#company_container").find(".no_data").hide()
                         //时间转换显示
@@ -1540,14 +1540,14 @@ var MONITOR = function () {
                         //传递曲线图数据参数并初始化echarts
                         totalDataCount.currentTime = generateTime;
                         //参数刷新
-                        options.airportNumOption.refreshOption(totalDataCount, "data_COUNT", indexAirChartOpt, "信息数/个");
-                        options.airportFileOption.refreshOption(totalDataCount, "file_COUNT", indexAirChartOpt, "文件数/个");
-                        options.companyNumOption.refreshOption(totalDataCount, "data_COUNT", indexComChartOpt, "信息数/个");
-                        options.companyFileOption.refreshOption(totalDataCount, "file_COUNT", indexComChartOpt, "文件数/个");
-                        options.manageNumOption.refreshOption(totalDataCount, "data_COUNT", "信息数/个");
-                        options.manageFileOption.refreshOption(totalDataCount, "file_COUNT", "文件数/个");
-                        options.monitorNumOption.refreshOption(totalDataCount, "data_COUNT", "信息数/个");
-                        options.monitorFileOption.refreshOption(totalDataCount, "file_COUNT", "文件数/个");
+                        options.airportNumOption.refreshOption(totalDataCount, indexAirChartOpt, "data_COUNT",  "信息数/个");
+                        options.airportFileOption.refreshOption(totalDataCount, indexAirChartOpt, "file_COUNT",  "文件数/个");
+                        options.companyNumOption.refreshOption(totalDataCount, indexComChartOpt, "data_COUNT",  "信息数/个");
+                        options.companyFileOption.refreshOption(totalDataCount, indexComChartOpt, "file_COUNT",  "文件数/个");
+                        options.manageNumOption.refreshOption(totalDataCount, manageOpt, "data_COUNT", "信息数/个");
+                        options.manageFileOption.refreshOption(totalDataCount, manageOpt, "file_COUNT", "文件数/个");
+                        options.monitorNumOption.refreshOption(totalDataCount, monitorOpt, "data_COUNT", "信息数/个");
+                        options.monitorFileOption.refreshOption(totalDataCount, monitorOpt, "file_COUNT", "文件数/个");
                         // 刷新后曲线图参数设置。
                         charts.airportNumChart.setOption(options.airportNumOption);
                         charts.airportFlieChart.setOption(options.airportFileOption);
