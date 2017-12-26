@@ -86,18 +86,18 @@ var OperatingData = function () {
 
             //colConverter: FlightGridTableDataUtil,
             params: {
-                scorll: true,
+                // scorll: true,
                 shrinkToFit: false,
-                // rowNum: 999999,
+                rowNum: 999999,
                 //sortname: 'EOBT',
                 // sortorder: 'asc',
                 // sortname: 'SEQ',//排序列
                 // 是否显示行号
                 rownumbers: true,
                 //是否显示快速过滤
-                showQuickFilter: true,
-                rowNum :40, //表格中可见的记录数
-                scroll : true, //创建动态滚动表格。当设为启用时，pager被禁用，可使用垂直滚动条来装入数据。
+                // showQuickFilter: true,
+                // rowNum :40, //表格中可见的记录数
+                // scroll : true, //创建动态滚动表格。当设为启用时，pager被禁用，可使用垂直滚动条来装入数据。
                 afterSearchCallBack : function(){
 
                 }
@@ -106,6 +106,8 @@ var OperatingData = function () {
 
         //初始化
         tableInstance.initGridTableObject();
+        // 显示pager
+        $('#table-datas-pager').show();
         tableInstance.resizeToFitContainer();
     };
 
@@ -815,13 +817,13 @@ var OperatingData = function () {
             toggleModal(true);
         });
         //重置按钮点击
-        $('#reset-btn').on('click',function () {
+       /* $('#reset-btn').on('click',function () {
             // 重置顶部导航内容
             resetNavLabel();
             // 注销表格
             destroyTable();
 
-        })
+        })*/
     };
 
     /**
