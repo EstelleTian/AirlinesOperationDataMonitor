@@ -182,7 +182,7 @@ var MONITOR = function () {
                 }
             },
             this.legend = {
-                data: ["到港航班", "离港航班", "客货", "机位"],
+                data:  ["到港航班", "离港航班", "客货", "机位"],
                 top: "20",
                 right: "10",
                 textStyle: {
@@ -242,12 +242,12 @@ var MONITOR = function () {
                     border: 0,
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fpdi] )
@@ -342,12 +342,12 @@ var MONITOR = function () {
                     border: 0,
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fpdi] )
@@ -458,12 +458,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fcri] )
@@ -509,12 +509,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     data: Object.values( resData[dataOpt.fpln] )
@@ -557,12 +557,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fcri] )
@@ -608,12 +608,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     data: Object.values( resData[dataOpt.fpln] )
@@ -707,12 +707,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.ftmi] )
@@ -758,12 +758,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     data: Object.values( resData[dataOpt.sect] )
@@ -823,12 +823,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.ftmi] )
@@ -874,12 +874,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#E74C3C",
+                            color: "#b6a2de",
                         }
                     },
                     data: Object.values( resData[dataOpt.sect] )
@@ -973,12 +973,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fper] )
@@ -1055,12 +1055,12 @@ var MONITOR = function () {
                     border: 0,
                     itemStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     lineStyle: {
                         normal: {
-                            color: "#CCCCFF",
+                            color: "#ab857c",
                         }
                     },
                     data: Object.values( resData[dataOpt.fper] )
