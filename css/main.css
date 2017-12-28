@@ -169,6 +169,12 @@ header{
     line-height: 37px;
     font-weight: bold;
 }
+@media (max-width: 767px){
+    .content-container {
+        padding-top: 260px;
+    }
+}
+
 @media (min-width: 1280px){
     .container {
          width: 1220px;
