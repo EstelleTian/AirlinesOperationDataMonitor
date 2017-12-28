@@ -222,19 +222,22 @@ jQuery.extend({
     },
 
     /**
-     * 格式化字符串时间为dd/HHmm格式
+     * 格式化字符串时间为YYYY-MM-DD HH:MM
      *
      * @param time
      * @returns {*}
      */
-    formatTimeDDHHMM: function (time) {
+    formateTime: function (time) {
         if ($.isValidVariable(time)) {
-            var day = time.substr(6, 2);
-            var hhmm = time.substr(8, 4);
-            return day + '/' + hhmm;
+          var year = time.substring(0, 4);
+          var mon = time.substring(4, 6);
+          var date = time.substring(6, 8);
+          var hour = time.substring(8, 10);
+          var min = time.substring(10, 12);
+          var str = year + '-' + mon + '-' + date + ' ' + hour + ':' + min;
+          return str;
         } else {
             return '';
         }
     }
-
 });
