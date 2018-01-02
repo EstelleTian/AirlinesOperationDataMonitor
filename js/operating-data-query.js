@@ -94,13 +94,13 @@ var OperatingData = function () {
     //校验表单
     var validate = validateForm();
     if (!validate.valid) {
-      showAlear(validate);
+        operatingDataDashboard.showAlear(validate);
       return;
     } else {
       // 清空警告
-      clearAlert();
+        operatingDataDashboard.clearAlert();
       // 清空提示
-      clearTip();
+        operatingDataDashboard.clearTip();
       //清空数据生成时间
       operatingDataDashboard.clearGeneratetime();
       // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
@@ -202,7 +202,7 @@ var OperatingData = function () {
           if (!$.isValidObject(result)) {
 
             //显示提示
-            showTip('本次查询数据结果为空');
+              operatingDataDashboard.showTip('本次查询数据结果为空');
 
             load.stop();
             $('.modal-content').removeClass('no-event');
@@ -223,15 +223,15 @@ var OperatingData = function () {
 
         } else if ($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
           var err = '查询失败:' + data.error;
-          showAlear(err);
+            operatingDataDashboard.showAlear(err);
           load.stop();
           //显示提示
-          showTip('本次查询失败');
+            operatingDataDashboard.showTip('本次查询失败');
           $('.modal-content').removeClass('no-event');
         } else {
-          showAlear('查询失败');
+            operatingDataDashboard.showAlear('查询失败');
           load.stop();//显示提示
-          showTip('本次查询失败');
+            operatingDataDashboard.showTip('本次查询失败');
 
           $('.modal-content').removeClass('no-event');
         }
@@ -240,8 +240,8 @@ var OperatingData = function () {
       error: function (xhr, status, error) {
         load.stop();
         $('.modal-content').removeClass('no-event');
-        showAlear('查询失败');
-        showTip('本次查询失败');
+          operatingDataDashboard.showAlear('查询失败');
+          operatingDataDashboard.showTip('本次查询失败');
         console.error('Search data failed');
         console.error(error);
       }
@@ -301,9 +301,9 @@ var OperatingData = function () {
     //取消下拉列表选中
     deselectList();
     // 清空警告
-    clearAlert();
+      operatingDataDashboard.clearAlert();
     //显示提示
-    showTip('暂无数据');
+      operatingDataDashboard.showTip('暂无数据');
   };
 
   /**
@@ -345,7 +345,7 @@ var OperatingData = function () {
     var $lables = $('#types .btn');
     $lables.on('click', function () {
       // 清空警告
-      clearAlert();
+        operatingDataDashboard.clearAlert();
       var $this = $(this);
       var val = $('.type', $this).val();
       //若当前点击的选项数值与currentType相同,则不做任何操作
@@ -435,52 +435,6 @@ var OperatingData = function () {
   var deselectList = function () {
     $('#subtype').selectpicker('deselectAll');
     $('#unit-list').selectpicker('deselectAll');
-  };
-
-
-  /**
-   *  警告
-   *
-   *  mess str 警告信息内容
-   * */
-  var showAlear = function (validate) {
-    var mess = '';
-    if ($.isValidObject(validate)) {
-      mess = validate.mess;
-    } else if ($.isValidVariable(validate)) {
-      mess = validate;
-    }
-    var $dom = $('.query-form .alert-container');
-    var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
-      '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
-      '<p id="alert-mess">' + mess + ' </p>' +
-      '</div>';
-    $dom.empty().append(str);
-  };
-
-  /**
-   * 清空警告
-   *
-   * */
-  var clearAlert = function () {
-    $('.alert-container').empty();
-  };
-
-  /**
-   *
-   * 提示
-   * */
-
-  var showTip = function (mess) {
-    mess = mess || '';
-    $('.operating-data-query .no-datas-tip').text(mess).show();
-  };
-
-  /**
-   * 清空提示
-   * */
-  var clearTip = function () {
-    $('.operating-data-query .no-datas-tip').text('').hide();
   };
 
   /**
