@@ -295,7 +295,7 @@ var OperatingData = function () {
    * */
   var resetForm = function () {
     // 设置默认时间
-    operatingDataDashboard.setDefaultDates();
+      operatingDataDashboard.setDefaultDates(0);
     // 默认选中项
     initType();
     //取消下拉列表选中
