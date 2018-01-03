@@ -35,8 +35,9 @@
 }
 .history-data-statistics .alert-row{
     position: absolute;
-    left: 0;
-    right: 0;
+    left: 15px;
+    right: 20px;
+    z-index: 3;
 }
 .history-data-statistics .conditions {
     min-height: 40px;
@@ -145,10 +146,7 @@
     padding-bottom: 0.2rem;
     border-bottom: 1px solid #dddddd;
 }
-.modal-body .row p{
-    padding: 6px 0px;
-    margin: 0px;
-}
+
 #bootstrap-modal-dialog-body {
     min-height: 41rem;
 }
@@ -182,8 +180,10 @@
     }
     .operating-data-query .generate-time {
         position: absolute;
-        top: 5rem;
+        bottom: 1rem;
         font-weight: normal;
+        color: #646464;
+        font-size: 14px;
     }
 
 }

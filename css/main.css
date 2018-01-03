@@ -19,10 +19,7 @@ body.hide-modal #bootstrap-modal-dialog,
 body.hide-modal .modal-backdrop {
     display: none !important;
 }
-#bootstrap-modal-dialog-body .row p {
-    padding: 6px 0px;
-    margin: 0px;
-}
+
 .main {
     position: relative;
     height: 100%

@@ -126,9 +126,9 @@ var HistoryData = function () {
     fileCountChart = {};
 
     // 清空警告
-    clearAlert();
+      historyDataDashboard.clearAlert();
     // 清空提示
-    clearTip();
+      historyDataDashboard.clearTip();
 
     //处理数据
     handleFormData();
@@ -140,7 +140,7 @@ var HistoryData = function () {
       //隐藏当前统计条件
       hideConditions();
       // 显示警告信息内容
-      showAlear(validate);
+        historyDataDashboard.showAlear(validate);
       return;
     } else {
       //拼接参数
@@ -219,51 +219,6 @@ var HistoryData = function () {
     var str = [startDate, endDate, currentType, subtypeVal, unitVal].join('/');
     return str;
   };
-  /**
-   *  警告
-   *
-   *  mess str 警告信息内容
-   * */
-  var showAlear = function (validate) {
-    var mess = '';
-    if ($.isValidObject(validate)) {
-      mess = validate.mess;
-    } else if ($.isValidVariable(validate)) {
-      mess = validate;
-    }
-    var $dom = $('.alert-container');
-    var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
-      '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
-      '<p id="alert-mess">' + mess + ' </p>' +
-      '</div>';
-    $dom.empty().append(str);
-  };
-
-  /**
-   * 清空警告
-   *
-   * */
-  var clearAlert = function () {
-    $('.alert-container').empty();
-  };
-
-  /**
-   *
-   * 提示
-   * */
-
-  var showTip = function (mess) {
-    mess = mess || '';
-    $('.history-data-statistics .no-datas-tip').text(mess).show();
-  };
-
-  /**
-   * 清空提示
-   * */
-  var clearTip = function () {
-    $('.history-data-statistics .no-datas-tip').text('').hide();
-  };
-
 
   /**
    * 显示当前统计条件
@@ -344,7 +299,7 @@ var HistoryData = function () {
           // 若数据为空
           if (!$.isValidObject(result)) {
             //显示提示
-            showTip('本次统计数据结果为空');
+              historyDataDashboard.showTip('本次统计数据结果为空');
             loading.stop();
             $('.form-wrap').removeClass('no-event');
             return;
@@ -359,11 +314,11 @@ var HistoryData = function () {
 
         } else if ($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
           var err = "查询失败:" + data.error;
-          showAlear(err);
+            historyDataDashboard.showAlear(err);
           loading.stop();
           $('.form-wrap').removeClass('no-event');
         } else {
-          showAlear("查询失败");
+            historyDataDashboard.showAlear("查询失败");
           loading.stop();
           $('.form-wrap').removeClass('no-event');
         }
@@ -373,7 +328,7 @@ var HistoryData = function () {
         console.error('Search data failed');
         console.error(error);
         loading.stop();
-        showAlear('查询失败');
+        historyDataDashboard.showAlear('查询失败');
         $('.form-wrap').removeClass('no-event');
       }
     });

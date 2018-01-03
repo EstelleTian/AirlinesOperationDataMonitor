@@ -180,4 +180,57 @@ FormDashboard.prototype.clearGeneratetime = function () {
   // 当前对象this代理
   var thisProxy = this;
   $('.' + thisProxy.generatetimeId, thisProxy.container).text('');
-}
+};
+
+/**
+ *  警告
+ *
+ *  mess str 警告信息内容
+ * */
+FormDashboard.prototype.showAlear = function (validate) {
+    // 当前对象this代理
+    var thisProxy = this;
+    var mess = '';
+    if ($.isValidObject(validate)) {
+        mess = validate.mess;
+    } else if ($.isValidVariable(validate)) {
+        mess = validate;
+    }
+    var $dom = $('.alert-container', thisProxy.form);
+    var str = '<div class="alert alert-danger alert-dismissible fade in" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
+        '<p id="alert-mess">' + mess + ' </p>' +
+        '</div>';
+    $dom.empty().append(str);
+};
+
+/**
+ * 清空警告
+ *
+ * */
+FormDashboard.prototype.clearAlert = function () {
+    // 当前对象this代理
+    var thisProxy = this;
+    $('.alert-container', thisProxy.form).empty();
+};
+
+/**
+ *
+ * 提示
+ * */
+
+FormDashboard.prototype.showTip = function (mess) {
+    // 当前对象this代理
+    var thisProxy = this;
+    mess = mess || '';
+    $('.no-datas-tip', thisProxy.container).text(mess).show();
+};
+
+/**
+ * 清空提示
+ * */
+FormDashboard.prototype.clearTip = function () {
+    // 当前对象this代理
+    var thisProxy = this;
+    $('.no-datas-tip', thisProxy.container).text('').hide();
+};
