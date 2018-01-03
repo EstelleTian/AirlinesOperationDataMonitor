@@ -2,8 +2,6 @@
  * Created by caowei on 2017/11/20.
  *
  */
-'use strict'
-var $ = jQuery.noConflict()
 var Monitor = function () {
   /*定时器总开关*/
   var isRefresh = true
@@ -21,7 +19,7 @@ var Monitor = function () {
     var hour = time.substring(8, 10)
     var min = time.substring(10, 12)
     var str = year + '-' + mon + '-' + date + ' ' + hour + ':' + min
-    return str;
+    return str
   }
   /**
    * @method getTotalDateCount获取监控主页数据统计
@@ -53,7 +51,8 @@ var Monitor = function () {
             totalDataCount.currentTime = generateTime
             initCurveCharts(totalDataCount)
           } else {
-            refreshData(data)
+            //定时刷新
+            refreshChartsOption(data)
           }
           // setFlightsInformation($('#company_container')) //航空公司数据初始化
           // setAirportsInformation($('#airport_container')) //机场数据初始化
@@ -121,28 +120,6 @@ var Monitor = function () {
     $('#pper').html(totalDataCount.OSCI_PPER_DATA)
     $('#pper_file').html(totalDataCount.OSCI_PPER_FILE)
   }
-  /**
-   * @class Charts 首页全部曲线图类名
-   * @param { object } anc机场运行信息数量Jq对象
-   *@param { object }  afc机场运行信息文件数量Jq对象
-   * @param { object } fnc航空公司信息数量Jq对象
-   *@param { object }  ffc航空公司信息文件数量Jq对象
-   * @param { object } mnc空管局信息数量Jq对象
-   * @param { object } mfc空管局信息文件数量Jq对象
-   *@param { object }  monc监控中心信息数量Jq对象
-   * @param { object } mofc监控中心信息文件数量Jq对象
-   *
-   * */
-  var Charts = function (anc, afc, fnc, ffc, mnc, mfc, monc, mofc) {
-    this.airportNumOption = echarts.init(anc)
-    this.airportFileOption = echarts.init(afc)
-    this.companyNumOption = echarts.init(fnc)
-    this.companyFileOption = echarts.init(ffc)
-    this.manageNumOption = echarts.init(mnc)
-    this.manageFileOption = echarts.init(mfc)
-    this.monitorNumOption = echarts.init(monc)
-    this.monitorFileOption = echarts.init(mofc)
-  }
   /*首页机场曲线图接口对应参数*/
   var indexAirChartOpt = {
     fpai: 'APOI_FPAI_HOUR',
@@ -153,7 +130,6 @@ var Monitor = function () {
   }
   /*首页航空公司曲线图接口对应参数*/
   var indexComChartOpt = {
-    faci: 'ALOI_FACI_HOUR',
     fcri: 'ALOI_FCRI_HOUR',
     flgh: 'ALOI_FLGH_HOUR',
     fpci: 'ALOI_FPCI_HOUR',
@@ -175,72 +151,99 @@ var Monitor = function () {
   }
   /**
    * @Class CommonOptions 曲线图公共参数类
-   * @param { object } dataObj 数据对象
+   * @param { object } resData 数据对象
    * @param { object } type 数据类型 可选（dataCount/fileCount）
    * @param { string } dataOpt 需要提取的参数字段
    * @param { string } inforType 信息类型 可选（信息数/文件数）
    * */
-  var CommonOptions = function (dataObj, dataOpt, type, inforType) {
-    var resData = dataConvert(dataObj, dataOpt, type) || {}
-    this.backgroundColor = '#FFFFFF',
-    this.color = ['#3398DB'],
-    this.title = {
-      text: ''
-    },
-    this.grid = {
-      left: '3%',
-      right: '4%',
-      bottom: '10%',
-      width: '80%',
-      height: '75%',
-      containLabel: true
-    },
-    this.tooltip = {
-      trigger: 'axis',
-      height: 15,
-      textStyle: {
-        fontSize: '12'
-      },
-      axisPointer: {
-        label: {
-          backgroundColor: '#6a7985'
-        }
+  var CommonOptions = function (resData, dataOpt, type, inforType) {
+    this.chart = {
+      type: "spline",
+      height: "170px",
+      margin: [20,90,10,50],
+      spacingLeft:0,
+      events:{
+        load:'',
       }
     },
-    this.legend = {
-      data: [],
-      top: '20',
-      right: '10',
-      textStyle: {
-        fontSize: '11'
+      this.loading = {
+        showDuration:2
       },
-      orient: 'vertical'
-    },
-    this.xAxis = {
-      name: resData.xTime || '',
-      data: resData.xTimeArr,
-      axisLabel: {
-        formatter: function (value) {
-          var res = value.substring(6, 8) + '/' + value.substring(8, 12)
-          return res
+      this.global = {
+        useUTC: false
+      },
+      this.rangeSelector = {
+        enabled: false
+      },
+      this.credits = {
+        enabled: false
+      },
+      this.navigator = {
+        enabled:true,
+        height: 10,
+        xAxis: {
+          labels: false,
         }
       },
-      boundaryGap: false
-    },
-    this.yAxis = {
-      name: inforType,
-      type: 'value',
-      minInterval: 1
-    },
-    this.dataZoom = {
-      show: true,
-      start: 70,
-      height: 13,
-      zoomLock: false,
-      bottom: '5',
-      end: 100
-    },
-    this.series = []
+      this.scrollbar = {
+        height: 10,
+      },
+      this.backgroundColor = '#EEFFFF',
+      this.plotOptions = {
+        series:{
+          marker:{
+            enabled:false,
+          }
+        },
+        areaspline:{
+
+        }
+      },
+      this.title = {
+        text: ''
+      },
+      this.tooltip = {
+        borderColor: 'transparent',
+        padding:1,
+        split:true,
+        shape:'square'
+      },
+      this.legend = {
+        enabled: true,
+        align: 'right',
+        layout: 'vertical',
+        verticalAlign: 'top',
+      },
+      this.xAxis = {
+        allowDecimals: false,
+        max:40,
+        title: {
+          text: resData.xTime || '',
+          align: 'high',
+          y:-30,
+          x:80
+        },
+        categories: resData.xTimeArr,
+        labels:{
+          step: 20,
+          formatter:function () {
+            var res = this.value.substring(6, 8) + '/' + this.value.substring(8, 12)
+            return res
+          }
+        }
+      },
+      this.yAxis = {
+        allowDecimals:false,
+        title: {
+          text: inforType,
+          align:'high',
+          rotation:360,
+          y:-10,
+          x:60
+        },
+        opposite:false
+      },
+      this.series = []
   }
   /**
    * @Class AirportsOptions 机场曲线图参数类
@@ -252,112 +255,30 @@ var Monitor = function () {
    * */
   var AirportsOptions = function (dataObj, dataOpt, type, inforType) {
     var resData = dataConvert(dataObj, dataOpt, type) || {}
-    CommonOptions.call(this, dataObj, dataOpt, type, inforType)
-    this.legend.data = ['到港航班', '离港航班', '客货', '机位']
+    CommonOptions.call(this, resData, dataOpt, type, inforType);
     this.series = [
       {
+        id:'fpai',
         name: '到港航班',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        lineStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
-        itemStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fpai])
       }, {
+        id:'fpdi',
         name: '离港航班',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        lineStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
-        itemStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fpdi])
       }, {
+        id:'ppci',
         name: '客货',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        lineStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
-        itemStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.ppci])
       }, {
+        id:'psni',
         name: '机位',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        lineStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
-        itemStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.psni])
       }
     ]
-  }
-  /**
-   * @method refreshOption 机场曲线图数据刷新方法
-   * @for AirportsOptions
-   * @param 同机场曲线图参数类
-   * */
-  AirportsOptions.prototype.refreshOption = function (dataObj, dataOpt, type) {
-    var resData = dataConvert(dataObj, dataOpt, type) || {}
-    this.xAxis = {
-      name: resData.xTime || '',
-      data: resData.xTimeArr,
-      axisLabel: {
-        formatter: function (value) {
-          var res = value.substring(6, 8) + '/' + value.substring(8, 12)
-          return res
-        }
-      }
-    }
-    this.series = [
-      {
-        data: Object.values(resData[dataOpt.fpai])
-      },
-      {
-        data: Object.values(resData[dataOpt.fpdi])
-      },
-      {
-        data: Object.values(resData[dataOpt.ppci])
-      },
-      {
-        data: Object.values(resData[dataOpt.psni])
-      }
-    ]
-
   }
   /**
    * @Class CompanyOptions 航空公司曲线图参数类
@@ -369,108 +290,27 @@ var Monitor = function () {
    * */
   var CompanyOptions = function (dataObj, dataOpt, type, inforType) {
     var resData = dataConvert(dataObj, dataOpt, type) || {}
-    CommonOptions.call(this, dataObj, dataOpt, type, inforType)
-    this.legend.data = ['机组人员', '地面状态', '客货', '计划变更']
+    CommonOptions.call(this, resData, dataOpt, type, inforType)
     this.series = [
       {
+        id:'fcri',
         name: '机组人员',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fcri])
       }, {
+        id:'flgh',
         name: '地面状态',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.flgh])
       }, {
+        id:'fpci',
         name: '客货',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fpci])
       }, {
+        id:'fpln',
         name: '计划变更',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#E74C3C'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#E74C3C'
-          }
-        },
-        data: Object.values(resData[dataOpt.fpln])
-      }
-    ]
-  }
-  /**
-   * @method refreshOption 航空公司曲线图数据刷新方法
-   * @for CompanyOptions
-   * @param 同航空公司曲线图参数类
-   * */
-  CompanyOptions.prototype.refreshOption = function (dataObj, dataOpt, type) {
-    var resData = dataConvert(dataObj, dataOpt, type) || {}
-    this.xAxis = {
-      name: resData.xTime || '',
-      data: resData.xTimeArr,
-      axisLabel: {
-        formatter: function (value) {
-          var res = value.substring(6, 8) + '/' + value.substring(8, 12)
-          return res
-        }
-      }
-    }
-    this.series = [
-      {
-        data: Object.values(resData[dataOpt.fcri])
-      },
-      {
-        data: Object.values(resData[dataOpt.flgh])
-      },
-      {
-        data: Object.values(resData[dataOpt.fpci])
-      },
-      {
+        type: 'spline',
         data: Object.values(resData[dataOpt.fpln])
       }
     ]
@@ -485,128 +325,32 @@ var Monitor = function () {
    * */
   var ManageOptions = function (dataObj, dataOpt, type, inforType) {
     var resData = dataConvert(dataObj, dataOpt, type) || {}
-    CommonOptions.call(this, dataObj, dataOpt, type, inforType)
-    this.legend.data = ['航班CDM', '流量控制措施', 'MDRS', '机场通行能力', '扇区开放合并']
+    CommonOptions.call(this, resData, dataOpt, type, inforType)
     this.series = [
       {
+        id:'fcdm',
         name: '航班CDM',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fcdm])
       }, {
+        id:'ftmi',
         name: '流量控制措施',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.ftmi])
       }, {
+        id:'mdrs',
         name: 'MDRS',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.mdrs])
       }, {
+        id:'padr',
         name: '机场通行能力',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#3498DB'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.padr])
       }, {
+        id:'sect',
         name: '扇区开放合并',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#E74C3C'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#E74C3C'
-          }
-        },
-        data: Object.values(resData[dataOpt.sect])
-      }
-    ]
-  }
-  /**
-   * @method refreshOption 空管运行中心曲线图数据刷新方法
-   * @for ManageOptions
-   * @param 同空管运行中心曲线图参数类
-   * */
-  ManageOptions.prototype.refreshOption = function (dataObj, dataOpt, type) {
-    var resData = dataConvert(dataObj, dataOpt, type) || {}
-    this.xAxis = {
-      name: resData.xTime || '',
-      data: resData.xTimeArr,
-      axisLabel: {
-        formatter: function (value) {
-          var res = value.substring(6, 8) + '/' + value.substring(8, 12)
-          return res
-        }
-      }
-    }
-    this.series = [
-      {
-        data: Object.values(resData[dataOpt.fcdm])
-      },
-      {
-        data: Object.values(resData[dataOpt.ftmi])
-      },
-      {
-        data: Object.values(resData[dataOpt.mdrs])
-      },
-      {
-        data: Object.values(resData[dataOpt.padr])
-      },
-      {
+        type: 'spline',
         data: Object.values(resData[dataOpt.sect])
       }
     ]
@@ -617,104 +361,31 @@ var Monitor = function () {
    * @param { object } type 数据类型 可选（dataCount/fileCount）
    * @param { string } dataOpt 需要提取的参数字段
    * @param { string } inforType 信息类型 可选（信息数/文件数）
-   *
    * @for Options
    * */
   var MonitorOption = function (dataObj, dataOpt, type, inforType) {
     var resData = dataConvert(dataObj, dataOpt, type) || {}
-    CommonOptions.call(this, dataObj, dataOpt, type, inforType)
-    this.legend.data = ['航班计划动态', '航班统计', '机场统计']
+    CommonOptions.call(this, resData, dataOpt, type, inforType)
     this.series = [
       {
+        id:'fosc',
         name: '航班计划动态',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#9abcc3'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fosc])
       }, {
+        id:'fper',
         name: '航班统计',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#CCCCFF'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.fper])
       }, {
+        id:'pper',
         name: '机场统计',
-        type: 'line',
-        symbol: 'none',
-        smooth: true,
-        border: 0,
-        itemStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
-        lineStyle: {
-          normal: {
-            color: '#1ABB9C'
-          }
-        },
+        type: 'spline',
         data: Object.values(resData[dataOpt.pper])
       }
     ]
   }
-  /**
-   * @method refreshOption 监控中心曲线图数据刷新方法
-   * @for MonitorOption
-   * @param 同监控中心曲线图参数类
-   * */
-  MonitorOption.prototype.refreshOption = function (dataObj, dataOpt, type) {
-    var resData = dataConvert(dataObj, dataOpt, type) || {}
-    this.xAxis = {
-      name: resData.xTime || '',
-      data: resData.xTimeArr,
-      axisLabel: {
-        formatter: function (value) {
-          var res = value.substring(6, 8) + '/' + value.substring(8, 12)
-          return res
-        }
-      }
-    }
-    this.series = [
-      {
-        data: Object.values(resData[dataOpt.fosc])
-      },
-      {
-        data: Object.values(resData[dataOpt.fper])
-      },
-      {
-        data: Object.values(resData[dataOpt.pper])
-      }
-    ]
-  }
-  /*初始化首页曲线图实例*/
-  var charts = new Charts($('#airport_num_chart')[0], $('#airport_file_chart')[0], $('#flight_num_chart')[0], $('#flight_file_chart')[0], $('#manage_num_chart')[0], $('#manage_file_chart')[0], $('#monitor_num_chart')[0], $('#monitor_file_chart')[0])
-  /**
-   * 首页曲线图参数实例化
-   * @param { string } dataObj 曲线图数据对象集合
-   * @for initCurveCharts
-   * */
+  //首页曲线图参数对象原型
   var Options = function (dataObj) {
     this.airportNumOption = new AirportsOptions(dataObj, indexAirChartOpt, 'data_COUNT', '信息数/个')
     this.airportFileOption = new AirportsOptions(dataObj, indexAirChartOpt, 'file_COUNT', '文件数/个')
@@ -727,6 +398,16 @@ var Monitor = function () {
   }
   //首页曲线图参数实例
   var options = {}
+  var indexCharts = {
+    airportNumChart:{},
+    airportFlieChart:{},
+    flightNumChart:{},
+    flightFlieChart:{},
+    manageNumChart:{},
+    manageFlieChart:{},
+    monitorNumChart:{},
+    monitorFlieChart:{}
+  }
   /**
    * @method initCurveCharts 初始化当日监控曲线图
    * @param { object } dataObj 首页曲线图对象集合
@@ -734,9 +415,14 @@ var Monitor = function () {
   var initCurveCharts = function (dataObj) {
     options = new Options(dataObj)
     // 曲线图参数设置。
-    $.each(charts, function (i) {
-      this.setOption(options[i])
-    })
+    indexCharts.airportNumChart = Highcharts.chart($('#airport_num_chart')[0],options.airportNumOption)
+    indexCharts.airportFlieChart = Highcharts.chart($('#airport_file_chart')[0], options.airportFileOption)
+    indexCharts.flightNumChart = Highcharts.chart($('#flight_num_chart')[0], options.companyNumOption)
+    indexCharts.flightFlieChart = Highcharts.chart($('#flight_file_chart')[0], options.companyFileOption)
+    indexCharts.manageNumChart = Highcharts.chart($('#manage_num_chart')[0], options.manageNumOption)
+    indexCharts.manageFlieChart = Highcharts.chart($('#manage_file_chart')[0], options.manageFileOption)
+    indexCharts.monitorNumChart = Highcharts.chart($('#monitor_num_chart')[0], options.monitorNumOption)
+    indexCharts.monitorFlieChart = Highcharts.chart($('#monitor_file_chart')[0], options.monitorFileOption)
   }
   /**
    * @method dataConvert 曲线图数据转换
@@ -784,10 +470,7 @@ var Monitor = function () {
   }
   /*机场详情运行信息对象数组*/
   var airportsChartArr = {
-    numChartArr: [],
-    fileChartArr: [],
-    airNumOptions: [],
-    airFileOptions: [],
+    airports:[],
     dataArr: []
   }
   /*机场详情曲线图接口对应参数*/
@@ -824,18 +507,16 @@ var Monitor = function () {
               var airportsDom = '<div class="flight_group box flights_charts"> <h2>' + airportsData[i].airportName + '机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num' + i + '"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">信息数</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">' + airportsData[i].PSNI_DATA + '</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">' + airportsData[i].PSNI_FILE + '</p> </li> <li> <p class="num fpdi">' + airportsData[i].FPDI_DATA + '</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">' + airportsData[i].FPDI_FILE + '</p> </li> <li> <p class="num fpai">' + airportsData[i].FPAI_DATA + '</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">' + airportsData[i].FPAI_FILE + '</p> </li> <li> <p class="num ppci">' + airportsData[i].PPCI_DATA + '</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">' + airportsData[i].PPCI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file' + i + '"></div><div class="clb"></div> </div> </div>'
               fatherDom.append(airportsDom)
               var numOptions = new AirportsOptions(airportsData[i], airportChartOpt, 'data_COUNT', '信息数/个')
-              airportsChartArr.airNumOptions.push(numOptions)
               var fileOptions = new AirportsOptions(airportsData[i], airportChartOpt, 'file_COUNT', '文件数/个')
-              airportsChartArr.airFileOptions.push(fileOptions)
-            }
-            var flightChartLen = $('.flights_charts').length
-            for (var j = 0; j < flightChartLen; j++) {
-              var chartsMulNum = echarts.init($('#airport_num' + j)[0])
-              var chartsMulFile = echarts.init($('#airport_file' + j)[0])
-              airportsChartArr.numChartArr.push(chartsMulNum)
-              airportsChartArr.fileChartArr.push(chartsMulFile)
-              chartsMulNum.setOption(airportsChartArr.airNumOptions[j])
-              chartsMulFile.setOption(airportsChartArr.airFileOptions[j])
+              var chartsMulNum = Highcharts.chart($('#airport_num' + i)[0],numOptions)
+              var chartsMulFile = Highcharts.chart($('#airport_file' + i)[0],fileOptions)
+              var airObj = {
+                numOptions:numOptions,
+                fileOptions:fileOptions,
+                chartsMulNum:chartsMulNum,
+                chartsMulFile:chartsMulFile
+              }
+              airportsChartArr.airports.push(airObj);
             }
           } else {
             $('#airport_container').find('.no_data').show()
@@ -861,61 +542,25 @@ var Monitor = function () {
           var generateTime = data.generatetime
           var dataTime = '数据生成时间:' + fomatterTime(generateTime)
           $('.data_time').text(dataTime)
-          var airportsData = data.airportDatas
-          if (airportsChartArr.dataArr.length == airportsData.length) {
-            var len = airportsChartArr.airNumOptions.length
-            for (var i = 0; i < len; i++) {
-              airportsData[i].currentTime = generateTime
-              airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], 'data_COUNT', airportChartOpt)
-              airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i])
-              airportsChartArr.airFileOptions[i].refreshOption(airportsData[i], 'file_COUNT', airportChartOpt)
-              airportsChartArr.fileChartArr[i].setOption(airportsChartArr.airFileOptions[i])
-            }
-          } else if (airportsData.length > airportsChartArr.dataArr.length) {
-            var len = airportsChartArr.dataArr.length
-            for (var i = 0; i < len; i++) {
-              for (var j = 0; j < airportsData.length; j++) {
-                if (airportsData[j].airportName == airportsChartArr.dataArr[i].airportName) {
-                  airportsData[i].currentTime = generateTime
-                  airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], 'data_COUNT', airportChartOpt)
-                  airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i])
-                  airportsChartArr.airFileOptions[i].refreshOption(airportsData, 'file_COUNT', airportChartOpt)
-                  airportsChartArr.fileChartArr[i].setOption(airportsChartArr[i].airFileOptions[i])
-                } else {
-                  airportsData[i].currentTime = generateTime
-                  var airportsDom = '<div class="flight_group box flights_charts"> <h2>' + airportsData[i].airportName + '机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num' + i + '"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">信息数</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">' + airportsData[i].PSNI_DATA + '</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">' + airportsData[i].PSNI_FILE + '</p> </li> <li> <p class="num fpdi">' + airportsData[i].FPDI_DATA + '</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">' + airportsData[i].FPDI_FILE + '</p> </li> <li> <p class="num fpai">' + airportsData[i].FPAI_DATA + '</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">' + airportsData[i].FPAI_FILE + '</p> </li> <li> <p class="num ppci">' + airportsData[i].PPCI_DATA + '</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">' + airportsData[i].PPCI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file' + i + '"></div><div class="clb"></div> </div> </div>'
-                  $('#airport_container').append(airportsDom)
-                  var numOptions = new AirportsOptions(airportsData[i], airportChartOpt, 'data_COUNT')
-                  airportsChartArr.airNumOptions.push(numOptions)
-                  var fileOptions = new AirportsOptions(airportsData[i], airportChartOpt, 'file_COUNT')
-                  airportsChartArr.airFileOptions.push(fileOptions)
-                  var chartsMulNum = echarts.init($('#airport_num' + j)[0])
-                  var chartsMulFile = echarts.init($('#airport_file' + j)[0])
-                  airportsChartArr.numChartArr.push(chartsMulNum)
-                  airportsChartArr.fileChartArr.push(chartsMulFile)
-                  chartsMulNum.setOption(airportsChartArr.airNumOptions[j])
-                  chartsMulFile.setOption(airportsChartArr.airFileOptions[j])
-                  airportsChartArr.dataArr.push(airportsData[j])
-                }
-              }
-            }
-          } else if (airportsData.length < airportsChartArr.dataArr.length) {
-            var len = airportsData.length
-            var difLen = airportsChartArr.dataArr.length - airportsData.length
-            airportsChartArr.comNumOptions.slice(0, len + 1)
-            for (var i = 0; i < difLen; i++) {
-              $('#airport_container').removeChild($('.flights_charts')[i])
-            }
-            for (var i = 0; i < len; i++) {
-              for (var j = 0; j < airportsData.length; j++) {
-                airportsData[i].currentTime = generateTime
-                airportsChartArr.airNumOptions[i].refreshOption(airportsData[i], 'data_COUNT', airportChartOpt)
-                airportsChartArr.numChartArr[i].setOption(airportsChartArr.airNumOptions[i])
-                airportsChartArr.airFileOptions[i].refreshOption(airportsData, 'file_COUNT', airportChartOpt)
-                airportsChartArr.fileChartArr[i].setOption(airportsChartArr[i].airFileOptions[i])
-              }
-            }
-          }
+          var airportsData = []
+          $.each(data.airportDatas,function (i,e) {
+            airportsData.push(e)
+          })
+          $.each(airportsChartArr.airports,function (num,air) {
+            airportsData[num].currentTime = generateTime
+            var  dataRes = dataConvert(airportsData[num], airportChartOpt, 'data_COUNT')
+            var  fileRes = dataConvert(airportsData[num], airportChartOpt, 'file_COUNT')
+            $.each(airportChartOpt,function (index,e) {
+              var dataElement = air.chartsMulNum.get(index)
+              dataElement.xAxis.categories = dataRes.xTimeArr
+              dataElement.setData(Object.values(dataRes[airportChartOpt[index]]),true, false, false);
+              var fileElement = air.chartsMulFile.get(index)
+              fileElement.xAxis.categories = fileRes.xTimeArr
+              fileElement.setData(Object.values(fileRes[airportChartOpt[index]]),true, false, false);
+            })
+            air.chartsMulNum.redraw()
+            air.chartsMulFile.redraw()
+          })
         }
       },
       error: function (error) {
@@ -925,15 +570,11 @@ var Monitor = function () {
   }
   /*航空公司详情运行信息对象数组*/
   var companyChartsArr = {
-    numChartArr: [],
-    fileChartArr: [],
-    comNumOptions: [],
-    comFileOptions: [],
+    companys:[],
     dataArr: []
   }
   /*航空公司详情曲线图接口对应参数*/
   var companyChartOpt = {
-    faci: 'FACI_HOUR',
     fcri: 'FCRI_HOUR',
     flgh: 'FLGH_HOUR',
     fpci: 'FPCI_HOUR',
@@ -965,18 +606,16 @@ var Monitor = function () {
               var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num' + i + '"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">' + companyDatas[i].FLGH_FILE + '</p></li><li><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">' + companyDatas[i].FPLN_FILE + '</p></li><li><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">' + companyDatas[i].FPCI_FILE + '</p> </li> <li> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">' + companyDatas[i].FCRI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file' + i + '"></div> <div class="clb"></div> </div> </div>'
               fatherDom.append(flightsDom)
               var numOptions = new CompanyOptions(companyDatas[i], companyChartOpt, 'data_COUNT', '信息数/个')
-              companyChartsArr.comNumOptions.push(numOptions)
               var fileOptions = new CompanyOptions(companyDatas[i], companyChartOpt, 'file_COUNT', '文件数/个')
-              companyChartsArr.comFileOptions.push(fileOptions)
-            }
-            var comChartsLen = $('.company_charts').length
-            for (var j = 0; j < comChartsLen; j++) {
-              var chartsMulNum = echarts.init($('#flight_num' + j)[0])
-              var chartsMulFile = echarts.init($('#flight_file' + j)[0])
-              companyChartsArr.numChartArr.push(chartsMulNum)
-              companyChartsArr.fileChartArr.push(chartsMulFile)
-              chartsMulNum.setOption(companyChartsArr.comNumOptions[j])
-              chartsMulFile.setOption(companyChartsArr.comFileOptions[j])
+              var chartsMulNum = Highcharts.chart($('#flight_num' + i)[0],numOptions)
+              var chartsMulFile = Highcharts.chart($('#flight_file' + i)[0],fileOptions)
+              var comObj = {
+                numOptions:numOptions,
+                fileOptions:fileOptions,
+                chartsMulNum:chartsMulNum,
+                chartsMulFile:chartsMulFile
+              }
+              companyChartsArr.companys.push(comObj)
             }
           } else {
             $('#company_container').find('.no_data').show()
@@ -1002,61 +641,25 @@ var Monitor = function () {
           var generateTime = data.generatetime
           var dataTime = '数据生成时间:' + fomatterTime(generateTime)
           $('.data_time').text(dataTime)
-          var companyDatas = data.companyDatas
-          if (companyChartsArr.dataArr.length == companyDatas.length) {
-            var len = companyChartsArr.comFileOptions.length
-            for (var i = 0; i < len; i++) {
-              companyDatas[i].currentTime = generateTime
-              companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], 'data_COUNT', companyChartOpt)
-              companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i])
-              companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], 'file_COUNT', companyChartOpt)
-              companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i])
-            }
-          } else if (companyDatas.length > companyChartsArr.dataArr.length) {
-            var len = companyChartsArr.dataArr.length
-            for (var i = 0; i < len; i++) {
-              for (var j = 0; j < companyDatas.length; j++) {
-                if (companyDatas[j].airportName == companyChartsArr.dataArr[i].airportName) {
-                  airportsData[i].currentTime = generateTime
-                  companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], 'data_COUNT', companyChartOpt)
-                  companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i])
-                  companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], 'file_COUNT', companyChartOpt)
-                  companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i])
-                } else {
-                  airportsData[i].currentTime = generateTime
-                  var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="flight_num' + i + '"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">' + companyDatas[i].FLGH_FILE + '</p></li><li><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">' + companyDatas[i].FPLN_FILE + '</p></li><li><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">' + companyDatas[i].FPCI_FILE + '</p> </li> <li> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">' + companyDatas[i].FCRI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="flight_file' + i + '"></div> <div class="clb"></div> </div> </div>'
-                  $('#company_container').append(flightsDom)
-                  var numOptions = new CompanyOptions(companyDatas[i], companyChartOpt, 'data_COUNT', '信息数/个')
-                  companyChartsArr.comNumOptions.push(numOptions)
-                  var fileOptions = new CompanyOptions(companyDatas[i], companyChartOpt, 'file_COUNT', '文件数/个')
-                  companyChartsArr.comFileOptions.push(fileOptions)
-                  var chartsMulNum = echarts.init($('#flight_num' + j)[0])
-                  var chartsMulFile = echarts.init($('#flight_file' + j)[0])
-                  companyChartsArr.numChartArr.push(chartsMulNum)
-                  companyChartsArr.fileChartArr.push(chartsMulFile)
-                  chartsMulNum.setOption(companyChartsArr.comNumOptions[j])
-                  chartsMulFile.setOption(companyChartsArr.comFileOptions[j])
-                }
-              }
-            }
-
-          } else if (companyDatas.length < companyChartsArr.dataArr.length) {
-            var len = companyDatas.length
-            var difLen = companyChartsArr.dataArr.length - companyDatas.length
-            companyChartsArr.comNumOptions.slice(0, len + 1)
-            for (var i = 0; i < difLen; i++) {
-              $('#company_container').removeChild($('.company_charts')[i])
-            }
-            for (var i = 0; i < len; i++) {
-              for (var j = 0; j < companyDatas.length; j++) {
-                companyDatas[i].currentTime = generateTime
-                companyChartsArr.comNumOptions[i].refreshOption(companyDatas[i], 'data_COUNT', companyChartOpt)
-                companyChartsArr.numChartArr[i].setOption(companyChartsArr.comNumOptions[i])
-                companyChartsArr.comFileOptions[i].refreshOption(companyDatas[i], 'file_COUNT', companyChartOpt)
-                companyChartsArr.fileChartArr[i].setOption(companyChartsArr.comFileOptions[i])
-              }
-            }
-          }
+          var companyDatas = []
+          $.each(data.companyDatas,function (i,e) {
+            companyDatas.push(e)
+          })
+          $.each(companyChartsArr.companys,function (num,air) {
+            companyDatas[num].currentTime = generateTime
+            var  dataRes = dataConvert(companyDatas[num], companyChartOpt, 'data_COUNT')
+            var  fileRes = dataConvert(companyDatas[num], companyChartOpt, 'file_COUNT')
+            $.each(companyChartOpt,function (index,e) {
+              var dataElement = air.chartsMulNum.get(index)
+              dataElement.xAxis.categories = dataRes.xTimeArr
+              dataElement.setData(Object.values(dataRes[companyChartOpt[index]]), true, false, false);
+              var dataElement = air.chartsMulFile.get(index)
+              dataElement.xAxis.categories = fileRes.xTimeArr
+              dataElement.setData(Object.values(fileRes[companyChartOpt[index]]), true, false, false);
+            })
+            air.chartsMulNum.redraw()
+            air.chartsMulFile.redraw()
+          })
 
         }
       },
@@ -1074,69 +677,26 @@ var Monitor = function () {
       $('.content-container .row').removeClass('active')
       $('#airport').addClass('active')
       $('#airport_container').find('.flight_group').remove()
-      setAirportsInformation($('#airport_container')) //机场数据初始化
-      resizeFit()
+      setAirportsInformation($('#airport_container'))  //机场数据初始化
     })
     //航空公司
     $('#flights_operation').on('click', function () {
       $('.content-container .row').removeClass('active')
       $('#company').addClass('active')
       $('#company_container').find('.flight_group').remove()
-      setFlightsInformation($('#company_container')) //航空公司数据初始化
-      resizeFit()
+      setFlightsInformation($('#company_container'))  //航空公司数据初始化
     })
     //机场面包屑点击事件
     $('.bread_air').on('click', function () {
       $('.content-container .row').removeClass('active')
       $('#home').addClass('active')
-      refreshData(true) //监控页面数据刷新
-      resizeFit()
     })
     //航空公司面包屑点击事件
     $('.bread_com').on('click', function () {
       $('.content-container .row').removeClass('active')
       $('#home').addClass('active')
-      refreshData(true) //监控页面数据刷新
-      resizeFit()
     })
   }
-  /**@method resizeEnd 延迟加载屏幕尺寸计算方法
-   * @param {function} callback 要执行的回调函数
-   * @param {number} timeout 拖动停止后的延时参数
-   * */
-  $.fn.resizeEnd = function (callback, timeout) {
-    $(this).resize(function () {
-      var $this = $(this)
-      if ($this.data('resizeTimeout')) {
-        clearTimeout($this.data('resizeTimeout'))
-      }
-      $this.data('resizeTimeout', setTimeout(callback, timeout))
-    })
-  }
-  //适应屏幕宽高尺寸
-  $(window).resizeEnd(function () {
-    $.each(charts, function () {
-      this.resize()
-    })
-    if (!$('#airports_container').is(':hidden')) {
-      var len = airportsChartArr.numChartArr.length
-      var airChartNumArr = airportsChartArr.numChartArr
-      var airChartFileArr = airportsChartArr.fileChartArr
-      for (var i = 0; i < len; i++) {
-        airChartNumArr[i].resize()
-        airChartFileArr[i].resize()
-      }
-    }
-    if (!$('#company_container').is(':hidden')) {
-      var len = companyChartsArr.numChartArr.length
-      var comChartNumArr = companyChartsArr.numChartArr
-      var comChartFileArr = companyChartsArr.fileChartArr
-      for (var i = 0; i < len; i++) {
-        comChartNumArr[i].resize()
-        comChartFileArr[i].resize()
-      }
-    }
-  }, 200)
   /**
    * @method refreshChartsOption 全部数据刷新方法集合调用
    * @param （object） data 刷新数据对象集合
@@ -1155,39 +715,72 @@ var Monitor = function () {
           }
         }
         setTotalData(totalDataCount)
-        //更新时间
+        //传递曲线图数据参数并初始化echarts
         totalDataCount.currentTime = generateTime
         //参数刷新
-        options.airportNumOption.refreshOption(totalDataCount, indexAirChartOpt, 'data_COUNT')
-        options.airportFileOption.refreshOption(totalDataCount, indexAirChartOpt, 'file_COUNT')
-        options.companyNumOption.refreshOption(totalDataCount, indexComChartOpt, 'data_COUNT')
-        options.companyFileOption.refreshOption(totalDataCount, indexComChartOpt, 'file_COUNT')
-        options.manageNumOption.refreshOption(totalDataCount, manageOpt, 'data_COUNT')
-        options.manageFileOption.refreshOption(totalDataCount, manageOpt, 'file_COUNT')
-        options.monitorNumOption.refreshOption(totalDataCount, monitorOpt, 'data_COUNT')
-        options.monitorFileOption.refreshOption(totalDataCount, monitorOpt, 'file_COUNT')
-        // 刷新后曲线图参数设置。
-        $.each(charts, function (i) {
-          this.setOption(options[i])
+        $.each(indexAirChartOpt,function (index, e) {
+          var  dataRes = dataConvert(totalDataCount, indexAirChartOpt, 'data_COUNT')
+          var dataElement = indexCharts.airportNumChart.get(index)
+          dataElement.xAxis.categories = dataRes.xTimeArr
+          dataElement.setData(Object.values(dataRes[indexAirChartOpt[index]]),true, false, false);
+          indexCharts.airportNumChart.redraw()
+          var  fileRes = dataConvert(totalDataCount, indexAirChartOpt, 'file_COUNT')
+          var fileElement = indexCharts.airportFlieChart.get(index)
+          fileElement.xAxis.categories = dataRes.xTimeArr
+          fileElement.setData(Object.values(fileRes[indexAirChartOpt[index]]),true, false, false);
+          indexCharts.airportFlieChart.redraw()
+        })
+        $.each(indexComChartOpt,function (index, e) {
+          var  dataRes = dataConvert(totalDataCount, indexComChartOpt, 'data_COUNT')
+          var dataElement = indexCharts.flightNumChart.get(index);
+          dataElement.xAxis.categories = dataRes.xTimeArr;
+          dataElement.setData(Object.values(dataRes[indexComChartOpt[index]]),true, false, false);
+          indexCharts.flightNumChart.redraw()
+          var  fileRes = dataConvert(totalDataCount, indexComChartOpt, 'file_COUNT')
+          var fileElement = indexCharts.flightFlieChart.get(index);
+          fileElement.xAxis.categories = dataRes.xTimeArr;
+          fileElement.setData(Object.values(fileRes[indexComChartOpt[index]]),true, false, false);
+          indexCharts.flightFlieChart.redraw()
+        })
+        $.each(manageOpt,function (index, e) {
+          var  dataRes = dataConvert(totalDataCount, manageOpt, 'data_COUNT')
+          var dataElement = indexCharts.manageNumChart.get(index);
+          dataElement.xAxis.categories = dataRes.xTimeArr;
+          dataElement.setData(Object.values(dataRes[manageOpt[index]]),true, false, false);
+          indexCharts.manageNumChart.redraw()
+          var  fileRes = dataConvert(totalDataCount, manageOpt, 'file_COUNT')
+          var fileElement = indexCharts.manageFlieChart.get(index);
+          fileElement.xAxis.categories = dataRes.xTimeArr;
+          fileElement.setData(Object.values(fileRes[manageOpt[index]]),true, false, false);
+          indexCharts.manageFlieChart.redraw()
+        })
+        $.each(monitorOpt,function (index, e) {
+          var  dataRes = dataConvert(totalDataCount, monitorOpt, 'data_COUNT')
+          var dataElement = indexCharts.monitorNumChart.get(index);
+          dataElement.xAxis.categories = dataRes.xTimeArr;
+          dataElement.setData(Object.values(dataRes[monitorOpt[index]]),true, false, false);
+          indexCharts.monitorNumChart.redraw()
+          var  fileRes = dataConvert(totalDataCount, monitorOpt, 'file_COUNT')
+          var fileElement = indexCharts.monitorFlieChart.get(index);
+          fileElement.xAxis.categories = dataRes.xTimeArr;
+          fileElement.setData(Object.values(fileRes[monitorOpt[index]]),true, false, false);
+          indexCharts.monitorFlieChart.redraw()
         })
       }
     }
     //机场数据刷新
     if ($('#airport_container').is(':visible')) {
+      // $('#airport_container').find('.flight_group').remove()
+      // setAirportsInformation($('#airport_container'))  //机场数据初始化
       refreshAirportsInformation()
+
     }
     //航空公司数据刷新
     if ($('#company_container').is(':visible')) {
+      // $('#company_container').find('.flight_group').remove()
+      // setFlightsInformation($('#company_container'))  //航空公司数据初始化
       refreshFlightInformation()
     }
-  }
-
-  /**
-   * @method refreshData 定时刷新方法
-   * @param （object） data 刷新数据对象集合
-   **/
-  var refreshData = function (data) {
-    refreshChartsOption(data)
   }
   //定时器
   var startTimer = function (func, instance, isNext, time) {
@@ -1199,37 +792,11 @@ var Monitor = function () {
       }
     }
   }
-  var resizeFit = function () {
-    $.each(charts, function () {
-      this.resize()
-    })
-    if (!$('.airports_container').is(':hidden')) {
-      var len = airportsChartArr.numChartArr.length
-      var airChartNumArr = airportsChartArr.numChartArr
-      var airChartFileArr = airportsChartArr.fileChartArr
-      for (var i = 0; i < len; i++) {
-        airChartNumArr[i].resize()
-        airChartFileArr[i].resize()
-      }
-    }
-    if (!$('.company_container').is(':hidden')) {
-      var len = companyChartsArr.numChartArr.length
-      var comChartNumArr = companyChartsArr.numChartArr
-      var comChartFileArr = companyChartsArr.fileChartArr
-      for (var i = 0; i < len; i++) {
-        comChartNumArr[i].resize()
-        comChartFileArr[i].resize()
-      }
-    }
-  }
   return {
     initMonitor: function () {
       initAirCom() //机场航空公司点击事件初始化
       getTotalDateCount(totalDataCount, true) //获取航班监控页面数据
     },
-    resizeFit: function () {
-      resizeFit() //适配屏幕尺寸
-    }
   }
 }()
 $(document).ready(function () {
