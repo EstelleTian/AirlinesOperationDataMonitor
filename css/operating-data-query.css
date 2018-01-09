@@ -28,7 +28,7 @@
     height:100%;
 }
 .history-data-statistics .echart-col{
-    height: 95%;
+    height: 100%;
 }
 .history-data-statistics .charts-wrap{
     position: relative;
@@ -172,6 +172,23 @@
 }
 .date-datepicker .form-control[readonly] {
     background: #fff;
+}
+
+.data-total .data-total-list .list-item {
+    display: inline-block;
+    margin-right: 2rem;
+    font-size: 1.4rem;
+}
+.data-total .data-total-list .list-item .type-name {
+    font-size: 1.6rem;
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+
+.data-total .data-total-list .list-item>label {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 @media (max-width: 992px) {

@@ -53,6 +53,9 @@ var HistoryData = function () {
     historyDataDashboard.initBootstrapSelect();
   };
 
+  /**
+   *  初始始化表单面板组件
+   * */
   var initFormDashboard = function () {
     historyDataDashboard = new FormDashboard({
 
@@ -91,7 +94,7 @@ var HistoryData = function () {
     $('.nav-history-data-statistics').on('click', function () {
       // echarts高度自适应
       resizeToFitContainer();
-      // 若数据总数图表存在，则重新设置图表尺寸
+      // 若信息总数图表存在，则重新设置图表尺寸
       if ($.isValidObject(dataCountChart)) {
         dataCountChart.resize();
       }
@@ -129,6 +132,8 @@ var HistoryData = function () {
       historyDataDashboard.clearAlert();
     // 清空提示
       historyDataDashboard.clearTip();
+      // 隐藏数据统计
+      hideDataTotal();
 
     //处理数据
     handleFormData();
@@ -267,12 +272,59 @@ var HistoryData = function () {
     $('.conditions-type').text(typeCN).attr('title', '类型: ' + typeCN);
     $('.conditions-subtype').text(subtypeCN).attr('title', '信息子类型: ' + subtypeCN);
     $('.conditions-unit').text(unitCN).attr('title', '上传单位: ' + unitCN);
-
     $('.conditions-content').removeClass('hidden');
   };
 
+  /**
+   * 隐藏当前统计条件
+   * */
   var hideConditions = function () {
     $('.conditions-content').addClass('hidden');
+  };
+
+    /**
+     * 显示数据统计
+     * */
+  var showDataTotal = function(data){
+      // 若数据有效
+      if($.isValidObject(data)){
+          var list = '';
+          // 当前选中的类型对应集合
+          var currentTypeObj = BasicData.operatingDataTypeObj.result[currentType];
+          // 当前选中的类型下的所有信息子类型集合
+          var subTypeObj = currentTypeObj.subtype;
+          // 遍历数据
+          for(var i in data){
+              // 取得信息子类型类型名称
+              var type = data[i].type;
+              // 若类型名称有效
+              if($.isValidVariable(type)){
+                  // 取得信息子类型类型名称中文数值
+                  var typeCN = subTypeObj[type];
+                  // 文件总数之和
+                  var fileTotal = data[i].fileTotal || '';
+                  // 信息总数之和
+                  var dataTotal = data[i].dataTotal || '';
+                  // 拼接为html节点
+                  var str = '<span class="list-item">'+ '<span class="type-name">'+ typeCN+'</span>' +' 信息数:'+'<label>'+ dataTotal+'</label>' +'文件数:'+ '<label>'+fileTotal +'</label>'+'</span>';
+                  list += str;
+              }
+          }
+          // 追加到指定容器
+          $('.data-total .data-total-list').empty().append(list);
+          // 显示统计数量栏
+          $('.data-total').removeClass('hidden');
+          // 计算echarts初始化前父容器的高度, echarts高度自适应
+          resizeToFitContainer();
+
+
+      }
+  };
+    /**
+     * 隐藏数据统计
+     * */
+  var hideDataTotal = function () {
+    $('.data-total').addClass('hidden');
   };
 
   /**
@@ -293,7 +345,7 @@ var HistoryData = function () {
           //提取数据
           var time = data.generatetime;
           var result = data.hisData;
-          // 更新数据时间
+          var total = data.hisDataTotals;
           // 更新数据时间
           historyDataDashboard.updateGeneratetime(time);
           // 若数据为空
@@ -304,11 +356,16 @@ var HistoryData = function () {
             $('.form-wrap').removeClass('no-event');
             return;
           }
+          // 显示数据统计
+          showDataTotal(total);
+
+
 
           //转换数据
           convertData(result);
           //初始化图表
           initEcharts();
+
           loading.stop();
           $('.form-wrap').removeClass('no-event');
 
@@ -383,7 +440,7 @@ var HistoryData = function () {
    *
    * */
   var convertSeriesData = function (result) {
-    // 置空图表配置对象中的数据总数集合和文件总数集合
+    // 置空图表配置对象中的信息总数集合和文件总数集合
     echartOption.fileCount = [];
     echartOption.dataCount = [];
     // 当前子类型
@@ -428,7 +485,7 @@ var HistoryData = function () {
           dataCountObj.data.push(obj.dataCount);
         }
       });
-      // 向数据总数集合和文件总数集合追加对象
+      // 向信息总数集合和文件总数集合追加对象
       echartOption.fileCount.push(fileCountObj);
       echartOption.dataCount.push(dataCountObj);
     });
@@ -447,14 +504,14 @@ var HistoryData = function () {
    * 初始化图表
    * */
   var initEcharts = function () {
-    // 数据总数图表
+    // 信息总数图表
     createDataCountChart();
     // 文件总数图表
     createFileCountChart();
   };
 
   /**
-   * 数据总数图表
+   * 信息总数图表
    * */
   var createDataCountChart = function () {
     // 图表初始化
@@ -463,7 +520,7 @@ var HistoryData = function () {
     var opt = {
       animation: false,
       title: {
-        text: '数据总数',
+        text: '信息总数',
         subtext: ''
       },
       tooltip: {
@@ -603,7 +660,7 @@ var HistoryData = function () {
     var form = $('.form-wrap').outerHeight() + parseInt($('.form-wrap').css('marginBottom'));
 
     var wrapHeight = body - head - nav - innerNav - form - 20;
-    var chartHeight = wrapHeight - $('.conditions').outerHeight();
+    var chartHeight = wrapHeight - $('.conditions').outerHeight() - $('.data-total').outerHeight();
     $('.charts-wrap').height(wrapHeight);
     $('.echart-row').height(chartHeight);
   };
