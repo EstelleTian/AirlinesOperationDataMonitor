@@ -306,7 +306,7 @@ var HistoryData = function () {
                   // 信息总数之和
                   var dataTotal = data[i].dataTotal || '';
                   // 拼接为html节点
-                  var str = '<span class="list-item">'+ '<span class="type-name">'+ typeCN+'</span>' +' 信息数:'+'<label>'+ dataTotal+'</label>' +'文件数:'+ '<label>'+fileTotal +'</label>'+'</span>';
+                  var str = '<span class="list-item">'+ '<span class="type-name">'+ typeCN+'</span>' +' 信息总数:'+'<label>'+ dataTotal+'</label>' +'文件总数:'+ '<label>'+fileTotal +'</label>'+'</span>';
                   list += str;
               }
           }
@@ -316,8 +316,6 @@ var HistoryData = function () {
           $('.data-total').removeClass('hidden');
           // 计算echarts初始化前父容器的高度, echarts高度自适应
           resizeToFitContainer();
-
-
       }
   };
     /**
@@ -358,8 +356,6 @@ var HistoryData = function () {
           }
           // 显示数据统计
           showDataTotal(total);
-
-
 
           //转换数据
           convertData(result);
@@ -520,7 +516,7 @@ var HistoryData = function () {
     var opt = {
       animation: false,
       title: {
-        text: '信息总数',
+        text: '信息数',
         subtext: ''
       },
       tooltip: {
@@ -570,7 +566,7 @@ var HistoryData = function () {
     var option = {
       animation: false,
       title: {
-        text: '文件总数',
+        text: '文件数',
         subtext: ''
       },
       tooltip: {
