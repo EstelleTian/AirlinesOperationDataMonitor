@@ -176,11 +176,11 @@
 
 .data-total .data-total-list .list-item {
     display: inline-block;
-    margin-right: 2rem;
+    margin-right: 1.4rem;
     font-size: 1.4rem;
 }
 .data-total .data-total-list .list-item .type-name {
-    font-size: 1.6rem;
+    font-size: 1.5rem;
     margin-right: 0.5rem;
     font-weight: 600;
 }
