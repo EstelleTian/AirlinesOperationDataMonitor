@@ -265,21 +265,31 @@ var OperatingData = function () {
       colStyle: {},
       colTitle: BasicData.tableObj.title[currentType][currentSubtype],
       colEdit: {},
-      params: {
-        shrinkToFit: false,
-        // rowNum: 999999,
-        //sortname: 'EOBT',
-        // sortorder: 'asc',
-        // sortname: 'SEQ',//排序列
-        // 是否显示行号
-        rownumbers: true,
-        //是否显示快速过滤
-        // showQuickFilter: true,
-        rowNum :40, //表格中可见的记录数
-        scroll : true, //创建动态滚动表格。当设为启用时，pager被禁用，可使用垂直滚动条来装入数据。
-        afterSearchCallBack: function () {
+        params: {
+            shrinkToFit: false,
+            // rowNum: 999999,
+            //sortname: 'EOBT',
+            // sortorder: 'asc',
+            // sortname: 'SEQ',//排序列
+            // 数据类型
+            datatype: 'local',
+            // 定义工具栏是否显示翻页键
+            pgbuttons: true,
+            //设置行号列宽度
+            rownumWidth: 80,
+            // 是否显示跳转页面的输入框
+            pginput: true,
+            // 是否要显示总记录数
+            viewrecords: true,
+            // 是否显示行号
+            rownumbers: true,
+            //是否显示快速过滤
+            // showQuickFilter: true,
+            rowNum: 100, //表格中可见的记录数
+            scroll: false, //创建动态滚动表格。当设为启用时，pager被禁用，可使用垂直滚动条来装入数据。
+            afterSearchCallBack: function () {
 
-        }
+            }
       }
     });
 
