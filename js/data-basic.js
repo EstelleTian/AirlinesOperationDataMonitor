@@ -1517,22 +1517,22 @@ var BasicData = function () {
             cn: '航班延误时间',
             en: 'delayTime',
             width: 110,
-            formatter: timeFormater
+            // formatter: timeFormater
           }, closeWaitTime: {
             cn: '关舱门后等待时间',
             en: 'closeWaitTime',
             width: 130,
-            formatter: timeFormater
+            // formatter: timeFormater
           }, AXIT: {
             cn: '航班进港滑行时间',
             en: 'AXIT',
             width: 130,
-            formatter: timeFormater
+            // formatter: timeFormater
           }, AXOT: {
             cn: '航班离港滑行时间',
             en: 'AXOT',
             width: 130,
-            formatter: timeFormater
+            // formatter: timeFormater
           }
         },
         'PPER': {
@@ -1726,7 +1726,7 @@ var BasicData = function () {
     if ($.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 12) {
       return cellvalue.substring(6, 8) + '/' + cellvalue.substring(8, 12);
     } else {
-      return '';
+      return cellvalue || '';
     }
   };
 
@@ -1736,7 +1736,7 @@ var BasicData = function () {
     if ($.isValidVariable(cellvalue) && !isNaN(val) && cellvalue.length == 14) {
       return cellvalue.substring(6, 8) + '/' + cellvalue.substring(8, 10) + ':' + cellvalue.substring(10, 12) + ':' + cellvalue.substring(12, 14);
     } else {
-      return '';
+      return cellvalue || '';
     }
   }
 
