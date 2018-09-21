@@ -1425,9 +1425,9 @@ var BasicData = function () {
             formatter: timeFormater,
             width: 200
           }, EET: {
-            cn: '预计总飞行时间',
+            cn: '预计总飞行时间(分钟)',
             en: 'EET',
-            formatter: timeFormater,
+            // formatter: timeFormater,
             width: 200
           }, PArrAP: {
             cn: '预计目的地机场',
@@ -1514,22 +1514,22 @@ var BasicData = function () {
             width: 110,
             formatter: timeFormater
           }, delayTime: {
-            cn: '航班延误时间',
+            cn: '航班延误时间(分钟)',
             en: 'delayTime',
             width: 110,
             // formatter: timeFormater
           }, closeWaitTime: {
-            cn: '关舱门后等待时间',
+            cn: '关舱门后等待时间(分钟)',
             en: 'closeWaitTime',
             width: 130,
             // formatter: timeFormater
           }, AXIT: {
-            cn: '航班进港滑行时间',
+            cn: '航班进港滑行时间(分钟)',
             en: 'AXIT',
             width: 130,
             // formatter: timeFormater
           }, AXOT: {
-            cn: '航班离港滑行时间',
+            cn: '航班离港滑行时间(分钟)',
             en: 'AXOT',
             width: 130,
             // formatter: timeFormater
