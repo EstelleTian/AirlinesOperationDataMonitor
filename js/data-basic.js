@@ -1516,22 +1516,22 @@ var BasicData = function () {
           }, delayTime: {
             cn: '航班延误时间(分钟)',
             en: 'delayTime',
-            width: 110,
+            width: 130,
             // formatter: timeFormater
           }, closeWaitTime: {
             cn: '关舱门后等待时间(分钟)',
             en: 'closeWaitTime',
-            width: 130,
+            width: 150,
             // formatter: timeFormater
           }, AXIT: {
             cn: '航班进港滑行时间(分钟)',
             en: 'AXIT',
-            width: 130,
+            width: 150,
             // formatter: timeFormater
           }, AXOT: {
             cn: '航班离港滑行时间(分钟)',
             en: 'AXOT',
-            width: 130,
+            width: 150,
             // formatter: timeFormater
           }
         },
