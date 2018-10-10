@@ -51,6 +51,15 @@ var LayoutEvent = function () {
             $('.operating-data-query').addClass('active');
             $(".data_time").hide();
         });
+        // 数据完整性分析与融合
+        $('.nav-quality-statistics').on('click',function () {
+            $('li',nav).removeClass('active');
+            $(this).addClass('active');
+            $('.content-container .row').removeClass('active');
+            $('.quality-statistics').addClass('active');
+            $(".data_time").hide();
+        });
+
     };
 
     return {
