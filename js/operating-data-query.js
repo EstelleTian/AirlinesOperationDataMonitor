@@ -549,7 +549,7 @@ var OperatingData = function () {
   var initDocumentResize = function () {
     $(window).resize(function () {
       if ($('.operating-data-query').is(':visible')) {
-        $('.table-contianer').height(getTableContianerHeight() - 20);
+        $('.operating-data-query .table-contianer').height(getTableContianerHeight() - 20);
       }
     });
   };
@@ -562,7 +562,7 @@ var OperatingData = function () {
     $('.nav-operating-data-query').on('click', function () {
       queryModalShow();
       // 调整表格所在容器大小以适应窗口大小
-      $('.table-contianer').height(getTableContianerHeight() - 20);
+      $('.operating-data-query .table-contianer').height(getTableContianerHeight() - 20);
       //调整表格大小以适应所在容器
       if ($.isValidObject(tableInstance)) {
         tableInstance.resizeToFitContainer();
