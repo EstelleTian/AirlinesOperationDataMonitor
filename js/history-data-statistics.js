@@ -233,7 +233,7 @@ var HistoryData = function () {
    * */
   var showConditions = function () {
     //当前选中的类型
-    var currentTypeObj = BasicData.operatingDataTypeObj.result[currentType];
+    var currentTypeObj = BasicData.historyDataTypeObj.result[currentType];
     var typeCN = BasicData.historyDataTypeObj.valCN[BasicData.historyDataTypeObj.val.indexOf(currentType)];
 
     var subtypeCN = '';
