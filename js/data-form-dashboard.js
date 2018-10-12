@@ -84,7 +84,8 @@ FormDashboard.prototype.initBootstrapSelect = function () {
       var $this = $(this);
       var val = $this.val();
       if (val && val != thisProxy.dataset.currentType) {
-        thisProxy.dataset.currentType = $type.val();
+        // thisProxy.dataset.currentType = $type.val();
+        thisProxy.dataset.currentType = val;
         thisProxy.updateSelectOptions(val);
         thisProxy.updateTypeLabel(val);
       }
