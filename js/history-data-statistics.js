@@ -1,5 +1,8 @@
 var HistoryData = function () {
 
+    // 模块选择器
+    var $container = $('.history-data-statistics');
+
   // URL
   var submitUrl = iphost + 'shareDataPlatform/hisDataCount/';
   // 开始时间输入框选择器
@@ -267,12 +270,12 @@ var HistoryData = function () {
     }*/
 
 
-    $('.conditions-start-data').text(startDate).attr('title', '时间: ' + startDate + '-' + endDate);
-    $('.conditions-end-data').text(endDate).attr('title', '时间: ' + startDate + '-' + endDate);
-    $('.conditions-type').text(typeCN).attr('title', '类型: ' + typeCN);
-    $('.conditions-subtype').text(subtypeCN).attr('title', '信息子类型: ' + subtypeCN);
-    $('.conditions-unit').text(unitCN).attr('title', '上传单位: ' + unitCN);
-    $('.conditions-content').removeClass('hidden');
+    $('.conditions-start-data', $container).text(startDate).attr('title', '时间: ' + startDate + '-' + endDate);
+    $('.conditions-end-data', $container).text(endDate).attr('title', '时间: ' + startDate + '-' + endDate);
+    $('.conditions-type', $container).text(typeCN).attr('title', '类型: ' + typeCN);
+    $('.conditions-subtype', $container).text(subtypeCN).attr('title', '信息子类型: ' + subtypeCN);
+    $('.conditions-unit', $container).text(unitCN).attr('title', '上传单位: ' + unitCN);
+    $('.conditions-content', $container).removeClass('hidden');
   };
 
   /**
