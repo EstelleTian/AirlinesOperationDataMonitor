@@ -1,23 +1,23 @@
 
-.history-data-statistics label.text{
+.history-data-statistics label.text, .quality-statistics label.text {
     font-weight: normal;
     color: #093857;
 }
-.history-data-statistics .form-wrap{
+.history-data-statistics .form-wrap, .quality-statistics .form-wrap{
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-bottom: 1px solid #dddddd;
 }
-.history-data-statistics .history-data-btn{
+.history-data-statistics .history-data-btn, .quality-statistics .atfm-btn{
     margin-top: 1.8rem;
 }
-.history-data-statistics .box{
+.history-data-statistics .box, .quality-statistics .box{
     margin-bottom: 0;
 }
-.history-data-statistics .alert-container{
+.history-data-statistics .alert-container, .quality-statistics .alert-container{
     margin-top: 1rem;
 }
-.history-data-statistics .no-datas-tip {
+.history-data-statistics .no-datas-tip, .quality-statistics .no-datas-tip {
     position: absolute;
     width: 100%;
     color: #8c8c8c;
@@ -30,20 +30,20 @@
 .history-data-statistics .echart-col{
     height: 100%;
 }
-.history-data-statistics .charts-wrap{
+.history-data-statistics .charts-wrap, .quality-statistics .table-wrap{
     position: relative;
 }
-.history-data-statistics .alert-row{
+.history-data-statistics .alert-row, .quality-statistics .alert-row {
     position: absolute;
     left: 15px;
     right: 20px;
     z-index: 3;
 }
-.history-data-statistics .conditions {
+.conditions {
     min-height: 40px;
     text-align: center;
 }
-.history-data-statistics .conditions-content {
+ .conditions-content {
     font-size: 16px;
     font-weight: 600;
     color: #555;
@@ -52,24 +52,24 @@
     text-overflow: ellipsis;
     width: 100%;
 }
-.history-data-statistics .conditions-content > span  {
+.conditions-content > span  {
     display: inline-block;
     padding: 0 1rem;
     border-right: 1px solid #cccccc;
     box-shadow: 1px 0 0 rgba(255, 255, 255, 0.1);
 }
-.history-data-statistics .conditions-content > span.conditions-start-data,
-.history-data-statistics .conditions-content > span.conditions-line{
+.conditions-content > span.conditions-start-data,
+.conditions-content > span.conditions-line{
     border : none;
     box-shadow: none;
     margin: 0;
     padding: 0;
 }
-.history-data-statistics .conditions-content > span.conditions-end-data{
+.conditions-content > span.conditions-end-data{
     padding-left: 0;
 }
-.history-data-statistics .conditions-content > span.conditions-tip,
-.history-data-statistics .conditions-content > span.conditions-unit {
+.conditions-content > span.conditions-tip,
+.conditions-content > span.conditions-unit {
     border: none;
     box-shadow: none;
 }
