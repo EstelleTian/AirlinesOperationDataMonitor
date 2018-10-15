@@ -72,6 +72,11 @@
                                 <span class="glyphicon glyphicon-search"></span>
                                 运行数据查询</a>
                         </li>
+                        <li class="nav-quality-statistics">
+                            <a href="javascript:;">
+                                <span class="glyphicon glyphicon-search"></span>
+                                数据完整性报告</a>
+                        </li>
                     </ul>
                     <p class="data_time"></p>
                 </div>
@@ -334,6 +339,94 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+        <!--数据完整性报告-->
+        <div class="row quality-statistics">
+
+            <div class="col-md-12">
+                <div class="box round">
+                    <h2 class="history-data-title">
+                        <span>数据完整性报告</span>
+                        <span class="generate-time pull-right"></span>
+                    </h2>
+                    <div class="form-wrap">
+                        <div class="row">
+                            <div class=" col-xs-6 col-md-2 ">
+                                <label class="text">起始时间</label>
+                                <div class="input-group date date-datepicker start-date">
+                                    <input type="text" class="start-date-input form-control" maxlength="8" value="" readonly>
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class=" col-xs-6 col-md-2">
+                                <label class="text">截止时间</label>
+                                <div class="input-group date date-datepicker end-date">
+                                    <input type="text" class="end-date-input form-control" maxlength="8" value="" readonly>
+                                    <span class="input-group-addon">
+                                        <i class="glyphicon glyphicon-calendar"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <label class="text">类型</label>
+                                <select id="quality-data-type-select" class="form-control selectpicker show-tick" >
+                                    <option value="APOI">机场运行信息</option>
+                                    <option value="ALOI">航空公司运行信息</option>
+                                    <option value="ATMI">空管运行信息</option>
+                                    <option value="OSCI">监控中心运行信息</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <label class="text">信息子类型</label>
+                                <select id="quality-data-subtype-select" class="form-control selectpicker show-tick subtype-select" multiple ></select>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <label class="text">上传单位：<span class="type-label"></span></label>
+                                <select id="quality-data-unit-select" name="" class="selectpicker show-tick form-control unit-select" multiple ></select>
+                            </div>
+                            <div class="col-xs-6 col-md-2">
+                                <button class="atfm-btn atfm-btn-blue history-data-btn ladda-button" data-style="zoom-out">统计</button>
+                            </div>
+                            <!--<div class="col-md-3">
+                                <div>sss</div>
+                            </div>-->
+                        </div>
+                        <div class="row alert-row">
+                            <div class="col-md-12 alert-container">
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="charts-wrap">
+                        <!--统计条件-->
+                        <div class="conditions row">
+                            <div class="col-md-12">
+                                <h5 class="conditions-content hidden">
+                                    <span class="conditions-tip">当前统计条件:</span>
+                                    <span class="conditions-start-data">20171222</span>
+                                    <span class="conditions-line">-</span>
+                                    <span class="conditions-end-data">20171222</span>
+                                    <span class="conditions-type">type</span>
+                                    <span class="conditions-subtype">subtype</span>
+                                    <span class="conditions-unit">unit</span>
+                                </h5>
+                            </div>
+                        </div>
+
+                        <div class="table-contianer" id="quality-table-container">
+                            <h3 class="no-datas-tip">暂无数据</h3>
+                            <div id="quality-table-canvas">
+                                <table class="table-datas" id="quality-table-datas"></table>
+                                <div id="quality-table-datas-pager"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
         <!--机场-->
