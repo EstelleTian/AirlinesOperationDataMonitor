@@ -656,10 +656,10 @@ var HistoryData = function () {
     var head = $('.headbar').outerHeight() + parseInt($('.headbar').css('marginBottom'));
     var nav = $('.nav-menu').outerHeight() + parseInt($('.nav-menu').css('marginBottom'));
     var innerNav = $('.history-data-title').outerHeight() + parseInt($('.history-data-title').css('marginBottom'));
-    var form = $('.form-wrap').outerHeight() + parseInt($('.form-wrap').css('marginBottom'));
+    var form = $('.form-wrap', $container).outerHeight() + parseInt($('.form-wrap', $container).css('marginBottom'));
 
     var wrapHeight = body - head - nav - innerNav - form - 20;
-    var chartHeight = wrapHeight - $('.conditions').outerHeight() - $('.data-total').outerHeight();
+    var chartHeight = wrapHeight - $('.conditions', $container).outerHeight() - $('.data-total').outerHeight();
     $('.charts-wrap').height(wrapHeight);
     $('.echart-row').height(chartHeight);
   };
