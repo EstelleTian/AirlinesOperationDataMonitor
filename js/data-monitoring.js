@@ -10,13 +10,9 @@ var Monitor = function () {
     //主模块折线图对象
     var indexCharts = {
         airportNumChart:{},
-        airportFlieChart:{},
         companyNumChart:{},
-        companyFlieChart:{},
         manageNumChart:{},
-        manageFlieChart:{},
-        monitorNumChart:{},
-        monitorFlieChart:{}
+        monitorNumChart:{}
     }
     //主模块折线图对象曲线图接口对应参数
     var dataKeyObj = {
@@ -124,52 +120,36 @@ var Monitor = function () {
         }
         //机场机位信息
         $('#airport_position_num').html(handleData(totalDataCount.APOI_PSNI_DATA ))
-        $('#airport_position_num_file').html(handleData(totalDataCount.APOI_PSNI_FILE))
         //机场离港信息
         $('#fpdi').html(handleData(totalDataCount.APOI_FPDI_DATA))
-        $('#fpdi_file').html(handleData(totalDataCount.APOI_FPDI_FILE))
         //机场到港信息
         $('#fpai').html(handleData(totalDataCount.APOI_FPAI_DATA))
-        $('#fpai_file').html(handleData(totalDataCount.APOI_FPAI_FILE))
         //机场客货信息
         $('#ppci').html(handleData(totalDataCount.APOI_PPCI_DATA))
-        $('#ppci_file').html(handleData(totalDataCount.APOI_PPCI_FILE))
         //航班地面状态
         $('#flgh').html(handleData(totalDataCount.ALOI_FLGH_DATA))
-        $('#flgh_file').html(handleData(totalDataCount.ALOI_FLGH_FILE))
         //航班计划变更
         $('#fpln').html(handleData(totalDataCount.ALOI_FPLN_DATA))
-        $('#fpln_file').html(handleData(totalDataCount.ALOI_FPLN_FILE))
         //航班客货
         $('#fpci').html(handleData(totalDataCount.ALOI_FPCI_DATA))
-        $('#fpci_file').html(handleData(totalDataCount.ALOI_FPCI_FILE))
         //航班机组人员
         $('#fcri').html(handleData(totalDataCount.ALOI_FCRI_DATA))
-        $('#fcri_file').html(handleData(totalDataCount.ALOI_FCRI_FILE))
         //CDM
         $('#fcdm').html(handleData(totalDataCount.ATMI_FCDM_DATA))
-        $('#fcdm_file').html(handleData(totalDataCount.ATMI_FCDM_FILE))
         //流量控制措施
         $('#ftmi').html(handleData(totalDataCount.ATMI_FTMI_DATA))
-        $('#ftmi_file').html(handleData(totalDataCount.ATMI_FTMI_FILE))
         //机场通行能力
         $('#padr').html(handleData(totalDataCount.ATMI_PADR_DATA))
-        $('#padr_file').html(handleData(totalDataCount.ATMI_PADR_FILE))
         //MDRS
         $('#mdrs').html(handleData(totalDataCount.ATMI_MDRS_DATA))
-        $('#mdrs_file').html(handleData(totalDataCount.ATMI_MDRS_FILE))
         //扇区开放
         $('#sect').html(handleData(totalDataCount.ATMI_SECT_DATA))
-        $('#sect_file').html(handleData(totalDataCount.ATMI_SECT_FILE))
         //航班计划动态
         $('#fosc').html(handleData(totalDataCount.OSCI_FOSC_DATA))
-        $('#fosc_file').html(handleData(totalDataCount.OSCI_FOSC_FILE))
         //航班统计
         $('#fper').html(handleData(totalDataCount.OSCI_FPER_DATA))
-        $('#fper_file').html(handleData(totalDataCount.OSCI_FPER_FILE))
         //机场统计
         $('#pper').html(handleData(totalDataCount.OSCI_PPER_DATA))
-        $('#pper_file').html(handleData(totalDataCount.OSCI_PPER_FILE))
     }
 
     /**
@@ -274,12 +254,6 @@ var Monitor = function () {
             var numData = commonOptions('信息数/个')
             numData.series = series.series
             indexCharts[item + 'NumChart'].setOption(numData)
-
-            var chartFileDom = document.getElementById( item +'_file_chart' )
-            indexCharts[item + 'FlieChart'] = echarts.init(chartFileDom)
-            var fileData = commonOptions('文件数/个')
-            fileData.series = series.series
-            indexCharts[item + 'FlieChart'].setOption(fileData)
         }
 
     }
@@ -396,7 +370,7 @@ var Monitor = function () {
                                 if( !airportsSubCharts[airportName + 'NumChart' ] ){
                                     //节点挂载
                                     airportData.currentTime = generateTime
-                                    var airportsDom = '<div class="flight_group box flights_charts"> <h2>' + airportName + '机场运行信息</h2> <div class="information"> <div class="num_chart col-lg-5 col-sm-4" id="airport_num' + i + '"></div> <div class="airport col-lg-2 col-sm-4"> <div class="airport_head"> <div class="airport_num">信息数</div> <div class="information_name">信息类型</div> <div class="file_num">文件数</div></div>  <ul class="airport_data_detail"> <li> <p class="num airport_position_num">' + airportsData[i].PSNI_DATA + '</p> <p class="airport_position">机场机位信息</p> <p class="f_num airport_position_num_file">' + airportsData[i].PSNI_FILE + '</p> </li> <li> <p class="num fpdi">' + airportsData[i].FPDI_DATA + '</p> <p class="airport_position">机场离港航班信息</p> <p class="f_num fpdi_file">' + airportsData[i].FPDI_FILE + '</p> </li> <li> <p class="num fpai">' + airportsData[i].FPAI_DATA + '</p><p class="airport_position">机场到港航班信息</p> <p class="f_num fpai_file">' + airportsData[i].FPAI_FILE + '</p> </li> <li> <p class="num ppci">' + airportsData[i].PPCI_DATA + '</p> <p class="airport_position">机场客货信息</p> <p class="f_num ppci_file">' + airportsData[i].PPCI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="airport_file' + i + '"></div><div class="clb"></div> </div> </div>'
+                                    var airportsDom = '<div class="flight_group box flights_charts"> <h2>' + airportName + '机场运行信息</h2>  <div class="information"> <div class="airport col-lg-2 col-sm-2"> <div class="airport_head"><div class="information_name">信息类型</div> <div class="airport_num">信息数</div>  </div>  <ul class="airport_data_detail"> <li><p class="airport_position">机场机位信息</p> <p class="num airport_position_num">' + airportsData[i].PSNI_DATA + '</p>   </li> <li><p class="airport_position">机场离港航班信息</p>  <p class="num fpdi">' + airportsData[i].FPDI_DATA + '</p>  </li> <li><p class="airport_position">机场到港航班信息</p>  <p class="num fpai">' + airportsData[i].FPAI_DATA + '</p> </li> <li><p class="airport_position">机场客货信息</p>  <p class="num ppci">' + airportsData[i].PPCI_DATA + '</p>  </li> </ul> </div><div class="num_chart col-lg-10 col-sm-10" id="airport_num' + i + '"></div> <div class="clb"></div> </div> </div>'
                                     fatherDom.append(airportsDom)
 
                                     //信息数 图
@@ -407,12 +381,6 @@ var Monitor = function () {
                                     //数据转换
                                     numChartObj.setOption(numOptions)
 
-                                    //文件数 图
-                                    var fileChartObj = echarts.init($('#airport_file' + i)[0])
-                                    airportsSubCharts[airportName + 'FileChart' ] = fileChartObj
-
-                                    var fileOptions = commonOptions( '文件数/个')
-                                    fileChartObj.setOption(fileOptions)
                                 }
 
                                 //更新数据
@@ -432,24 +400,6 @@ var Monitor = function () {
                                     series: numSeries.series
                                 }
                                 numChart.setOption(numOpts)
-
-                                //更新数据
-                                var dataFileRes = dataConvert(airportData, airportChartOpt, 'file_COUNT')
-                                //获取数据
-                                var fileSeries = getAirportEchartsSeries(dataFileRes, airportChartOpt )
-                                //表对象
-                                var fileChart = airportsSubCharts[airportName + 'FileChart' ]
-                                var fileOpts = {
-                                    xAxis: {
-                                        // name: dataFileRes.xTime || '',
-                                        data: dataFileRes.xTimeArr
-                                    },
-                                    legend: {
-                                        data: fileSeries.legend.data
-                                    },
-                                    series: fileSeries.series
-                                }
-                                fileChart.setOption(fileOpts)
                             }
                         } else {
                             $('#airport_container').find('.no_data').show()
@@ -499,7 +449,7 @@ var Monitor = function () {
                                 if( !componySubCharts[companyName + 'NumChart' ] ){
                                     //节点挂载
                                     companyData.currentTime = generateTime
-                                    var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="num_chart col-lg-5 col-sm-4" id="company_num' + i + '"></div><div class="airport col-lg-2 col-sm-4"><div class="airport_head"><div class="airport_num">信息数</div><div class="information_name">信息类型</div><div class="file_num">文件数</div></div><ul class="airport_data_detail"><li><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p><p class="airport_position">航班地面状态信息</p><p class="f_num flgh_file">' + companyDatas[i].FLGH_FILE + '</p></li><li><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p><p class="airport_position">航班计划变更信息</p><p class="f_num fpln_file">' + companyDatas[i].FPLN_FILE + '</p></li><li><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p><p class="airport_position">航班客货信息</p><p class="f_num fpci_file">' + companyDatas[i].FPCI_FILE + '</p> </li> <li> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p> <p class="airport_position">航班机组人员信息</p> <p class="f_num fcri_file">' + companyDatas[i].FCRI_FILE + '</p> </li> </ul> </div> <div class="file_chart col-lg-5 col-sm-4" id="company_file' + i + '"></div> <div class="clb"></div> </div> </div>'
+                                    var flightsDom = '<div class="flight_group box company_charts"><h2>' + companyDatas[i].companyName + '航空运行信息</h2><div class="information"><div class="airport col-lg-2 col-sm-2"><div class="airport_head"><div class="information_name">信息类型</div><div class="airport_num">信息数</div></div><ul class="airport_data_detail"><li><p class="airport_position">航班地面状态信息</p><p class="num flgh">' + companyDatas[i].FLGH_DATA + '</p></li><li><p class="airport_position">航班计划变更信息</p><p class="num fpln">' + companyDatas[i].FPLN_DATA + '</p></li><li><p class="airport_position">航班客货信息</p><p class="num fpci">' + companyDatas[i].FPCI_DATA + '</p> </li> <li> <p class="airport_position">航班机组人员信息</p> <p class="num fcri">' + companyDatas[i].FCRI_DATA + '</p>  </li> </ul> </div> <div class="num_chart col-lg-10 col-sm-10" id="company_num' + i + '"></div> <div class="clb"></div> </div> </div>'
                                     fatherDom.append(flightsDom)
 
                                     //信息数 图
@@ -509,13 +459,6 @@ var Monitor = function () {
                                     var numOptions = commonOptions( '信息数/个')
                                     //数据转换
                                     numChartObj.setOption(numOptions)
-
-                                    //文件数 图
-                                    var fileChartObj = echarts.init($('#company_file' + i)[0])
-                                    componySubCharts[companyName + 'FileChart' ] = fileChartObj
-
-                                    var fileOptions = commonOptions( '文件数/个')
-                                    fileChartObj.setOption(fileOptions)
                                 }
                                 //更新数据
                                 var dataNumRes = dataConvert(companyData, companyChartOpt, 'data_COUNT')
@@ -534,24 +477,6 @@ var Monitor = function () {
                                     series: numSeries.series
                                 }
                                 numChart.setOption(numOpts)
-
-                                //更新数据
-                                var dataFileRes = dataConvert(companyData, companyChartOpt, 'file_COUNT')
-                                //获取数据
-                                var fileSeries = getCompanyEchartsSeries(dataFileRes, companyChartOpt )
-                                //表对象
-                                var fileChart = componySubCharts[companyName + 'FileChart' ]
-                                var fileOpts = {
-                                    xAxis: {
-                                        // name: dataFileRes.xTime || '',
-                                        data: dataFileRes.xTimeArr
-                                    },
-                                    legend: {
-                                        data: fileSeries.legend.data
-                                    },
-                                    series: fileSeries.series
-                                }
-                                fileChart.setOption(fileOpts)
                             }
                         } else {
                             $('#company_container').find('.no_data').show()
@@ -1122,24 +1047,6 @@ var Monitor = function () {
                         series: numSeries.series
                     }
                     numChart.setOption(numOpts)
-
-                    //文件数
-                    var  dataFileRes = dataConvert(totalDataCount, objOpts, 'file_COUNT')
-                    //获取数据
-                    var fileSeries = getEchartsSeries(dataFileRes, item)
-                    //表对象
-                    var fileChart = indexCharts[item + 'FlieChart']
-                    var fileOpts = {
-                        xAxis: {
-                            // name: dataNumRes.xTime || '',
-                            data: dataNumRes.xTimeArr
-                        },
-                        legend: {
-                            data: fileSeries.legend.data
-                        },
-                        series: fileSeries.series
-                    }
-                    fileChart.setOption(fileOpts)
                 }
             }
         }

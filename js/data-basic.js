@@ -44,7 +44,7 @@ var BasicData = function () {
       'OSCI': {
         subtype: {
           'FOSC': '航班计划动态信息',
-          'FPER': '航班统计信息',
+          'FPER': '航班运行效率',
           'PPER': '机场统计信息'
 
         },
@@ -94,7 +94,7 @@ var BasicData = function () {
       'OSCI': {
         subtype: {
           'FOSC': '航班计划动态信息',
-          'FPER': '航班统计信息',
+          'FPER': '航班运行效率',
           'PPER': '机场统计信息'
 
         },
@@ -176,12 +176,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -349,12 +349,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -508,12 +508,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -592,12 +592,12 @@ var BasicData = function () {
             en: 'ID',
             width: 100
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -626,12 +626,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -848,12 +848,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -920,12 +920,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1016,12 +1016,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1086,12 +1086,12 @@ var BasicData = function () {
             en: 'ID',
             width: 150
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1126,12 +1126,12 @@ var BasicData = function () {
             en: 'ID',
             width: 110
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1196,12 +1196,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1265,12 +1265,12 @@ var BasicData = function () {
             en: 'ID',
             width: 130
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1305,11 +1305,11 @@ var BasicData = function () {
             en: 'APCPT',
             width: 130
           }, ARR: {
-            cn: '接受率',
+            cn: '接受百分比',
             en: 'ARR',
             width: 130
           }, ADR: {
-            cn: '离场率',
+            cn: '离场百分比',
             en: 'ADR',
             width: 130
           }, remark: {
@@ -1324,12 +1324,12 @@ var BasicData = function () {
             en: 'ID',
             width: 130
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1382,12 +1382,12 @@ var BasicData = function () {
             en: 'ID',
             width: 400
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 400,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 400,
             formatter: fullTimeFormater
@@ -1408,12 +1408,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1524,12 +1524,12 @@ var BasicData = function () {
             en: 'ID',
             width: 110
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1595,12 +1595,12 @@ var BasicData = function () {
             cn: 'ID',
             en: 'ID'
           }, messageSendDateTime: {
-            cn: '发送时间',
+            cn: '数据生成时间',
             en: 'messageSendDateTime',
             width: 200,
             formatter: fullTimeFormater
           }, generateTime: {
-            cn: '接收时间',
+            cn: '更新时间',
             en: 'generateTime',
             width: 200,
             formatter: fullTimeFormater
@@ -1624,99 +1624,99 @@ var BasicData = function () {
             en: 'hourlyActLandingSum',
             width: 350
           }, hourlyActTakeOffPunctualityRate: {
-            cn: '小时实际起飞正常率',
+            cn: '小时实际起飞百分比',
             en: 'hourlyActTakeOffPunctualityRate',
             width: 350
           }, dailyActTakeOffPunctualityRate: {
-            cn: '当日实际起飞正常率',
+            cn: '当日实际起飞百分比',
             en: 'dailyActTakeOffPunctualityRate',
             width: 180
           }, hourlySchTakeOffPunctualityRate: {
-            cn: '小时计划起飞正常率',
+            cn: '小时计划起飞百分比',
             en: 'hourlySchTakeOffPunctualityRate',
             width: 400
           }, dailySchTakeOffPunctualityRate: {
-            cn: '当日计划起飞正常率',
+            cn: '当日计划起飞百分比',
             en: 'dailySchTakeOffPunctualityRate',
             width: 180
           }, hourlyActDepPunctualityRate: {
-            cn: '小时实际离港正常率',
+            cn: '小时实际离港百分比',
             en: 'hourlyActDepPunctualityRate',
             width: 400
           }, dailyActDepPunctualityRate: {
-            cn: '当日实际离港正常率',
+            cn: '当日实际离港百分比',
             en: 'dailyActDepPunctualityRate',
             width: 180
           }, hourlySchDepPunctualityRate: {
-            cn: '小时计划离港正常率',
+            cn: '小时计划离港百分比',
             en: 'hourlySchDepPunctualityRate',
             width: 400
           }, dailySchDepPunctualityRate: {
-            cn: '当日计划离港正常率',
+            cn: '当日计划离港百分比',
             en: 'dailySchDepPunctualityRate',
             width: 180
           }, hourlyOriActTakeOffPunctualityRate: {
-            cn: '小时始发航班实际起飞正常率',
+            cn: '小时始发航班实际起飞百分比',
             en: 'hourlyOriActTakeOffPunctualityRate',
             width: 400
           }, dailyOriActTakeOffPunctualityRate: {
-            cn: '当日始发航班实际起飞正常率',
+            cn: '当日始发航班实际起飞百分比',
             en: 'dailyOriActTakeOffPunctualityRate',
             width: 180
           }, hourlyOriSchTakeOffPunctualityRate: {
-            cn: '小时始发航班计划起飞正常率',
+            cn: '小时始发航班计划起飞百分比',
             en: 'hourlyOriSchTakeOffPunctualityRate',
             width: 400
           }, dailyOriSchTakeOffPunctualityRate: {
-            cn: '当日始发航班计划起飞正常率',
+            cn: '当日始发航班计划起飞百分比',
             en: 'dailyOriSchTakeOffPunctualityRate',
             width: 180
           }, hourlyActClearancePunctualityRate: {
-            cn: '小时机场实际放行正常率',
+            cn: '小时机场实际放行百分比',
             en: 'hourlyActClearancePunctualityRate',
             width: 400
           }, dailyActClearancePunctualityRate: {
-            cn: '当日机场实际放行正常率',
+            cn: '当日机场实际放行百分比',
             en: 'dailyActClearancePunctualityRate',
             width: 180
           }, hourlySchClearancePunctualityRate: {
-            cn: '机场计划放行正常率',
+            cn: '机场计划放行百分比',
             en: 'hourlySchClearancePunctualityRate',
             width: 400
           }, dailySchClearancePunctualityRate: {
-            cn: '当日机场计划放行正常率',
+            cn: '当日机场计划放行百分比',
             en: 'dailySchClearancePunctualityRate',
             width: 180
           }, hourlyActLandingPunctualityRate: {
-            cn: '小时实际落地正常率',
+            cn: '小时实际落地百分比',
             en: 'hourlyActLandingPunctualityRate',
             width: 350
           }, dailyActLandingPunctualityRate: {
-            cn: '当日实际落地正常率',
+            cn: '当日实际落地百分比',
             en: 'dailyActLandingPunctualityRate',
             width: 180
           }, hourlySchLandingPunctualityRate: {
-            cn: '小时计划落地正常率',
+            cn: '小时计划落地百分比',
             en: 'hourlySchLandingPunctualityRate',
             width: 400
           }, dailySchLandingPunctualityRate: {
-            cn: '当日计划落地正常率',
+            cn: '当日计划落地百分比',
             en: 'dailySchLandingPunctualityRate',
             width: 180
           }, hourlyActArrPunctualityRate: {
-            cn: '小时实际到港正常率',
+            cn: '小时实际到港百分比',
             en: 'hourlyActArrPunctualityRate',
             width: 400
           }, dailyActArrPunctualityRate: {
-            cn: '当日实际到港正常率',
+            cn: '当日实际到港百分比',
             en: 'dailyActArrPunctualityRate',
             width: 180
           }, hourlySchArrPunctualityRate: {
-            cn: '小时计划到港正常率',
+            cn: '小时计划到港百分比',
             en: 'hourlySchArrPunctualityRate',
             width: 400
           }, dailySchArrPunctualityRate: {
-            cn: '当日计划到港正常率',
+            cn: '当日计划到港百分比',
             en: 'dailySchArrPunctualityRate',
             width: 180
           }
