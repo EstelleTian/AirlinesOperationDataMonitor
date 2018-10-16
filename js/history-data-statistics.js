@@ -64,7 +64,7 @@ var HistoryData = function () {
 
       containerId : 'history-data-statistics',
       // 表单容器
-      formId : 'form-wrap',
+      formId : 'history-form-wrap',
       // 数据生成时间选择器
       generatetimeId : 'generate-time',
       initDatepicker : initDatepicker,
