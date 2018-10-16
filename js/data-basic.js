@@ -1780,447 +1780,679 @@ var BasicData = function () {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, airportNameEN: {
-                      cn: '机场英文名称',
-                      en: 'airportNameEN'
-                  }, startTime: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },startTimeCount : {
                       cn: '开始时间',
-                      en: 'startTime',
+                      en: 'startTimeCount',
                       width: 200,
-                      formatter: timeFormater
-                  }, endTime: {
+                  },startTimeCount_CR : {
+                      cn: '完整性',
+                      en: 'startTimeCount_CR',
+                      width: 200,
+                  },endTimeCount : {
                       cn: '终止时间',
-                      en: 'endTime',
+                      en: 'endTimeCount',
                       width: 200,
-                      formatter: timeFormater
-                  }, nowOcpStandsASum: {
-                      cn: '已占用机位数量（A类）',
-                      en: 'nowOcpStandsASum',
-                      width: 240
-                  }, nowAviStandsASum: {
-                      cn: '当前空余机位数量（A类）',
-                      en: 'nowAviStandsASum',
-                      width: 240
-                  }, estOcpStandsASum: {
-                      cn: '预占用机位数量（A类）',
-                      en: 'estOcpStandsASum',
-                      width: 240
-                  }, estAviStandsASum: {
-                      cn: '预计空余机位数量（A类）',
-                      en: 'estAviStandsASum',
-                      width: 240
-                  }, estAviCPLStandsASum: {
-                      cn: '可用备降机位数量（A类）',
-                      en: 'estAviCPLStandsASum',
-                      width: 240
-                  }, estAviFixStandsASum: {
-                      cn: '可用系留机位数量（A类）',
-                      en: 'estAviFixStandsASum',
-                      width: 240
-                  }, nowOcpStandsBSum: {
-                      cn: '已占用机位数量（B类）',
-                      en: 'nowOcpStandsBSum',
-                      width: 240
-                  }, nowAviStandsBSum: {
-                      cn: '当前空余机位数量（B类）',
-                      en: 'nowAviStandsBSum',
-                      width: 240
-                  }, estOcpStandsBSum: {
-                      cn: '预占用机位数量（B类）',
-                      en: 'estOcpStandsBSum',
-                      width: 240
-                  }, nstAviStandsBSum: {
-                      cn: '预计空余机位数量（B类）',
-                      en: 'nstAviStandsBSum',
-                      width: 240
-                  }, estAviCPLStandsBSum: {
-                      cn: '可用备降机位数量（B类）',
-                      en: 'estAviCPLStandsBSum',
-                      width: 240
-                  }, estAviFixStandsBSum: {
-                      cn: '可用系留机位数量（B类）',
-                      en: 'estAviFixStandsBSum',
-                      width: 240
-                  }, nowOcpStandsCSum: {
-                      cn: '已占用机位数量（C类）',
-                      en: 'nowOcpStandsCSum',
-                      width: 240
-                  }, nowAviStandsCSum: {
-                      cn: '当前空余机位数量（C类）',
-                      en: 'nowAviStandsCSum',
-                      width: 240
-                  }, estOcpStandsCSum: {
-                      cn: '预占用机位数量（C类）',
-                      en: 'estOcpStandsCSum',
-                      width: 200
-                  }, estAviStandsCSum: {
-                      cn: '预计空余机位数量（C类）',
-                      en: 'estAviStandsCSum',
-                      width: 240
-                  }, estAviCPLStandsCSum: {
-                      cn: '可用备降机位数量（C类）',
-                      en: 'estAviCPLStandsCSum',
-                      width: 240
-                  }, estAviFixStandsCSum: {
-                      cn: '可用系留机位数量（C类）',
-                      en: 'estAviFixStandsCSum',
-                      width: 240
-                  }, nowOcpStandsDSum: {
-                      cn: '已占用机位数量（D类）',
-                      en: 'nowOcpStandsDSum',
-                      width: 240
-                  }, nowAviStandsDSum: {
-                      cn: '当前空余机位数量（D类）',
-                      en: 'nowAviStandsDSum',
-                      width: 240
-                  }, estOcpStandsDSum: {
-                      cn: '预占用机位数量（D类）',
-                      en: 'estOcpStandsDSum',
-                      width: 240
-                  }, estAviStandsDSum: {
-                      cn: '预计空余机位数量（D类）',
-                      en: 'estAviStandsDSum',
-                      width: 240
-                  }, estAviCPLStandsDSum: {
-                      cn: '可用备降机位数量（D类）',
-                      en: 'estAviCPLStandsDSum',
-                      width: 240
-                  }, estAviFixStandsDSum: {
-                      cn: '可用系留机位数量（D类）',
-                      en: 'estAviFixStandsDSum',
-                      width: 240
-                  }, eowOcpStandsESum: {
-                      cn: '已占用机位数量（E类）',
-                      en: 'eowOcpStandsESum',
-                      width: 240
-                  }, eowAviStandsESum: {
-                      cn: '当前空余机位数量（E类）',
-                      en: 'eowAviStandsESum',
-                      width: 240
-                  }, estOcpStandsESum: {
-                      cn: '预占用机位数量（E类）',
-                      en: 'estOcpStandsESum',
-                      width: 240
-                  }, estAviStandsESum: {
-                      cn: '预计空余机位数量（E类）',
-                      en: 'estAviStandsESum',
-                      width: 240
-                  }, estAviCPLStandsESum: {
-                      cn: '可用备降机位数量（E类）',
-                      en: 'estAviCPLStandsESum',
-                      width: 240
-                  }, estAviFixStandsESum: {
-                      cn: '可用系留机位数量（E类）',
-                      en: 'estAviFixStandsESum',
-                      width: 240
-                  }, nowOcpStandsFSum: {
-                      cn: '已占用机位数量（F类）',
-                      en: 'nowOcpStandsFSum',
-                      width: 240
-                  }, nowAviStandsFSum: {
-                      cn: '当前空余机位数量（F类）',
-                      en: 'nowAviStandsFSum',
-                      width: 240
-                  }, estOcpStandsFSum: {
-                      cn: '预占用机位数量（F类）',
-                      en: 'estOcpStandsFSum',
-                      width: 240
-                  }, estAviStandsFSum: {
-                      cn: '预计空余机位数量（F类）',
-                      en: 'estAviStandsFSum',
-                      width: 240
-                  }, estAviCPLStandsFSum: {
-                      cn: '可用备降机位数量（F类）',
-                      en: 'estAviCPLStandsFSum',
-                      width: 240
-                  }, estAviFixStandsFSum: {
-                      cn: '可用系留机位数量（F类）',
-                      en: 'estAviFixStandsFSum',
-                      width: 240
+                  },endTimeCount_CR : {
+                      cn: '完整性',
+                      en: 'endTimeCount_CR',
+                      width: 200,
+                  },nowOcpStandsASumCount : {
+                      cn: '已占用机位数量(A类)',
+                      en: 'nowOcpStandsASumCount',
+                      width: 200,
+                  },nowOcpStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsASumCount_CR',
+                      width: 200,
+                  },nowAviStandsASumCount : {
+                      cn: '当前空余机位数量(A类)',
+                      en: 'nowAviStandsASumCount',
+                      width: 200,
+                  },nowAviStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsASumCount_CR',
+                      width: 200,
+                  },estOcpStandsASumCount : {
+                      cn: '预占用机位数量(A类)',
+                      en: 'estOcpStandsASumCount',
+                      width: 200,
+                  },estOcpStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'estOcpStandsASumCount_CR',
+                      width: 200,
+                  },estAviStandsASumCount : {
+                      cn: '预计空余机位数量(A类)',
+                      en: 'estAviStandsASumCount',
+                      width: 200,
+                  },estAviStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsASumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsASumCount : {
+                      cn: '可用备降机位数量(A类)',
+                      en: 'estAviCPLStandsASumCount',
+                      width: 200,
+                  },estAviCPLStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsASumCount_CR',
+                      width: 200,
+                  },estAviFixStandsASumCount : {
+                      cn: '可用系留机位数量(A类)',
+                      en: 'estAviFixStandsASumCount',
+                      width: 200,
+                  },estAviFixStandsASumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsASumCount_CR',
+                      width: 200,
+                  },nowOcpStandsBSumCount : {
+                      cn: '已占用机位数量(B类)',
+                      en: 'nowOcpStandsBSumCount',
+                      width: 200,
+                  },nowOcpStandsBSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsBSumCount_CR',
+                      width: 200,
+                  },nowAviStandsBSumCount : {
+                      cn: '当前空余机位数量(B类)',
+                      en: 'nowAviStandsBSumCount',
+                      width: 200,
+                  },nowAviStandsBSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsBSumCount_CR',
+                      width: 200,
+                  },estAviStandsBSumCount : {
+                      cn: '预计空余机位数量(B类)',
+                      en: 'estAviStandsBSumCount',
+                      width: 200,
+                  },estAviStandsBSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsBSumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsBSumCount : {
+                      cn: '可用备降机位数量(B类)',
+                      en: 'estAviCPLStandsBSumCount',
+                      width: 200,
+                  },estAviCPLStandsBSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsBSumCount_CR',
+                      width: 200,
+                  },estAviFixStandsBSumCount : {
+                      cn: '可用系留机位数量(B类)',
+                      en: 'estAviFixStandsBSumCount',
+                      width: 200,
+                  },estAviFixStandsBSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsBSumCount_CR',
+                      width: 200,
+                  },nowOcpStandsCSumCount : {
+                      cn: '已占用机位数量(C类)',
+                      en: 'nowOcpStandsCSumCount',
+                      width: 200,
+                  },nowOcpStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsCSumCount_CR',
+                      width: 200,
+                  },nowAviStandsCSumCount : {
+                      cn: '当前空余机位数量(C类)',
+                      en: 'nowAviStandsCSumCount',
+                      width: 200,
+                  },nowAviStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsCSumCount_CR',
+                      width: 200,
+                  },estOcpStandsCSumCount : {
+                      cn: '预占用机位数量(C类)',
+                      en: 'estOcpStandsCSumCount',
+                      width: 200,
+                  },estOcpStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estOcpStandsCSumCount_CR',
+                      width: 200,
+                  },estAviStandsCSumCount : {
+                      cn: '预计空余机位数量(C类)',
+                      en: 'estAviStandsCSumCount',
+                      width: 200,
+                  },estAviStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsCSumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsCSumCount : {
+                      cn: '可用备降机位数量(C类)',
+                      en: 'estAviCPLStandsCSumCount',
+                      width: 200,
+                  },estAviCPLStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsCSumCount_CR',
+                      width: 200,
+                  },estAviFixStandsCSumCount : {
+                      cn: '可用系留机位数量(C类)',
+                      en: 'estAviFixStandsCSumCount',
+                      width: 200,
+                  },estAviFixStandsCSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsCSumCount_CR',
+                      width: 200,
+                  },nowOcpStandsDSumCount : {
+                      cn: '已占用机位数量(D类)',
+                      en: 'nowOcpStandsDSumCount',
+                      width: 200,
+                  },nowOcpStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsDSumCount_CR',
+                      width: 200,
+                  },nowAviStandsDSumCount : {
+                      cn: '当前空余机位数量(D类)',
+                      en: 'nowAviStandsDSumCount',
+                      width: 200,
+                  },nowAviStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsDSumCount_CR',
+                      width: 200,
+                  },estOcpStandsDSumCount : {
+                      cn: '预占用机位数量(D类)',
+                      en: 'estOcpStandsDSumCount',
+                      width: 200,
+                  },estOcpStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estOcpStandsDSumCount_CR',
+                      width: 200,
+                  },estAviStandsDSumCount : {
+                      cn: '预计空余机位数量(D类)',
+                      en: 'estAviStandsDSumCount',
+                      width: 200,
+                  },estAviStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsDSumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsDSumCount : {
+                      cn: '可用备降机位数量(D类)',
+                      en: 'estAviCPLStandsDSumCount',
+                      width: 200,
+                  },estAviCPLStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsDSumCount_CR',
+                      width: 200,
+                  },estAviFixStandsDSumCount : {
+                      cn: '可用系留机位数量(D类)',
+                      en: 'estAviFixStandsDSumCount',
+                      width: 200,
+                  },estAviFixStandsDSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsDSumCount_CR',
+                      width: 200,
+                  },nowOcpStandsESumCount : {
+                      cn: '已占用机位数量(E类)',
+                      en: 'nowOcpStandsESumCount',
+                      width: 200,
+                  },nowOcpStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsESumCount_CR',
+                      width: 200,
+                  },nowAviStandsESumCount : {
+                      cn: '当前空余机位数量(E类)',
+                      en: 'nowAviStandsESumCount',
+                      width: 200,
+                  },nowAviStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsESumCount_CR',
+                      width: 200,
+                  },estOcpStandsESumCount : {
+                      cn: '预占用机位数量(E类)',
+                      en: 'estOcpStandsESumCount',
+                      width: 200,
+                  },estOcpStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'estOcpStandsESumCount_CR',
+                      width: 200,
+                  },estAviStandsESumCount : {
+                      cn: '预计空余机位数量(E类)',
+                      en: 'estAviStandsESumCount',
+                      width: 200,
+                  },estAviStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsESumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsESumCount : {
+                      cn: '可用备降机位数量(E类)',
+                      en: 'estAviCPLStandsESumCount',
+                      width: 200,
+                  },estAviCPLStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsESumCount_CR',
+                      width: 200,
+                  },estAviFixStandsESumCount : {
+                      cn: '可用系留机位数量(E类)',
+                      en: 'estAviFixStandsESumCount',
+                      width: 200,
+                  },estAviFixStandsESumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsESumCount_CR',
+                      width: 200,
+                  },nowOcpStandsFSumCount : {
+                      cn: '已占用机位数量(F类)',
+                      en: 'nowOcpStandsFSumCount',
+                      width: 200,
+                  },nowOcpStandsFSumCount : {
+                      cn: '完整性',
+                      en: 'nowOcpStandsFSumCount_CR',
+                      width: 200,
+                  },nowAviStandsFSumCount : {
+                      cn: '当前空余机位数量(F类)',
+                      en: 'nowAviStandsFSumCount',
+                      width: 200,
+                  },nowAviStandsFSumCount_CR : {
+                      cn: '完整性',
+                      en: 'nowAviStandsFSumCount_CR',
+                      width: 200,
+                  },estOcpStandsFSumCount : {
+                      cn: '预占用机位数量(F类)',
+                      en: 'estOcpStandsFSumCount',
+                      width: 200,
+                  },estOcpStandsFSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estOcpStandsFSumCount_CR',
+                      width: 200,
+                  },estAviStandsFSumCount : {
+                      cn: '预计空余机位数量(F类)',
+                      en: 'estAviStandsFSumCount',
+                      width: 200,
+                  },estAviStandsFSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviStandsFSumCount_CR',
+                      width: 200,
+                  },estAviCPLStandsFSumCount : {
+                      cn: '可用备降机位数量(F类)',
+                      en: 'estAviCPLStandsFSumCount',
+                      width: 200,
+                  },estAviCPLStandsFSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviCPLStandsFSumCount_CR',
+                      width: 200,
+                  },estAviFixStandsFSumCount : {
+                      cn: '可用系留机位数量(F类)',
+                      en: 'estAviFixStandsFSumCount',
+                      width: 200,
+                  },estAviFixStandsFSumCount_CR : {
+                      cn: '完整性',
+                      en: 'estAviFixStandsFSumCount_CR',
+                      width: 200,
                   }
               },
               'FPDI': {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, stand: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },StandCount: {
                       cn: '离港航班停机位',
-                      en: 'stand',
-                      width: 200
-                  }, gate: {
+                      en: 'StandCount',
+                      width: 200,
+                  },StandCount_CR: {
+                      cn: '完整性',
+                      en: 'StandCount_CR',
+                      width: 200,
+                  },GateCount: {
                       cn: '航班登机口',
-                      en: 'gate'
-                  }, startBoradingTime: {
+                      en: 'GateCount',
+                      width: 200,
+                  },GateCount_CR: {
+                      cn: '完整性',
+                      en: 'GateCount_CR',
+                      width: 200,
+                  },StartBoardingTimeCount: {
                       cn: '开始登机时间',
-                      en: 'startBoradingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endBoardingTime: {
+                      en: 'StartBoardingTimeCount',
+                      width: 200,
+                  },StartBoardingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartBoardingTimeCount_CR',
+                      width: 200,
+                  },EndBoardingTimeCount: {
                       cn: '完成登机时间',
-                      en: 'endBoardingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startLuggageTime: {
+                      en: 'EndBoardingTimeCount',
+                      width: 200,
+                  },EndBoardingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndBoardingTimeCount_CR',
+                      width: 200,
+                  },StartLuggageTimeCount: {
                       cn: '开始装载行李时间',
-                      en: 'startLuggageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endLuggageTime: {
+                      en: 'StartLuggageTimeCount',
+                      width: 200,
+                  },StartLuggageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartLuggageTimeCount_CR',
+                      width: 200,
+                  },EndLuggageTimeCount: {
                       cn: '完成行李装载时间',
-                      en: 'endLuggageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startCateringTime: {
+                      en: 'EndLuggageTimeCount',
+                      width: 200,
+                  },EndLuggageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndLuggageTimeCount_CR',
+                      width: 200,
+                  },StartCateringTimeCount: {
                       cn: '开始配餐时间',
-                      en: 'startCateringTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endCateringTime: {
+                      en: 'StartCateringTimeCount',
+                      width: 200,
+                  },StartCateringTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartCateringTimeCount_CR',
+                      width: 200,
+                  },EndCateringTimeCount: {
                       cn: '完成配餐时间',
-                      en: 'endCateringTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startWaterTime: {
+                      en: 'EndCateringTimeCount',
+                      width: 200,
+                  },EndCateringTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndCateringTimeCount_CR',
+                      width: 200,
+                  },StartWaterTimeCount: {
                       cn: '开始加清水时间',
-                      en: 'startWaterTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endWaterTime: {
+                      en: 'StartWaterTimeCount',
+                      width: 200,
+                  },StartWaterTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartWaterTimeCount_CR',
+                      width: 200,
+                  },EndWaterTimeCount: {
                       cn: '完成加清水时间',
-                      en: 'endWaterTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startSewageTime: {
+                      en: 'EndWaterTimeCount',
+                      width: 200,
+                  },EndWaterTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndWaterTimeCount_CR',
+                      width: 200,
+                  },StartSewageTimeCount: {
                       cn: '开始排污时间',
-                      en: 'startSewageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endSewageTime: {
+                      en: 'StartSewageTimeCount',
+                      width: 200,
+                  },StartSewageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartSewageTimeCount_CR',
+                      width: 200,
+                  },EndSewageTimeCount: {
                       cn: '完成排污时间',
-                      en: 'endSewageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startCleanTime: {
+                      en: 'EndSewageTimeCount',
+                      width: 200,
+                  },EndSewageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndSewageTimeCount_CR',
+                      width: 200,
+                  },StartCleanTimeCount: {
                       cn: '开始保洁时间',
-                      en: 'startCleanTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endCleanTime: {
+                      en: 'StartCleanTimeCount',
+                      width: 200,
+                  },StartCleanTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartCleanTimeCount_CR',
+                      width: 200,
+                  },EndCleanTimeCount: {
                       cn: '完成保洁时间',
-                      en: 'endCleanTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startFuelTime: {
+                      en: 'EndCleanTimeCount',
+                      width: 200,
+                  },EndCleanTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndCleanTimeCount_CR',
+                      width: 200,
+                  },StartFuelTimeCount: {
                       cn: '开始供油时间',
-                      en: 'startFuelTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endFuelTime: {
+                      en: 'StartFuelTimeCount',
+                      width: 200,
+                  },StartFuelTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartFuelTimeCount_CR',
+                      width: 200,
+                  },EndFuelTimeCount: {
                       cn: '完成供油时间',
-                      en: 'endFuelTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startDeiceTime: {
+                      en: 'EndFuelTimeCount',
+                      width: 200,
+                  },EndFuelTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndFuelTimeCount_CR',
+                      width: 200,
+                  },StartDeiceTimeCount: {
                       cn: '开始除冰时间',
-                      en: 'startDeiceTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endDeiceTime: {
+                      en: 'StartDeiceTimeCount',
+                      width: 200,
+                  },StartDeiceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartDeiceTimeCount_CR',
+                      width: 200,
+                  },EndDeiceTimeCount: {
                       cn: '完成除冰时间',
-                      en: 'endDeiceTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, aeroBridgeOffTime: {
+                      en: 'EndDeiceTimeCount',
+                      width: 200,
+                  },EndDeiceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndDeiceTimeCount_CR',
+                      width: 200,
+                  },AeroBridgeOffTimeCount: {
                       cn: '离桥时间',
-                      en: 'aeroBridgeOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depPassengerStepsOffTime: {
+                      en: 'AeroBridgeOffTimeCount',
+                      width: 200,
+                  },AeroBridgeOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'AeroBridgeOffTimeCount_CR',
+                      width: 200,
+                  },DepPassengerStepsOffTimeCount: {
                       cn: '离港客梯车撤离时间',
-                      en: 'depPassengerStepsOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, actualDepatureTime: {
+                      en: 'DepPassengerStepsOffTimeCount',
+                      width: 200,
+                  },DepPassengerStepsOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'DepPassengerStepsOffTimeCount_CR',
+                      width: 200,
+                  },ActualDepartureTimeCount: {
                       cn: '实际离港时间',
-                      en: 'actualDepatureTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, trailerInPlaceTime: {
+                      en: 'ActualDepartureTimeCount',
+                      width: 200,
+                  },ActualDepartureTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualDepartureTimeCount_CR',
+                      width: 200,
+                  },TrailerInPlaceTimeCount: {
                       cn: '拖车到位时间',
-                      en: 'trailerInPlaceTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depShuttleOffTime: {
+                      en: 'TrailerInPlaceTimeCount',
+                      width: 200,
+                  },TrailerInPlaceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'TrailerInPlaceTimeCount_CR',
+                      width: 200,
+                  },DepShuttleOffTimeCount: {
                       cn: '离港摆渡车撤离时间',
-                      en: 'depShuttleOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, securityCheckedPassangerSum: {
+                      en: 'DepShuttleOffTimeCount',
+                      width: 200,
+                  },DepShuttleOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'DepShuttleOffTimeCount_CR',
+                      width: 200,
+                  },SecurityCheckedPassengerSumCount: {
                       cn: '过安检旅客人数',
-                      en: 'securityCheckedPassangerSum',
-                      width: 200
+                      en: 'SecurityCheckedPassengerSumCount',
+                      width: 200,
+                  },SecurityCheckedPassengerSumCount_CR: {
+                      cn: '完整性',
+                      en: 'SecurityCheckedPassengerSumCount_CR',
+                      width: 200,
                   }
               },
               'FPAI': {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP',
-                      width: 200
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP',
-                      width: 200
-                  }, stand: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, StandCount: {
                       cn: '到港航班停机位',
-                      en: 'stand',
-                      width: 200
-                  }, gate: {
+                      en: 'StandCount',
+                      width: 200,
+                  },StandCount_CR: {
+                      cn: '完整性',
+                      en: 'StandCount_CR',
+                      width: 200,
+                  },GateCount: {
                       cn: '航班到达口',
-                      en: 'gate',
-                      width: 200
-                  }, actualArrivalTime: {
+                      en: 'GateCount',
+                      width: 200,
+                  },GateCount_CR: {
+                      cn: '完整性',
+                      en: 'GateCount_CR',
+                      width: 200,
+                  },ActualArrivalTimeCount: {
                       cn: '实际到港时间',
-                      en: 'actualArrivalTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, aeroBridgeOnTime: {
+                      en: 'ActualArrivalTimeCount',
+                      width: 200,
+                  },ActualArrivalTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualArrivalTimeCount_CR',
+                      width: 200,
+                  },AeroBridgeOnTimeCount: {
                       cn: '靠桥时间',
-                      en: 'aeroBridgeOnTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, arrPassengerStepsOnTime: {
+                      en: 'AeroBridgeOnTimeCount',
+                      width: 200,
+                  },AeroBridgeOnTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'AeroBridgeOnTimeCount_CR',
+                      width: 200,
+                  },ArrPassengerStepsOnTimeCount: {
                       cn: '进港客梯车对接时间',
-                      en: 'arrPassengerStepsOnTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, arrShuttleReadyTime: {
+                      en: 'ArrPassengerStepsOnTimeCount',
+                      width: 200,
+                  },ArrPassengerStepsOnTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ArrPassengerStepsOnTimeCount_CR',
+                      width: 200,
+                  },ArrShuttleReadyTimeCount: {
                       cn: '进港摆渡车到位时间',
-                      en: 'arrShuttleReadyTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startUnBoardTime: {
+                      en: 'ArrShuttleReadyTimeCount',
+                      width: 200,
+                  },ArrShuttleReadyTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ArrShuttleReadyTimeCount_CR',
+                      width: 200,
+                  },StartUnBoardTimeCount: {
                       cn: '开始下客时间',
-                      en: 'startUnBoardTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endUnBoardTime: {
+                      en: 'StartUnBoardTimeCount',
+                      width: 200,
+                  },StartUnBoardTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartUnBoardTimeCount_CR',
+                      width: 200,
+                  },EndUnBoardTimeCount: {
                       cn: '完成下客时间',
-                      en: 'endUnBoardTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }
+                      en: 'EndUnBoardTimeCount',
+                      width: 200,
+                  },EndUnBoardTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndUnBoardTimeCount_CR',
+                      width: 200,
+                  },
               },
               'PPCI': {
                   id: {
                       cn: 'ID',
-                      en: 'ID',
-                      width: 100
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                      en: 'ID'
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, airportNameEN: {
-                      cn: '机场英文名称',
-                      en: 'airportNameEN',
-                      width: 280
-                  }, date: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
                       cn: '日期',
-                      en: 'date',
-                      width: 280
-                  }, depPassengerSum: {
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, DateCount: {
+                      cn: '日期',
+                      en: 'DateCount',
+                      width: 200,
+                  }, DateCount_CR: {
+                      cn: '完整性',
+                      en: 'DateCount_CR',
+                      width: 200,
+                  },  DepPassengerSumCount: {
                       cn: '出港旅客总人数',
-                      en: 'depPassengerSum',
+                      en: 'DepPassengerSumCount',
                       width: 280
-                  }, arrPassengerSum: {
+                  }, DepPassengerSumCount_CR: {
+                      cn: '完整性',
+                      en: 'DepPassengerSumCount_CR',
+                      width: 280
+                  },ArrPassengerSumCount: {
                       cn: '进港旅客总人数',
-                      en: 'arrPassengerSum',
+                      en: 'ArrPassengerSumCount',
+                      width: 280
+                  },ArrPassengerSumCount_CR: {
+                      cn: '完整性',
+                      en: 'ArrPassengerSumCount_CR',
                       width: 280
                   }
               },
@@ -2229,390 +2461,574 @@ var BasicData = function () {
               'FLGH': {
                   id: {
                       cn: 'ID',
-                      en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                      en: 'ID',
+                      frozen:true
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, crewReadyTime: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updateTime : {
+                      cn: '日期',
+                      en: 'updateTime',
+                      width: 200,
+                  },planCount: {
+                      cn: '计划总量',
+                      en: 'planCount',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, crewReadyTimeCount: {
                       cn: '机组到位时间',
-                      en: 'crewReadyTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startBoardingTime: {
+                      en: 'crewReadyTimeCount',
+                      width: 200,
+                  }, crewReadyTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'crewReadyTimeCount_CR',
+                      width: 200,
+                  }, StartBoardingTimeCount: {
                       cn: '开始登机时间',
-                      en: 'startBoardingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endBoardingTime: {
+                      en: 'StartBoardingTimeCount',
+                      width: 200,
+                  }, StartBoardingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartBoardingTimeCount_CR',
+                      width: 200,
+                  }, EndBoardingTimeCount: {
                       cn: '完成登机时间',
-                      en: 'endBoardingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startLuggageTime: {
+                      en: 'EndBoardingTimeCount',
+                      width: 200,
+                  }, EndBoardingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndBoardingTimeCount_CR',
+                      width: 200,
+                  },  StartLuggageTimeCount: {
                       cn: '开始行李装载时间',
-                      en: 'startLuggageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endLuggageTime: {
+                      en: 'StartLuggageTimeCount',
+                      width: 200,
+                  }, StartLuggageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartLuggageTimeCount_CR',
+                      width: 200,
+                  }, EndLuggageTimeCount: {
                       cn: '完成行李装载时间',
-                      en: 'endLuggageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startCateringTime: {
+                      en: 'EndLuggageTimeCount',
+                      width: 200,
+                  }, EndLuggageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndLuggageTimeCount_CR',
+                      width: 200,
+                  }, StartCateringTimeCount: {
                       cn: '开始配餐时间',
-                      en: 'startCateringTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endCateringTime: {
+                      en: 'StartCateringTimeCount',
+                      width: 200,
+                  }, StartCateringTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartCateringTimeCount_CR',
+                      width: 200,
+                  },  EndCateringTimeCount: {
                       cn: '完成配餐时间',
-                      en: 'endCateringTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startWaterTime: {
+                      en: 'EndCateringTimeCount',
+                      width: 200,
+                  }, EndCateringTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndCateringTimeCount_CR',
+                      width: 200,
+                  }, StartWaterTimeCount: {
                       cn: '开始加清水时间',
-                      en: 'startWaterTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endWaterTime: {
+                      en: 'StartWaterTimeCount',
+                      width: 200,
+                  }, StartWaterTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartWaterTimeCount_CR',
+                      width: 200,
+                  }, EndWaterTimeCount: {
                       cn: '完成加清水时间',
-                      en: 'endWaterTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startSewageTime: {
+                      en: 'EndWaterTimeCount',
+                      width: 200,
+                  }, EndWaterTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndWaterTimeCount_CR',
+                      width: 200,
+                  },  StartSewageTimeCount: {
                       cn: '开始排污时间',
-                      en: 'startSewageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endSewageTime: {
+                      en: 'StartSewageTimeCount',
+                      width: 200,
+                  }, StartSewageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartSewageTimeCount_CR',
+                      width: 200,
+                  }, EndSewageTimeCount: {
                       cn: '完成排污时间',
-                      en: 'endSewageTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startCleanTime: {
+                      en: 'EndSewageTimeCount',
+                      width: 200,
+                  }, EndSewageTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndSewageTimeCount_CR',
+                      width: 200,
+                  }, StartCleanTimeCount: {
                       cn: '开始保洁时间',
-                      en: 'startCleanTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endCleanTime: {
+                      en: 'StartCleanTimeCount',
+                      width: 200,
+                  }, StartCleanTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartCleanTimeCount_CR',
+                      width: 200,
+                  },  EndCleanTimeCount: {
                       cn: '完成保洁时间',
-                      en: 'endCleanTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startFuelTime: {
+                      en: 'EndCleanTimeCount',
+                      width: 200,
+                  }, EndCleanTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndCleanTimeCount_CR',
+                      width: 200,
+                  }, StartFuelTimeCount: {
                       cn: '开始供油时间',
-                      en: 'startFuelTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endFuelTime: {
+                      en: 'StartFuelTimeCount',
+                      width: 200,
+                  }, StartFuelTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartFuelTimeCount_CR',
+                      width: 200,
+                  }, EndFuelTimeCount: {
                       cn: '完成供油时间',
-                      en: 'endFuelTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startDeiceTime: {
+                      en: 'EndFuelTimeCount',
+                      width: 200,
+                  }, EndFuelTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndFuelTimeCount_CR',
+                      width: 200,
+                  },  StartDeiceTimeCount: {
                       cn: '开始除冰时间',
-                      en: 'startDeiceTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endDeiceTime: {
+                      en: 'StartDeiceTimeCount',
+                      width: 200,
+                  }, StartDeiceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartDeiceTimeCount_CR',
+                      width: 200,
+                  }, EndDeiceTimeCount: {
                       cn: '完成除冰时间',
-                      en: 'endDeiceTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, aeroBridgeOffTime: {
+                      en: 'EndDeiceTimeCount',
+                      width: 200,
+                  }, EndDeiceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndDeiceTimeCount_CR',
+                      width: 200,
+                  }, AeroBridgeOffTimeCount: {
                       cn: '离桥时间',
-                      en: 'aeroBridgeOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, aeroBridgeOnTime: {
+                      en: 'AeroBridgeOffTimeCount',
+                      width: 200,
+                  }, AeroBridgeOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'AeroBridgeOffTimeCount_CR',
+                      width: 200,
+                  },  AeroBridgeOnTimeCount: {
                       cn: '靠桥时间',
-                      en: 'aeroBridgeOnTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depPassengerStepsOffTime: {
+                      en: 'AeroBridgeOnTimeCount',
+                      width: 200,
+                  }, AeroBridgeOnTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'AeroBridgeOnTimeCount_CR',
+                      width: 200,
+                  }, DepPassengerStepsOffTimeCount: {
                       cn: '离港客梯车撤离时间',
-                      en: 'depPassengerStepsOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, arrPassengerStepsOnTime: {
+                      en: 'DepPassengerStepsOffTimeCount',
+                      width: 200,
+                  }, DepPassengerStepsOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'DepPassengerStepsOffTimeCount_CR',
+                      width: 200,
+                  },ArrPassengerStepsOnTimeCount: {
                       cn: '进港客梯车对接时间',
-                      en: 'arrPassengerStepsOnTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depShuttleOffTime: {
+                      en: 'ArrPassengerStepsOnTimeCount',
+                      width: 200,
+                  }, ArrPassengerStepsOnTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ArrPassengerStepsOnTimeCount_CR',
+                      width: 200,
+                  },  DepShuttleOffTimeCount: {
                       cn: '离港摆渡车撤离时间',
-                      en: 'depShuttleOffTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, arrShuttleReadyTime: {
+                      en: 'DepShuttleOffTimeCount',
+                      width: 200,
+                  }, DepShuttleOffTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'DepShuttleOffTimeCount_CR',
+                      width: 200,
+                  }, ArrShuttleReadyTimeCount: {
                       cn: '进港摆渡车到位时间',
-                      en: 'arrShuttleReadyTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, trailerReadyTime: {
+                      en: 'ArrShuttleReadyTimeCount',
+                      width: 200,
+                  }, ArrShuttleReadyTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ArrShuttleReadyTimeCount_CR',
+                      width: 200,
+                  }, TrailerReadyTimeCount: {
                       cn: '拖车到位时间',
-                      en: 'trailerReadyTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startUnBoardTime: {
+                      en: 'TrailerReadyTimeCount',
+                      width: 200,
+                  }, TrailerReadyTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'TrailerReadyTimeCount_CR',
+                      width: 200,
+                  }, StartUnBoardTimeCount: {
                       cn: '开始下客时间',
-                      en: 'startUnBoardTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, endUnBoardTime: {
+                      en: 'StartUnBoardTimeCount',
+                      width: 200,
+                  }, StartUnBoardTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartUnBoardTimeCount_CR',
+                      width: 200,
+                  }, EndUnBoardTimeCount: {
                       cn: '完成下客时间',
-                      en: 'endUnBoardTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, liftFrontWheelTime: {
+                      en: 'EndUnBoardTimeCount',
+                      width: 200,
+                  }, EndUnBoardTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'EndUnBoardTimeCount_CR',
+                      width: 200,
+                  }, LiftFrontWheelTimeCount: {
                       cn: '抬前轮时间',
-                      en: 'liftFrontWheelTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, landingTime: {
+                      en: 'LiftFrontWheelTimeCount',
+                      width: 200,
+                  }, LiftFrontWheelTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'LiftFrontWheelTimeCount_CR',
+                      width: 200,
+                  }, LandingTimeCount: {
                       cn: '着陆时间',
-                      en: 'landingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, looseBrakeTime: {
+                      en: 'LandingTimeCount',
+                      width: 200,
+                  }, LandingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'LandingTimeCount_CR',
+                      width: 200,
+                  }, LooseBrakeTimeCount: {
                       cn: '松刹车时间',
-                      en: 'looseBrakeTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, brakeTime: {
+                      en: 'LooseBrakeTimeCount',
+                      width: 200,
+                  }, LooseBrakeTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'LooseBrakeTimeCount_CR',
+                      width: 200,
+                  }, BrakeTimeCount: {
                       cn: '刹车时间',
-                      en: 'brakeTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, startTaxiingTime: {
+                      en: 'BrakeTimeCount',
+                      width: 200,
+                  }, BrakeTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'BrakeTimeCount_CR',
+                      width: 200,
+                  }, StartTaxiingTimeCount: {
                       cn: '开始滑行时间',
-                      en: 'startTaxiingTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, actualDepatureTime: {
+                      en: 'StartTaxiingTimeCount',
+                      width: 200,
+                  }, StartTaxiingTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'StartTaxiingTimeCount_CR',
+                      width: 200,
+                  }, ActualDepartureTimeCount: {
                       cn: '实际离港时间',
-                      en: 'actualDepatureTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, actualArrivalTime: {
+                      en: 'ActualDepartureTimeCount',
+                      width: 200,
+                  }, ActualDepartureTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualDepartureTimeCount_CR',
+                      width: 200,
+                  }, ActualArrivalTimeCount: {
                       cn: '实际到港时间',
-                      en: 'actualArrivalTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, actualGateCloseTime: {
+                      en: 'ActualArrivalTimeCount',
+                      width: 200,
+                  }, ActualArrivalTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualArrivalTimeCount_CR',
+                      width: 200,
+                  }, ActualGateCloseTimeCount: {
                       cn: '实际关舱门时间',
-                      en: 'actualGateCloseTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, actualGateOpenTime: {
+                      en: 'ActualGateCloseTimeCount',
+                      width: 200,
+                  }, ActualGateCloseTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualGateCloseTimeCount_CR',
+                      width: 200,
+                  }, ActualGateOpenTimeCount: {
                       cn: '实际开舱门时间',
-                      en: 'actualGateOpenTime',
-                      formatter: timeFormater,
-                      width: 200
-                  }, enduranceDistance: {
+                      en: 'ActualGateOpenTimeCount',
+                      width: 200,
+                  }, ActualGateOpenTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'ActualGateOpenTimeCount_CR',
+                      width: 200,
+                  }, EnduranceDistanceCount: {
                       cn: '航班续航距离',
-                      en: 'enduranceDistance'
-                  }
+                      en: 'EnduranceDistanceCount',
+                      width: 200,
+                  }, EnduranceDistanceCount_CR: {
+                      cn: '完整性',
+                      en: 'EnduranceDistanceCount_CR',
+                      width: 200,
+                  },
 
               },
               'FPLN': {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, PLNStatus: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },PlanCount: {
+                      cn: '计划总量',
+                      en: 'PlanCount',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, PLNStatusCount: {
                       cn: '当日计划变更状态',
-                      en: 'PLNStatus'
-                  }, PLNRegNumber: {
+                      en: 'PLNStatusCount',
+                      width: 200,
+                  }, PLNStatusCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNStatusCount_CR',
+                      width: 200,
+                  }, PLNRegNumberCount: {
                       cn: '变更航空器注册号',
-                      en: 'PLNRegNumber'
-                  }, PLNAircraftType: {
+                      en: 'PLNRegNumberCount',
+                      width: 200,
+                  }, PLNRegNumberCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNRegNumberCount_CR',
+                      width: 200,
+                  }, PLNAircraftTypeCount: {
                       cn: '变更机型',
-                      en: 'PLNAircraftType'
-                  }, PLNDepAp: {
+                      en: 'PLNAircraftTypeCount',
+                      width: 200,
+                  }, PLNAircraftTypeCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNAircraftTypeCount_CR',
+                      width: 200,
+                  }, PLNDepApCount: {
                       cn: '变更离港机场',
-                      en: 'PLNDepAp'
-                  }, PLNSobt: {
+                      en: 'PLNDepApCount',
+                      width: 200,
+                  }, PLNDepApCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNDepApCount_CR',
+                      width: 200,
+                  }, PLNSobtCount: {
                       cn: '变更离港时间',
-                      en: 'PLNSobt',
-                      formatter: timeFormater,
-                      width: 200
-                  }, PLNSibt: {
+                      en: 'PLNSobtCount',
+                      width: 200,
+                  }, PLNSobtCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNSobtCount_CR',
+                      width: 200,
+                  }, PLNSibtCount: {
                       cn: '变更进港时间',
-                      en: 'PLNSibt',
-                      formatter: timeFormater,
-                      width: 200
-                  }, PLNArrAp: {
+                      en: 'PLNSibtCount',
+                      width: 200,
+                  }, PLNSibtCount_CR: {
+                      cn: 'PLNSibtCount_CR',
+                      en: 'PLNSibtCount_CR',
+                      width: 200,
+                  }, PLNArrApCount: {
                       cn: '变更目的地机场',
-                      en: 'PLNArrAp'
-                  }, remark: {
+                      en: 'PLNArrApCount',
+                      width: 200,
+                  }, PLNArrApCount_CR: {
+                      cn: '完整性',
+                      en: 'PLNArrApCount_CR',
+                      width: 200,
+                  }, RemarkCount: {
                       cn: '备注',
-                      en: 'remark'
-                  }
+                      en: 'RemarkCount',
+                      width: 200,
+                  }, RemarkCount_CR: {
+                      cn: '完整性',
+                      en: 'RemarkCount_CR',
+                      width: 200,
+                  },
 
               },
               'FPCI': {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, checkinPassengerSum: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },planCount: {
+                      cn: '计划总量',
+                      en: 'planCount',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },CheckinPassengerSumCount: {
                       cn: '已值机旅客人数',
-                      en: 'checkinPassengerSum',
-                      width: 170
-                  }, boardingPassengerSum: {
+                      en: 'CheckinPassengerSumCount',
+                      width: 200,
+                  },CheckinPassengerSumCount_CR: {
+                      cn: '完整性',
+                      en: 'CheckinPassengerSumCount_CR',
+                      width: 200,
+                  },BoardingPassengerSumCount: {
                       cn: '已登机旅客人数',
-                      en: 'boardingPassengerSum',
-                      width: 170
-                  }, passengerDomesticSum: {
+                      en: 'BoardingPassengerSumCount',
+                      width: 200,
+                  },BoardingPassengerSumCount_CR: {
+                      cn: '完整性',
+                      en: 'BoardingPassengerSumCount_CR',
+                      width: 200,
+                  },passengerDomesticSumCount: {
                       cn: '国内旅客总人数',
-                      en: 'passengerDomesticSum',
-                      width: 170
-                  }, passengerInternationalSum: {
+                      en: 'passengerDomesticSumCount',
+                      width: 200,
+                  },passengerDomesticSumCount_CR: {
+                      cn: '完整性',
+                      en: 'passengerDomesticSumCount_CR',
+                      width: 200,
+                  },passengerInternationalSumCount: {
                       cn: '国际旅客总人数',
-                      en: 'passengerInternationalSum',
-                      width: 170
-                  }, passengerAdultSum: {
+                      en: 'passengerInternationalSumCount',
+                      width: 200,
+                  },passengerInternationalSumCount_CR: {
+                      cn: '完整性',
+                      en: 'passengerInternationalSumCount_CR',
+                      width: 200,
+                  },passengerAdultSumCount: {
                       cn: '成年旅客人数',
-                      en: 'passengerAdultSum'
-                  }, passengerChildSum: {
+                      en: 'passengerAdultSumCount',
+                      width: 200,
+                  },passengerAdultSumCount_CR: {
+                      cn: '完整性',
+                      en: 'passengerAdultSumCount_CR',
+                      width: 200,
+                  },passengerChildSumCount: {
                       cn: '儿童旅客人数',
-                      en: 'passengerChildSum'
-                  }, passengerBabySum: {
+                      en: 'passengerChildSumCount',
+                      width: 200,
+                  },passengerChildSumCount_CR: {
+                      cn: '完整性',
+                      en: 'passengerChildSumCount_CR',
+                      width: 200,
+                  },passengerBabySumCount: {
                       cn: '婴儿旅客人数',
-                      en: 'passengerBabySum'
-                  }, cargoDomesticWeight: {
+                      en: 'passengerBabySumCount',
+                      width: 200,
+                  },passengerBabySumCount_CR: {
+                      cn: '完整性',
+                      en: 'passengerBabySumCount_CR',
+                      width: 200,
+                  },cargoDomesticWeightCount: {
                       cn: '国内货物重量',
-                      en: 'cargoDomesticWeight'
-                  }, cargoInternationalWeight: {
+                      en: 'cargoDomesticWeightCount',
+                      width: 200,
+                  },cargoDomesticWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'cargoDomesticWeightCount_CR',
+                      width: 200,
+                  },cargoInternationalWeightCount: {
                       cn: '国际货物重量',
-                      en: 'cargoInternationalWeight'
-                  }, mailDomesticWeight: {
+                      en: 'cargoInternationalWeightCount',
+                      width: 200,
+                  },cargoInternationalWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'cargoInternationalWeightCount_CR',
+                      width: 200,
+                  },mailDomesticWeightCount: {
                       cn: '国内邮件重量',
-                      en: 'mailDomesticWeight'
-                  }, mailInternationalWeight: {
+                      en: 'mailDomesticWeightCount',
+                      width: 200,
+                  },mailDomesticWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'mailDomesticWeightCount_CR',
+                      width: 200,
+                  },mailInternationalWeightCount: {
                       cn: '国际邮件重量',
-                      en: 'mailInternationalWeight'
-                  }, luggageDomesticWeight: {
+                      en: 'mailInternationalWeightCount',
+                      width: 200,
+                  },mailInternationalWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'mailInternationalWeightCount_CR',
+                      width: 200,
+                  },luggageDomesticWeightCount: {
                       cn: '国内行李重量',
-                      en: 'luggageDomesticWeight'
-                  }, luggageInternationalWeight: {
+                      en: 'luggageDomesticWeightCount',
+                      width: 200,
+                  },luggageDomesticWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'luggageDomesticWeightCount_CR',
+                      width: 200,
+                  },luggageInternationalWeightCount: {
                       cn: '国际行李重量',
-                      en: 'luggageInternationalWeight'
-                  }, luggageDomesticSum: {
+                      en: 'luggageInternationalWeightCount',
+                      width: 200,
+                  },luggageInternationalWeightCount_CR: {
+                      cn: '完整性',
+                      en: 'luggageInternationalWeightCount_CR',
+                      width: 200,
+                  },luggageDomesticSumCount: {
                       cn: '国内行李数量',
-                      en: 'luggageDomesticSum'
-                  }, luggageInternationalSum: {
+                      en: 'luggageDomesticSumCount',
+                      width: 200,
+                  },luggageDomesticSumCount_CR: {
+                      cn: '完整性',
+                      en: 'luggageDomesticSumCount_CR',
+                      width: 200,
+                  },luggageInternationalSumCount: {
                       cn: '国际行李数量',
-                      en: 'luggageInternationalSum'
-                  }, cargoFreeLoad: {
-                      cn: '腹舱剩余载量',
-                      en: 'cargoFreeLoad'
+                      en: 'luggageInternationalSumCount',
+                      width: 200,
+                  },luggageInternationalSumCount_CR: {
+                      cn: '完整性',
+                      en: 'luggageInternationalSumCount_CR',
+                      width: 200,
+                  },cargoFreeLoadCount: {
+                      cn: '腹仓剩余载量',
+                      en: 'cargoFreeLoadCount',
+                      width: 200,
+                  },cargoFreeLoadCount_CR: {
+                      cn: '完整性',
+                      en: 'cargoFreeLoadCount_CR',
+                      width: 200,
                   }
 
               },
@@ -2620,179 +3036,192 @@ var BasicData = function () {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 200
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 200
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, Name: {
-                      cn: '姓名',
-                      en: 'Name'
-                  }, Role: {
-                      cn: '职务',
-                      en: 'Role'
-                  }, NewCaptain: {
-                      cn: '是否新机长',
-                      en: 'NewCaptain'
-                  }, ForeignCaptain: {
-                      cn: '是否为外籍人员',
-                      en: 'ForeignCaptain',
-                      width: 170
-                  }, Remark: {
-                      cn: '备注',
-                      en: 'Remark'
-                  }, crewILSLevel: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },planCount: {
+                      cn: '计划总量',
+                      en: 'planCount',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },flightCrewsCount: {
+                      cn: '机组名单块',
+                      en: 'flightCrewsCount',
+                      width: 200,
+                  },flightCrewsCount_CR: {
+                      cn: '完整性',
+                      en: 'flightCrewsCount_CR',
+                      width: 200,
+                  },CrewILSLevelCount: {
                       cn: '机组仪表飞行标准',
-                      en: 'crewILSLevel',
-                      width: 200
-                  }, crewEstTimeoutTime: {
+                      en: 'CrewILSLevelCount',
+                      width: 200,
+                  },CrewILSLevelCount_CR: {
+                      cn: '完整性',
+                      en: 'CrewILSLevelCount_CR',
+                      width: 200,
+                  },crewEstTimeoutTimeCount: {
                       cn: '机组预计超时时间',
-                      en: 'crewEstTimeoutTime',
-                      formatter: timeFormater,
-                      width: 200
+                      en: 'crewEstTimeoutTimeCount',
+                      width: 200,
+                  },crewEstTimeoutTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'crewEstTimeoutTimeCount_CR',
+                      width: 200,
                   }
 
               },
               'FACI': {
                   id: {
                       cn: 'ID',
-                      en: 'ID',
-                      width: 150
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                      en: 'ID'
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, regNumber: {
-                      cn: '航空器注册号',
-                      en: 'regNumber',
-                      width: 250
-                  }, aircraftType: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },regNumberCount: {
+                      cn: '航空注册器号',
+                      en: 'regNumberCount',
+                      width: 200,
+                  },regNumberCount_CR: {
+                      cn: '完整性',
+                      en: 'regNumberCount_CR',
+                      width: 200,
+                  },aircraftTypeCount: {
                       cn: '机型',
-                      en: 'aircraftType',
-                      width: 250
-                  }, wingSpanLength: {
+                      en: 'aircraftTypeCount',
+                      width: 200,
+                  },aircraftTypeCount_CR: {
+                      cn: '完整性',
+                      en: 'aircraftTypeCount_CR',
+                      width: 200,
+                  },wingSpanLengthCount: {
                       cn: '翼展长度',
-                      en: 'wingSpanLength',
-                      width: 250
-                  }, fuselageLength: {
+                      en: 'wingSpanLengthCount',
+                      width: 200,
+                  },wingSpanLengthCount_CR: {
+                      cn: '完整性',
+                      en: 'wingSpanLengthCount_CR',
+                      width: 200,
+                  },fuseLageLengthCount: {
                       cn: '机身长度',
-                      en: 'fuselageLength',
-                      width: 250
-                  }, startServiceTime: {
+                      en: 'fuseLageLengthCount',
+                      width: 200,
+                  },fuseLageLengthCount_CR: {
+                      cn: '完整性',
+                      en: 'fuseLageLengthCount_CR',
+                      width: 200,
+                  },startServiceTimeCount: {
                       cn: '机龄起始时间',
-                      en: 'startServiceTime',
-                      formatter: timeFormater,
-                      width: 250
-                  }
+                      en: 'startServiceTimeCount',
+                      width: 200,
+                  },startServiceTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'startServiceTimeCount_CR',
+                      width: 200,
+                  },
               }
           },
           'ATMI': {
               'FCDM': {
                   id: {
                       cn: 'ID',
-                      en: 'ID',
-                      width: 110
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                      en: 'ID'
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  }, messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 110
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 130
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber',
-                      width: 110
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP',
-                      width: 110
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP',
-                      width: 110
-                  }, CTOT: {
+                  }, sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  }, updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  }, planCount: {
+                      cn: '计划总量',
+                      en: 'planCount',
+                      width: 200,
+                  }, allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, CTOTCount: {
                       cn: '计算起飞时间',
-                      en: 'CTOT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, COBT: {
-                      cn: '计算撤轮挡时间',
-                      en: 'COBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, TOBT: {
-                      cn: '目标撤轮挡时间',
-                      en: 'TOBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, TSAT: {
+                      en: 'CTOTCount',
+                      width: 110
+                  },CTOTCount_CR: {
+                      cn: '完整性',
+                      en: 'CTOTCount_CR',
+                      width: 110
+                  },COBTCount: {
+                      cn: '计算撤轮档时间',
+                      en: 'COBTCount',
+                      width: 110
+                  },COBTCount_CR: {
+                      cn: '完整性',
+                      en: 'COBTCount_CR',
+                      width: 110
+                  },TOBTCount: {
+                      cn: '目标撤轮档时间',
+                      en: 'TOBTCount',
+                      width: 110
+                  },TOBTCount_CR: {
+                      cn: '完整性',
+                      en: 'TOBTCount_CR',
+                      width: 110
+                  },TSATCount: {
                       cn: '目标许可开车时间',
-                      en: 'TSAT',
-                      width: 130,
-                      formatter: timeFormater
-                  }, reason: {
+                      en: 'TSATCount',
+                      width: 110
+                  },TSATCount_CR: {
+                      cn: '完整性',
+                      en: 'TSATCount_CR',
+                      width: 110
+                  },reasonCount: {
                       cn: '航班受控原因',
-                      en: 'reason',
+                      en: 'reasonCount',
+                      width: 110
+                  },reasonCount_CR: {
+                      cn: '完整性',
+                      en: 'reasonCount_CR',
                       width: 110
                   }
               },
@@ -2800,211 +3229,28 @@ var BasicData = function () {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, FTMID: {
-                      cn: '流控标识',
-                      en: 'FTMID'
-                  }, publishArea: {
-                      cn: '流控发布地区',
-                      en: 'publishArea'
-                  }, publishUnit: {
-                      cn: '流控发布单位',
-                      en: 'publishUnit'
-                  }, acceptUnit: {
-                      cn: '流控接受单位',
-                      en: 'acceptUnit'
-                  }, applyTime: {
-                      cn: '流控申请时间',
-                      en: 'applyTime',
-                      formatter: timeFormater
-                  }, publicTime: {
-                      cn: '流控发布时间',
-                      en: 'publicTime',
-                      formatter: timeFormater
-                  }, fix: {
-                      cn: '交接点',
-                      en: 'fix'
-                  }, scope: {
-                      cn: '流控影响范围',
-                      en: 'scope'
-                  }, seperationValue: {
-                      cn: '流控间隔数值',
-                      en: 'seperationValue'
-                  }, seperationUnit: {
-                      cn: '流控间隔单位',
-                      en: 'seperationUnit'
-                  }, FLScope: {
-                      cn: '高度要求',
-                      en: 'FLScope'
-                  }, exempt: {
-                      cn: '流控豁免范围',
-                      en: 'exempt'
-                  }, startTime: {
-                      cn: '流控开始时间',
-                      en: 'startTime',
-                      formatter: timeFormater,
-                  }, endTime: {
-                      cn: '流控结束时间',
-                      en: 'endTime',
-                      formatter: timeFormater,
-                  }, reason: {
-                      cn: '流控限制原因',
-                      en: 'reason'
-                  }, targetArea: {
-                      cn: '事发地',
-                      en: 'targetArea'
-                  }
+                  },
               },
               'PADR': {
                   id: {
                       cn: 'ID',
                       en: 'ID',
                       width: 130
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, airportNameEN: {
-                      cn: '机场英文名称',
-                      en: 'airportNameEN',
-                      width: 130
-                  }, date: {
-                      cn: '日期',
-                      en: 'date',
-                      width: 130
-                  }, startTime: {
-                      cn: '开始时间',
-                      en: 'startTime',
-                      formatter: timeFormater,
-                      width: 130
-                  }, endTime: {
-                      cn: '终止时间',
-                      en: 'endTime',
-                      width: 130,
-                      formatter: timeFormater
-                  }, depRunWay: {
-                      cn: '起飞跑道',
-                      en: 'depRunWay',
-                      width: 130
-                  }, arrRunWay: {
-                      cn: '落地跑道',
-                      en: 'arrRunWay',
-                      width: 130
-                  }, APCPT: {
-                      cn: '机场容量',
-                      en: 'APCPT',
-                      width: 130
-                  }, ARR: {
-                      cn: '接受率',
-                      en: 'ARR',
-                      width: 130
-                  }, ADR: {
-                      cn: '离场率',
-                      en: 'ADR',
-                      width: 130
-                  }, remark: {
-                      cn: '备注',
-                      en: 'remark',
-                      width: 130
-                  }
+                  },
               },
               'MDRS': {
                   id: {
                       cn: 'ID',
                       en: 'ID',
                       width: 130
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
-                      width: 200,
-                      formatter: fullTimeFormater
-                  }, MDRSIdentification: {
-                      cn: 'MDRS标识',
-                      en: 'MDRSIdentification',
-                      width: 130
-                  }, MDRSName: {
-                      cn: 'MDRS通告名称',
-                      en: 'MDRSName',
-                      width: 130
-                  }, MDRSPublishTime: {
-                      cn: 'MDRS发布时间',
-                      en: 'MDRSPublishTime',
-                      width: 130,
-                      formatter: timeFormater
-                  }, MDRSPublishUnit: {
-                      cn: 'MDRS发布单位',
-                      en: 'MDRSPublishUnit',
-                      width: 130
-                  }, MDRSLevel: {
-                      cn: 'MDRS延误等级',
-                      en: 'MDRSLevel',
-                      width: 130
-                  }, MDRSArea: {
-                      cn: 'MDRS延误区域',
-                      en: 'MDRSArea',
-                      width: 130
-                  }, MDRSTimeScope: {
-                      cn: 'MDRS延误时段',
-                      en: 'MDRSTimeScope',
-                      width: 130
-                  }, MDRSReason: {
-                      cn: 'MDRS延误原因',
-                      en: 'MDRSReason',
-                      width: 130
-                  }, MDRSExpectInfluence: {
-                      cn: 'MDRS预期影响',
-                      en: 'MDRSExpectInfluence',
-                      width: 130
-                  }, MDRSExpectRespond: {
-                      cn: 'MDRS预期响应',
-                      en: 'MDRSExpectRespond',
-                      width: 130
-                  }
+                  },
               },
               'SECT': {
                   id: {
                       cn: 'ID',
                       en: 'ID',
                       width: 400
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
-                      width: 400,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
-                      width: 400,
-                      formatter: fullTimeFormater
-                  }, sectorIdentification: {
-                      cn: '扇区标识',
-                      en: 'sectorIdentification',
-                      width: 400
-                  }, mergedSector: {
-                      cn: '被合并扇区',
-                      en: 'mergedSector',
-                      width: 400
-                  }
+                  },
               },
           },
           'OSCI': {
@@ -3012,319 +3258,503 @@ var BasicData = function () {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 110
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 130
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber'
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP'
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP'
-                  }, missionDate: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  },MissionDateCount: {
                       cn: '计划执行日期',
-                      en: 'missionDate',
-                      width: 200
-                  }, SDepAP: {
+                      en: 'MissionDateCount',
+                      width: 200,
+                  },MissionDateCount_CR: {
+                      cn: '完整性',
+                      en: 'MissionDateCount_CR',
+                      width: 200,
+                  },SDepAPCount: {
                       cn: '计划起飞机场',
-                      en: 'SDepAP'
-                  }, SOBT: {
+                      en: 'SDepAPCount',
+                      width: 200,
+                  },SDepAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'SDepAPCountt_CR',
+                      width: 200,
+                  },SOBTCount: {
                       cn: '计划离港时间',
-                      en: 'SOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, SArrAP: {
+                      en: 'SOBTCount',
+                      width: 200,
+                  },SOBTCountt_CR: {
+                      cn: '完整性',
+                      en: 'SOBTCountt_CR',
+                      width: 200,
+                  },SArrAPCount: {
                       cn: '计划目的地机场',
-                      en: 'SArrAP'
-                  }, SIBT: {
-                      cn: '计划到港时间',
-                      en: 'SIBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, SAircraftType: {
+                      en: 'SArrAPCount',
+                      width: 200,
+                  },SArrAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'SArrAPCountt_CR',
+                      width: 200,
+                  },aSIBTCount: {
+                      cn: '计划到岗时间',
+                      en: 'SIBTCount',
+                      width: 200,
+                  },SIBTCountt_CR: {
+                      cn: '完整性',
+                      en: 'SIBTCountt_CR',
+                      width: 200,
+                  },SAircraftTypeCount: {
                       cn: '计划机型',
-                      en: 'SAircraftType'
-                  }, STask: {
+                      en: 'SAircraftTypeCount',
+                      width: 200,
+                  },SAircraftTypeCountt_CR: {
+                      cn: '完整性',
+                      en: 'SAircraftTypeCountt_CR',
+                      width: 200,
+                  },STaskCount: {
                       cn: '计划任务性质',
-                      en: 'STask'
-                  }, status: {
+                      en: 'aSTaskCount',
+                      width: 200,
+                  },STaskCountt_CR: {
+                      cn: '完整性',
+                      en: 'STaskCountt_CR',
+                      width: 200,
+                  },StatusCount: {
                       cn: '航班执行状态',
-                      en: 'status'
-                  }, PDepAP: {
+                      en: 'StatusCount',
+                      width: 200,
+                  },StatusCountt_CR: {
+                      cn: '完整性',
+                      en: 'StatusCountt_CR',
+                      width: 200,
+                  },PDepAPCount: {
                       cn: '预计起飞机场',
-                      en: 'PDepAP'
-                  }, EOBT: {
+                      en: 'PDepAPCount',
+                      width: 200,
+                  },PDepAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'PDepAPCountt_CR',
+                      width: 200,
+                  },EOBTCount: {
                       cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, EET: {
-                      cn: '预计总飞行时间(分钟)',
-                      en: 'EET',
-                      // formatter: timeFormater,
-                      width: 200
-                  }, PArrAP: {
+                      en: 'EOBTCount',
+                      width: 200,
+                  }, EOBTCountt_CR: {
+                      cn: '完整性',
+                      en: 'EOBTCountt_CR',
+                      width: 200,
+                  },EETCount: {
+                      cn: '预计总飞行时间',
+                      en: 'EETCount',
+                      width: 200,
+                  },EETCountt_CR: {
+                      cn: '完整性',
+                      en: 'EETCountt_CR',
+                      width: 200,
+                  },PArrAPCount: {
                       cn: '预计目的地机场',
-                      en: 'PArrAP'
-                  }, ALNAP: {
+                      en: 'PArrAPCount',
+                      width: 200,
+                  },PArrAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'PArrAPCountt_CR',
+                      width: 200,
+                  },ALNAPCount: {
                       cn: '预计备降机场',
-                      en: 'ALNAP'
-                  }, RAircraftType: {
+                      en: 'ALNAPCount',
+                      width: 200,
+                  },ALNAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'ALNAPCountt_CR',
+                      width: 200,
+                  },RAircraftTypeCount: {
                       cn: '实际机型',
-                      en: 'RAircraftType'
-                  }, executeDate: {
+                      en: 'RAircraftTypeCount',
+                      width: 200,
+                  },RAircraftTypeCountt_CR: {
+                      cn: '完整性',
+                      en: 'RAircraftTypeCountt_CR',
+                      width: 200,
+                  },ExecuteDateCount: {
                       cn: '实际执行日期',
-                      en: 'executeDate',
-                      width: 200
-                  }, RDepAP: {
+                      en: 'ExecuteDateCount',
+                      width: 200,
+                  },ExecuteDateCountt_CR: {
+                      cn: '完整性',
+                      en: 'ExecuteDateCountt_CR',
+                      width: 200,
+                  },RDepAPCount: {
                       cn: '实际起飞机场',
-                      en: 'RDepAP'
-                  }, ATOT: {
+                      en: 'RDepAPCount',
+                      width: 200,
+                  },RDepAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'RDepAPCountt_CR',
+                      width: 200,
+                  },ATOTCount: {
                       cn: '实际起飞时间',
-                      en: 'ATOT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, RArrAP: {
+                      en: 'ATOTCount',
+                      width: 200,
+                  },ATOTCountt_CR: {
+                      cn: '完整性',
+                      en: 'ATOTCountt_CR',
+                      width: 200,
+                  },RArrAPCount: {
                       cn: '实际落地机场',
-                      en: 'RArrAP'
-                  }, ALDT: {
+                      en: 'RArrAPCount',
+                      width: 200,
+                  },RArrAPCountt_CR: {
+                      cn: '完整性',
+                      en: 'RArrAPCountt_CR',
+                      width: 200,
+                  },ALDTCount: {
                       cn: '实际落地时间',
-                      en: 'ALDT',
-                      formatter: timeFormater,
-                      width: 200
-                  }, regNumber: {
+                      en: 'ALDTCount',
+                      width: 200,
+                  },ALDTCountt_CR: {
+                      cn: '完整性',
+                      en: 'ALDTCountt_CR',
+                      width: 200,
+                  },RegNumberCount: {
                       cn: '航空器注册号',
-                      en: 'regNumber'
-                  }
+                      en: 'RegNumberCount',
+                      width: 200,
+                  },aRegNumberCountt_CR: {
+                      cn: '完整性',
+                      en: 'RegNumberCountt_CR',
+                      width: 200,
+                  },
               },
               'FPER': {
                   id: {
                       cn: 'ID',
-                      en: 'ID',
-                      width: 110
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                      en: 'ID'
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, callSign: {
-                      cn: '航空器识别标志',
-                      en: 'callSign',
-                      width: 110
-                  }, GUFI: {
-                      cn: '全球航班唯一标识符',
-                      en: 'GUFI',
-                      width: 130
-                  }, regNumber: {
-                      cn: '注册号',
-                      en: 'regNumber',
-                      width: 110
-                  }, SOBT: {
-                      cn: '计划离港时间',
-                      en: 'SOBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, EOBT: {
-                      cn: '预计撤轮档时间',
-                      en: 'EOBT',
-                      width: 110,
-                      formatter: timeFormater
-                  }, depAP: {
-                      cn: '起飞机场',
-                      en: 'depAP',
-                      width: 110
-                  }, arrAP: {
-                      cn: '目的地机场',
-                      en: 'arrAP',
-                      width: 110
-                  }, ETA: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },PlanCount: {
+                      cn: '计划总量',
+                      en: 'PlanCount',
+                      width: 200,
+                  }, allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, ETACount: {
                       cn: '航班预达时间',
-                      en: 'ETA',
-                      width: 110,
-                      formatter: timeFormater
-                  }, delayTime: {
-                      cn: '航班延误时间(分钟)',
-                      en: 'delayTime',
-                      width: 130,
-                      // formatter: timeFormater
-                  }, closeWaitTime: {
-                      cn: '关舱门后等待时间(分钟)',
-                      en: 'closeWaitTime',
-                      width: 150,
-                      // formatter: timeFormater
-                  }, AXIT: {
-                      cn: '航班进港滑行时间(分钟)',
-                      en: 'AXIT',
-                      width: 150,
-                      // formatter: timeFormater
-                  }, AXOT: {
-                      cn: '航班离港滑行时间(分钟)',
-                      en: 'AXOT',
-                      width: 150,
-                      // formatter: timeFormater
-                  }
+                      en: 'ETACount',
+                      width: 200,
+                  }, ETACount_CR: {
+                      cn: '完整性',
+                      en: 'ETACount_CR',
+                      width: 200,
+                  }, DelayTimeCount: {
+                      cn: '航班延误时间',
+                      en: 'DelayTimeCount',
+                      width: 200,
+                  }, DelayTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'DelayTimeCount_CR',
+                      width: 200,
+                  }, CloseWaitTimeCount: {
+                      cn: '关舱门后等待时间',
+                      en: 'CloseWaitTimeCount',
+                      width: 200,
+                  }, CloseWaitTimeCount_CR: {
+                      cn: '完整性',
+                      en: 'CloseWaitTimeCount_CR',
+                      width: 200,
+                  }, AXITCount: {
+                      cn: '航班进港滑行时间',
+                      en: 'AXITCount',
+                      width: 200,
+                  }, AXITCount_CR: {
+                      cn: '完整性',
+                      en: 'AXITCount_CR',
+                      width: 200,
+                  }, AXOTCount: {
+                      cn: '航班离港滑行时间',
+                      en: 'AXOTCount',
+                      width: 200,
+                  }, AXOTCount_CR: {
+                      cn: '完整性',
+                      en: 'AXOTCount_CR',
+                      width: 200,
+                  },
               },
               'PPER': {
                   id: {
                       cn: 'ID',
                       en: 'ID'
-                  }, messageSendDateTime: {
-                      cn: '发送时间',
-                      en: 'messageSendDateTime',
+                  }, messageType : {
+                      cn: '消息类型',
+                      en: 'messageType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, generateTime: {
-                      cn: '接收时间',
-                      en: 'generateTime',
+                  },messageSubType : {
+                      cn: '消息子类型',
+                      en: 'messageSubType',
                       width: 200,
-                      formatter: fullTimeFormater
-                  }, airportNameEN: {
-                      cn: '机场英文名称',
-                      en: 'airportNameEN'
-                  }, hourlySchDepSum: {
+                  },sourceSystemID : {
+                      cn: '消息源',
+                      en: 'sourceSystemID',
+                      width: 200,
+                  },updatetime : {
+                      cn: '日期',
+                      en: 'updatetime',
+                      width: 200,
+                  },allCount: {
+                      cn: '总量',
+                      en: 'allCount',
+                      width: 200,
+                  }, HourlySchDepSumCount: {
                       cn: '机场小时计划离港架次',
-                      en: 'hourlySchDepSum',
-                      width: 350
-                  }, hourlySchArrSum: {
+                      en: 'HourlySchDepSumCount',
+                      width: 200,
+                  }, HourlySchDepSumCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchDepSumCount_CR',
+                      width: 200,
+                  }, HourlySchArrSumCount: {
                       cn: '机场小时计划进港架次',
-                      en: 'hourlySchArrSum',
-                      width: 350
-                  }, hourlyActTakeOffSum: {
-                      cn: '机场小时实际起飞架次',
-                      en: 'hourlyActTakeOffSum',
-                      width: 350
-                  }, hourlyActLandingSum: {
+                      en: 'HourlySchArrSumCount',
+                      width: 200,
+                  }, HourlySchArrSumCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchArrSumCount_CR',
+                      width: 200,
+                  }, HourlyActTakeOffSumCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActTakeOffSumCount_CR',
+                      width: 200,
+                  }, HourlyActLandingSumCount: {
                       cn: '机场小时实际落地架次',
-                      en: 'hourlyActLandingSum',
-                      width: 350
-                  }, hourlyActTakeOffPunctualityRate: {
+                      en: 'HourlyActLandingSumCount',
+                      width: 200,
+                  }, HourlyActLandingSumCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActLandingSumCount_CR',
+                      width: 200,
+                  }, HourlyActTakeOffPunctualityRateCount: {
                       cn: '小时实际起飞正常率',
-                      en: 'hourlyActTakeOffPunctualityRate',
-                      width: 350
-                  }, dailyActTakeOffPunctualityRate: {
+                      en: 'HourlyActTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, HourlyActTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyActTakeOffPunctualityRateCount: {
                       cn: '当日实际起飞正常率',
-                      en: 'dailyActTakeOffPunctualityRate',
-                      width: 180
-                  }, hourlySchTakeOffPunctualityRate: {
+                      en: 'DailyActTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, DailyActTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyActTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlySchTakeOffPunctualityRateCount: {
                       cn: '小时计划起飞正常率',
-                      en: 'hourlySchTakeOffPunctualityRate',
-                      width: 400
-                  }, dailySchTakeOffPunctualityRate: {
+                      en: 'HourlySchTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, HourlySchTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailySchTakeOffPunctualityRateCount: {
                       cn: '当日计划起飞正常率',
-                      en: 'dailySchTakeOffPunctualityRate',
-                      width: 180
-                  }, hourlyActDepPunctualityRate: {
+                      en: 'DailySchTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, DailySchTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailySchTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyActDepPunctualityRateCount: {
                       cn: '小时实际离港正常率',
-                      en: 'hourlyActDepPunctualityRate',
-                      width: 400
-                  }, dailyActDepPunctualityRate: {
+                      en: 'HourlyActDepPunctualityRateCount',
+                      width: 200,
+                  }, HourlyActDepPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActDepPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyActDepPunctualityRateCount: {
                       cn: '当日实际离港正常率',
-                      en: 'dailyActDepPunctualityRate',
-                      width: 180
-                  }, hourlySchDepPunctualityRate: {
+                      en: 'DailyActDepPunctualityRateCount',
+                      width: 200,
+                  }, DailyActDepPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyActDepPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlySchDepPunctualityRateCount: {
                       cn: '小时计划离港正常率',
-                      en: 'hourlySchDepPunctualityRate',
-                      width: 400
-                  }, dailySchDepPunctualityRate: {
+                      en: 'HourlySchDepPunctualityRateCount',
+                      width: 200,
+                  }, HourlySchDepPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchDepPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailySchDepPunctualityRateCount: {
                       cn: '当日计划离港正常率',
-                      en: 'dailySchDepPunctualityRate',
-                      width: 180
-                  }, hourlyOriActTakeOffPunctualityRate: {
+                      en: 'DailySchDepPunctualityRateCount',
+                      width: 200,
+                  }, DailySchDepPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailySchDepPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyOriActTakeOffPunctualityRateCount: {
                       cn: '小时始发航班实际起飞正常率',
-                      en: 'hourlyOriActTakeOffPunctualityRate',
-                      width: 400
-                  }, dailyOriActTakeOffPunctualityRate: {
+                      en: 'HourlyOriActTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, HourlyOriActTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyOriActTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyOriSchTakeOffPunctualityRateCount: {
                       cn: '当日始发航班实际起飞正常率',
-                      en: 'dailyOriActTakeOffPunctualityRate',
-                      width: 180
-                  }, hourlyOriSchTakeOffPunctualityRate: {
+                      en: 'DailyOriSchTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, DailyOriSchTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyOriSchTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyOriSchTakeOffPunctualityRateCount: {
                       cn: '小时始发航班计划起飞正常率',
-                      en: 'hourlyOriSchTakeOffPunctualityRate',
-                      width: 400
-                  }, dailyOriSchTakeOffPunctualityRate: {
+                      en: 'HourlyOriSchTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, HourlyOriSchTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyOriSchTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyOriSchTakeOffPunctualityRateCount: {
                       cn: '当日始发航班计划起飞正常率',
-                      en: 'dailyOriSchTakeOffPunctualityRate',
-                      width: 180
-                  }, hourlyActClearancePunctualityRate: {
+                      en: 'DailyOriSchTakeOffPunctualityRateCount',
+                      width: 200,
+                  }, DailyOriSchTakeOffPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyOriSchTakeOffPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyActClearancePunctualityRateCount: {
                       cn: '小时机场实际放行正常率',
-                      en: 'hourlyActClearancePunctualityRate',
-                      width: 400
-                  }, dailyActClearancePunctualityRate: {
+                      en: 'HourlyActClearancePunctualityRateCount',
+                      width: 200,
+                  }, HourlyActClearancePunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActClearancePunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyActClearancePunctualityRateCount: {
                       cn: '当日机场实际放行正常率',
-                      en: 'dailyActClearancePunctualityRate',
-                      width: 180
-                  }, hourlySchClearancePunctualityRate: {
+                      en: 'DailyActClearancePunctualityRateCount',
+                      width: 200,
+                  }, DailyActClearancePunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyActClearancePunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlySchClearancePunctualityRateCount: {
                       cn: '机场计划放行正常率',
-                      en: 'hourlySchClearancePunctualityRate',
-                      width: 400
-                  }, dailySchClearancePunctualityRate: {
+                      en: 'HourlySchClearancePunctualityRateCount',
+                      width: 200,
+                  }, HourlySchClearancePunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchClearancePunctualityRateCount_CR',
+                      width: 200,
+                  }, DailySchClearancePunctualityRateCount: {
                       cn: '当日机场计划放行正常率',
-                      en: 'dailySchClearancePunctualityRate',
-                      width: 180
-                  }, hourlyActLandingPunctualityRate: {
+                      en: 'DailySchClearancePunctualityRateCount',
+                      width: 200,
+                  }, DailySchClearancePunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailySchClearancePunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyActLandingPunctualityRateCount: {
                       cn: '小时实际落地正常率',
-                      en: 'hourlyActLandingPunctualityRate',
-                      width: 350
-                  }, dailyActLandingPunctualityRate: {
+                      en: 'HourlyActLandingPunctualityRateCount',
+                      width: 200,
+                  }, HourlyActLandingPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActLandingPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyActLandingPunctualityRateCount: {
                       cn: '当日实际落地正常率',
-                      en: 'dailyActLandingPunctualityRate',
-                      width: 180
-                  }, hourlySchLandingPunctualityRate: {
+                      en: 'DailyActLandingPunctualityRateCount',
+                      width: 200,
+                  },DailyActLandingPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyActLandingPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlySchLandingPunctualityRateCount: {
                       cn: '小时计划落地正常率',
-                      en: 'hourlySchLandingPunctualityRate',
-                      width: 400
-                  }, dailySchLandingPunctualityRate: {
+                      en: 'HourlySchLandingPunctualityRateCount',
+                      width: 200,
+                  }, HourlySchLandingPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchLandingPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailySchLandingPunctualityRateCount: {
                       cn: '当日计划落地正常率',
-                      en: 'dailySchLandingPunctualityRate',
-                      width: 180
-                  }, hourlyActArrPunctualityRate: {
+                      en: 'DailySchLandingPunctualityRateCount',
+                      width: 200,
+                  }, DailySchLandingPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailySchLandingPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlyActArrPunctualityRateCount: {
                       cn: '小时实际到港正常率',
-                      en: 'hourlyActArrPunctualityRate',
-                      width: 400
-                  }, dailyActArrPunctualityRate: {
+                      en: 'HourlyActArrPunctualityRateCount',
+                      width: 200,
+                  }, HourlyActArrPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlyActArrPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailyActArrPunctualityRateCount: {
                       cn: '当日实际到港正常率',
-                      en: 'dailyActArrPunctualityRate',
-                      width: 180
-                  }, hourlySchArrPunctualityRate: {
+                      en: 'DailyActArrPunctualityRateCount',
+                      width: 200,
+                  }, DailyActArrPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailyActArrPunctualityRateCount_CR',
+                      width: 200,
+                  }, HourlySchArrPunctualityRateCount: {
                       cn: '小时计划到港正常率',
-                      en: 'hourlySchArrPunctualityRate',
-                      width: 400
-                  }, dailySchArrPunctualityRate: {
+                      en: 'HourlySchArrPunctualityRateCount',
+                      width: 200,
+                  }, HourlySchArrPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'HourlySchArrPunctualityRateCount_CR',
+                      width: 200,
+                  }, DailySchArrPunctualityRateCount: {
                       cn: '当日计划到港正常率',
-                      en: 'dailySchArrPunctualityRate',
-                      width: 180
-                  }
+                      en: 'DailySchArrPunctualityRateCount',
+                      width: 200,
+                  }, DailySchArrPunctualityRateCount_CR: {
+                      cn: '完整性',
+                      en: 'DailySchArrPunctualityRateCount_CR',
+                      width: 200,
+                  },
               }
           }
       },
@@ -3418,12 +3848,13 @@ var BasicData = function () {
    * 依据colName遍历生成对应的colModel，colDisplay,title
    *
    * */
-  var initTableOption = function (obj) {
-    for (var i in obj) {
+  var initTableOption = function (tableObj) {
+    var colName = tableObj.colName;
+    for (var i in colName) {
       tableObj.colModel[i] = {};
       tableObj.display[i] = {};
       tableObj.title[i] = {};
-      var item = obj[i];
+      var item = colName[i];
       for (var k in item) {
         var o = item[k];
         tableObj.colModel[i][k] = {};
@@ -3438,13 +3869,16 @@ var BasicData = function () {
           if ($.isValidVariable(val.formatter)) {
             tableObj.colModel[i][k][j]['formatter'] = val.formatter;
           }
+          if ($.isValidVariable(val.frozen)) {
+            tableObj.colModel[i][k][j]['frozen'] = val.frozen;
+          }
+
 
           tableObj.display[i][k][j] = {display: 1};
           tableObj.title[i][k][j] = val.cn;
         }
       }
-    }
-    ;
+    };
   };
 
   /**
@@ -3629,12 +4063,15 @@ var BasicData = function () {
       //初始始化基础数据
       initBasicData();
       //初始化表格配置
-      initTableOption(tableObj.colName);
+      initTableOption(tableObj);
+      initTableOption(qualityTableObj)
+
     },
     historyDataTypeObj: historyDataTypeObj,
     operatingDataTypeObj: operatingDataTypeObj,
     qualityDataTypeObj: qualityDataTypeObj,
     tableObj: tableObj,
+    qualityTableObj : qualityTableObj,
     modalContent : modalContent
   }
 }();
