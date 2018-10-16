@@ -83,12 +83,15 @@ var QualityData = function () {
       qualityDataDashboard.clearGeneratetime();
       // 若表格已经存在，则重新加载表格(清空表格头及表格数据)
       if ($.isValidObject(tableInstance)) {
-        $.jgrid.gridUnload('tb-datas');
+        $.jgrid.gridUnload('quality-table-datas');
       }
       // 更新查询条件
       showConditions();
       //拼接参数
       var str = concatParameter(type);
+
+        currentType  = 'OSCI';
+        currentSubtype = 'PPER'
       //数据查询
       searchData(str, btn);
     }
@@ -127,6 +130,11 @@ var QualityData = function () {
             return {
                 valid: false,
                 mess: '截止时间不能晚于昨日'
+            }
+        }else if (currentSubtype == null) {
+            return {
+                valid: false,
+                mess: '信息子类型不能为空'
             }
         }
         return {
@@ -175,62 +183,62 @@ var QualityData = function () {
    * 数据查询
    * */
   var searchData = function (str, btn) {
-        var result ;
-      //初始化表格
-      initTable();
-      // fireDataChange(result);
-      /***********************/
-    var url = searchUrl + str;
-    var load = Ladda.create(btn);
-    load.start();
-    $.ajax({
-      url: url,
-      type: 'GET',
-      dataType: 'json',
-      success: function (data, status, xhr) {
-        // 当前数据
-        if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
 
-          //提取数据
-          var result = data.sharingDatas;
-          var time = data.generatetime;
+      var url = searchUrl + str;
+      var load = Ladda.create(btn);
+      $('.quality-form').addClass('no-event');
+      load.start();
+      $.ajax({
+          // url: url,
+          url: 'http://192.168.243.30:8080/flight-quality-statistics-server/exportExcel/20180925/20181016/'+currentType+'/'+currentSubtype +'/OMCCAAC/2',
+          type: 'GET',
+          dataType: 'json',
+          success: function (data, status, xhr) {
+              // 当前数据
+              if ($.isValidObject(data) && $.isValidVariable(data.status) && '200' == data.status) {
 
-          // 更新数据时间
-          qualityDataDashboard.updateGeneratetime(time);
-          // 若数据为空
-          if (!$.isValidObject(result)) {
-            //显示提示
-           qualityDataDashboard.showTip('本次查询数据结果为空');
-            load.stop();
-            return;
+                  //提取数据
+                  var result = data.sharingDatas;
+                  var time = data.generatetime;
+
+                  // 更新数据时间
+                  qualityDataDashboard.updateGeneratetime(time);
+                  // 若数据为空
+                  if (!$.isValidObject(result)) {
+                      //显示提示
+                      qualityDataDashboard.showTip('本次查询数据结果为空');
+                      load.stop();
+                      $('.quality-form').removeClass('no-event');
+                      return;
+                  }
+                  //初始化表格
+                  initTable();
+                  //表格数据加载
+                  // tableLoad(result);
+                  fireDataChange(result);
+                  load.stop();
+                  $('.quality-form').removeClass('no-event');
+
+              } else if ($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
+                  var err = '查询失败:' + data.error;
+                  qualityDataDashboard.showAlear(err);
+                  load.stop();
+                  $('.quality-form').removeClass('no-event');
+              } else {
+                  qualityDataDashboard.showAlear('查询失败,请稍后重试');
+                  load.stop();//显示提示
+                  $('.quality-form').removeClass('no-event');
+              }
+
+          },
+          error: function (xhr, status, error) {
+              load.stop();
+              $('.quality-form').removeClass('no-event');
+              qualityDataDashboard.showAlear('查询失败,请稍后重试');
+              console.error('Search data failed');
+              console.error(error);
           }
-          //初始化表格
-          initTable();
-          //表格数据加载
-          // tableLoad(result);
-          fireDataChange(result);
-
-          load.stop();
-
-        } else if ($.isValidObject(data) && $.isValidVariable(data.status) && '500' == data.status) {
-          var err = '查询失败:' + data.error;
-            qualityDataDashboard.showAlear(err);
-          load.stop();
-          //显示提示
-        } else {
-            qualityDataDashboard.showAlear('查询失败');
-            load.stop();//显示提示
-        }
-
-      },
-      error: function (xhr, status, error) {
-        load.stop();
-        $('.modal-content').removeClass('no-event');
-          qualityDataDashboard.showAlear('查询失败');
-        console.error('Search data failed');
-        console.error(error);
-      }
-    });
+      });
   };
 
 
@@ -243,12 +251,12 @@ var QualityData = function () {
       canvasId: canvasId,
       tableId: tableId,
       pagerId: pagerId,
-      colNames: BasicData.tableObj.colName[currentType][currentSubtype],
-      colModel: BasicData.tableObj.colModel[currentType][currentSubtype],
-      cmTemplate: BasicData.tableObj.cmTemplate,
-      colDisplay: BasicData.tableObj.display[currentType][currentSubtype],
+      colNames: BasicData.qualityTableObj.colName[currentType][currentSubtype],
+      colModel: BasicData.qualityTableObj.colModel[currentType][currentSubtype],
+      cmTemplate: BasicData.qualityTableObj.cmTemplate,
+      colDisplay: BasicData.qualityTableObj.display[currentType][currentSubtype],
       colStyle: {},
-      colTitle: BasicData.tableObj.title[currentType][currentSubtype],
+      colTitle: BasicData.qualityTableObj.title[currentType][currentSubtype],
       colEdit: {},
         params: {
             shrinkToFit: false,
@@ -281,7 +289,7 @@ var QualityData = function () {
     //初始化
     tableInstance.initGridTableObject();
     // 显示pager
-    $('#table-datas-pager').show();
+    $('#quality-table-datas-pager').show();
     tableInstance.resizeToFitContainer();
   };
 
@@ -357,25 +365,6 @@ var QualityData = function () {
     })
   };
 
-
-  /**
-   * 切换模态框显示隐藏
-   *
-   * tag bool true显示 false 隐藏
-   **/
-  var toggleModal = function (tag) {
-    //模态框对象
-    var $modal = $('#bootstrap-modal-dialog');
-    var $body = $('body');
-    // 设置显示
-    if (tag) {
-      $body.removeClass('hide-modal');
-      $modal.modal('show');
-    } else {//设置隐藏
-      $body.addClass('hide-modal');
-      $modal.modal('hide');
-    }
-  };
   /**
    * 切换选中类型项
    * that 被点击元素
@@ -405,13 +394,6 @@ var QualityData = function () {
     qualityDataDashboard.updateSelectOptions(typeName);
   };
 
-  /**
-   * 取消下拉列表选中
-   * */
-  var deselectList = function () {
-    $('#subtype').selectpicker('deselectAll');
-    $('#unit-list').selectpicker('deselectAll');
-  };
 
   /**
    * 触发表格全部数据更新
