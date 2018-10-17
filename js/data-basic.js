@@ -137,10 +137,10 @@ var BasicData = function () {
             'ATMI': {
                 subtype: {
                     'FCDM': '航班CDM信息',
-                    'FTMI': '流量控制措施信息',
-                    'PADR': '机场通行能力信息',
-                    'MDRS': 'MDRS信息',
-                    'SECT': '扇区开放合并信息'
+                    // 'FTMI': '流量控制措施信息',
+                    // 'PADR': '机场通行能力信息',
+                    // 'MDRS': 'MDRS信息',
+                    // 'SECT': '扇区开放合并信息'
                 },
                 unit: {
                     'ATMB': '空管局'
