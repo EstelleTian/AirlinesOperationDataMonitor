@@ -3540,29 +3540,313 @@ var BasicData = function () {
                 'FTMI': {
                     id: {
                         cn: 'ID',
-                        en: 'ID'
+                        en: 'ID',
+                        frozen:true
+                    },
+                    messageType : {
+                        cn: '消息类型',
+                        en: 'messageType',
+                        width: 200,
+                    },
+                    messageSubType : {
+                        cn: '消息子类型',
+                        en: 'messageSubType',
+                        width: 200,
+                    },
+                    sourceSystemID : {
+                        cn: '消息源',
+                        en: 'sourceSystemID',
+                        width: 200,
+                    },
+                    updateTime : {
+                        cn: '日期',
+                        en: 'updateTime',
+                        width: 200,
+                    },
+                    allCount: {
+                        cn: '总量',
+                        en: 'allCount',
+                        width: 200,
+                    },
+                    FTMIDCount: {
+                        cn: '流控标识',
+                        en: 'FTMIDCount',
+                        width: 200,
+                    },
+                    publishAreaCount: {
+                        cn: '流控发布地区',
+                        en: 'publishAreaCount',
+                        width: 200,
+                    },
+                    publishUnitCount: {
+                        cn: '流控发布单位',
+                        en: 'publishUnitCount',
+                        width: 200,
+                    },
+                    acceptUnitCount: {
+                        cn: '流控接受单位',
+                        en: 'acceptUnitCount',
+                        width: 200,
+                    },
+                    applyTimeCount: {
+                        cn: '流控申请时间',
+                        en: 'applyTimeCount',
+                        width: 200,
+                    },
+                    publicTimeCount: {
+                        cn: '流控发布时间',
+                        en: 'publicTimeCount',
+                        width: 200,
+                    },
+                    fixCount: {
+                        cn: '交接点',
+                        en: 'fixCount',
+                        width: 200,
+                    },
+                    scopeCount: {
+                        cn: '流控影响范围',
+                        en: 'scopeCount',
+                        width: 200,
+                    },
+                    seperationValueCount: {
+                        cn: '流控间隔数值',
+                        en: 'seperationValueCount',
+                        width: 200,
+                    },
+                    seperationUnitCount: {
+                        cn: '流控间隔单位',
+                        en: 'seperationUnitCount',
+                        width: 200,
+                    },
+                    FLScopeCount: {
+                        cn: '高度要求',
+                        en: 'FLScopeCount',
+                        width: 200,
+                    },
+                    exemptCount: {
+                        cn: '流控豁免范围',
+                        en: 'exemptCount',
+                        width: 200,
+                    },
+                    startTimeCount: {
+                        cn: '流控开始时间',
+                        en: 'startTimeCount',
+                        width: 200,
+                    },
+                    endTimeCount: {
+                        cn: '流控结束时间',
+                        en: 'endTimeCount',
+                        width: 200,
+                    },
+                    reasonCount: {
+                        cn: '流控限制原因',
+                        en: 'reasonCount',
+                        width: 200,
+                    },
+                    targetAreaCount: {
+                        cn: '事发地',
+                        en: 'targetAreaCount',
+                        width: 200,
                     },
                 },
                 'PADR': {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width: 130
+                        frozen:true
+                    },
+                    messageType : {
+                        cn: '消息类型',
+                        en: 'messageType',
+                        width: 200,
+                    },
+                    messageSubType : {
+                        cn: '消息子类型',
+                        en: 'messageSubType',
+                        width: 200,
+                    },
+                    sourceSystemID : {
+                        cn: '消息源',
+                        en: 'sourceSystemID',
+                        width: 200,
+                    },
+                    updateTime : {
+                        cn: '日期',
+                        en: 'updateTime',
+                        width: 200,
+                    },
+                    allCount: {
+                        cn: '总量',
+                        en: 'allCount',
+                        width: 200,
+                    },
+                    dateCount: {
+                        cn: '日期',
+                        en: 'dateCount',
+                        width: 200,
+                    },
+                    startTimeCount: {
+                        cn: '开始时间',
+                        en: 'startTimeCount',
+                        width: 200,
+                    },
+                    endTimeCount: {
+                        cn: '终止时间',
+                        en: 'endTimeCount',
+                        width: 200,
+                    },
+                    depRunWayCount: {
+                        cn: '起飞跑道',
+                        en: 'depRunWayCount',
+                        width: 200,
+                    },
+                    arrRunWayCount: {
+                        cn: '落地跑道',
+                        en: 'arrRunWayCount',
+                        width: 200,
+                    },
+                    APCPTCount: {
+                        cn: '机场容量',
+                        en: 'APCPTCount',
+                        width: 200,
+                    },
+                    ARRCount: {
+                        cn: '跑道接受率',
+                        en: 'ARRCount',
+                        width: 200,
+                    },
+                    ADRCount: {
+                        cn: '跑道离场率',
+                        en: 'ADRCount',
+                        width: 200,
+                    },
+                    remarkCount: {
+                        cn: '备注',
+                        en: 'remarkCount',
+                        width: 200,
                     },
                 },
                 'MDRS': {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width: 130
+                        frozen:true
+                    },
+                    messageType : {
+                        cn: '消息类型',
+                        en: 'messageType',
+                        width: 200,
+                    },
+                    messageSubType : {
+                        cn: '消息子类型',
+                        en: 'messageSubType',
+                        width: 200,
+                    },
+                    sourceSystemID : {
+                        cn: '消息源',
+                        en: 'sourceSystemID',
+                        width: 200,
+                    },
+                    updateTime : {
+                        cn: '日期',
+                        en: 'updateTime',
+                        width: 200,
+                    },
+                    allCount: {
+                        cn: '总量',
+                        en: 'allCount',
+                        width: 200,
+                    },
+                    MDRSIdentificationCount: {
+                        cn: 'MDRS表示',
+                        en: 'MDRSIdentificationCount',
+                        width: 200,
+                    },
+                    MDRSNameCount: {
+                        cn: 'MDRS通告名称',
+                        en: 'MDRSNameCount',
+                        width: 200,
+                    },
+                    MDRSPublishTimeCount: {
+                        cn: 'MDRS发布时间',
+                        en: 'MDRSPublishTimeCount',
+                        width: 200,
+                    },
+                    MDRSPublishUnitCount: {
+                        cn: 'MDRS发布单位',
+                        en: 'MDRSPublishUnitCount',
+                        width: 200,
+                    },
+                    MDRSLevelCount: {
+                        cn: 'MDRS延误等级',
+                        en: 'MDRSLevelCount',
+                        width: 200,
+                    },
+                    MDRSAreaCount: {
+                        cn: 'MDRS延误区域',
+                        en: 'MDRSAreaCount',
+                        width: 200,
+                    },
+                    MDRSTimeScopeCount: {
+                        cn: 'MDRS延误时段',
+                        en: 'MDRSTimeScopeCount',
+                        width: 200,
+                    },
+                    MDRSReasonCount: {
+                        cn: 'MDRS延误原因',
+                        en: 'MDRSReasonCount',
+                        width: 200,
+                    },
+                    MDRSExpectInfluenceCount: {
+                        cn: 'MDRS预期影响',
+                        en: 'MDRSExpectInfluenceCount',
+                        width: 200,
+                    },
+                    MDRSExpectRespondCount: {
+                        cn: 'MDRS预期响应',
+                        en: 'MDRSExpectRespondCount',
+                        width: 200,
                     },
                 },
                 'SECT': {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        width: 400
+                        frozen:true
                     },
+                    messageType : {
+                        cn: '消息类型',
+                        en: 'messageType',
+                        width: 200,
+                    },
+                    messageSubType : {
+                        cn: '消息子类型',
+                        en: 'messageSubType',
+                        width: 200,
+                    },
+                    sourceSystemID : {
+                        cn: '消息源',
+                        en: 'sourceSystemID',
+                        width: 200,
+                    },
+                    updateTime : {
+                        cn: '日期',
+                        en: 'updateTime',
+                        width: 200,
+                    },
+                    allCount: {
+                        cn: '总量',
+                        en: 'allCount',
+                        width: 200,
+                    }, sectorIdentificationCount: {
+                        cn: '扇区标识',
+                        en: 'sectorIdentificationCount',
+                        width: 200,
+                    }, mergedSectorCount: {
+                        cn: '被合并扇区',
+                        en: 'mergedSectorCount',
+                        width: 200,
+                    }
                 },
             },
             'OSCI': {

@@ -35,8 +35,7 @@ var QualityData = function () {
 
   //数据查询地址
   var searchUrl = iphost+'shareDataPlatform/exportExcel/';
-  //是否已经成功查询过
-  var hasQuery = false;
+
   // 表单面板组件对象
   var qualityDataDashboard  = {};
 
