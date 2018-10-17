@@ -34,7 +34,7 @@ var QualityData = function () {
     var currentUnit = [];
 
   //数据查询地址
-  var searchUrl = 'http://192.168.243.30:8080/flight-quality-statistics-server/exportExcel/';
+  var searchUrl = iphost+'shareDataPlatform/exportExcel/';
   //是否已经成功查询过
   var hasQuery = false;
   // 表单面板组件对象
@@ -89,11 +89,15 @@ var QualityData = function () {
       showConditions();
       //拼接参数
       var str = concatParameter(type);
+        // 标记
+        if(type == 'query'){ // 查询
+            //数据查询
+            searchData(str, btn);
+        }else if(type == 'export'){ // 导出
+            // 导出Excel文件
+            exportExcel(str);
+        }
 
-        currentType  = 'OSCI';
-        currentSubtype = 'PPER'
-      //数据查询
-      searchData(str, btn);
     }
   };
 
@@ -183,14 +187,12 @@ var QualityData = function () {
    * 数据查询
    * */
   var searchData = function (str, btn) {
-
       var url = searchUrl + str;
       var load = Ladda.create(btn);
       $('.quality-form').addClass('no-event');
       load.start();
       $.ajax({
-          // url: url,
-          url: 'http://192.168.243.30:8080/flight-quality-statistics-server/exportExcel/20180925/20181016/'+currentType+'/'+currentSubtype +'/OMCCAAC/2',
+          url: url,
           type: 'GET',
           dataType: 'json',
           success: function (data, status, xhr) {
@@ -240,6 +242,15 @@ var QualityData = function () {
           }
       });
   };
+
+  /**
+   *
+   * url 导出路径及参数
+   *
+   * */
+  var exportExcel = function (url) {
+      window.location.href = encodeURI(searchUrl + url);
+  }
 
 
   /**
@@ -343,49 +354,6 @@ var QualityData = function () {
         $('.conditions-content', $container).removeClass('hidden');
     };
 
-  /**
-   * 类型切换
-   * */
-  var toggleType = function () {
-    var $lables = $('#types .btn');
-    $lables.on('click', function () {
-      // 清空警告
-        qualityDataDashboard.clearAlert();
-      var $this = $(this);
-      var val = $('.type', $this).val();
-      //若当前点击的选项数值与currentType相同,则不做任何操作
-      if (val == currentType) {
-        return;
-      }
-      currentType = val;
-      qualityDataDashboard.dataset.currentType = val;
-      toggleTypeRadio($this);
-      toggleTypeLabel(currentType);
-      updateSelectPicker(currentType);
-    })
-  };
-
-  /**
-   * 切换选中类型项
-   * that 被点击元素
-   * */
-  var toggleTypeRadio = function (that) {
-    var $lables = $('#types .btn');
-    var $radios = $('#types .type');
-    var radio = $('.types', that);
-    $lables.removeClass('active');
-    $radios.prop('checked', false);
-    radio.prop('checked', true);
-  };
-
-  /**
-   * 切换类型标签
-   * val 选中的单选按钮值
-   */
-  var toggleTypeLabel = function (typeName) {
-    qualityDataDashboard.updateTypeLabel(typeName);
-  };
-
 
   /**
    * 更新下拉列表
@@ -428,16 +396,24 @@ var QualityData = function () {
    *
    * */
   var initComponent = function () {
-    // 初始始化表单面板组件
-    initFormDashboard();
-    // 初始化日历插件datepicker
-    qualityDataDashboard.initDatepicker();
-    // 设置默认时间
-    qualityDataDashboard.setDefaultDates(-1);
-    // 初始化下拉列表多选插件
-    qualityDataDashboard.initBootstrapSelect();
-    //类型选项切换
-    toggleType();
+      // 初始始化表单面板组件
+      initFormDashboard();
+      // 初始化日历插件datepicker
+      qualityDataDashboard.initDatepicker();
+      // 设置默认时间
+      qualityDataDashboard.setDefaultDates(-1);
+      // 初始化下拉列表多选插件
+      qualityDataDashboard.initBootstrapSelect();
+
+      //子类型下拉列表重新初化
+      var $subType = $('#' + subTypeSelector);
+      if ($.isValidVariable(subTypeSelector)) {
+          $subType.selectpicker({
+              liveSearch: true,
+              maxOptions: 1 // 不可多选
+              // actionsBox: true
+          });
+      }
   };
 
   /**
@@ -531,7 +507,6 @@ var QualityData = function () {
         var wrapHeight = body - head - nav - innerNav - form - conditions - 20;
 
         $('#quality-table-container').height(wrapHeight);
-        // $('.echart-row').height(chartHeight);
     };
 
   return {
