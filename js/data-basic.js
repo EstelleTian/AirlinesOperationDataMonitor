@@ -1780,22 +1780,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden : true,
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -2182,22 +2185,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -2454,22 +2460,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -2571,22 +2580,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -2635,22 +2647,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3033,22 +3048,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3151,19 +3169,22 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     }, messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     }, messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     }, sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     }, updateTime: {
                         cn: '日期',
                         en: 'updateTime',
@@ -3343,19 +3364,22 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     }, messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     }, messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     }, sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     }, updateTime: {
                         cn: '日期',
                         en: 'updateTime',
@@ -3399,19 +3423,22 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     }, messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     }, messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     }, sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     }, updateTime: {
                         cn: '日期',
                         en: 'updateTime',
@@ -3468,22 +3495,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3555,22 +3585,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3667,22 +3700,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3744,22 +3780,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 150,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 150,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 150,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3826,22 +3865,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -3868,22 +3910,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -4100,22 +4145,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -4187,22 +4235,25 @@ var BasicData = function () {
                     id: {
                         cn: 'ID',
                         en: 'ID',
-                        frozen: true
+                        hidden: true
                     },
                     messageType: {
                         cn: '消息类型',
                         en: 'messageType',
                         width: 110,
+                        frozen:true,
                     },
                     messageSubType: {
                         cn: '消息子类型',
                         en: 'messageSubType',
                         width: 110,
+                        frozen:true,
                     },
                     sourceSystemID: {
                         cn: '消息源',
                         en: 'sourceSystemID',
                         width: 110,
+                        frozen:true,
                     },
                     updateTime: {
                         cn: '日期',
@@ -4606,9 +4657,13 @@ var BasicData = function () {
           if ($.isValidVariable(val.frozen)) {
             tableObj.colModel[i][k][j]['frozen'] = val.frozen;
           }
+          // 列隐藏
+          if($.isValidVariable(val.hidden) && val.hidden){
+              tableObj.display[i][k][j] = {display: 0};
+          }else {
+              tableObj.display[i][k][j] = {display: 1};
+          }
 
-
-          tableObj.display[i][k][j] = {display: 1};
           tableObj.title[i][k][j] = val.cn;
         }
       }
